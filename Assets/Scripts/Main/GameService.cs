@@ -3,11 +3,14 @@ using System;
 using System.Collections.Generic;
 using Roguelike.Utilities;
 using Roguelike.Event;
+using Roguelike.Level;
 
 namespace Roguelike.Main
 {
     public class GameService : GenericMonoSingleton<GameService>
     {
+        [SerializeField] private List<LevelScriptableObject> levelScriptableObjects;
+
         private Dictionary<Type, IService> _services = new Dictionary<Type, IService>();
 
         protected override void Awake()
@@ -20,16 +23,19 @@ namespace Roguelike.Main
             RegisterServices();
             InjectDependencies();
             Debug.Log("Game Service Running");
+            GetService<EventService>().OnLevelSelected.Invoke(1);
         }
 
         private void RegisterServices()
         {
             RegisterService<EventService>(new EventService());
+            RegisterService<LevelService>(new LevelService(levelScriptableObjects));
         }
 
         public void InjectDependencies()
         {
             InitializeService<EventService>();
+            InitializeService<LevelService>();
         }
 
         public void RegisterService<T>(IService service) where T : IService
