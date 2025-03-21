@@ -2,6 +2,7 @@ using UnityEngine;
 using System;
 using System.Collections.Generic;
 using Roguelike.Utilities;
+using Roguelike.Event;
 
 namespace Roguelike.Main
 {
@@ -23,12 +24,12 @@ namespace Roguelike.Main
 
         private void RegisterServices()
         {
-
+            RegisterService<EventService>(new EventService());
         }
 
         public void InjectDependencies()
         {
-
+            InitializeService<EventService>();
         }
 
         public void RegisterService<T>(IService service) where T : IService
@@ -44,16 +45,17 @@ namespace Roguelike.Main
             }
         }
 
-        public void InitializeService<T>(IService service, params object[] dependencies) where T : IService
+        public void InitializeService<T>(params object[] dependencies) where T : IService
         {
             Type serviceType = typeof(T);
-            if (!_services.ContainsKey(serviceType))
+            if (_services.ContainsKey(serviceType))
             {
-                Debug.LogWarning($"{serviceType} is already registered.");
+                IService service = _services[serviceType];
+                service.Initialize(dependencies);
             }
             else
             {
-                service.Initialize(dependencies);
+                Debug.LogWarning($"Service {serviceType} is not registered.");
             }
         }
 
