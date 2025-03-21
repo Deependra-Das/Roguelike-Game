@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Level_1_SO
   m_EditorClassIdentifier: 
   ID: 1
-  levelPrefab: {fileID: 2021890590377568215, guid: cc2dd5bc999d0124d907e6e8a1126309, type: 3}
+  levelPrefab: {fileID: 5224971711066648777, guid: 762de9369c5fe18478d02b1fd4c8da6c, type: 3}
   numberOfWaves: 5
