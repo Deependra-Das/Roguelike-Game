@@ -25,6 +25,7 @@ namespace Roguelike.Main
             RegisterServices();
             InjectDependencies();
             Debug.Log("Game Service Running");
+            GetService<EventService>().OnPlayerSelected.Invoke(2);
             GetService<EventService>().OnLevelSelected.Invoke(1);
         }
 
@@ -32,12 +33,14 @@ namespace Roguelike.Main
         {
             RegisterService<EventService>(new EventService());
             RegisterService<LevelService>(new LevelService(_levelScriptableObjects));
+            RegisterService<PlayerService>(new PlayerService(_playerScriptableObjects));
         }
 
         public void InjectDependencies()
         {
             InitializeService<EventService>();
             InitializeService<LevelService>();
+            InitializeService<PlayerService>();
         }
 
         public void RegisterService<T>(IService service) where T : IService
