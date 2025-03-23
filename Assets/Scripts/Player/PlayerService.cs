@@ -1,29 +1,52 @@
 using UnityEngine;
+using System.Collections.Generic;
 using Roguelike.Main;
+using Roguelike.Utilities;
+using Roguelike.Event;
+using Roguelike.Level;
 
 namespace Roguelike.Player
 {
-    public class PlayerService
+    public class PlayerService : IService
     {
-        private PlayerScriptableObject playerScriptableObject;
-        private PlayerController playerController;
+        private List<PlayerScriptableObject> _playerScriptableObject;
+        private PlayerController _playerController;
+        private int _playerIDSelected;
 
-        public PlayerService(PlayerScriptableObject playerScriptableObject)
+        public PlayerService(List<PlayerScriptableObject> playerScriptableObject)
         {
-            this.playerScriptableObject = playerScriptableObject;
+            _playerScriptableObject = playerScriptableObject;
+        }
+
+        public void Initialize(params object[] dependencies)
+        {
             SubscribeToEvents();
         }
 
-        private void SubscribeToEvents() => GameService.Instance.EventService.OnLevelSelected.AddListener(SpawnPlayer);
+        private void SubscribeToEvents()
+        {
+            GameService.Instance.GetService<EventService>().OnPlayerSelected.AddListener(SelectPlayer);
+            GameService.Instance.GetService<EventService>().OnLevelSelected.AddListener(SpawnPlayer);
+        }
 
-        private void UnsubscribeToEvents() => GameService.Instance.EventService.OnLevelSelected.RemoveListener(SpawnPlayer);
+        private void UnsubscribeToEvents()
+        {
+            GameService.Instance.GetService<EventService>().OnPlayerSelected.RemoveListener(SelectPlayer);
+            GameService.Instance.GetService<EventService>().OnLevelSelected.RemoveListener(SpawnPlayer);
+        }
+
+        public void SelectPlayer(int playerId)
+        {
+            _playerIDSelected = playerId;
+        }
 
         public void SpawnPlayer(int levelId)
         {
-            playerController = new PlayerController(playerScriptableObject);
+            PlayerScriptableObject playerData = _playerScriptableObject.Find(playerSO => playerSO.ID == _playerIDSelected);
+            _playerController = new PlayerController(playerData);
             UnsubscribeToEvents();
         }
 
-        public PlayerController GetPlayer() => playerController;
+        public PlayerController GetPlayer() => _playerController;
     }
 }
