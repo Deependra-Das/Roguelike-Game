@@ -4,12 +4,14 @@ using System.Collections.Generic;
 using Roguelike.Utilities;
 using Roguelike.Event;
 using Roguelike.Level;
+using Roguelike.Player;
 
 namespace Roguelike.Main
 {
     public class GameService : GenericMonoSingleton<GameService>
     {
-        [SerializeField] private List<LevelScriptableObject> levelScriptableObjects;
+        [SerializeField] private List<LevelScriptableObject> _levelScriptableObjects;
+        [SerializeField] private List<PlayerScriptableObject> _playerScriptableObjects;
 
         private Dictionary<Type, IService> _services = new Dictionary<Type, IService>();
 
@@ -23,19 +25,22 @@ namespace Roguelike.Main
             RegisterServices();
             InjectDependencies();
             Debug.Log("Game Service Running");
+            GetService<EventService>().OnPlayerSelected.Invoke(2);
             GetService<EventService>().OnLevelSelected.Invoke(1);
         }
 
         private void RegisterServices()
         {
             RegisterService<EventService>(new EventService());
-            RegisterService<LevelService>(new LevelService(levelScriptableObjects));
+            RegisterService<LevelService>(new LevelService(_levelScriptableObjects));
+            RegisterService<PlayerService>(new PlayerService(_playerScriptableObjects));
         }
 
         public void InjectDependencies()
         {
             InitializeService<EventService>();
             InitializeService<LevelService>();
+            InitializeService<PlayerService>();
         }
 
         public void RegisterService<T>(IService service) where T : IService

@@ -6,10 +6,12 @@ namespace Roguelike.Event
 {
     public class EventService : IService
     {
+        public EventController<Action<int>> OnPlayerSelected { get; private set; }
         public EventController<Action<int>> OnLevelSelected { get; private set; }
 
         public EventService()
         {
+            OnPlayerSelected = new EventController<Action<int>>();
             OnLevelSelected = new EventController<Action<int>>();
         }
 
