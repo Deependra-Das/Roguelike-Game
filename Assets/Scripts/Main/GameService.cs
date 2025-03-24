@@ -28,8 +28,6 @@ namespace Roguelike.Main
             RegisterServices();
             InjectDependencies();
             Debug.Log("Game Service Running");
-            //GetService<EventService>().OnPlayerSelected.Invoke(2);
-            //GetService<EventService>().OnLevelSelected.Invoke(1);
         }
 
         private void RegisterServices()

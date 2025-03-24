@@ -1,16 +1,29 @@
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class LevelButtonView : MonoBehaviour
+namespace Roguelike.UI
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public class LevelButtonView : MonoBehaviour
     {
-        
-    }
+        [SerializeField] private TextMeshProUGUI _levelNameText;
+        [SerializeField] private TextMeshProUGUI _levelDescriptionText;
+        [SerializeField] private TextMeshProUGUI _levelStatusText;
 
-    // Update is called once per frame
-    void Update()
-    {
+        private LevelSelectionUIController owner;
+        private int _levelId;
         
+        private void Start() => GetComponent<Button>().onClick.AddListener(OnLevelButtonClicked);
+
+        public void SetOwner(LevelSelectionUIController owner) => this.owner = owner;
+
+        private void OnLevelButtonClicked() => owner.OnLevelSelected(_levelId);
+
+        public void SetLevelButtonData(LevelButtonScriptableObject levelData)
+        {
+            _levelId = levelData.ID;
+            _levelNameText.SetText(levelData.levelName);
+            _levelNameText.SetText(levelData.levelDescription);
+        }
     }
 }

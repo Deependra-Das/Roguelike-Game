@@ -57,6 +57,7 @@ namespace Roguelike.UI
         private void OnDestroy()
         {
             _mainMenuUIView.OnDestroy();
+            UnsubscribeToEvents();
         }
     }
 }

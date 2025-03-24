@@ -1,42 +1,20 @@
-using Roguelike.Event;
-using Roguelike.Main;
-using Roguelike.UI;
 using UnityEngine;
+using UnityEngine.UI;
+using System.Collections;
+using System.Collections.Generic;
+using Roguelike.UI;
 
 public class LevelSelectionUIView : MonoBehaviour, IUIView
 {
-    private LevelSelectionUIController controller;
-    [SerializeField] private Button _newGameButtonPrefab;
-    [SerializeField] private Button _quitGameButtonPrefab;
+    private LevelSelectionUIController _controller;
+    [SerializeField] private Transform _levelButtonContainer;
 
-    public void SetController(IUIController controllerToSet)
-    {
-        controller = controllerToSet as LevelSelectionUIController;
-    }
-
-    public void InitializeView()
-    {
-        SubscribeToEvents();
-    }
-
-    private void SubscribeToEvents()
-    {
-        _newGameButtonPrefab.onClick.AddListener(OnNewGameButtonClicked);
-    }
-
-    private void UnsubscribeToEvents()
-    {
-        _newGameButtonPrefab.onClick.RemoveListener(OnNewGameButtonClicked);
-    }
+    public void SetController(IUIController controllerToSet) => _controller = controllerToSet as LevelSelectionUIController;
 
     public void DisableView() => gameObject.SetActive(false);
 
     public void EnableView() => gameObject.SetActive(true);
 
-    public void OnDestroy() => UnsubscribeToEvents();
+    public LevelButtonView AddButton(LevelButtonView levelButtonPrefab) => Instantiate(levelButtonPrefab, _levelButtonContainer);
 
-    private void OnNewGameButtonClicked()
-    {
-        GameService.Instance.GetService<EventService>().OnNewGameButtonSelected.Invoke();
-    }
 }

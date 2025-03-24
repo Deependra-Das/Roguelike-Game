@@ -11,6 +11,7 @@ namespace Roguelike.Event
         public EventController<Action<int>> OnLevelSelected { get; private set; }
         public EventController<Action> OnNewGameButtonSelected { get; private set; }
         public EventController<Action> OnQuitGameButtonSelected { get; private set; }
+        public EventController<Action> OnStartGame { get; private set; }
 
         public EventService()
         {
@@ -18,6 +19,7 @@ namespace Roguelike.Event
             OnLevelSelected = new EventController<Action<int>>();
             OnNewGameButtonSelected = new EventController<Action>();
             OnQuitGameButtonSelected = new EventController<Action>();
+            OnStartGame = new EventController<Action>();
         }
 
         public void Initialize(params object[] dependencies) 

@@ -11,7 +11,7 @@ namespace Roguelike.Player
     {
         private List<PlayerScriptableObject> _playerScriptableObject;
         private PlayerController _playerController;
-        private int _playerIDSelected;
+        private int _playerIDSelected = -1;
 
         public PlayerService(List<PlayerScriptableObject> playerScriptableObject)
         {
@@ -26,13 +26,13 @@ namespace Roguelike.Player
         private void SubscribeToEvents()
         {
             GameService.Instance.GetService<EventService>().OnPlayerSelected.AddListener(SelectPlayer);
-            GameService.Instance.GetService<EventService>().OnLevelSelected.AddListener(SpawnPlayer);
+            GameService.Instance.GetService<EventService>().OnStartGame.AddListener(SpawnPlayer);
         }
 
         private void UnsubscribeToEvents()
         {
             GameService.Instance.GetService<EventService>().OnPlayerSelected.RemoveListener(SelectPlayer);
-            GameService.Instance.GetService<EventService>().OnLevelSelected.RemoveListener(SpawnPlayer);
+            GameService.Instance.GetService<EventService>().OnStartGame.RemoveListener(SpawnPlayer);
         }
 
         public void SelectPlayer(int playerId)
@@ -40,7 +40,7 @@ namespace Roguelike.Player
             _playerIDSelected = playerId;
         }
 
-        public void SpawnPlayer(int levelId)
+        public void SpawnPlayer()
         {
             PlayerScriptableObject playerData = _playerScriptableObject.Find(playerSO => playerSO.ID == _playerIDSelected);
             _playerController = new PlayerController(playerData);
