@@ -1,7 +1,8 @@
-using Roguelike.Event;
-using Roguelike.Main;
 using UnityEngine;
 using System.Collections.Generic;
+using Roguelike.Event;
+using Roguelike.Main;
+using Roguelike.Level;
 
 namespace Roguelike.UI
 {
@@ -9,11 +10,11 @@ namespace Roguelike.UI
     {
         private LevelSelectionUIView _levelSelectionUIView;
         [SerializeField] private LevelButtonView _levelButtonPrefab;
-        [SerializeField] private List<LevelButtonScriptableObject> _levelButton_SO;
+        [SerializeField] private List<LevelScriptableObject> _level_SO;
 
-        public LevelSelectionUIController(LevelSelectionUIView levelSelectionUIView, LevelButtonView levelButtonPrefab, List<LevelButtonScriptableObject> levelButton_SO)
+        public LevelSelectionUIController(LevelSelectionUIView levelSelectionUIView, LevelButtonView levelButtonPrefab, List<LevelScriptableObject> level_SO)
         {
-            _levelButton_SO = levelButton_SO;
+            _level_SO = level_SO;
             _levelButtonPrefab = levelButtonPrefab;
             _levelSelectionUIView = levelSelectionUIView;
             _levelSelectionUIView.SetController(this);
@@ -21,7 +22,7 @@ namespace Roguelike.UI
 
         public void InitializeController()
         {
-            CreateLevelButtons(_levelButton_SO);
+            CreateLevelButtons();
             SubscribeToEvents();
             Hide();
         }
@@ -48,9 +49,9 @@ namespace Roguelike.UI
             _levelSelectionUIView.DisableView();
         }
 
-        public void CreateLevelButtons(List<LevelButtonScriptableObject> _levelButton_SO)
+        public void CreateLevelButtons()
         {
-           foreach(var levelData in _levelButton_SO)
+           foreach(var levelData in _level_SO)
             {
                 var newButton = _levelSelectionUIView.AddButton(_levelButtonPrefab);
                 newButton.SetOwner(this);
@@ -61,6 +62,7 @@ namespace Roguelike.UI
         public void OnLevelSelected(int levelId)
         {
             GameService.Instance.GetService<EventService>().OnLevelSelected.Invoke(levelId);
+            GameService.Instance.GetService<EventService>().OnStartGame.Invoke();
             Hide();
         }
 

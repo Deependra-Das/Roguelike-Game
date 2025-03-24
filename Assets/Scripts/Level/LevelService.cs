@@ -35,6 +35,7 @@ namespace Roguelike.Level
 
         private void SelectLevel(int levelID)
         {
+            Debug.Log(levelID);
             _levelIdSelected = levelID;
         }
 

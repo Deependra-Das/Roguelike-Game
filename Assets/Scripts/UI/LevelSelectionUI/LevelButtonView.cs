@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Roguelike.Level;
 
 namespace Roguelike.UI
 {
@@ -19,7 +20,7 @@ namespace Roguelike.UI
 
         private void OnLevelButtonClicked() => owner.OnLevelSelected(_levelId);
 
-        public void SetLevelButtonData(LevelButtonScriptableObject levelData)
+        public void SetLevelButtonData(LevelScriptableObject levelData)
         {
             _levelId = levelData.ID;
             _levelNameText.SetText(levelData.levelName);

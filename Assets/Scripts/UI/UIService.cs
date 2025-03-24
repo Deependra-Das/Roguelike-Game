@@ -3,6 +3,7 @@ using UnityEngine;
 using Roguelike.Main;
 using Roguelike.Utilities;
 using Roguelike.UI;
+using Roguelike.Level;
 
 public class UIService : MonoBehaviour,IService
 {
@@ -14,12 +15,12 @@ public class UIService : MonoBehaviour,IService
     private LevelSelectionUIController _levelSelectionController;
     [SerializeField] private LevelSelectionUIView _levelSelectionView;
     [SerializeField] private LevelButtonView _levelButtonPrefab;
-    [SerializeField] private List<LevelButtonScriptableObject> _levelButton_SO;
+    [SerializeField] private List<LevelScriptableObject> _level_SO;
 
     private void Awake()
     {
         _mainMenuUIController = new MainMenuUIController(_mainMenuUIView);
-        _levelSelectionController = new LevelSelectionUIController(_levelSelectionView, _levelButtonPrefab, _levelButton_SO);
+        _levelSelectionController = new LevelSelectionUIController(_levelSelectionView, _levelButtonPrefab, _level_SO);
     }
 
     public void Initialize(params object[] dependencies)
