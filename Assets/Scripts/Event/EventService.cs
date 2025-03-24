@@ -7,7 +7,7 @@ namespace Roguelike.Event
 {
     public class EventService : IService
     {
-        public EventController<Action<int>> OnPlayerSelected { get; private set; }
+        public EventController<Action<int>> OnCharacterSelected { get; private set; }
         public EventController<Action<int>> OnLevelSelected { get; private set; }
         public EventController<Action> OnNewGameButtonSelected { get; private set; }
         public EventController<Action> OnQuitGameButtonSelected { get; private set; }
@@ -15,7 +15,7 @@ namespace Roguelike.Event
 
         public EventService()
         {
-            OnPlayerSelected = new EventController<Action<int>>();
+            OnCharacterSelected = new EventController<Action<int>>();
             OnLevelSelected = new EventController<Action<int>>();
             OnNewGameButtonSelected = new EventController<Action>();
             OnQuitGameButtonSelected = new EventController<Action>();

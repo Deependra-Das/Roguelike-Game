@@ -62,7 +62,6 @@ namespace Roguelike.UI
         public void OnLevelSelected(int levelId)
         {
             GameService.Instance.GetService<EventService>().OnLevelSelected.Invoke(levelId);
-            GameService.Instance.GetService<EventService>().OnStartGame.Invoke();
             Hide();
         }
 

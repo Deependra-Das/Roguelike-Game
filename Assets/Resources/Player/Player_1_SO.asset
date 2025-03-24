@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 1
   playerPrefab: {fileID: 5213380441911100495, guid: 425c51f5f8a70e24987ba07bbdeec257, type: 3}
+  characterName: Character 1
   spawnPosition: {x: 0, y: 0, z: 0}
   spawnRotation: {x: 0, y: 0, z: 0}
   movementSpeed: 0
