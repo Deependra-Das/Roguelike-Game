@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Roguelike.Level
 {
@@ -7,6 +8,9 @@ namespace Roguelike.Level
     {
         public int ID;
         public GameObject levelPrefab;
+        public Image levelImage;
+        public string levelName;
+        public string levelDescription;
         public int numberOfWaves;
     }
 }
