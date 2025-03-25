@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0b28e181065ab724d96a5821487f2c43, type: 3}
-  m_Name: Player_2_SO
+  m_Name: Player_3_SO
   m_EditorClassIdentifier: 
-  ID: 2
-  playerPrefab: {fileID: 5355729241712278829, guid: 467d5ed07d366bf49b1752e5bdcb0e4f, type: 3}
-  characterName: Character 2
+  ID: 3
+  playerPrefab: {fileID: 5213380441911100495, guid: 425c51f5f8a70e24987ba07bbdeec257, type: 3}
+  characterName: Character 3
   spawnPosition: {x: 0, y: 0, z: 0}
   spawnRotation: {x: 0, y: 0, z: 0}
   movementSpeed: 5

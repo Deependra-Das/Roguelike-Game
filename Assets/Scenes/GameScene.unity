@@ -543,6 +543,7 @@ MonoBehaviour:
   _player_SO:
   - {fileID: 11400000, guid: 9e1d7b0606562a64c8f95720ba3600d2, type: 2}
   - {fileID: 11400000, guid: 824ec1f2c2dbb374d9d88ff7d7cd2e0a, type: 2}
+  - {fileID: 11400000, guid: 517b132a98d73cb4eabf799144be8ac9, type: 2}
   _pauseMenuUIView: {fileID: 890474943}
   _gameOverUIView: {fileID: 822836642}
   _levelCompletedUIView: {fileID: 1667738117}
@@ -3036,6 +3037,7 @@ MonoBehaviour:
   _playerScriptableObjects:
   - {fileID: 11400000, guid: 9e1d7b0606562a64c8f95720ba3600d2, type: 2}
   - {fileID: 11400000, guid: 824ec1f2c2dbb374d9d88ff7d7cd2e0a, type: 2}
+  - {fileID: 11400000, guid: 517b132a98d73cb4eabf799144be8ac9, type: 2}
 --- !u!4 &1257729680
 Transform:
   m_ObjectHideFlags: 0
