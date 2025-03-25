@@ -1,6 +1,7 @@
 using UnityEngine;
 using System;
 using System.Collections.Generic;
+using Unity.Cinemachine;
 using Roguelike.Utilities;
 using Roguelike.Event;
 using Roguelike.Level;
@@ -11,10 +12,13 @@ namespace Roguelike.Main
 {
     public class GameService : GenericMonoSingleton<GameService>
     {
+        [SerializeField] private CinemachineCamera _cinemachineCamera;
         [SerializeField] private UIService _uiService;
 
+        [Header("Scriptable Objects")]
         [SerializeField] private List<LevelScriptableObject> _levelScriptableObjects;
         [SerializeField] private List<PlayerScriptableObject> _playerScriptableObjects;
+        
 
         private Dictionary<Type, IService> _services = new Dictionary<Type, IService>();
 
@@ -85,6 +89,19 @@ namespace Roguelike.Main
                 Debug.LogError($"{serviceType} is not registered.");
                 return default;
             }
+        }
+
+        public void SetCameraTarget(GameObject targetGameObject)
+        {
+            if (_cinemachineCamera != null && targetGameObject != null)
+            {
+                _cinemachineCamera.Follow = targetGameObject.transform;
+            }
+            else
+            {
+                Debug.LogWarning("Cinemachine Virtual Camera or Target GameObject is not assigned.");
+            }
+
         }
     }
 }
