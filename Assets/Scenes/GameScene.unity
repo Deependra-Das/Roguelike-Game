@@ -546,6 +546,7 @@ MonoBehaviour:
   _pauseMenuUIView: {fileID: 890474943}
   _gameOverUIView: {fileID: 822836642}
   _levelCompletedUIView: {fileID: 1667738117}
+  _gameplayUIView: {fileID: 1459185215}
 --- !u!1 &415566354
 GameObject:
   m_ObjectHideFlags: 0
@@ -3159,6 +3160,7 @@ GameObject:
   - component: {fileID: 1459185212}
   - component: {fileID: 1459185214}
   - component: {fileID: 1459185213}
+  - component: {fileID: 1459185215}
   m_Layer: 5
   m_Name: GameplayUIView
   m_TagString: Untagged
@@ -3224,6 +3226,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1459185211}
   m_CullTransparentMesh: 1
+--- !u!114 &1459185215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1459185211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae6e5cbf962eb4b429a338c91986e2a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _healthSlider: {fileID: 1202899303}
+  _experienceSlider: {fileID: 738892199}
 --- !u!1 &1478636421
 GameObject:
   m_ObjectHideFlags: 0
