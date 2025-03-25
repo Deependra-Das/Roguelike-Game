@@ -5,15 +5,22 @@ namespace Roguelike.Player
 {
     public class PlayerView : MonoBehaviour
     {
-        public Rigidbody playerRigidbody { get; private set; }
+        [SerializeField] private Rigidbody2D player_RB;
 
         public PlayerController _controller { get; private set; }
-
-        private void Start() => playerRigidbody = GetComponent<Rigidbody>();
+        public Vector3 playerMoveDirection;
 
         public void SetController(PlayerController controllerToSet) => _controller = controllerToSet;
 
-        private void Update() => _controller?.UpdatePlayer();
+        private void Update()
+        {
+            float inputX = Input.GetAxisRaw("Horizontal");
+            float inputY = Input.GetAxisRaw("Vertical");
+
+            playerMoveDirection = new Vector2(inputX, inputY).normalized;
+            player_RB.linearVelocity = new Vector2(playerMoveDirection.x * _controller.PlayerModel.MovementSpeed, playerMoveDirection.y * _controller.PlayerModel.MovementSpeed);
+            _controller?.UpdatePlayer();
+        }
 
         private void FixedUpdate() => _controller?.FixedUpdatePlayer();
 

@@ -7,23 +7,36 @@ namespace Roguelike.Player
     public class PlayerController
     {
         private PlayerScriptableObject _playerScriptableObject;
+        private PlayerModel _playerModel;
         private PlayerView _playerView;
         private bool isPaused = false;
 
         public PlayerController(PlayerScriptableObject playerScriptableObject)
         {
             _playerScriptableObject = playerScriptableObject;
+            InitializeController();
+        }
+
+        private void InitializeController()
+        {
+            InitializeModel();
             InitializeView();
+            SubscribeToEvents();
+        }
+
+        private void InitializeModel()
+        {
+            _playerModel = new PlayerModel(_playerScriptableObject);
         }
 
         private void InitializeView()
         {
-            _playerView = Object.Instantiate(_playerScriptableObject.playerPrefab);
-            _playerView.transform.position = _playerScriptableObject.spawnPosition;
-            _playerView.transform.rotation = Quaternion.Euler(_playerScriptableObject.spawnRotation);
-            _playerView.SetController(this);
-            SubscribeToEvents();
+            _playerView = Object.Instantiate(_playerModel.PlayerPrefab);
+            _playerView.transform.position = _playerModel.SpawnPosition;
+            _playerView.transform.rotation = Quaternion.Euler(_playerModel.SpawnRotation);
+            _playerView.SetController(this);           
         }
+
         private void SubscribeToEvents()
         {
             GameService.Instance.GetService<EventService>().OnContinueButtonClicked.AddListener(ContinueGame);
@@ -58,6 +71,8 @@ namespace Roguelike.Player
             isPaused = false;
             Debug.Log("Game Resumed");
         }
+
+        public PlayerModel PlayerModel { get { return _playerModel; } }
 
         public void OnDestroy() => UnsubscribeToEvents();
 
