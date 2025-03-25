@@ -9,17 +9,25 @@ namespace Roguelike.Event
     {
         public EventController<Action<int>> OnCharacterSelected { get; private set; }
         public EventController<Action<int>> OnLevelSelected { get; private set; }
-        public EventController<Action> OnNewGameButtonSelected { get; private set; }
-        public EventController<Action> OnQuitGameButtonSelected { get; private set; }
+        public EventController<Action> OnNewGameButtonClicked { get; private set; }
+        public EventController<Action> OnQuitGameButtonClicked { get; private set; }
         public EventController<Action> OnStartGame { get; private set; }
+        public EventController<Action> OnPauseGame { get; private set; }
+        public EventController<Action> OnContinueButtonClicked { get; private set; }
+        public EventController<Action> OnBackToMainMenuButtonClicked { get; private set; }
+        public EventController<Action> OnGiveUpButtonClicked { get; private set; }
 
         public EventService()
         {
             OnCharacterSelected = new EventController<Action<int>>();
             OnLevelSelected = new EventController<Action<int>>();
-            OnNewGameButtonSelected = new EventController<Action>();
-            OnQuitGameButtonSelected = new EventController<Action>();
+            OnNewGameButtonClicked = new EventController<Action>();
+            OnQuitGameButtonClicked = new EventController<Action>();
             OnStartGame = new EventController<Action>();
+            OnPauseGame = new EventController<Action>();
+            OnContinueButtonClicked = new EventController<Action>();
+            OnBackToMainMenuButtonClicked = new EventController<Action>();
+            OnGiveUpButtonClicked = new EventController<Action>();
         }
 
         public void Initialize(params object[] dependencies) 

@@ -24,11 +24,16 @@ public class UIService : MonoBehaviour,IService
     [SerializeField] private CharacterButtonView _characterButtonPrefab;
     [SerializeField] private List<PlayerScriptableObject> _player_SO;
 
+    [Header("Pause Menu UI")]
+    private PauseMenuUIController _pauseMenuUIController;
+    [SerializeField] private PauseMenuUIView _pauseMenuUIView;
+
     private void Awake()
     {
         _mainMenuUIController = new MainMenuUIController(_mainMenuUIView);
         _levelSelectionController = new LevelSelectionUIController(_levelSelectionView, _levelButtonPrefab, _level_SO);
         _characterSelectionController = new CharacterSelectionUIController(_characterSelectionView, _characterButtonPrefab, _player_SO);
+        _pauseMenuUIController = new PauseMenuUIController(_pauseMenuUIView);
     }
 
     public void Initialize(params object[] dependencies)
@@ -36,6 +41,7 @@ public class UIService : MonoBehaviour,IService
         _mainMenuUIController.InitializeController();
         _levelSelectionController.InitializeController();
         _characterSelectionController.InitializeController();
+        _pauseMenuUIController.InitializeController();
         SubscribeToEvents();
     }
 

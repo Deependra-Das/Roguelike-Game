@@ -29,12 +29,12 @@ namespace Roguelike.UI
 
         private void SubscribeToEvents()
         {
-            GameService.Instance.GetService<EventService>().OnNewGameButtonSelected.AddListener(ShowLevelSelectionUI);
+            GameService.Instance.GetService<EventService>().OnNewGameButtonClicked.AddListener(ShowLevelSelectionUI);
         }
 
         private void UnsubscribeToEvents()
         {
-            GameService.Instance.GetService<EventService>().OnNewGameButtonSelected.RemoveListener(ShowLevelSelectionUI);
+            GameService.Instance.GetService<EventService>().OnNewGameButtonClicked.RemoveListener(ShowLevelSelectionUI);
         }
 
         public void ShowLevelSelectionUI() => Show();

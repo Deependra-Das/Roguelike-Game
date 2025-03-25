@@ -25,14 +25,14 @@ namespace Roguelike.UI
 
         private void SubscribeToEvents()
         {
-            GameService.Instance.GetService<EventService>().OnNewGameButtonSelected.AddListener(OnNewGameButtonClicked);
-            GameService.Instance.GetService<EventService>().OnQuitGameButtonSelected.AddListener(OnQuitButtonClicked);
+            GameService.Instance.GetService<EventService>().OnNewGameButtonClicked.AddListener(OnNewGameButtonClicked);
+            GameService.Instance.GetService<EventService>().OnQuitGameButtonClicked.AddListener(OnQuitButtonClicked);
         }
 
         private void UnsubscribeToEvents()
         {
-            GameService.Instance.GetService<EventService>().OnNewGameButtonSelected.RemoveListener(OnNewGameButtonClicked);
-            GameService.Instance.GetService<EventService>().OnQuitGameButtonSelected.RemoveListener(OnQuitButtonClicked);
+            GameService.Instance.GetService<EventService>().OnNewGameButtonClicked.RemoveListener(OnNewGameButtonClicked);
+            GameService.Instance.GetService<EventService>().OnQuitGameButtonClicked.RemoveListener(OnQuitButtonClicked);
         }
 
         public void Show()
@@ -49,6 +49,7 @@ namespace Roguelike.UI
         {
             Hide();
         }
+
         private void OnQuitButtonClicked()
         {
             Application.Quit();

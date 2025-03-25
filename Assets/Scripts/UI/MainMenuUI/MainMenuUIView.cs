@@ -39,7 +39,7 @@ namespace Roguelike.UI
 
         private void OnNewGameButtonClicked()
         {
-            GameService.Instance.GetService<EventService>().OnNewGameButtonSelected.Invoke();
+            GameService.Instance.GetService<EventService>().OnNewGameButtonClicked.Invoke();
         }
     }
 }
