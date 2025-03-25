@@ -74,6 +74,8 @@ namespace Roguelike.Player
 
         public PlayerModel PlayerModel { get { return _playerModel; } }
 
+        public GameObject PlayerGameObject { get { return _playerView.gameObject; } }
+
         public void OnDestroy() => UnsubscribeToEvents();
 
     }

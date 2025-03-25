@@ -18,11 +18,16 @@ namespace Roguelike.Player
             float inputY = Input.GetAxisRaw("Vertical");
 
             playerMoveDirection = new Vector2(inputX, inputY).normalized;
-            player_RB.linearVelocity = new Vector2(playerMoveDirection.x * _controller.PlayerModel.MovementSpeed, playerMoveDirection.y * _controller.PlayerModel.MovementSpeed);
+
             _controller?.UpdatePlayer();
         }
 
-        private void FixedUpdate() => _controller?.FixedUpdatePlayer();
+        private void FixedUpdate()
+        {
+            player_RB.linearVelocity = new Vector2(playerMoveDirection.x * _controller.PlayerModel.MovementSpeed,
+                playerMoveDirection.y * _controller.PlayerModel.MovementSpeed);
+            _controller?.FixedUpdatePlayer();
+        }
 
         public void TakeDamage(int damage) => _controller.TakeDamage(damage);
     }
