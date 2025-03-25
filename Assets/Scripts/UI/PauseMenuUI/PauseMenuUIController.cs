@@ -32,7 +32,7 @@ namespace Roguelike.UI
 
         private void UnsubscribeToEvents()
         {
-            GameService.Instance.GetService<EventService>().OnNewGameButtonClicked.RemoveListener(OnPauseGame);
+            GameService.Instance.GetService<EventService>().OnPauseGame.RemoveListener(OnPauseGame);
             GameService.Instance.GetService<EventService>().OnContinueButtonClicked.RemoveListener(OnContinueGame);
             GameService.Instance.GetService<EventService>().OnGiveUpButtonClicked.RemoveListener(OnGiveUp);
         }
@@ -60,6 +60,7 @@ namespace Roguelike.UI
         private void OnGiveUp()
         {
             Hide();
+            GameService.Instance.GetService<EventService>().OnGameOver.Invoke();
         }
 
         private void OnDestroy()

@@ -27,12 +27,14 @@ namespace Roguelike.UI
         {
             GameService.Instance.GetService<EventService>().OnNewGameButtonClicked.AddListener(OnNewGameButtonClicked);
             GameService.Instance.GetService<EventService>().OnQuitGameButtonClicked.AddListener(OnQuitButtonClicked);
+            GameService.Instance.GetService<EventService>().OnBackToMainMenuButtonClicked.AddListener(OnBackToMainMenuButtonClicked);            
         }
 
         private void UnsubscribeToEvents()
         {
             GameService.Instance.GetService<EventService>().OnNewGameButtonClicked.RemoveListener(OnNewGameButtonClicked);
             GameService.Instance.GetService<EventService>().OnQuitGameButtonClicked.RemoveListener(OnQuitButtonClicked);
+            GameService.Instance.GetService<EventService>().OnBackToMainMenuButtonClicked.RemoveListener(OnBackToMainMenuButtonClicked);
         }
 
         public void Show()
@@ -53,6 +55,11 @@ namespace Roguelike.UI
         private void OnQuitButtonClicked()
         {
             Application.Quit();
+        }
+
+        private void OnBackToMainMenuButtonClicked()
+        {
+            Show();
         }
 
         private void OnDestroy()

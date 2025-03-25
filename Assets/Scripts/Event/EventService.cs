@@ -16,6 +16,7 @@ namespace Roguelike.Event
         public EventController<Action> OnContinueButtonClicked { get; private set; }
         public EventController<Action> OnBackToMainMenuButtonClicked { get; private set; }
         public EventController<Action> OnGiveUpButtonClicked { get; private set; }
+        public EventController<Action> OnGameOver { get; private set; }
 
         public EventService()
         {
@@ -28,6 +29,7 @@ namespace Roguelike.Event
             OnContinueButtonClicked = new EventController<Action>();
             OnBackToMainMenuButtonClicked = new EventController<Action>();
             OnGiveUpButtonClicked = new EventController<Action>();
+            OnGameOver = new EventController<Action>();
         }
 
         public void Initialize(params object[] dependencies) 
