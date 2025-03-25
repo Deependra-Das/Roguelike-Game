@@ -32,6 +32,10 @@ public class UIService : MonoBehaviour,IService
     private GameOverUIController _gameOverUIController;
     [SerializeField] private GameOverUIView _gameOverUIView;
 
+    [Header("Level Completed UI")]
+    private LevelCompletedUIController _levelCompletedUIController;
+    [SerializeField] private LevelCompletedUIView _levelCompletedUIView;
+
     private void Awake()
     {
         _mainMenuUIController = new MainMenuUIController(_mainMenuUIView);
@@ -39,6 +43,7 @@ public class UIService : MonoBehaviour,IService
         _characterSelectionController = new CharacterSelectionUIController(_characterSelectionView, _characterButtonPrefab, _player_SO);
         _pauseMenuUIController = new PauseMenuUIController(_pauseMenuUIView);
         _gameOverUIController = new GameOverUIController(_gameOverUIView);
+        _levelCompletedUIController = new LevelCompletedUIController(_levelCompletedUIView);
     }
 
     public void Initialize(params object[] dependencies)
@@ -48,6 +53,7 @@ public class UIService : MonoBehaviour,IService
         _characterSelectionController.InitializeController();
         _pauseMenuUIController.InitializeController();
         _gameOverUIController.InitializeController();
+        _levelCompletedUIController.InitializeController();
         SubscribeToEvents();
     }
 
