@@ -1,0 +1,754 @@
+fileFormatVersion: 2
+guid: 701ac2a8bf5d0784ba0f0dc64c3e67a6
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6178113345677143429
+    second: macargo__spritesheet_0
+  - first:
+      213: -7372615763603766429
+    second: macargo__spritesheet_1
+  - first:
+      213: -866619434404513434
+    second: macargo__spritesheet_2
+  - first:
+      213: 1573635393620294833
+    second: macargo__spritesheet_3
+  - first:
+      213: -299073267746704012
+    second: macargo__spritesheet_4
+  - first:
+      213: -8866244935032281954
+    second: macargo__spritesheet_5
+  - first:
+      213: -2035758786365766544
+    second: macargo__spritesheet_6
+  - first:
+      213: -8813412238530650453
+    second: macargo__spritesheet_7
+  - first:
+      213: -4486593114134789726
+    second: macargo__spritesheet_8
+  - first:
+      213: -6437928275079165295
+    second: macargo__spritesheet_9
+  - first:
+      213: 6133286052024567614
+    second: macargo__spritesheet_10
+  - first:
+      213: -7811009095523546350
+    second: macargo__spritesheet_11
+  - first:
+      213: 4723089456643782703
+    second: macargo__spritesheet_12
+  - first:
+      213: 5305091199094889284
+    second: macargo__spritesheet_13
+  - first:
+      213: -6398657830367044461
+    second: macargo__spritesheet_14
+  - first:
+      213: 965808790751748492
+    second: macargo__spritesheet_15
+  - first:
+      213: 1035082595961834619
+    second: macargo__spritesheet_16
+  - first:
+      213: 6039834275746981602
+    second: macargo__spritesheet_17
+  - first:
+      213: -4877898794284333155
+    second: macargo__spritesheet_18
+  - first:
+      213: -732817614873982522
+    second: macargo__spritesheet_19
+  - first:
+      213: -810927893092639636
+    second: macargo__spritesheet_20
+  - first:
+      213: -921077164057699068
+    second: macargo__spritesheet_21
+  - first:
+      213: 6875837017507010342
+    second: macargo__spritesheet_22
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 24
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: macargo__spritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 177
+        width: 52
+        height: 54
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7250d825aee24aa0800000000000000
+      internalID: -6178113345677143429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: macargo__spritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 177
+        width: 53
+        height: 51
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 363c3f856053fa990800000000000000
+      internalID: -7372615763603766429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: macargo__spritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 177
+        width: 54
+        height: 51
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6697ed8473629f3f0800000000000000
+      internalID: -866619434404513434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: macargo__spritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 177
+        width: 53
+        height: 51
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1bc38b29d0da6d510800000000000000
+      internalID: 1573635393620294833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: macargo__spritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 177
+        width: 51
+        height: 53
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4757422927a79dbf0800000000000000
+      internalID: -299073267746704012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: macargo__spritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 177
+        width: 50
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e946bcbf435c4f480800000000000000
+      internalID: -8866244935032281954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: macargo__spritesheet_6
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 177
+        width: 51
+        height: 53
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 074c9427b288fb3e0800000000000000
+      internalID: -2035758786365766544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: macargo__spritesheet_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 121
+        width: 50
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: baedc47b34870b580800000000000000
+      internalID: -8813412238530650453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: macargo__spritesheet_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 59
+        width: 52
+        height: 54
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a1484c655b6cb1c0800000000000000
+      internalID: -4486593114134789726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: macargo__spritesheet_9
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 59
+        width: 51
+        height: 53
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19a867ae752e7a6a0800000000000000
+      internalID: -6437928275079165295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: macargo__spritesheet_10
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 59
+        width: 50
+        height: 55
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3748c43b2fcd1550800000000000000
+      internalID: 6133286052024567614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: macargo__spritesheet_11
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 59
+        width: 50
+        height: 54
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21b49f3bc98b99390800000000000000
+      internalID: -7811009095523546350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: macargo__spritesheet_12
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 59
+        width: 50
+        height: 56
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2835a936d8cb8140800000000000000
+      internalID: 4723089456643782703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: macargo__spritesheet_13
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 59
+        width: 50
+        height: 54
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44b1a1786587f9940800000000000000
+      internalID: 5305091199094889284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: macargo__spritesheet_14
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 59
+        width: 51
+        height: 53
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39c53b5da966337a0800000000000000
+      internalID: -6398657830367044461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: macargo__spritesheet_15
+      rect:
+        serializedVersion: 2
+        x: 362
+        y: 59
+        width: 52
+        height: 54
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8125b56afd376d00800000000000000
+      internalID: 965808790751748492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: macargo__spritesheet_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 53
+        height: 51
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7c8e7d032a5d5e00800000000000000
+      internalID: 1035082595961834619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: macargo__spritesheet_17
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 0
+        width: 54
+        height: 51
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e6a02cf54dc1d350800000000000000
+      internalID: 6039834275746981602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: macargo__spritesheet_18
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 0
+        width: 54
+        height: 50
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d97406c04e83e4cb0800000000000000
+      internalID: -4877898794284333155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: macargo__spritesheet_19
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 0
+        width: 54
+        height: 52
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c9894c034284d5f0800000000000000
+      internalID: -732817614873982522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: macargo__spritesheet_20
+      rect:
+        serializedVersion: 2
+        x: 219
+        y: 0
+        width: 54
+        height: 50
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6cd1c1b0610fb4f0800000000000000
+      internalID: -810927893092639636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: macargo__spritesheet_21
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 0
+        width: 53
+        height: 52
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40ddd99033da733f0800000000000000
+      internalID: -921077164057699068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: macargo__spritesheet_22
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 0
+        width: 52
+        height: 52
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6279cf17651eb6f50800000000000000
+      internalID: 6875837017507010342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 04f845cb259e51c46bf8c5fb15267a30
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      macargo__spritesheet_0: -6178113345677143429
+      macargo__spritesheet_1: -7372615763603766429
+      macargo__spritesheet_10: 6133286052024567614
+      macargo__spritesheet_11: -7811009095523546350
+      macargo__spritesheet_12: 4723089456643782703
+      macargo__spritesheet_13: 5305091199094889284
+      macargo__spritesheet_14: -6398657830367044461
+      macargo__spritesheet_15: 965808790751748492
+      macargo__spritesheet_16: 1035082595961834619
+      macargo__spritesheet_17: 6039834275746981602
+      macargo__spritesheet_18: -4877898794284333155
+      macargo__spritesheet_19: -732817614873982522
+      macargo__spritesheet_2: -866619434404513434
+      macargo__spritesheet_20: -810927893092639636
+      macargo__spritesheet_21: -921077164057699068
+      macargo__spritesheet_22: 6875837017507010342
+      macargo__spritesheet_3: 1573635393620294833
+      macargo__spritesheet_4: -299073267746704012
+      macargo__spritesheet_5: -8866244935032281954
+      macargo__spritesheet_6: -2035758786365766544
+      macargo__spritesheet_7: -8813412238530650453
+      macargo__spritesheet_8: -4486593114134789726
+      macargo__spritesheet_9: -6437928275079165295
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,1326 @@
+fileFormatVersion: 2
+guid: e26f3215844cec244bf287dc90f9fa39
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5597757525872149877
+    second: forretress_spritesheet_0
+  - first:
+      213: -840035353551195380
+    second: forretress_spritesheet_1
+  - first:
+      213: -7942985267555497483
+    second: forretress_spritesheet_2
+  - first:
+      213: 4529801676547142798
+    second: forretress_spritesheet_3
+  - first:
+      213: 640120826765954806
+    second: forretress_spritesheet_4
+  - first:
+      213: 3777201328307799464
+    second: forretress_spritesheet_5
+  - first:
+      213: 9076334413335556947
+    second: forretress_spritesheet_6
+  - first:
+      213: 7488096802690334410
+    second: forretress_spritesheet_7
+  - first:
+      213: 5269342269104492231
+    second: forretress_spritesheet_8
+  - first:
+      213: 2833963825632091561
+    second: forretress_spritesheet_9
+  - first:
+      213: 658445313408369875
+    second: forretress_spritesheet_10
+  - first:
+      213: -2214540056420907098
+    second: forretress_spritesheet_11
+  - first:
+      213: 5468852050511834675
+    second: forretress_spritesheet_12
+  - first:
+      213: 8125672565254885277
+    second: forretress_spritesheet_13
+  - first:
+      213: -3777086127164152553
+    second: forretress_spritesheet_14
+  - first:
+      213: 7204369826180681718
+    second: forretress_spritesheet_15
+  - first:
+      213: -8069927013693514039
+    second: forretress_spritesheet_16
+  - first:
+      213: -8625686891667173324
+    second: forretress_spritesheet_17
+  - first:
+      213: -7661302685624444252
+    second: forretress_spritesheet_18
+  - first:
+      213: 1092017214552836741
+    second: forretress_spritesheet_19
+  - first:
+      213: 5306830479838900852
+    second: forretress_spritesheet_20
+  - first:
+      213: -681539151785637793
+    second: forretress_spritesheet_21
+  - first:
+      213: 9170274829908753273
+    second: forretress_spritesheet_22
+  - first:
+      213: 6488987024441659251
+    second: forretress_spritesheet_23
+  - first:
+      213: -2122463277396673510
+    second: forretress_spritesheet_24
+  - first:
+      213: 9029968182585060999
+    second: forretress_spritesheet_25
+  - first:
+      213: 5704375997478720785
+    second: forretress_spritesheet_26
+  - first:
+      213: 1252304269798196397
+    second: forretress_spritesheet_27
+  - first:
+      213: -3473570441924863730
+    second: forretress_spritesheet_28
+  - first:
+      213: 1859001362579654705
+    second: forretress_spritesheet_29
+  - first:
+      213: -673870735354571963
+    second: forretress_spritesheet_30
+  - first:
+      213: -1230453709543201026
+    second: forretress_spritesheet_31
+  - first:
+      213: 5884282302531810129
+    second: forretress_spritesheet_32
+  - first:
+      213: -1061117898401047130
+    second: forretress_spritesheet_33
+  - first:
+      213: 4392656093191300535
+    second: forretress_spritesheet_34
+  - first:
+      213: -5649732967785506745
+    second: forretress_spritesheet_35
+  - first:
+      213: 4111600962563693231
+    second: forretress_spritesheet_36
+  - first:
+      213: 5505207011560151147
+    second: forretress_spritesheet_37
+  - first:
+      213: -2359044131837226374
+    second: forretress_spritesheet_38
+  - first:
+      213: 1628580995727233568
+    second: forretress_spritesheet_39
+  - first:
+      213: 1654486694478438720
+    second: forretress_spritesheet_40
+  - first:
+      213: 4745710342554919233
+    second: forretress_spritesheet_41
+  - first:
+      213: -4243462340398161011
+    second: forretress_spritesheet_42
+  - first:
+      213: 6534581124323108832
+    second: forretress_spritesheet_43
+  - first:
+      213: 2500677203048388147
+    second: forretress_spritesheet_44
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: forretress_spritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 289
+        width: 61
+        height: 50
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8afe9b3035c052b0800000000000000
+      internalID: -5597757525872149877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: forretress_spritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 289
+        width: 55
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c03bfc0fb489754f0800000000000000
+      internalID: -840035353551195380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: forretress_spritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 289
+        width: 49
+        height: 46
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f9813f9bf8d4c190800000000000000
+      internalID: -7942985267555497483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: forretress_spritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 289
+        width: 67
+        height: 52
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e84bf89ff961dde30800000000000000
+      internalID: 4529801676547142798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: forretress_spritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 242
+        width: 49
+        height: 46
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6fec6bc108a22e800800000000000000
+      internalID: 640120826765954806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: forretress_spritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 191
+        width: 55
+        height: 50
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a58bea78905b6430800000000000000
+      internalID: 3777201328307799464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: forretress_spritesheet_6
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 191
+        width: 54
+        height: 50
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 353f4897f0e95fd70800000000000000
+      internalID: 9076334413335556947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: forretress_spritesheet_7
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 191
+        width: 47
+        height: 50
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ace78105e501be760800000000000000
+      internalID: 7488096802690334410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: forretress_spritesheet_8
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 191
+        width: 59
+        height: 50
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ce8ce520e6702940800000000000000
+      internalID: 5269342269104492231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: forretress_spritesheet_9
+      rect:
+        serializedVersion: 2
+        x: 219
+        y: 191
+        width: 63
+        height: 50
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ad9b1d9513445720800000000000000
+      internalID: 2833963825632091561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: forretress_spritesheet_10
+      rect:
+        serializedVersion: 2
+        x: 283
+        y: 191
+        width: 59
+        height: 50
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d40ab12684432900800000000000000
+      internalID: 658445313408369875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: forretress_spritesheet_11
+      rect:
+        serializedVersion: 2
+        x: 343
+        y: 191
+        width: 47
+        height: 50
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a788244d8f5441e0800000000000000
+      internalID: -2214540056420907098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: forretress_spritesheet_12
+      rect:
+        serializedVersion: 2
+        x: 391
+        y: 191
+        width: 54
+        height: 50
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33eace7f6f345eb40800000000000000
+      internalID: 5468852050511834675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: forretress_spritesheet_13
+      rect:
+        serializedVersion: 2
+        x: 446
+        y: 191
+        width: 55
+        height: 50
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9f872d752034c070800000000000000
+      internalID: 8125672565254885277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: forretress_spritesheet_14
+      rect:
+        serializedVersion: 2
+        x: 502
+        y: 191
+        width: 63
+        height: 50
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7152350ed28159bc0800000000000000
+      internalID: -3777086127164152553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: forretress_spritesheet_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 134
+        width: 55
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ffca00cf201bf360800000000000000
+      internalID: 7204369826180681718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: forretress_spritesheet_16
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 133
+        width: 49
+        height: 46
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ce1879232cd10090800000000000000
+      internalID: -8069927013693514039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: forretress_spritesheet_17
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 134
+        width: 55
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4305f6e09776b4880800000000000000
+      internalID: -8625686891667173324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: forretress_spritesheet_18
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 135
+        width: 61
+        height: 50
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4aadb9a7cc59da590800000000000000
+      internalID: -7661302685624444252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: forretress_spritesheet_19
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 136
+        width: 67
+        height: 52
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58a8802fedf972f00800000000000000
+      internalID: 1092017214552836741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: forretress_spritesheet_20
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 135
+        width: 67
+        height: 54
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47273026436a5a940800000000000000
+      internalID: 5306830479838900852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: forretress_spritesheet_21
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 135
+        width: 61
+        height: 50
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f58cb4d90cfaa86f0800000000000000
+      internalID: -681539151785637793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: forretress_spritesheet_22
+      rect:
+        serializedVersion: 2
+        x: 422
+        y: 134
+        width: 55
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97bba612f5c534f70800000000000000
+      internalID: 9170274829908753273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: forretress_spritesheet_23
+      rect:
+        serializedVersion: 2
+        x: 478
+        y: 133
+        width: 49
+        height: 46
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37fc6ff81538d0a50800000000000000
+      internalID: 6488987024441659251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: forretress_spritesheet_24
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 132
+        width: 49
+        height: 43
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1cb5fdf4ee7b82e0800000000000000
+      internalID: -2122463277396673510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: forretress_spritesheet_25
+      rect:
+        serializedVersion: 2
+        x: 578
+        y: 133
+        width: 49
+        height: 46
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78eef002834e05d70800000000000000
+      internalID: 9029968182585060999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: forretress_spritesheet_26
+      rect:
+        serializedVersion: 2
+        x: 628
+        y: 134
+        width: 55
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 115dbf22fb30a2f40800000000000000
+      internalID: 5704375997478720785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: forretress_spritesheet_27
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 74
+        width: 61
+        height: 50
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da4c6003914116110800000000000000
+      internalID: 1252304269798196397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: forretress_spritesheet_28
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 73
+        width: 55
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0995ca36166bcfc0800000000000000
+      internalID: -3473570441924863730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: forretress_spritesheet_29
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 72
+        width: 49
+        height: 46
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 138078dc3ef7cc910800000000000000
+      internalID: 1859001362579654705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: forretress_spritesheet_30
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 71
+        width: 49
+        height: 43
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 543d8a2f22ee5a6f0800000000000000
+      internalID: -673870735354571963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: forretress_spritesheet_31
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 72
+        width: 49
+        height: 46
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef6ad12dedc8ceee0800000000000000
+      internalID: -1230453709543201026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: forretress_spritesheet_32
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 73
+        width: 55
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 153b680f39b29a150800000000000000
+      internalID: 5884282302531810129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: forretress_spritesheet_33
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 74
+        width: 61
+        height: 50
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ad1ff8b4e62641f0800000000000000
+      internalID: -1061117898401047130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: forretress_spritesheet_34
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 75
+        width: 67
+        height: 52
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b56f178179d5fc30800000000000000
+      internalID: 4392656093191300535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: forretress_spritesheet_35
+      rect:
+        serializedVersion: 2
+        x: 454
+        y: 77
+        width: 67
+        height: 54
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 748d453accd1891b0800000000000000
+      internalID: -5649732967785506745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: forretress_spritesheet_36
+      rect:
+        serializedVersion: 2
+        x: 522
+        y: 75
+        width: 67
+        height: 52
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: faa53cf8a475f0930800000000000000
+      internalID: 4111600962563693231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: forretress_spritesheet_37
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 7
+        width: 61
+        height: 50
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b685803fb9c666c40800000000000000
+      internalID: 5505207011560151147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: forretress_spritesheet_38
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 5
+        width: 55
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a725f506cddf24fd0800000000000000
+      internalID: -2359044131837226374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: forretress_spritesheet_39
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 3
+        width: 49
+        height: 46
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 022164a79c1e99610800000000000000
+      internalID: 1628580995727233568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: forretress_spritesheet_40
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 0
+        width: 49
+        height: 43
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0416ffdf1eae5f610800000000000000
+      internalID: 1654486694478438720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: forretress_spritesheet_41
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 3
+        width: 49
+        height: 46
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14122e6a9662cd140800000000000000
+      internalID: 4745710342554919233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: forretress_spritesheet_42
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 4
+        width: 55
+        height: 48
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d83e1d6fb713c15c0800000000000000
+      internalID: -4243462340398161011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: forretress_spritesheet_43
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 5
+        width: 61
+        height: 50
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e7604f29ee7faa50800000000000000
+      internalID: 6534581124323108832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: forretress_spritesheet_44
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 6
+        width: 61
+        height: 50
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 336dd91caa034b220800000000000000
+      internalID: 2500677203048388147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 48c5e793e9b3fca4f948ad951c3edbca
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      forretress_spritesheet_0: -5597757525872149877
+      forretress_spritesheet_1: -840035353551195380
+      forretress_spritesheet_10: 658445313408369875
+      forretress_spritesheet_11: -2214540056420907098
+      forretress_spritesheet_12: 5468852050511834675
+      forretress_spritesheet_13: 8125672565254885277
+      forretress_spritesheet_14: -3777086127164152553
+      forretress_spritesheet_15: 7204369826180681718
+      forretress_spritesheet_16: -8069927013693514039
+      forretress_spritesheet_17: -8625686891667173324
+      forretress_spritesheet_18: -7661302685624444252
+      forretress_spritesheet_19: 1092017214552836741
+      forretress_spritesheet_2: -7942985267555497483
+      forretress_spritesheet_20: 5306830479838900852
+      forretress_spritesheet_21: -681539151785637793
+      forretress_spritesheet_22: 9170274829908753273
+      forretress_spritesheet_23: 6488987024441659251
+      forretress_spritesheet_24: -2122463277396673510
+      forretress_spritesheet_25: 9029968182585060999
+      forretress_spritesheet_26: 5704375997478720785
+      forretress_spritesheet_27: 1252304269798196397
+      forretress_spritesheet_28: -3473570441924863730
+      forretress_spritesheet_29: 1859001362579654705
+      forretress_spritesheet_3: 4529801676547142798
+      forretress_spritesheet_30: -673870735354571963
+      forretress_spritesheet_31: -1230453709543201026
+      forretress_spritesheet_32: 5884282302531810129
+      forretress_spritesheet_33: -1061117898401047130
+      forretress_spritesheet_34: 4392656093191300535
+      forretress_spritesheet_35: -5649732967785506745
+      forretress_spritesheet_36: 4111600962563693231
+      forretress_spritesheet_37: 5505207011560151147
+      forretress_spritesheet_38: -2359044131837226374
+      forretress_spritesheet_39: 1628580995727233568
+      forretress_spritesheet_4: 640120826765954806
+      forretress_spritesheet_40: 1654486694478438720
+      forretress_spritesheet_41: 4745710342554919233
+      forretress_spritesheet_42: -4243462340398161011
+      forretress_spritesheet_43: 6534581124323108832
+      forretress_spritesheet_44: 2500677203048388147
+      forretress_spritesheet_5: 3777201328307799464
+      forretress_spritesheet_6: 9076334413335556947
+      forretress_spritesheet_7: 7488096802690334410
+      forretress_spritesheet_8: 5269342269104492231
+      forretress_spritesheet_9: 2833963825632091561
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

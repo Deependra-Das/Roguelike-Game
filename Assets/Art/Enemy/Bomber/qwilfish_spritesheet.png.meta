@@ -1,0 +1,598 @@
+fileFormatVersion: 2
+guid: f94385aba8e30644a8d0e295e55ea048
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8837288461167100413
+    second: qwilfish_spritesheet_0
+  - first:
+      213: -4731023491326211486
+    second: qwilfish_spritesheet_1
+  - first:
+      213: 1512529668219707271
+    second: qwilfish_spritesheet_2
+  - first:
+      213: 8399685750426036349
+    second: qwilfish_spritesheet_3
+  - first:
+      213: -8620203370275096954
+    second: qwilfish_spritesheet_4
+  - first:
+      213: 2593830142243291821
+    second: qwilfish_spritesheet_5
+  - first:
+      213: 5440046010615378172
+    second: qwilfish_spritesheet_6
+  - first:
+      213: 3019470908065218037
+    second: qwilfish_spritesheet_7
+  - first:
+      213: -6668715907032679719
+    second: qwilfish_spritesheet_8
+  - first:
+      213: -1932880669617117077
+    second: qwilfish_spritesheet_9
+  - first:
+      213: -6129089875133601895
+    second: qwilfish_spritesheet_10
+  - first:
+      213: 209514013533135959
+    second: qwilfish_spritesheet_11
+  - first:
+      213: -7230983859353066361
+    second: qwilfish_spritesheet_12
+  - first:
+      213: 4894269197553918219
+    second: qwilfish_spritesheet_13
+  - first:
+      213: 5806806881750776055
+    second: qwilfish_spritesheet_14
+  - first:
+      213: 4895875558377377303
+    second: qwilfish_spritesheet_15
+  - first:
+      213: 3852404152437613497
+    second: qwilfish_spritesheet_16
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: qwilfish_spritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 91
+        width: 41
+        height: 39
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df10681980b54aa70800000000000000
+      internalID: 8837288461167100413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: qwilfish_spritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 94
+        width: 41
+        height: 35
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26a097f5337085eb0800000000000000
+      internalID: -4731023491326211486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: qwilfish_spritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 95
+        width: 40
+        height: 33
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78f997238b59df410800000000000000
+      internalID: 1512529668219707271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: qwilfish_spritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 96
+        width: 40
+        height: 35
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d78ed03cfada19470800000000000000
+      internalID: 8399685750426036349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: qwilfish_spritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 99
+        width: 37
+        height: 33
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 686b02fd4b2ee5880800000000000000
+      internalID: -8620203370275096954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: qwilfish_spritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 311
+        y: 1
+        width: 216
+        height: 131
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da2cc1c85c22ff320800000000000000
+      internalID: 2593830142243291821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: qwilfish_spritesheet_6
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 48
+        width: 37
+        height: 36
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf0b288260dee7b40800000000000000
+      internalID: 5440046010615378172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: qwilfish_spritesheet_7
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 3
+        width: 41
+        height: 39
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5fd7ad40bc057e920800000000000000
+      internalID: 3019470908065218037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: qwilfish_spritesheet_8
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 5
+        width: 40
+        height: 39
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9daf1550736f373a0800000000000000
+      internalID: -6668715907032679719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: qwilfish_spritesheet_9
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 6
+        width: 40
+        height: 40
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b68a04695470d25e0800000000000000
+      internalID: -1932880669617117077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: qwilfish_spritesheet_10
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 8
+        width: 40
+        height: 39
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 997e73c5b3911faa0800000000000000
+      internalID: -6129089875133601895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: qwilfish_spritesheet_11
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 8
+        width: 40
+        height: 39
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 754eb10a2e758e200800000000000000
+      internalID: 209514013533135959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: qwilfish_spritesheet_12
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 8
+        width: 40
+        height: 39
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7846da6cd7266ab90800000000000000
+      internalID: -7230983859353066361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: qwilfish_spritesheet_13
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 6
+        width: 40
+        height: 40
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b01665b77efebe340800000000000000
+      internalID: 4894269197553918219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: qwilfish_spritesheet_14
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 5
+        width: 40
+        height: 39
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f87c0ad71ce59050800000000000000
+      internalID: 5806806881750776055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: qwilfish_spritesheet_15
+      rect:
+        serializedVersion: 2
+        x: 389
+        y: 3
+        width: 41
+        height: 39
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71ec99181e4a1f340800000000000000
+      internalID: 4895875558377377303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: qwilfish_spritesheet_16
+      rect:
+        serializedVersion: 2
+        x: 436
+        y: 2
+        width: 42
+        height: 40
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b3a84d6a2d767530800000000000000
+      internalID: 3852404152437613497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 828c06bd9d00ce2469b8b718b27ad743
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      qwilfish_spritesheet_0: 8837288461167100413
+      qwilfish_spritesheet_1: -4731023491326211486
+      qwilfish_spritesheet_10: -6129089875133601895
+      qwilfish_spritesheet_11: 209514013533135959
+      qwilfish_spritesheet_12: -7230983859353066361
+      qwilfish_spritesheet_13: 4894269197553918219
+      qwilfish_spritesheet_14: 5806806881750776055
+      qwilfish_spritesheet_15: 4895875558377377303
+      qwilfish_spritesheet_16: 3852404152437613497
+      qwilfish_spritesheet_2: 1512529668219707271
+      qwilfish_spritesheet_3: 8399685750426036349
+      qwilfish_spritesheet_4: -8620203370275096954
+      qwilfish_spritesheet_5: 2593830142243291821
+      qwilfish_spritesheet_6: 5440046010615378172
+      qwilfish_spritesheet_7: 3019470908065218037
+      qwilfish_spritesheet_8: -6668715907032679719
+      qwilfish_spritesheet_9: -1932880669617117077
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

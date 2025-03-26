@@ -1,0 +1,676 @@
+fileFormatVersion: 2
+guid: af772868ad2b8b849b230b7c25a1fe77
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2634382812535199017
+    second: wailmer_spritesheet_0
+  - first:
+      213: 4018243837876065990
+    second: wailmer_spritesheet_1
+  - first:
+      213: 7084108957415710700
+    second: wailmer_spritesheet_2
+  - first:
+      213: 6941494246674266116
+    second: wailmer_spritesheet_3
+  - first:
+      213: 4367408858405184851
+    second: wailmer_spritesheet_4
+  - first:
+      213: 901132655516700873
+    second: wailmer_spritesheet_5
+  - first:
+      213: 7583390754734253266
+    second: wailmer_spritesheet_6
+  - first:
+      213: -6466488714290328986
+    second: wailmer_spritesheet_7
+  - first:
+      213: -3728099997979368674
+    second: wailmer_spritesheet_8
+  - first:
+      213: 8972815646214445284
+    second: wailmer_spritesheet_9
+  - first:
+      213: -8512701272256468089
+    second: wailmer_spritesheet_10
+  - first:
+      213: -4686168230583239421
+    second: wailmer_spritesheet_11
+  - first:
+      213: -8438665189016724376
+    second: wailmer_spritesheet_12
+  - first:
+      213: 7438736563767034819
+    second: wailmer_spritesheet_13
+  - first:
+      213: 4392391421364856652
+    second: wailmer_spritesheet_14
+  - first:
+      213: -3507046732221401922
+    second: wailmer_spritesheet_15
+  - first:
+      213: -6376593220832750577
+    second: wailmer_spritesheet_16
+  - first:
+      213: -9024419970380991265
+    second: wailmer_spritesheet_17
+  - first:
+      213: 7151779084463002237
+    second: wailmer_spritesheet_18
+  - first:
+      213: 8799759439349299044
+    second: wailmer_spritesheet_19
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 48
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: wailmer_spritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 178
+        width: 92
+        height: 56
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9251e8fd5353f8420800000000000000
+      internalID: 2634382812535199017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wailmer_spritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 178
+        width: 82
+        height: 56
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c651812b7ba3c730800000000000000
+      internalID: 4018243837876065990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wailmer_spritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 178
+        width: 81
+        height: 56
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cef1de4409fcf4260800000000000000
+      internalID: 7084108957415710700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wailmer_spritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 178
+        width: 86
+        height: 56
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 408ff6f5d34255060800000000000000
+      internalID: 6941494246674266116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wailmer_spritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 347
+        y: 178
+        width: 94
+        height: 56
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 355a22a97372c9c30800000000000000
+      internalID: 4367408858405184851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wailmer_spritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 442
+        y: 178
+        width: 109
+        height: 56
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c0d3933067718c00800000000000000
+      internalID: 901132655516700873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wailmer_spritesheet_6
+      rect:
+        serializedVersion: 2
+        x: 552
+        y: 178
+        width: 114
+        height: 56
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d4aae086bd9d3960800000000000000
+      internalID: 7583390754734253266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wailmer_spritesheet_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 120
+        width: 113
+        height: 57
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66a07a876ca6246a0800000000000000
+      internalID: -6466488714290328986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wailmer_spritesheet_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 57
+        width: 81
+        height: 56
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e132e4dddc0234cc0800000000000000
+      internalID: -3728099997979368674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wailmer_spritesheet_9
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 57
+        width: 86
+        height: 56
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e8ddab4a48d58c70800000000000000
+      internalID: 8972815646214445284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wailmer_spritesheet_10
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 57
+        width: 94
+        height: 56
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78b232c8b4fccd980800000000000000
+      internalID: -8512701272256468089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wailmer_spritesheet_11
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 57
+        width: 109
+        height: 56
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30d7d5a92d267feb0800000000000000
+      internalID: -4686168230583239421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wailmer_spritesheet_12
+      rect:
+        serializedVersion: 2
+        x: 374
+        y: 57
+        width: 114
+        height: 56
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86c143678b6d3ea80800000000000000
+      internalID: -8438665189016724376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wailmer_spritesheet_13
+      rect:
+        serializedVersion: 2
+        x: 489
+        y: 57
+        width: 92
+        height: 56
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c34b0d1e73bb3760800000000000000
+      internalID: 7438736563767034819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wailmer_spritesheet_14
+      rect:
+        serializedVersion: 2
+        x: 582
+        y: 57
+        width: 81
+        height: 56
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c47ece0d9b8e4fc30800000000000000
+      internalID: 4392391421364856652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wailmer_spritesheet_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 109
+        height: 56
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb4bf330497745fc0800000000000000
+      internalID: -3507046732221401922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wailmer_spritesheet_16
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 0
+        width: 114
+        height: 56
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f049913104ac187a0800000000000000
+      internalID: -6376593220832750577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wailmer_spritesheet_17
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 0
+        width: 109
+        height: 56
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd4ff71b9d1d2c280800000000000000
+      internalID: -9024419970380991265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wailmer_spritesheet_18
+      rect:
+        serializedVersion: 2
+        x: 335
+        y: 0
+        width: 92
+        height: 56
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d725c718f29304360800000000000000
+      internalID: 7151779084463002237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wailmer_spritesheet_19
+      rect:
+        serializedVersion: 2
+        x: 428
+        y: 0
+        width: 82
+        height: 56
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4673e4346960f1a70800000000000000
+      internalID: 8799759439349299044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: cca417f330e85ca42a34c2efd7b5125f
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      wailmer_spritesheet_0: 2634382812535199017
+      wailmer_spritesheet_1: 4018243837876065990
+      wailmer_spritesheet_10: -8512701272256468089
+      wailmer_spritesheet_11: -4686168230583239421
+      wailmer_spritesheet_12: -8438665189016724376
+      wailmer_spritesheet_13: 7438736563767034819
+      wailmer_spritesheet_14: 4392391421364856652
+      wailmer_spritesheet_15: -3507046732221401922
+      wailmer_spritesheet_16: -6376593220832750577
+      wailmer_spritesheet_17: -9024419970380991265
+      wailmer_spritesheet_18: 7151779084463002237
+      wailmer_spritesheet_19: 8799759439349299044
+      wailmer_spritesheet_2: 7084108957415710700
+      wailmer_spritesheet_3: 6941494246674266116
+      wailmer_spritesheet_4: 4367408858405184851
+      wailmer_spritesheet_5: 901132655516700873
+      wailmer_spritesheet_6: 7583390754734253266
+      wailmer_spritesheet_7: -6466488714290328986
+      wailmer_spritesheet_8: -3728099997979368674
+      wailmer_spritesheet_9: 8972815646214445284
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
