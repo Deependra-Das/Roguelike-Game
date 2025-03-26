@@ -8,7 +8,7 @@ namespace Roguelike.Enemy
     {
         public EnemyType enemyType;
         public GameObject levelPrefab;
-        public Image enemyImage;
+        public Sprite enemyImage;
         public string enemyName;
         public Vector3 spawnPosition;
         public Vector3 spawnRotation;
