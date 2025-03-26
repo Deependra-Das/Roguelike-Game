@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1198212852202262329}
   - component: {fileID: 8208574030226026527}
+  - component: {fileID: 3294686028035639538}
   m_Layer: 0
   m_Name: Enemy_Swablu_Stalker_Prefab
   m_TagString: Untagged
@@ -87,3 +88,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3294686028035639538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2497790846198215945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 601336524d37e2841862dc8da3544a86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enemy_RB: {fileID: 0}
+  _enemyAnimator: {fileID: 0}

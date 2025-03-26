@@ -1,16 +1,14 @@
 using UnityEngine;
 
-public class EnemyView : MonoBehaviour
+namespace Roguelike.Enemy
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public class EnemyView : MonoBehaviour
     {
-        
-    }
+        [SerializeField] private Rigidbody2D _enemy_RB;
+        [SerializeField] private Animator _enemyAnimator;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public EnemyController _controller { get; private set; }
+
+        public void SetController(EnemyController controllerToSet) => _controller = controllerToSet;
     }
 }

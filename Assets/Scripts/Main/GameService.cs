@@ -42,6 +42,7 @@ namespace Roguelike.Main
             RegisterService<UIService>(_uiService);
             RegisterService<LevelService>(new LevelService(_levelScriptableObjects));
             RegisterService<PlayerService>(new PlayerService(_playerScriptableObjects));
+            RegisterService<EnemyService>(new EnemyService(_enemyScriptableObjects));
         }
 
         public void InjectDependencies()
@@ -49,7 +50,8 @@ namespace Roguelike.Main
             InitializeService<EventService>();
             InitializeService<UIService>();
             InitializeService<LevelService>();
-            InitializeService<PlayerService>();            
+            InitializeService<PlayerService>();
+            InitializeService<EnemyService>();
         }
 
         public void RegisterService<T>(IService service) where T : IService

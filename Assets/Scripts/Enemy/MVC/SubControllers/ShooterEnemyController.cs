@@ -1,6 +1,12 @@
 using UnityEngine;
 
-public class ShooterEnemyController
+namespace Roguelike.Enemy
 {
-    
+    public class ShooterEnemyController : EnemyController
+    {
+        public ShooterEnemyController(EnemyScriptableObject enemySO) : base(enemySO)
+        {
+        }
+    }
 }
+

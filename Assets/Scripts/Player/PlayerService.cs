@@ -45,7 +45,6 @@ namespace Roguelike.Player
             PlayerScriptableObject playerData = _playerScriptableObject.Find(playerSO => playerSO.ID == _playerIDSelected);
             _playerController = new PlayerController(playerData);
             GameService.Instance.SetCameraTarget(_playerController.PlayerGameObject);
-            UnsubscribeToEvents();
         }
 
         public PlayerController GetPlayer() => _playerController;

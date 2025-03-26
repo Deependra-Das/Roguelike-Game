@@ -1,6 +1,13 @@
 using UnityEngine;
 
-public class StalkerEnemyController
+namespace Roguelike.Enemy
 {
-    
+    public class StalkerEnemyController : EnemyController
+    {
+        public StalkerEnemyController(EnemyScriptableObject enemySO) : base(enemySO)
+        {
+        }
+    }
 }
+
+
