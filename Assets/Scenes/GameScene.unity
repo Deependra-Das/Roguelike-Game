@@ -3038,6 +3038,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9e1d7b0606562a64c8f95720ba3600d2, type: 2}
   - {fileID: 11400000, guid: 824ec1f2c2dbb374d9d88ff7d7cd2e0a, type: 2}
   - {fileID: 11400000, guid: 517b132a98d73cb4eabf799144be8ac9, type: 2}
+  _enemyScriptableObjects:
+  - {fileID: 11400000, guid: 81c0513473c4f3341936dafd1bfabcf1, type: 2}
 --- !u!4 &1257729680
 Transform:
   m_ObjectHideFlags: 0

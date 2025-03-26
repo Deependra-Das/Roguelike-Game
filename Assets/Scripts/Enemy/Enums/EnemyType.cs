@@ -1,10 +1,6 @@
 namespace Roguelike.Enemy
 {
-    public enum EnemyType
-    {
-        SUICIDEBOMBER,
-        STALKER,
-        SHOOTER,
-        BOSS
-    }
+    public enum EnemyType { Bomber, Stalker, Shooter, Boss }
+
 }
+

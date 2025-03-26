@@ -6,6 +6,7 @@ using Roguelike.Utilities;
 using Roguelike.Event;
 using Roguelike.Level;
 using Roguelike.Player;
+using Roguelike.Enemy;
 using Roguelike.UI;
 
 namespace Roguelike.Main
@@ -18,7 +19,8 @@ namespace Roguelike.Main
         [Header("Scriptable Objects")]
         [SerializeField] private List<LevelScriptableObject> _levelScriptableObjects;
         [SerializeField] private List<PlayerScriptableObject> _playerScriptableObjects;
-        
+        [SerializeField] private List<EnemyScriptableObject> _enemyScriptableObjects;
+
 
         private Dictionary<Type, IService> _services = new Dictionary<Type, IService>();
 

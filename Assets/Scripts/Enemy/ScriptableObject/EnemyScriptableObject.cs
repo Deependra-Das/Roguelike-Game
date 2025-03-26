@@ -14,6 +14,8 @@ namespace Roguelike.Enemy
         public Vector3 spawnRotation;
         public float movementSpeed;
         public int maxHealth;
+        public int attackPower;
+        public float attackCooldown;
     }
 }
 
