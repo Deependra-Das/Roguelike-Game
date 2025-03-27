@@ -1,4 +1,5 @@
 using UnityEngine;
+using static UnityEngine.RuleTile.TilingRuleOutput;
 
 namespace Roguelike.Enemy
 {
@@ -6,6 +7,14 @@ namespace Roguelike.Enemy
     {
         public BomberEnemyController(EnemyScriptableObject enemySO) : base(enemySO)
         {
+        }
+
+        protected override void Attack() {}
+
+        public override void OnCollisionWithPlayer()
+        {
+            isDead = true;
+            OnEnemyDeath();
         }
     }
 }

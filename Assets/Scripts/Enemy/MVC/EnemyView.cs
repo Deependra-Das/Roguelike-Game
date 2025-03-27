@@ -18,6 +18,12 @@ namespace Roguelike.Enemy
 
         void FixedUpdate()
         {
+            Move();
+            _controller?.UpdateEnemy();
+        }
+
+        public void Move()
+        {
             _playerTransform = GameService.Instance.GetService<PlayerService>().GetPlayer().PlayerGameObject.transform;
 
             if (_playerTransform.position.x > transform.position.x)
@@ -28,10 +34,22 @@ namespace Roguelike.Enemy
             {
                 _enemy_SR.flipX = false;
             }
+
             _enemyDirection = (_playerTransform.position - transform.position).normalized;
 
             _enemy_RB.linearVelocity = new Vector2(_enemyDirection.x * _controller.GetEnemyModel.MovementSpeed,
                 _enemyDirection.y * _controller.GetEnemyModel.MovementSpeed);
         }
+
+        protected void OnCollisionStay2D(Collision2D collision)
+        {
+            PlayerView playerObj = collision.gameObject.GetComponent<PlayerView>();
+            if (playerObj!=null)
+            {
+                playerObj.TakeDamage(_controller.GetEnemyModel.AttackPower);
+                _controller.OnCollisionWithPlayer();
+            }
+        }
+
     }
 }

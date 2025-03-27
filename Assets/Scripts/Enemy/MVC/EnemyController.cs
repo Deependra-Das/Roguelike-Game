@@ -5,8 +5,8 @@ namespace Roguelike.Enemy
 {
     public class EnemyController
     {
-        private EnemyModel _enemyModel;
-        private EnemyView _enemyView;
+        protected EnemyModel _enemyModel;
+        protected EnemyView _enemyView;
         protected float lastAttackTime;
         protected bool isDead;
 
@@ -36,8 +36,17 @@ namespace Roguelike.Enemy
 
         public void Configure()
         {
+            isDead = false;
+            lastAttackTime = 0;
             _enemyView.gameObject.SetActive(true);
         }
+        public void UpdateEnemy()
+        {
+            if (isDead) return;
+            Attack();
+        }
+
+        protected virtual void Attack() { }
 
         public EnemyModel GetEnemyModel { get { return _enemyModel; } }
 
@@ -53,7 +62,10 @@ namespace Roguelike.Enemy
 
         public void OnEnemyDeath()
         {
+            _enemyView.gameObject.SetActive(false);
             GameService.Instance.GetService<EnemyService>().ReturnEnemyToPool(this);
         }
+
+        public virtual void OnCollisionWithPlayer() { }
     }
 }

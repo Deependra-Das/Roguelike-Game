@@ -7,6 +7,9 @@ namespace Roguelike.Enemy
         public StalkerEnemyController(EnemyScriptableObject enemySO) : base(enemySO)
         {
         }
+
+        protected override void Attack() { }
+
     }
 }
 
