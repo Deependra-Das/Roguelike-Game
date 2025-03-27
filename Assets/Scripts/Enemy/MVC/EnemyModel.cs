@@ -29,6 +29,11 @@ namespace Roguelike.Enemy
             _enemyController = enemyController;
         }
 
+        public void UpdateHealth(int value)
+        {
+            Health += value;
+        }
+
         public int EnemyID { get; private set; }
         public EnemyType EnemyType { get; private set; }
         public EnemyView EnemyPrefab { get; private set; }

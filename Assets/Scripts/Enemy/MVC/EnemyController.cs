@@ -7,6 +7,8 @@ namespace Roguelike.Enemy
     {
         private EnemyModel _enemyModel;
         private EnemyView _enemyView;
+        protected float lastAttackTime;
+        protected bool isDead;
 
         public EnemyController(EnemyScriptableObject enemySO)
         {
@@ -38,5 +40,20 @@ namespace Roguelike.Enemy
         }
 
         public EnemyModel GetEnemyModel { get { return _enemyModel; } }
+
+        public void TakeDamage(int damage)
+        {
+            _enemyModel.UpdateHealth(-damage);
+            if (_enemyModel.Health <= 0)
+            {
+                isDead = true;
+                OnEnemyDeath();
+            }
+        }
+
+        public void OnEnemyDeath()
+        {
+            GameService.Instance.GetService<EnemyService>().ReturnEnemyToPool(this);
+        }
     }
 }
