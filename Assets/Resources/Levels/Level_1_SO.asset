@@ -17,4 +17,17 @@ MonoBehaviour:
   levelImage: {fileID: 0}
   levelName: Level 1
   levelDescription: Level 1 Description
-  numberOfWaves: 5
+  waveInterval: 5
+  enemyWaveData:
+  - enemy_SO: {fileID: 11400000, guid: c7bb5c5baf709af45a5229c57864d4c8, type: 2}
+    spawnInterval: 2
+    spawnFrequencyPerWave: 2
+  - enemy_SO: {fileID: 11400000, guid: 81c0513473c4f3341936dafd1bfabcf1, type: 2}
+    spawnInterval: 3
+    spawnFrequencyPerWave: 3
+  - enemy_SO: {fileID: 11400000, guid: f03ad0759a897f54087e3ac5935f7c93, type: 2}
+    spawnInterval: 5
+    spawnFrequencyPerWave: 2
+  - enemy_SO: {fileID: 11400000, guid: e769ce109893e5143b30fba691bcf088, type: 2}
+    spawnInterval: 10
+    spawnFrequencyPerWave: 1

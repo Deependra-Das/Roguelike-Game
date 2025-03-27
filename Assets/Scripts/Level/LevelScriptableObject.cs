@@ -1,5 +1,8 @@
+using Roguelike.Wave;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace Roguelike.Level
 {
@@ -11,6 +14,7 @@ namespace Roguelike.Level
         public Image levelImage;
         public string levelName;
         public string levelDescription;
-        public int numberOfWaves;
+        public float waveInterval;
+        public List<WaveConfig> enemyWaveData;
     }
 }
