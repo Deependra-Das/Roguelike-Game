@@ -19,7 +19,7 @@ MonoBehaviour:
   enemyName: Woobat
   spawnPosition: {x: 0, y: 0, z: 0}
   spawnRotation: {x: 0, y: 0, z: 0}
-  movementSpeed: 1
-  health: 0
-  attackPower: 0
+  movementSpeed: 1.5
+  health: 20
+  attackPower: 5
   attackCooldown: 0
