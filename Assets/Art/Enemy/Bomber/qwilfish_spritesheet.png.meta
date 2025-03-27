@@ -300,10 +300,10 @@ TextureImporter:
       name: qwilfish_spritesheet_5
       rect:
         serializedVersion: 2
-        x: 311
-        y: 1
-        width: 216
-        height: 131
+        x: 1
+        y: 48
+        width: 37
+        height: 36
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -322,10 +322,10 @@ TextureImporter:
       name: qwilfish_spritesheet_6
       rect:
         serializedVersion: 2
-        x: 1
-        y: 48
-        width: 37
-        height: 36
+        x: 5
+        y: 3
+        width: 41
+        height: 39
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -344,9 +344,9 @@ TextureImporter:
       name: qwilfish_spritesheet_7
       rect:
         serializedVersion: 2
-        x: 5
-        y: 3
-        width: 41
+        x: 51
+        y: 5
+        width: 40
         height: 39
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -366,10 +366,10 @@ TextureImporter:
       name: qwilfish_spritesheet_8
       rect:
         serializedVersion: 2
-        x: 51
-        y: 5
+        x: 98
+        y: 6
         width: 40
-        height: 39
+        height: 40
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -388,10 +388,10 @@ TextureImporter:
       name: qwilfish_spritesheet_9
       rect:
         serializedVersion: 2
-        x: 98
-        y: 6
+        x: 145
+        y: 8
         width: 40
-        height: 40
+        height: 39
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -410,7 +410,7 @@ TextureImporter:
       name: qwilfish_spritesheet_10
       rect:
         serializedVersion: 2
-        x: 145
+        x: 193
         y: 8
         width: 40
         height: 39
@@ -432,7 +432,7 @@ TextureImporter:
       name: qwilfish_spritesheet_11
       rect:
         serializedVersion: 2
-        x: 193
+        x: 241
         y: 8
         width: 40
         height: 39
@@ -454,10 +454,10 @@ TextureImporter:
       name: qwilfish_spritesheet_12
       rect:
         serializedVersion: 2
-        x: 241
-        y: 8
+        x: 290
+        y: 6
         width: 40
-        height: 39
+        height: 40
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -476,10 +476,10 @@ TextureImporter:
       name: qwilfish_spritesheet_13
       rect:
         serializedVersion: 2
-        x: 290
-        y: 6
+        x: 339
+        y: 5
         width: 40
-        height: 40
+        height: 39
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -498,9 +498,9 @@ TextureImporter:
       name: qwilfish_spritesheet_14
       rect:
         serializedVersion: 2
-        x: 339
-        y: 5
-        width: 40
+        x: 389
+        y: 3
+        width: 41
         height: 39
       alignment: 7
       pivot: {x: 0.5, y: 0}
@@ -520,10 +520,10 @@ TextureImporter:
       name: qwilfish_spritesheet_15
       rect:
         serializedVersion: 2
-        x: 389
-        y: 3
-        width: 41
-        height: 39
+        x: 436
+        y: 2
+        width: 42
+        height: 40
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -542,10 +542,10 @@ TextureImporter:
       name: qwilfish_spritesheet_16
       rect:
         serializedVersion: 2
-        x: 436
-        y: 2
-        width: 42
-        height: 40
+        x: 483
+        y: 1
+        width: 44
+        height: 41
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

@@ -37,7 +37,7 @@ namespace Roguelike.Enemy
 
         public void StartSpawning()
         {
-            SpawnEnemy(10);
+            SpawnEnemy(12);
         }
 
         public EnemyController SpawnEnemy(int enemyId)

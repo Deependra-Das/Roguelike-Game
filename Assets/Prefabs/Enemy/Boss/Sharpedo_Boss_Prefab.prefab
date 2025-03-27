@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2305380436822691861}
   - component: {fileID: -3488371636273200759}
   - component: {fileID: 3294686028035639538}
+  - component: {fileID: 5579312103162989252}
   m_Layer: 0
   m_Name: Sharpedo_Boss_Prefab
   m_TagString: Untagged
@@ -170,6 +171,28 @@ MonoBehaviour:
   _enemy_RB: {fileID: 2305380436822691861}
   _enemy_SR: {fileID: 8208574030226026527}
   _enemyAnimator: {fileID: 0}
+--- !u!95 &5579312103162989252
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2497790846198215945}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fc7f0dea228ad434b9e847989a8202c4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &9088614626374097485
 GameObject:
   m_ObjectHideFlags: 0
