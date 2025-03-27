@@ -1,0 +1,1508 @@
+fileFormatVersion: 2
+guid: 72fa75579c828ac4b840eb3cdcad9b0a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5908953957423532981
+    second: magnezone_spritesheet_0
+  - first:
+      213: -5325597667400265512
+    second: magnezone_spritesheet_1
+  - first:
+      213: 308453787749000798
+    second: magnezone_spritesheet_2
+  - first:
+      213: 888439162539868764
+    second: magnezone_spritesheet_3
+  - first:
+      213: 7521865350015185488
+    second: magnezone_spritesheet_4
+  - first:
+      213: 8579930140512656030
+    second: magnezone_spritesheet_5
+  - first:
+      213: -5719935714916259055
+    second: magnezone_spritesheet_6
+  - first:
+      213: 1642869347012306779
+    second: magnezone_spritesheet_7
+  - first:
+      213: -7107783161341291042
+    second: magnezone_spritesheet_8
+  - first:
+      213: -3158690536675215374
+    second: magnezone_spritesheet_9
+  - first:
+      213: 2265190446430217003
+    second: magnezone_spritesheet_10
+  - first:
+      213: -4352817558613537362
+    second: magnezone_spritesheet_11
+  - first:
+      213: -3169864086137141917
+    second: magnezone_spritesheet_12
+  - first:
+      213: -2591038341940083059
+    second: magnezone_spritesheet_13
+  - first:
+      213: -5668248590351601549
+    second: magnezone_spritesheet_14
+  - first:
+      213: -7751240525618362055
+    second: magnezone_spritesheet_15
+  - first:
+      213: -875712984135586659
+    second: magnezone_spritesheet_16
+  - first:
+      213: 8279992385592745357
+    second: magnezone_spritesheet_17
+  - first:
+      213: -1768050862290083903
+    second: magnezone_spritesheet_18
+  - first:
+      213: 381747902032568416
+    second: magnezone_spritesheet_19
+  - first:
+      213: 1264669973510489376
+    second: magnezone_spritesheet_20
+  - first:
+      213: -2662548224729580392
+    second: magnezone_spritesheet_21
+  - first:
+      213: 1539258761487188787
+    second: magnezone_spritesheet_22
+  - first:
+      213: 4133406842117005383
+    second: magnezone_spritesheet_23
+  - first:
+      213: 6254699385268317287
+    second: magnezone_spritesheet_24
+  - first:
+      213: 5498436883935983983
+    second: magnezone_spritesheet_25
+  - first:
+      213: -2564786603283886226
+    second: magnezone_spritesheet_26
+  - first:
+      213: 7266722391307628099
+    second: magnezone_spritesheet_27
+  - first:
+      213: -4028764872273078086
+    second: magnezone_spritesheet_28
+  - first:
+      213: -1334951264783483568
+    second: magnezone_spritesheet_29
+  - first:
+      213: 697136475523605900
+    second: magnezone_spritesheet_30
+  - first:
+      213: -7807240625407536990
+    second: magnezone_spritesheet_31
+  - first:
+      213: -4033599139222888597
+    second: magnezone_spritesheet_32
+  - first:
+      213: 8606115643069031442
+    second: magnezone_spritesheet_33
+  - first:
+      213: -2168149459054152343
+    second: magnezone_spritesheet_34
+  - first:
+      213: 6980750430002115485
+    second: magnezone_spritesheet_35
+  - first:
+      213: -6190299352992773101
+    second: magnezone_spritesheet_36
+  - first:
+      213: -3159990767841644367
+    second: magnezone_spritesheet_37
+  - first:
+      213: 7223186254050447869
+    second: magnezone_spritesheet_38
+  - first:
+      213: -5809418870349064840
+    second: magnezone_spritesheet_39
+  - first:
+      213: 6605956036489823225
+    second: magnezone_spritesheet_40
+  - first:
+      213: 6835428343826633843
+    second: magnezone_spritesheet_41
+  - first:
+      213: 4079426227246599151
+    second: magnezone_spritesheet_42
+  - first:
+      213: -5027656833456119279
+    second: magnezone_spritesheet_43
+  - first:
+      213: -4735353990267053404
+    second: magnezone_spritesheet_44
+  - first:
+      213: 8448248266716436068
+    second: magnezone_spritesheet_45
+  - first:
+      213: -5210605097530055252
+    second: magnezone_spritesheet_46
+  - first:
+      213: 5222998689098701501
+    second: magnezone_spritesheet_47
+  - first:
+      213: -5190542497399482120
+    second: magnezone_spritesheet_48
+  - first:
+      213: -5009716499862293279
+    second: magnezone_spritesheet_49
+  - first:
+      213: -8652658744932204649
+    second: magnezone_spritesheet_50
+  - first:
+      213: 8629910070180048676
+    second: magnezone_spritesheet_51
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 24
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: magnezone_spritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 513
+        width: 89
+        height: 65
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b44b1a5cead2ffda0800000000000000
+      internalID: -5908953957423532981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magnezone_spritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 513
+        width: 91
+        height: 63
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d055f1432da716b0800000000000000
+      internalID: -5325597667400265512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magnezone_spritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 182
+        y: 512
+        width: 92
+        height: 61
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e562760f519d74400800000000000000
+      internalID: 308453787749000798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magnezone_spritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 509
+        width: 92
+        height: 62
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c520cbf06be545c00800000000000000
+      internalID: 888439162539868764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magnezone_spritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 511
+        width: 89
+        height: 62
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05279fbeea8036860800000000000000
+      internalID: 7521865350015185488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magnezone_spritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 458
+        y: 513
+        width: 91
+        height: 63
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9a9cee1109021770800000000000000
+      internalID: 8579930140512656030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magnezone_spritesheet_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 439
+        width: 92
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11ba856d5c4be90b0800000000000000
+      internalID: -5719935714916259055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magnezone_spritesheet_7
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 437
+        width: 92
+        height: 68
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b57eb0187f4acc610800000000000000
+      internalID: 1642869347012306779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magnezone_spritesheet_8
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 440
+        width: 89
+        height: 66
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed5dfb79fd41c5d90800000000000000
+      internalID: -7107783161341291042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magnezone_spritesheet_9
+      rect:
+        serializedVersion: 2
+        x: 277
+        y: 444
+        width: 91
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f7f51e31b31a24d0800000000000000
+      internalID: -3158690536675215374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magnezone_spritesheet_10
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 438
+        width: 92
+        height: 68
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b23e414a5b29f6f10800000000000000
+      internalID: 2265190446430217003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magnezone_spritesheet_11
+      rect:
+        serializedVersion: 2
+        x: 462
+        y: 437
+        width: 92
+        height: 68
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eadc1ce1e7fa793c0800000000000000
+      internalID: -4352817558613537362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magnezone_spritesheet_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 364
+        width: 92
+        height: 68
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 365078788616204d0800000000000000
+      internalID: -3169864086137141917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magnezone_spritesheet_13
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 293
+        width: 89
+        height: 65
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d868e3d1b58ca0cd0800000000000000
+      internalID: -2591038341940083059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magnezone_spritesheet_14
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 293
+        width: 91
+        height: 63
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 370fb7150f55651b0800000000000000
+      internalID: -5668248590351601549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magnezone_spritesheet_15
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 294
+        width: 92
+        height: 61
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 939c7ed4fcf0e6490800000000000000
+      internalID: -7751240525618362055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magnezone_spritesheet_16
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 293
+        width: 92
+        height: 62
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9ca66f3ea7d8d3f0800000000000000
+      internalID: -875712984135586659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magnezone_spritesheet_17
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 293
+        width: 89
+        height: 62
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8dd136943178e270800000000000000
+      internalID: 8279992385592745357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magnezone_spritesheet_18
+      rect:
+        serializedVersion: 2
+        x: 459
+        y: 293
+        width: 91
+        height: 62
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1cf5068bb1f9677e0800000000000000
+      internalID: -1768050862290083903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magnezone_spritesheet_19
+      rect:
+        serializedVersion: 2
+        x: 551
+        y: 293
+        width: 92
+        height: 63
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 060e66eb1bd3c4500800000000000000
+      internalID: 381747902032568416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magnezone_spritesheet_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 210
+        width: 89
+        height: 65
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0250231f3a20d8110800000000000000
+      internalID: 1264669973510489376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magnezone_spritesheet_21
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 209
+        width: 91
+        height: 68
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89c75a31f7abc0bd0800000000000000
+      internalID: -2662548224729580392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magnezone_spritesheet_22
+      rect:
+        serializedVersion: 2
+        x: 182
+        y: 210
+        width: 92
+        height: 68
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3330adf20bb8c5510800000000000000
+      internalID: 1539258761487188787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magnezone_spritesheet_23
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 213
+        width: 92
+        height: 67
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 740ad888f9fcc5930800000000000000
+      internalID: 4133406842117005383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magnezone_spritesheet_24
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 216
+        width: 89
+        height: 66
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76ca5cbb3f72dc650800000000000000
+      internalID: 6254699385268317287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magnezone_spritesheet_25
+      rect:
+        serializedVersion: 2
+        x: 458
+        y: 218
+        width: 91
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f69f8e6c63f5e4c40800000000000000
+      internalID: 5498436883935983983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magnezone_spritesheet_26
+      rect:
+        serializedVersion: 2
+        x: 550
+        y: 214
+        width: 92
+        height: 68
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6f45925c2c086cd0800000000000000
+      internalID: -2564786603283886226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magnezone_spritesheet_27
+      rect:
+        serializedVersion: 2
+        x: 643
+        y: 215
+        width: 92
+        height: 67
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34ea44f938598d460800000000000000
+      internalID: 7266722391307628099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magnezone_spritesheet_28
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 141
+        width: 89
+        height: 66
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab85798a1b3f618c0800000000000000
+      internalID: -4028764872273078086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magnezone_spritesheet_29
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 143
+        width: 91
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05d3f16c5ec497de0800000000000000
+      internalID: -1334951264783483568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magnezone_spritesheet_30
+      rect:
+        serializedVersion: 2
+        x: 182
+        y: 139
+        width: 92
+        height: 68
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c856d8f4ee9bca900800000000000000
+      internalID: 697136475523605900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magnezone_spritesheet_31
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 138
+        width: 92
+        height: 67
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a0d596040c17a390800000000000000
+      internalID: -7807240625407536990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magnezone_spritesheet_32
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 141
+        width: 89
+        height: 66
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6f5c4c24f6c508c0800000000000000
+      internalID: -4033599139222888597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magnezone_spritesheet_33
+      rect:
+        serializedVersion: 2
+        x: 463
+        y: 143
+        width: 91
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 214ef0984901f6770800000000000000
+      internalID: 8606115643069031442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magnezone_spritesheet_34
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 137
+        width: 92
+        height: 69
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9653f19ed8f29e1e0800000000000000
+      internalID: -2168149459054152343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magnezone_spritesheet_35
+      rect:
+        serializedVersion: 2
+        x: 648
+        y: 136
+        width: 92
+        height: 68
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d937eedc78b90e060800000000000000
+      internalID: 6980750430002115485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magnezone_spritesheet_36
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 70
+        width: 89
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31c098b3983a71aa0800000000000000
+      internalID: -6190299352992773101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magnezone_spritesheet_37
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 69
+        width: 91
+        height: 62
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b0f84593257524d0800000000000000
+      internalID: -3159990767841644367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magnezone_spritesheet_38
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 69
+        width: 92
+        height: 61
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df15923c0a9ed3460800000000000000
+      internalID: 7223186254050447869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magnezone_spritesheet_39
+      rect:
+        serializedVersion: 2
+        x: 277
+        y: 67
+        width: 92
+        height: 62
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8759469215cc06fa0800000000000000
+      internalID: -5809418870349064840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magnezone_spritesheet_40
+      rect:
+        serializedVersion: 2
+        x: 370
+        y: 67
+        width: 89
+        height: 62
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f3c2dce3021dab50800000000000000
+      internalID: 6605956036489823225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magnezone_spritesheet_41
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 67
+        width: 91
+        height: 62
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3745c61fcd15cde50800000000000000
+      internalID: 6835428343826633843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magnezone_spritesheet_42
+      rect:
+        serializedVersion: 2
+        x: 552
+        y: 69
+        width: 92
+        height: 61
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: feb027a3a880d9830800000000000000
+      internalID: 4079426227246599151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magnezone_spritesheet_43
+      rect:
+        serializedVersion: 2
+        x: 645
+        y: 67
+        width: 92
+        height: 62
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11268456fbc2a3ab0800000000000000
+      internalID: -5027656833456119279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magnezone_spritesheet_44
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 89
+        height: 62
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4aa576482a4a84eb0800000000000000
+      internalID: -4735353990267053404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magnezone_spritesheet_45
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 0
+        width: 91
+        height: 62
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46651ffa9053e3570800000000000000
+      internalID: 8448248266716436068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magnezone_spritesheet_46
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 2
+        width: 92
+        height: 61
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca5a1e0554630b7b0800000000000000
+      internalID: -5210605097530055252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magnezone_spritesheet_47
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 0
+        width: 92
+        height: 62
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dba1f0692a1db7840800000000000000
+      internalID: 5222998689098701501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magnezone_spritesheet_48
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 0
+        width: 89
+        height: 62
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f85fea691d77f7b0800000000000000
+      internalID: -5190542497399482120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magnezone_spritesheet_49
+      rect:
+        serializedVersion: 2
+        x: 459
+        y: 0
+        width: 91
+        height: 62
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e47b40d269e97ab0800000000000000
+      internalID: -5009716499862293279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magnezone_spritesheet_50
+      rect:
+        serializedVersion: 2
+        x: 551
+        y: 2
+        width: 92
+        height: 62
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79f73a917b49be780800000000000000
+      internalID: -8652658744932204649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: magnezone_spritesheet_51
+      rect:
+        serializedVersion: 2
+        x: 646
+        y: 1
+        width: 92
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42fe5a05c7993c770800000000000000
+      internalID: 8629910070180048676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 59fd0e5efc6b648479afb0d21fbb5e7b
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      magnezone_spritesheet_0: -5908953957423532981
+      magnezone_spritesheet_1: -5325597667400265512
+      magnezone_spritesheet_10: 2265190446430217003
+      magnezone_spritesheet_11: -4352817558613537362
+      magnezone_spritesheet_12: -3169864086137141917
+      magnezone_spritesheet_13: -2591038341940083059
+      magnezone_spritesheet_14: -5668248590351601549
+      magnezone_spritesheet_15: -7751240525618362055
+      magnezone_spritesheet_16: -875712984135586659
+      magnezone_spritesheet_17: 8279992385592745357
+      magnezone_spritesheet_18: -1768050862290083903
+      magnezone_spritesheet_19: 381747902032568416
+      magnezone_spritesheet_2: 308453787749000798
+      magnezone_spritesheet_20: 1264669973510489376
+      magnezone_spritesheet_21: -2662548224729580392
+      magnezone_spritesheet_22: 1539258761487188787
+      magnezone_spritesheet_23: 4133406842117005383
+      magnezone_spritesheet_24: 6254699385268317287
+      magnezone_spritesheet_25: 5498436883935983983
+      magnezone_spritesheet_26: -2564786603283886226
+      magnezone_spritesheet_27: 7266722391307628099
+      magnezone_spritesheet_28: -4028764872273078086
+      magnezone_spritesheet_29: -1334951264783483568
+      magnezone_spritesheet_3: 888439162539868764
+      magnezone_spritesheet_30: 697136475523605900
+      magnezone_spritesheet_31: -7807240625407536990
+      magnezone_spritesheet_32: -4033599139222888597
+      magnezone_spritesheet_33: 8606115643069031442
+      magnezone_spritesheet_34: -2168149459054152343
+      magnezone_spritesheet_35: 6980750430002115485
+      magnezone_spritesheet_36: -6190299352992773101
+      magnezone_spritesheet_37: -3159990767841644367
+      magnezone_spritesheet_38: 7223186254050447869
+      magnezone_spritesheet_39: -5809418870349064840
+      magnezone_spritesheet_4: 7521865350015185488
+      magnezone_spritesheet_40: 6605956036489823225
+      magnezone_spritesheet_41: 6835428343826633843
+      magnezone_spritesheet_42: 4079426227246599151
+      magnezone_spritesheet_43: -5027656833456119279
+      magnezone_spritesheet_44: -4735353990267053404
+      magnezone_spritesheet_45: 8448248266716436068
+      magnezone_spritesheet_46: -5210605097530055252
+      magnezone_spritesheet_47: 5222998689098701501
+      magnezone_spritesheet_48: -5190542497399482120
+      magnezone_spritesheet_49: -5009716499862293279
+      magnezone_spritesheet_5: 8579930140512656030
+      magnezone_spritesheet_50: -8652658744932204649
+      magnezone_spritesheet_51: 8629910070180048676
+      magnezone_spritesheet_6: -5719935714916259055
+      magnezone_spritesheet_7: 1642869347012306779
+      magnezone_spritesheet_8: -7107783161341291042
+      magnezone_spritesheet_9: -3158690536675215374
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

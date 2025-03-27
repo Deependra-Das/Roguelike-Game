@@ -3038,6 +3038,19 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9e1d7b0606562a64c8f95720ba3600d2, type: 2}
   - {fileID: 11400000, guid: 824ec1f2c2dbb374d9d88ff7d7cd2e0a, type: 2}
   - {fileID: 11400000, guid: 517b132a98d73cb4eabf799144be8ac9, type: 2}
+  _enemyScriptableObjects:
+  - {fileID: 11400000, guid: c7bb5c5baf709af45a5229c57864d4c8, type: 2}
+  - {fileID: 11400000, guid: 122282ee7e63e2f4493a8e7e6f62d3a3, type: 2}
+  - {fileID: 11400000, guid: 82e4dfd36ac087e4d8bfa4f8d39b5729, type: 2}
+  - {fileID: 11400000, guid: 8d879c5b24d8bc344bea148badb7017e, type: 2}
+  - {fileID: 11400000, guid: e769ce109893e5143b30fba691bcf088, type: 2}
+  - {fileID: 11400000, guid: 81b910138f1728d42ae1142a24a72e3c, type: 2}
+  - {fileID: 11400000, guid: 24f933f9e2557fd409308727cc9e0c4f, type: 2}
+  - {fileID: 11400000, guid: 9a5202e8c2d177d47a651957e22b171d, type: 2}
+  - {fileID: 11400000, guid: f03ad0759a897f54087e3ac5935f7c93, type: 2}
+  - {fileID: 11400000, guid: 81c0513473c4f3341936dafd1bfabcf1, type: 2}
+  - {fileID: 11400000, guid: b3caf8504ef46064d9378c4c3b24f7d0, type: 2}
+  - {fileID: 11400000, guid: 227a44f4f3d351546bdfd43b644d8556, type: 2}
 --- !u!4 &1257729680
 Transform:
   m_ObjectHideFlags: 0

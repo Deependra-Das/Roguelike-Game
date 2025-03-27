@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f79a953af156b546b0ad82bb43446c1, type: 3}
+  m_Name: Glalie_Shooter_SO
+  m_EditorClassIdentifier: 
+  enemyID: 9
+  enemyType: 2
+  enemyPrefab: {fileID: 3294686028035639538, guid: f06cb8425e83544448cd26a25f5ba5d7, type: 3}
+  enemyImage: {fileID: 0}
+  enemyName: Glalie
+  spawnPosition: {x: 0, y: 0, z: 0}
+  spawnRotation: {x: 0, y: 0, z: 0}
+  movementSpeed: 0.5
+  health: 10
+  attackPower: 5
+  attackCooldown: 15

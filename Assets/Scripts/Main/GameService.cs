@@ -6,6 +6,7 @@ using Roguelike.Utilities;
 using Roguelike.Event;
 using Roguelike.Level;
 using Roguelike.Player;
+using Roguelike.Enemy;
 using Roguelike.UI;
 
 namespace Roguelike.Main
@@ -18,7 +19,8 @@ namespace Roguelike.Main
         [Header("Scriptable Objects")]
         [SerializeField] private List<LevelScriptableObject> _levelScriptableObjects;
         [SerializeField] private List<PlayerScriptableObject> _playerScriptableObjects;
-        
+        [SerializeField] private List<EnemyScriptableObject> _enemyScriptableObjects;
+
 
         private Dictionary<Type, IService> _services = new Dictionary<Type, IService>();
 
@@ -40,6 +42,7 @@ namespace Roguelike.Main
             RegisterService<UIService>(_uiService);
             RegisterService<LevelService>(new LevelService(_levelScriptableObjects));
             RegisterService<PlayerService>(new PlayerService(_playerScriptableObjects));
+            RegisterService<EnemyService>(new EnemyService(_enemyScriptableObjects));
         }
 
         public void InjectDependencies()
@@ -47,7 +50,8 @@ namespace Roguelike.Main
             InitializeService<EventService>();
             InitializeService<UIService>();
             InitializeService<LevelService>();
-            InitializeService<PlayerService>();            
+            InitializeService<PlayerService>();
+            InitializeService<EnemyService>();
         }
 
         public void RegisterService<T>(IService service) where T : IService

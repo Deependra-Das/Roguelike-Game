@@ -1,0 +1,650 @@
+fileFormatVersion: 2
+guid: db42188ad78304a438610f04593daa18
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6691403569081288208
+    second: sharpedo__spritesheet_0
+  - first:
+      213: 7563708713639728242
+    second: sharpedo__spritesheet_1
+  - first:
+      213: 5729108983123815710
+    second: sharpedo__spritesheet_2
+  - first:
+      213: 4477007784510541770
+    second: sharpedo__spritesheet_3
+  - first:
+      213: -1276999284133305346
+    second: sharpedo__spritesheet_4
+  - first:
+      213: -2015316723535603045
+    second: sharpedo__spritesheet_5
+  - first:
+      213: 6882127279684166128
+    second: sharpedo__spritesheet_6
+  - first:
+      213: -5074650790243763702
+    second: sharpedo__spritesheet_7
+  - first:
+      213: 1028046627076052119
+    second: sharpedo__spritesheet_8
+  - first:
+      213: 7978283906459515057
+    second: sharpedo__spritesheet_9
+  - first:
+      213: -6532893565524735935
+    second: sharpedo__spritesheet_10
+  - first:
+      213: -1428203617845702591
+    second: sharpedo__spritesheet_11
+  - first:
+      213: -2914327860261067822
+    second: sharpedo__spritesheet_12
+  - first:
+      213: -956685290718499701
+    second: sharpedo__spritesheet_13
+  - first:
+      213: 2241230339303819315
+    second: sharpedo__spritesheet_14
+  - first:
+      213: -4293863933946887338
+    second: sharpedo__spritesheet_15
+  - first:
+      213: -6499589269166150803
+    second: sharpedo__spritesheet_16
+  - first:
+      213: -6393863386416235384
+    second: sharpedo__spritesheet_17
+  - first:
+      213: -2084664688253120908
+    second: sharpedo__spritesheet_18
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 24
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: sharpedo__spritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 294
+        width: 65
+        height: 70
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0160fdfe714acdc50800000000000000
+      internalID: 6691403569081288208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sharpedo__spritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 294
+        width: 66
+        height: 70
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 274d5053001b7f860800000000000000
+      internalID: 7563708713639728242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sharpedo__spritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 294
+        width: 64
+        height: 70
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1d289a1442e18f40800000000000000
+      internalID: 5729108983123815710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sharpedo__spritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 223
+        width: 63
+        height: 70
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: acfc86c1cd6812e30800000000000000
+      internalID: 4477007784510541770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sharpedo__spritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 223
+        width: 64
+        height: 70
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef36ecabaef274ee0800000000000000
+      internalID: -1276999284133305346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sharpedo__spritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 223
+        width: 62
+        height: 70
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9a91c71e182804e0800000000000000
+      internalID: -2015316723535603045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sharpedo__spritesheet_6
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 153
+        width: 61
+        height: 69
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f1a99c3c4a328f50800000000000000
+      internalID: 6882127279684166128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sharpedo__spritesheet_7
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 79
+        width: 63
+        height: 70
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0a7d503ef73399b0800000000000000
+      internalID: -5074650790243763702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sharpedo__spritesheet_8
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 79
+        width: 63
+        height: 73
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7941863e5fa544e00800000000000000
+      internalID: 1028046627076052119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sharpedo__spritesheet_9
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 77
+        width: 61
+        height: 69
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b83cb131fe88be60800000000000000
+      internalID: 7978283906459515057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sharpedo__spritesheet_10
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 79
+        width: 63
+        height: 73
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14886773aef7655a0800000000000000
+      internalID: -6532893565524735935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sharpedo__spritesheet_11
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 79
+        width: 65
+        height: 70
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 140116360600e2ce0800000000000000
+      internalID: -1428203617845702591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sharpedo__spritesheet_12
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 78
+        width: 63
+        height: 70
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d36d1a704a3e87d0800000000000000
+      internalID: -2914327860261067822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sharpedo__spritesheet_13
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 3
+        width: 63
+        height: 70
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8ce1ecfbcb29b2f0800000000000000
+      internalID: -956685290718499701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sharpedo__spritesheet_14
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 3
+        width: 63
+        height: 73
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 338480a7e137a1f10800000000000000
+      internalID: 2241230339303819315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sharpedo__spritesheet_15
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 1
+        width: 61
+        height: 69
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6530c3f70812964c0800000000000000
+      internalID: -4293863933946887338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sharpedo__spritesheet_16
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 1
+        width: 61
+        height: 69
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6b2969fef1dcc5a0800000000000000
+      internalID: -6499589269166150803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sharpedo__spritesheet_17
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 0
+        width: 63
+        height: 73
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88cb84e402f6447a0800000000000000
+      internalID: -6393863386416235384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sharpedo__spritesheet_18
+      rect:
+        serializedVersion: 2
+        x: 317
+        y: 0
+        width: 65
+        height: 70
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47e4fd4d288c113e0800000000000000
+      internalID: -2084664688253120908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 3250a1deb8569f648bd82a34550123d4
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      sharpedo__spritesheet_0: 6691403569081288208
+      sharpedo__spritesheet_1: 7563708713639728242
+      sharpedo__spritesheet_10: -6532893565524735935
+      sharpedo__spritesheet_11: -1428203617845702591
+      sharpedo__spritesheet_12: -2914327860261067822
+      sharpedo__spritesheet_13: -956685290718499701
+      sharpedo__spritesheet_14: 2241230339303819315
+      sharpedo__spritesheet_15: -4293863933946887338
+      sharpedo__spritesheet_16: -6499589269166150803
+      sharpedo__spritesheet_17: -6393863386416235384
+      sharpedo__spritesheet_18: -2084664688253120908
+      sharpedo__spritesheet_2: 5729108983123815710
+      sharpedo__spritesheet_3: 4477007784510541770
+      sharpedo__spritesheet_4: -1276999284133305346
+      sharpedo__spritesheet_5: -2015316723535603045
+      sharpedo__spritesheet_6: 6882127279684166128
+      sharpedo__spritesheet_7: -5074650790243763702
+      sharpedo__spritesheet_8: 1028046627076052119
+      sharpedo__spritesheet_9: 7978283906459515057
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
