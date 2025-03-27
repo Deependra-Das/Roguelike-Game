@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 4347249936199184577}
   - component: {fileID: 7126894056265526276}
   - component: {fileID: 5117916521738724908}
-  - component: {fileID: 5355729241712278829}
   - component: {fileID: 8398617751473999955}
   - component: {fileID: 5194158469985524457}
+  - component: {fileID: 5355729241712278829}
   m_Layer: 0
   m_Name: Player_2_Prefab
   m_TagString: Untagged
@@ -77,8 +77,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -390223507
-  m_SortingLayer: 3
+  m_SortingLayerID: 32325163
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -3830244787435783774, guid: bd111373366c5d944b9f9c30130a1843, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -90,7 +90,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!50 &5117916521738724908
 Rigidbody2D:
   serializedVersion: 5
@@ -118,21 +118,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &5355729241712278829
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5196525292728014476}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 14dffa5b57ad81a41bba192802939bcd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _player_RB: {fileID: 5117916521738724908}
-  _playerAnimator: {fileID: 8398617751473999955}
-  playerMoveDirection: {x: 0, y: 0, z: 0}
 --- !u!95 &8398617751473999955
 Animator:
   serializedVersion: 7
@@ -192,3 +177,18 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0.45}
   m_Size: {x: 0.9, y: 0.75}
   m_Direction: 1
+--- !u!114 &5355729241712278829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5196525292728014476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14dffa5b57ad81a41bba192802939bcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _player_RB: {fileID: 5117916521738724908}
+  _playerAnimator: {fileID: 8398617751473999955}
+  playerMoveDirection: {x: 0, y: 0, z: 0}
