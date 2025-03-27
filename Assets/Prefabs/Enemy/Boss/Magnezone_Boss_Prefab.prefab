@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -4041162210456731558}
   - component: {fileID: 3294686028035639538}
   - component: {fileID: 2911287699557923543}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Magnezone_Boss_Prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -203,7 +203,7 @@ GameObject:
   m_Component:
   - component: {fileID: 702316648478452477}
   - component: {fileID: 2866121006883526553}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}

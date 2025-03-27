@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -6892481119450112660}
   - component: {fileID: 3294686028035639538}
   - component: {fileID: 1950721139346177894}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Macargo_Boss_Prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -203,7 +203,7 @@ GameObject:
   m_Component:
   - component: {fileID: 702316648478452477}
   - component: {fileID: 2866121006883526553}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
