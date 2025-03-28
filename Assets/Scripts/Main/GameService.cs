@@ -8,6 +8,7 @@ using Roguelike.Level;
 using Roguelike.Player;
 using Roguelike.Enemy;
 using Roguelike.UI;
+using Roguelike.Wave;
 
 namespace Roguelike.Main
 {
@@ -15,6 +16,7 @@ namespace Roguelike.Main
     {
         [SerializeField] private CinemachineCamera _cinemachineCamera;
         [SerializeField] private UIService _uiService;
+        [SerializeField] private WaveService _waveService;
 
         [Header("Scriptable Objects")]
         [SerializeField] private List<LevelScriptableObject> _levelScriptableObjects;
@@ -43,6 +45,7 @@ namespace Roguelike.Main
             RegisterService<LevelService>(new LevelService(_levelScriptableObjects));
             RegisterService<PlayerService>(new PlayerService(_playerScriptableObjects));
             RegisterService<EnemyService>(new EnemyService(_enemyScriptableObjects));
+            RegisterService<WaveService>(_waveService);
         }
 
         public void InjectDependencies()
@@ -52,6 +55,7 @@ namespace Roguelike.Main
             InitializeService<LevelService>();
             InitializeService<PlayerService>();
             InitializeService<EnemyService>();
+            InitializeService<WaveService>();
         }
 
         public void RegisterService<T>(IService service) where T : IService

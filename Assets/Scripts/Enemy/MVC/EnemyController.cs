@@ -34,10 +34,11 @@ namespace Roguelike.Enemy
             _enemyView.SetController(this);
         }
 
-        public void Configure()
+        public void Configure(Vector2 spawnPosition)
         {
             isDead = false;
             lastAttackTime = 0;
+            _enemyView.transform.position = spawnPosition;
             _enemyView.gameObject.SetActive(true);
         }
         public void UpdateEnemy()

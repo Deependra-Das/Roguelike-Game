@@ -21,30 +21,13 @@ namespace Roguelike.Enemy
 
         public void Initialize(params object[] dependencies)
         {
-            _enemyPoolObj = new EnemyPool(); 
-            SubscribeToEvents();
+            _enemyPoolObj = new EnemyPool();
         }
 
-        private void SubscribeToEvents()
-        {
-            GameService.Instance.GetService<EventService>().OnStartGame.AddListener(StartSpawning);
-        }
-
-        private void UnsubscribeToEvents()
-        {
-            GameService.Instance.GetService<EventService>().OnStartGame.RemoveListener(StartSpawning);
-        }
-
-        public void StartSpawning()
-        {
-            SpawnEnemy(5);
-            SpawnEnemy(8);
-            SpawnEnemy(11);
-        }
-
-        public EnemyController SpawnEnemy(int enemyId)
+        public EnemyController SpawnEnemy(int enemyId, Vector2 spawnPosition)
         {
             EnemyController enemy = FetchEnemy(enemyId);
+            enemy.Configure(spawnPosition);
             return enemy;
         }
 

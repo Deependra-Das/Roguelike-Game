@@ -17,7 +17,7 @@ MonoBehaviour:
   enemyPrefab: {fileID: 3294686028035639538, guid: d3326e627a92c7b4495196dcb49647ae, type: 3}
   enemyImage: {fileID: 0}
   enemyName: Forretress
-  spawnPosition: {x: 0, y: 0, z: 0}
+  spawnPosition: {x: -100, y: 100, z: 0}
   spawnRotation: {x: 0, y: 0, z: 0}
   movementSpeed: 0.5
   health: 10

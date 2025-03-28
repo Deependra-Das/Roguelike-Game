@@ -43,7 +43,8 @@ namespace Roguelike.Level
         {
             var levelData = levelScriptableObjects.Find(levelSO => levelSO.ID == _levelIdSelected);
             Object.Instantiate(levelData.levelPrefab);
-            Debug.Log(levelData.numberOfWaves);
+            GameService.Instance.GetService<EventService>().OnStartWaveSpawn.Invoke(levelData.spawnIntervalDecrementRate, levelData.spawnFinalInterval,
+                levelData.waveInterval, levelData.enemyWaveData);
             UnsubscribeToEvents();
         }
     }
