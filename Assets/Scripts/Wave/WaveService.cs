@@ -10,7 +10,7 @@ namespace Roguelike.Wave
 {
     public class WaveService : MonoBehaviour,IService
     {
-        private List<WaveConfig> _waveData;
+        private List<WaveConfig> _waveData = new List<WaveConfig>();
         private float _spawnInitialIntervalDecrementRate;
         private float _spawnFinalInterval;
         private int _currentWaveIndex = 0;
@@ -40,18 +40,30 @@ namespace Roguelike.Wave
 
         private void StartWave(float spawnInitialIntervalDecrementRate, float spawnFinalInterval, float waveInterval, List<WaveConfig> waveData)
         {
-            _currentWaveIndex = 0;
-            _waveData = waveData;
+            _currentWaveIndex = 1;
             _spawnInitialIntervalDecrementRate = spawnInitialIntervalDecrementRate;
             _spawnFinalInterval = spawnFinalInterval;
             _waveInterval = waveInterval;
+
+            InitializeWaveData(waveData);
 
             if (!isSpawning && !isPaused)
             {
                 isSpawning = true;
                 spawnCoroutine = StartCoroutine(SpawnWaves());
             }
-        
+        }
+
+        private void InitializeWaveData(List<WaveConfig> waveData)
+        {
+            foreach (WaveConfig waveConfig in waveData)
+            {
+                WaveConfig config = new WaveConfig();
+                config.enemy_SO = waveConfig.enemy_SO;
+                config.spawnFrequencyPerWave = waveConfig.spawnFrequencyPerWave;
+                config.spawnInitialInterval = waveConfig.spawnInitialInterval;
+                _waveData.Add(config);
+            }
         }
 
         public void StopSpawning()
@@ -97,8 +109,17 @@ namespace Roguelike.Wave
                     yield return null;
                 }
 
+                Debug.Log("Wave :" + _currentWaveIndex.ToString());
                 yield return StartCoroutine(SpawnWaveEnemies(_waveData));
                 _currentWaveIndex++;
+                foreach (var wave in _waveData)
+                {
+                    if (wave.spawnInitialInterval > _spawnFinalInterval)
+                    {
+                        wave.spawnInitialInterval *= _spawnInitialIntervalDecrementRate;
+                    }
+                }
+
                 yield return new WaitForSeconds(_waveInterval);
             }
         }
@@ -110,7 +131,7 @@ namespace Roguelike.Wave
             foreach (var waveConfig in _waveData)
             {
                 Coroutine spawnCoroutine = StartCoroutine(SpawnEnemiesOfType(waveConfig));
-                activeSpawnCoroutines.Add(spawnCoroutine);
+                activeSpawnCoroutines.Add(spawnCoroutine);          
             }
 
             foreach (var activeCoroutine in activeSpawnCoroutines)

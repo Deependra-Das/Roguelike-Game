@@ -19,17 +19,17 @@ MonoBehaviour:
   levelDescription: Level 1 Description
   spawnIntervalDecrementRate: 0.9
   spawnFinalInterval: 0.3
-  waveInterval: 0
+  waveInterval: 5
   enemyWaveData:
   - enemy_SO: {fileID: 11400000, guid: c7bb5c5baf709af45a5229c57864d4c8, type: 2}
     spawnInitialInterval: 5
-    spawnFrequencyPerWave: 10
+    spawnFrequencyPerWave: 1
   - enemy_SO: {fileID: 11400000, guid: 81c0513473c4f3341936dafd1bfabcf1, type: 2}
     spawnInitialInterval: 2
-    spawnFrequencyPerWave: 20
+    spawnFrequencyPerWave: 1
   - enemy_SO: {fileID: 11400000, guid: f03ad0759a897f54087e3ac5935f7c93, type: 2}
     spawnInitialInterval: 10
-    spawnFrequencyPerWave: 5
+    spawnFrequencyPerWave: 1
   - enemy_SO: {fileID: 11400000, guid: e769ce109893e5143b30fba691bcf088, type: 2}
     spawnInitialInterval: 20
     spawnFrequencyPerWave: 1
