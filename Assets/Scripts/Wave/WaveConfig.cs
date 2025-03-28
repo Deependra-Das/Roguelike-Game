@@ -9,6 +9,5 @@ namespace Roguelike.Wave
         public EnemyScriptableObject enemy_SO;
         public float spawnInitialInterval;
         public int spawnFrequencyPerWave;
-        public int spawnedEnemyCount;
     }
 }
