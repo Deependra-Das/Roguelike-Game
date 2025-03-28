@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5054300024885779408}
   m_Layer: 7
   m_Name: Woobat_Stalker_Prefab
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -10,6 +10,8 @@ namespace Roguelike.Wave
 {
     public class WaveService : MonoBehaviour,IService
     {
+        [SerializeField] private Transform minPos;
+        [SerializeField] private Transform maxPos;
         private List<WaveConfig> _waveData = new List<WaveConfig>();
         private float _spawnInitialIntervalDecrementRate;
         private float _spawnFinalInterval;
@@ -151,15 +153,48 @@ namespace Roguelike.Wave
 
                 if (!isSpawning) yield break;
 
-                SpawnEnemy(waveConfig.enemy_SO.enemyID);
                 yield return new WaitForSeconds(waveConfig.spawnInitialInterval);
+                SpawnEnemy(waveConfig.enemy_SO.enemyID);
+               
             }
         }
 
         private void SpawnEnemy(int ID)
         {
-            GameService.Instance.GetService<EnemyService>().SpawnEnemy(ID);
+            GameService.Instance.GetService<EnemyService>().SpawnEnemy(ID, RandomSpawnPoint());
         }
+        private Vector2 RandomSpawnPoint()
+        {
+            Vector2 spawnPoint;
+            if (Random.Range(0f, 1f) > 0.5f)
+            {
+                spawnPoint.x = Random.Range(minPos.position.x, maxPos.position.x);
+                if (Random.Range(0f, 1f) > 0.5f)
+                {
+                    spawnPoint.y = minPos.position.y;
+                }
+                else
+                {
+                    spawnPoint.y = maxPos.position.y;
+                }
+            }
+            else
+            {
+                spawnPoint.y = Random.Range(minPos.position.y, maxPos.position.y);
+                if (Random.Range(0f, 1f) > 0.5f)
+                {
+                    spawnPoint.x = minPos.position.x;
+                }
+                else
+                {
+                    spawnPoint.x = maxPos.position.x;
+                }
+            }
+
+
+            return spawnPoint;
+        }
+
     }
 
 }

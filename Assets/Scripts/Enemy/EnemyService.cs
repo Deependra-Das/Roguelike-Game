@@ -24,9 +24,10 @@ namespace Roguelike.Enemy
             _enemyPoolObj = new EnemyPool();
         }
 
-        public EnemyController SpawnEnemy(int enemyId)
+        public EnemyController SpawnEnemy(int enemyId, Vector2 spawnPosition)
         {
             EnemyController enemy = FetchEnemy(enemyId);
+            enemy.Configure(spawnPosition);
             return enemy;
         }
 
