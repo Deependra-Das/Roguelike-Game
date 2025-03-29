@@ -25,14 +25,14 @@ namespace Roguelike.Player
 
         private void SubscribeToEvents()
         {
-            GameService.Instance.GetService<EventService>().OnCharacterSelected.AddListener(SelectPlayer);
-            GameService.Instance.GetService<EventService>().OnStartGame.AddListener(SpawnPlayer);
+            //GameService.Instance.GetService<EventService>().OnCharacterSelected.AddListener(SelectPlayer);
+            //GameService.Instance.GetService<EventService>().OnStartGameplay.AddListener(SpawnPlayer);
         }
 
         private void UnsubscribeToEvents()
         {
-            GameService.Instance.GetService<EventService>().OnCharacterSelected.RemoveListener(SelectPlayer);
-            GameService.Instance.GetService<EventService>().OnStartGame.RemoveListener(SpawnPlayer);
+            //GameService.Instance.GetService<EventService>().OnCharacterSelected.RemoveListener(SelectPlayer);
+            //GameService.Instance.GetService<EventService>().OnStartGameplay.RemoveListener(SpawnPlayer);
         }
 
         public void SelectPlayer(int playerId)

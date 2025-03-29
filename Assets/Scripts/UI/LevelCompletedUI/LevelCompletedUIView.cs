@@ -23,12 +23,12 @@ namespace Roguelike.UI
 
         private void SubscribeToEvents()
         {
-            _backToMainMenuButtonPrefab.onClick.AddListener(OnBackToMainMenuButtonClicked);
+            //_backToMainMenuButtonPrefab.onClick.AddListener(OnBackToMainMenuButtonClicked);
         }
 
         private void UnsubscribeToEvents()
         {
-            _backToMainMenuButtonPrefab.onClick.RemoveListener(OnBackToMainMenuButtonClicked);
+            //_backToMainMenuButtonPrefab.onClick.RemoveListener(OnBackToMainMenuButtonClicked);
         }
 
         public void DisableView() => gameObject.SetActive(false);
@@ -39,7 +39,7 @@ namespace Roguelike.UI
 
         private void OnBackToMainMenuButtonClicked()
         {
-            GameService.Instance.GetService<EventService>().OnBackToMainMenuButtonClicked.Invoke();
+            //GameService.Instance.GetService<EventService>().OnBackToMainMenuButtonClicked.Invoke();
         }
     }
 }

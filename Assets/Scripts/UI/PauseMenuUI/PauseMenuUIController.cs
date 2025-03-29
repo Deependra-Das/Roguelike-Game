@@ -25,16 +25,16 @@ namespace Roguelike.UI
 
         private void SubscribeToEvents()
         {
-            GameService.Instance.GetService<EventService>().OnPauseGame.AddListener(OnPauseGame);
-            GameService.Instance.GetService<EventService>().OnContinueButtonClicked.AddListener(OnContinueGame);
-            GameService.Instance.GetService<EventService>().OnGiveUpButtonClicked.AddListener(OnGiveUp);
+            //GameService.Instance.GetService<EventService>().OnGamePaused.AddListener(OnPauseGame);
+            //GameService.Instance.GetService<EventService>().OnContinueButtonClicked.AddListener(OnContinueGame);
+            //GameService.Instance.GetService<EventService>().OnGiveUpButtonClicked.AddListener(OnGiveUp);
         }
 
         private void UnsubscribeToEvents()
         {
-            GameService.Instance.GetService<EventService>().OnPauseGame.RemoveListener(OnPauseGame);
-            GameService.Instance.GetService<EventService>().OnContinueButtonClicked.RemoveListener(OnContinueGame);
-            GameService.Instance.GetService<EventService>().OnGiveUpButtonClicked.RemoveListener(OnGiveUp);
+            //GameService.Instance.GetService<EventService>().OnGamePaused.RemoveListener(OnPauseGame);
+            //GameService.Instance.GetService<EventService>().OnContinueButtonClicked.RemoveListener(OnContinueGame);
+            //GameService.Instance.GetService<EventService>().OnGiveUpButtonClicked.RemoveListener(OnGiveUp);
         }
 
         public void Show()
@@ -60,7 +60,7 @@ namespace Roguelike.UI
         private void OnGiveUp()
         {
             Hide();
-            GameService.Instance.GetService<EventService>().OnGameOver.Invoke();
+            //GameService.Instance.GetService<EventService>().OnGameOver.Invoke();
         }
 
         private void OnDestroy()

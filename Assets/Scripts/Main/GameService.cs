@@ -9,7 +9,6 @@ using Roguelike.Player;
 using Roguelike.Enemy;
 using Roguelike.UI;
 using Roguelike.Wave;
-using UnityEngine.XR;
 
 namespace Roguelike.Main
 {
@@ -24,8 +23,8 @@ namespace Roguelike.Main
         [SerializeField] private List<PlayerScriptableObject> _playerScriptableObjects;
         [SerializeField] private List<EnemyScriptableObject> _enemyScriptableObjects;
 
-
         private Dictionary<Type, IService> _services = new Dictionary<Type, IService>();
+        public GameState GameState { get; private set; }
 
         protected override void Awake()
         {
@@ -36,12 +35,11 @@ namespace Roguelike.Main
         {
             RegisterServices();
             InjectDependencies();
-            Debug.Log("Game Service Running");
+            ChangeGameState(GameState.MainMenu);
         }
 
         private void RegisterServices()
         {
-            RegisterService<EventService>(new EventService());
             RegisterService<UIService>(_uiService);
             RegisterService<LevelService>(new LevelService(_levelScriptableObjects));
             RegisterService<PlayerService>(new PlayerService(_playerScriptableObjects));
@@ -51,7 +49,6 @@ namespace Roguelike.Main
 
         public void InjectDependencies()
         {
-            InitializeService<EventService>();
             InitializeService<UIService>();
             InitializeService<LevelService>();
             InitializeService<PlayerService>();
@@ -111,6 +108,39 @@ namespace Roguelike.Main
                 Debug.LogWarning("Cinemachine Virtual Camera or Target GameObject is not assigned.");
             }
 
+        }
+
+        public void ChangeGameState(GameState newState)
+        {
+            GameState = newState;
+
+            switch (newState)
+            {
+                case GameState.MainMenu:
+                    EventService.Instance.OnMainMenu.Invoke();
+                    break;
+                case GameState.LevelSelection:
+                    //GetService<EventService>().OnLevelSelection.Invoke();
+                    break;
+                case GameState.CharacterSelection:
+                    //GetService<EventService>().OnCharacterSelection.Invoke();
+                    break;
+                case GameState.PowerUpSelection:
+                    //GetService<EventService>().OnPowerUpSelection.Invoke();
+                    break;
+                case GameState.Gameplay:
+                    //GetService<EventService>().OnGameplay.Invoke();
+                    break;
+                case GameState.GamePaused:
+                    //GetService<EventService>().OnGamePaused.Invoke();
+                    break;
+                case GameState.LevelCompleted:
+                    //GetService<EventService>().OnLevelCompleted.Invoke();
+                    break;
+                case GameState.GameOver:
+                    //GetService<EventService>().OnGameOver.Invoke();
+                    break;
+            }
         }
     }
 }

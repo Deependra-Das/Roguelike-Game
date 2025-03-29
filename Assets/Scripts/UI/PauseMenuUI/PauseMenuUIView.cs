@@ -23,14 +23,14 @@ namespace Roguelike.UI
 
         private void SubscribeToEvents()
         {
-            _continueButtonPrefab.onClick.AddListener(OnContinueButtonClicked);
-            _giveUpButtonPrefab.onClick.AddListener(OnGiveUpButtonClicked);
+            //_continueButtonPrefab.onClick.AddListener(OnContinueButtonClicked);
+            //_giveUpButtonPrefab.onClick.AddListener(OnGiveUpButtonClicked);
         }
 
         private void UnsubscribeToEvents()
         {
-            _continueButtonPrefab.onClick.RemoveListener(OnContinueButtonClicked);
-            _giveUpButtonPrefab.onClick.RemoveListener(OnGiveUpButtonClicked);
+            //_continueButtonPrefab.onClick.RemoveListener(OnContinueButtonClicked);
+            //_giveUpButtonPrefab.onClick.RemoveListener(OnGiveUpButtonClicked);
         }
 
         public void DisableView() => gameObject.SetActive(false);
@@ -41,12 +41,12 @@ namespace Roguelike.UI
 
         private void OnContinueButtonClicked()
         {
-            GameService.Instance.GetService<EventService>().OnContinueButtonClicked.Invoke();
+            //GameService.Instance.GetService<EventService>().OnContinueButtonClicked.Invoke();
         }
 
         private void OnGiveUpButtonClicked()
         {
-            GameService.Instance.GetService<EventService>().OnGiveUpButtonClicked.Invoke();
+            //GameService.Instance.GetService<EventService>().OnGiveUpButtonClicked.Invoke();
         }
     }
 }

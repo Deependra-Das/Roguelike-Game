@@ -25,14 +25,14 @@ namespace Roguelike.UI
 
         private void SubscribeToEvents()
         {
-            GameService.Instance.GetService<EventService>().OnGameOver.AddListener(OnGameOver);
-            GameService.Instance.GetService<EventService>().OnBackToMainMenuButtonClicked.AddListener(OnBackToMainMenu);
+            //GameService.Instance.GetService<EventService>().OnGameOver.AddListener(OnGameOver);
+            //GameService.Instance.GetService<EventService>().OnBackToMainMenuButtonClicked.AddListener(OnBackToMainMenu);
         }
 
         private void UnsubscribeToEvents()
         {
-            GameService.Instance.GetService<EventService>().OnGameOver.RemoveListener(OnGameOver);
-            GameService.Instance.GetService<EventService>().OnBackToMainMenuButtonClicked.RemoveListener(OnBackToMainMenu);
+            //GameService.Instance.GetService<EventService>().OnGameOver.RemoveListener(OnGameOver);
+            //GameService.Instance.GetService<EventService>().OnBackToMainMenuButtonClicked.RemoveListener(OnBackToMainMenu);
         }
 
         public void Show()

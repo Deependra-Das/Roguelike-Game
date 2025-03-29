@@ -28,10 +28,10 @@ namespace Roguelike.Player
             InitializeView();
             SubscribeToEvents();
             expToUpgradeList = GameService.Instance.GetService<LevelService>().GetExpToUpgradeList();
-            GameService.Instance.GetService<UIService>().UpdateMaxHealthSlider(_playerModel.MaxHealth);
-            GameService.Instance.GetService<UIService>().UpdateCurrentHealthSlider(_playerModel.CurrentHealth);
-            GameService.Instance.GetService<UIService>().UpdateMaxExpSlider(expToUpgradeList[_playerModel.CurrentExpLevel]);
-            GameService.Instance.GetService<UIService>().UpdateCurrentExpSlider(_playerModel.CurrentExpPoints);
+            //GameService.Instance.GetService<UIService>().UpdateMaxHealthSlider(_playerModel.MaxHealth);
+            //GameService.Instance.GetService<UIService>().UpdateCurrentHealthSlider(_playerModel.CurrentHealth);
+            //GameService.Instance.GetService<UIService>().UpdateMaxExpSlider(expToUpgradeList[_playerModel.CurrentExpLevel]);
+            //GameService.Instance.GetService<UIService>().UpdateCurrentExpSlider(_playerModel.CurrentExpPoints);
         }
 
         private void InitializeModel()
@@ -49,12 +49,10 @@ namespace Roguelike.Player
 
         private void SubscribeToEvents()
         {
-            GameService.Instance.GetService<EventService>().OnContinueButtonClicked.AddListener(ContinueGame);
         }
 
         private void UnsubscribeToEvents()
         {
-            GameService.Instance.GetService<EventService>().OnContinueButtonClicked.RemoveListener(ContinueGame);
         }
 
         public void UpdatePlayer() 
@@ -72,7 +70,7 @@ namespace Roguelike.Player
         private void PauseGame()
         {
             isPaused = true;
-            GameService.Instance.GetService<EventService>().OnPauseGame.Invoke();
+            //GameService.Instance.GetService<EventService>().OnGamePaused.Invoke();
             Debug.Log("Game Paused");
         }
 
@@ -101,7 +99,7 @@ namespace Roguelike.Player
 
         public void OnEnemyDeath()
         {
-            GameService.Instance.GetService<EventService>().OnGameOver.Invoke();
+            //GameService.Instance.GetService<EventService>().OnGameOver.Invoke();
             _playerView.OnEnemyDeath();
         }
 

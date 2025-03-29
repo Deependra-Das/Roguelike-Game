@@ -24,14 +24,14 @@ namespace Roguelike.Level
 
         private void SubscribeToEvents()
         {
-            GameService.Instance.GetService<EventService>().OnLevelSelected.AddListener(SelectLevel);
-            GameService.Instance.GetService<EventService>().OnStartGame.AddListener(LoadLevel);
+            //GameService.Instance.GetService<EventService>().OnLevelSelected.AddListener(SelectLevel);
+            //GameService.Instance.GetService<EventService>().OnStartGame.AddListener(LoadLevel);
         }
 
         private void UnsubscribeToEvents()
         {
-            GameService.Instance.GetService<EventService>().OnLevelSelected.RemoveListener(SelectLevel);
-            GameService.Instance.GetService<EventService>().OnStartGame.RemoveListener(LoadLevel);
+            //GameService.Instance.GetService<EventService>().OnLevelSelected.RemoveListener(SelectLevel);
+            //GameService.Instance.GetService<EventService>().OnStartGame.RemoveListener(LoadLevel);
         }
 
         private void SelectLevel(int levelID)
@@ -43,10 +43,9 @@ namespace Roguelike.Level
         public void LoadLevel()
         {
             var levelData = levelScriptableObjects.Find(levelSO => levelSO.ID == _levelIdSelected);
-            //InitializeExpToUpgrade(levelData);
             Object.Instantiate(levelData.levelPrefab);
-            GameService.Instance.GetService<EventService>().OnStartWaveSpawn.Invoke(levelData.spawnIntervalDecrementRate, levelData.spawnFinalInterval,
-                levelData.waveInterval, levelData.enemyWaveData);
+            //GameService.Instance.GetService<EventService>().OnStartWaveSpawn.Invoke(levelData.spawnIntervalDecrementRate, levelData.spawnFinalInterval,
+            //    levelData.waveInterval, levelData.enemyWaveData);
             UnsubscribeToEvents();
         }
 
