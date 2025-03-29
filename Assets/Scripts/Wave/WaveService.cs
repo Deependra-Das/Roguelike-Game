@@ -167,6 +167,7 @@ namespace Roguelike.Wave
         {
             GameService.Instance.GetService<EnemyService>().SpawnEnemy(ID, RandomSpawnPoint());
         }
+
         private Vector2 RandomSpawnPoint()
         {
             Vector2 spawnPoint;

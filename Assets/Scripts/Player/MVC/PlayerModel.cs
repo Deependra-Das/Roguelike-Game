@@ -16,6 +16,7 @@ namespace Roguelike.Player
             MovementSpeed = playerDataObj.movementSpeed;
             MaxHealth = playerDataObj.maxHealth;
             CurrentHealth = playerDataObj.maxHealth;
+            ExperiencePoints = 0;
         }
 
         ~PlayerModel() { }
@@ -33,14 +34,21 @@ namespace Roguelike.Player
         public float MovementSpeed { get; private set; }
         public int MaxHealth { get; private set; }
         public int CurrentHealth { get; private set; }
+        public int ExperiencePoints { get; private set; }
 
         public void UpdateCurrentHealth(int value)
         {
             CurrentHealth += value;
         }
+
         public void UpdateMaxHealth(int value)
         {
             MaxHealth += value;
+        }
+
+        public void UpdateExperiencePoints(int value)
+        {
+            ExperiencePoints += value;
         }
     }
 }

@@ -36,6 +36,7 @@ namespace Roguelike.UI
             GameService.Instance.GetService<EventService>().OnStartGame.RemoveListener(Show);
             GameService.Instance.GetService<EventService>().OnGameOver.RemoveListener(Hide);
             GameService.Instance.GetService<EventService>().OnLevelCompleted.RemoveListener(Hide);
+            GameService.Instance.GetService<EventService>().OnLevelCompleted.AddListener(Hide);
         }
 
         public void Show()
@@ -72,14 +73,14 @@ namespace Roguelike.UI
             _gameplayUIView.OnGameOver(true);
         }
 
-        public int GetPlayerCurrentHealth()
+        public void UpdateCurrentHealthSlider(float currentHealth)
         {
-            return GameService.Instance.GetService<PlayerService>().GetPlayer().PlayerModel.CurrentHealth;
+            _gameplayUIView.UpdateCurrentHealthSlider(currentHealth);
         }
 
-        public int GetPlayerMaxHealth()
+        public void UpdateMaxHealthSlider(float maxHealth)
         {
-            return GameService.Instance.GetService<PlayerService>().GetPlayer().PlayerModel.MaxHealth;
+            _gameplayUIView.UpdateMaxHealthSlider(maxHealth);
         }
     }
 }

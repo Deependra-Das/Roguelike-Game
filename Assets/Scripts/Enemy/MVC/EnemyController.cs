@@ -1,4 +1,5 @@
 using Roguelike.Main;
+using Roguelike.Player;
 using UnityEngine;
 
 namespace Roguelike.Enemy
@@ -63,6 +64,7 @@ namespace Roguelike.Enemy
 
         public void OnEnemyDeath()
         {
+            GameService.Instance.GetService<PlayerService>().GetPlayer().AddExperiencePoints(_enemyModel.ExpDrop);
             _enemyView.gameObject.SetActive(false);
             GameService.Instance.GetService<EnemyService>().ReturnEnemyToPool(this);
         }

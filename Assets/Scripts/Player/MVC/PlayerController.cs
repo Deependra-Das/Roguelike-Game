@@ -29,6 +29,8 @@ namespace Roguelike.Player
         private void InitializeModel()
         {
             _playerModel = new PlayerModel(_playerScriptableObject);
+            GameService.Instance.GetService<UIService>().UpdateMaxHealthSlider(_playerModel.MaxHealth);
+            GameService.Instance.GetService<UIService>().UpdateCurrentHealthSlider(_playerModel.CurrentHealth);       
         }
 
         private void InitializeView()
@@ -83,6 +85,7 @@ namespace Roguelike.Player
         public void TakeDamage(int damage)
         {
             _playerModel.UpdateCurrentHealth(-damage);
+            GameService.Instance.GetService<UIService>().UpdateCurrentHealthSlider(_playerModel.CurrentHealth);
             if (_playerModel.CurrentHealth <= 0)
             {
                 isDead = true;
@@ -94,6 +97,11 @@ namespace Roguelike.Player
         {
             GameService.Instance.GetService<EventService>().OnGameOver.Invoke();
             _playerView.OnEnemyDeath();
+        }
+
+        public void AddExperiencePoints(int value)
+        {
+            _playerModel.UpdateExperiencePoints(value);
         }
     }
 

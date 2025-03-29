@@ -18,5 +18,6 @@ namespace Roguelike.Level
         public float spawnFinalInterval;
         public float waveInterval;
         public List<WaveConfig> enemyWaveData;
+        public ExpToUpgradeScriptableObject expToUpgrade_SO;
     }
 }

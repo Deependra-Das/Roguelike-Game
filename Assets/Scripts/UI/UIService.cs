@@ -72,4 +72,14 @@ public class UIService : MonoBehaviour,IService
     }
 
     private void OnDestroy() => UnsubscribeToEvents();
+
+    public void UpdateCurrentHealthSlider(float currentHealth)
+    {
+        _gameplayUIController.UpdateCurrentHealthSlider(currentHealth);
+    }
+
+    public void UpdateMaxHealthSlider(float maxHealth)
+    {
+        _gameplayUIController.UpdateMaxHealthSlider(maxHealth);
+    }
 }

@@ -41,15 +41,25 @@ namespace Roguelike.UI
             if (!isGamePaused && !isGameOver)
             {
                 gameTimer += Time.deltaTime;
-                UpdateHealthSlider();
                 UpdateTimerText();
             }
         }
 
-        private void UpdateHealthSlider()
+        public void UpdateCurrentHealthSlider(float currentHealth)
         {
-            _healthSlider.value = _controller.GetPlayerCurrentHealth();
-            _healthSlider.maxValue = _controller.GetPlayerMaxHealth();
+            Debug.Log(currentHealth);
+            _healthSlider.value = currentHealth;
+            UpdateHealthText();
+        }
+
+        public void UpdateMaxHealthSlider(float maxHealth)
+        {
+            _healthSlider.maxValue = maxHealth;
+            UpdateHealthText();
+        }
+
+        public void UpdateHealthText()
+        {
             _healthText.text = _healthSlider.value + " / " + _healthSlider.maxValue;
         }
 
@@ -58,6 +68,10 @@ namespace Roguelike.UI
             float min = Mathf.FloorToInt(gameTimer / 60f);
             float sec = Mathf.FloorToInt(gameTimer % 60f);
             _timerText.text = min.ToString("00") + ":" + sec.ToString("00");
+        }
+        public void UpdateExperienceSlider(float currentHealth, float maxHealth)
+        {
+
         }
 
         public void DisableView() => gameObject.SetActive(false);
