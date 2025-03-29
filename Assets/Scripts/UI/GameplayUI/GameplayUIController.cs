@@ -10,6 +10,7 @@ namespace Roguelike.UI
     public class GameplayUIController : IUIController
     {
         private GameplayUIView _gameplayUIView;
+        public GameState CurrentGameState { get; private set; }
 
         public GameplayUIController(GameplayUIView gameplayUIView)
         {
@@ -17,60 +18,46 @@ namespace Roguelike.UI
             _gameplayUIView.SetController(this);
         }
 
+        ~GameplayUIController()
+        {
+            UnsubscribeToEvents();
+        }
+
         public void InitializeController()
         {
-            _gameplayUIView.InitializeView();
             SubscribeToEvents();
-            Hide();
         }
 
         private void SubscribeToEvents()
         {
-            //GameService.Instance.GetService<EventService>().OnStartGameplay.AddListener(Show);
-            //GameService.Instance.GetService<EventService>().OnGameOver.AddListener(Hide);
-            //GameService.Instance.GetService<EventService>().OnLevelCompleted.AddListener(Hide);
+            EventService.Instance.OnStartGameplay.AddListener(Show);
+            EventService.Instance.OnGameStateChange.AddListener(SetGameState);
+            EventService.Instance.OnGameOver.AddListener(Hide);
+            EventService.Instance.OnLevelCompleted.RemoveListener(Hide);
         }
 
         private void UnsubscribeToEvents()
         {
-            //GameService.Instance.GetService<EventService>().OnStartGameplay.RemoveListener(Show);
-            //GameService.Instance.GetService<EventService>().OnGameOver.RemoveListener(Hide);
-            //GameService.Instance.GetService<EventService>().OnLevelCompleted.RemoveListener(Hide);
-            //GameService.Instance.GetService<EventService>().OnLevelCompleted.AddListener(Hide);
+            EventService.Instance.OnStartGameplay.RemoveListener(Show);
+            EventService.Instance.OnGameStateChange.RemoveListener(SetGameState);
+            EventService.Instance.OnGameOver.RemoveListener(Hide);
+            EventService.Instance.OnLevelCompleted.RemoveListener(Hide);
         }
 
         public void Show()
         {
-            _gameplayUIView.ResetTimer();
+            _gameplayUIView.InitializeView();
             _gameplayUIView.EnableView();
-            _gameplayUIView.OnGamePause(false);
-            _gameplayUIView.OnGameOver(false);
         }
 
         public void Hide()
         {
             _gameplayUIView.DisableView();
-            _gameplayUIView.OnGameOver(false);
         }
 
-        private void OnDestroy()
+        public void SetGameState(GameState _newState)
         {
-            UnsubscribeToEvents();
-        }
-
-        private void OnGamePause()
-        {
-            _gameplayUIView.OnGamePause(true);
-        }
-
-        private void OnGameContinue()
-        {
-            _gameplayUIView.OnGamePause(false);
-        }
-
-        private void OnGameOver()
-        {
-            _gameplayUIView.OnGameOver(true);
+            CurrentGameState = _newState;
         }
 
         public void UpdateCurrentHealthSlider(float currentHealth)

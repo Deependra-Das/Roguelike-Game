@@ -26,7 +26,8 @@ namespace Roguelike.Event
         public EventController<Action> OnGameOver { get; private set; }
         public EventController<Action> OnLevelCompleted { get; private set; }
         public EventController<Action<float,float,float,List<WaveConfig>>> OnStartWaveSpawn { get; private set; }
-
+        public EventController<Action<GameState>> OnGameStateChange { get; private set; }
+        
         protected override void Awake()
         {
             base.Awake();
@@ -42,6 +43,7 @@ namespace Roguelike.Event
             OnBackToMainMenuButtonClicked = new EventController<Action>();
             OnGiveUpButtonClicked = new EventController<Action>();
 
+            OnGameStateChange = new EventController<Action<GameState>>();
             OnMainMenu = new EventController<Action>();
             OnLevelSelection = new EventController<Action>();
             OnCharacterSelection = new EventController<Action>();

@@ -15,10 +15,7 @@ namespace Roguelike.UI
         [SerializeField] private TMP_Text _healthText;
         [SerializeField] private TMP_Text _experienceText;
         [SerializeField] private TMP_Text _timerText;
-
         private float gameTimer;
-        private bool isGamePaused;
-        private bool isGameOver;
 
         public void SetController(IUIController controllerToSet)
         {
@@ -27,8 +24,7 @@ namespace Roguelike.UI
 
         public void InitializeView()
         {
-            isGamePaused = false;
-            isGameOver = false;
+            ResetTimer();
         }
 
         public void ResetTimer()
@@ -38,11 +34,16 @@ namespace Roguelike.UI
 
         private void Update()
         {
-            if (!isGamePaused && !isGameOver)
+            if (_controller.CurrentGameState==GameState.Gameplay)
             {
                 gameTimer += Time.deltaTime;
                 UpdateTimerText();
             }
+        }
+
+        public void OnGameStateChange()
+        {
+            gameTimer = 0;
         }
 
         public void UpdateCurrentHealthSlider(float currentHealth)
@@ -89,10 +90,5 @@ namespace Roguelike.UI
         public void DisableView() => gameObject.SetActive(false);
 
         public void EnableView() => gameObject.SetActive(true);
-
-        public void OnGamePause(bool value) => isGamePaused=value;
-
-        public void OnGameOver(bool value) => isGameOver = value;
-
     }
 }
