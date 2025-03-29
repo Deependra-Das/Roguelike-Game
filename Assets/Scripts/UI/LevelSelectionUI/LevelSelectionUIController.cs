@@ -29,15 +29,13 @@ namespace Roguelike.UI
 
         private void SubscribeToEvents()
         {
-            //GameService.Instance.GetService<EventService>().OnNewGameButtonClicked.AddListener(ShowLevelSelectionUI);
+            EventService.Instance.OnLevelSelection.AddListener(Show);
         }
 
         private void UnsubscribeToEvents()
         {
-            //GameService.Instance.GetService<EventService>().OnNewGameButtonClicked.RemoveListener(ShowLevelSelectionUI);
+            EventService.Instance.OnLevelSelection.RemoveListener(Show);
         }
-
-        public void ShowLevelSelectionUI() => Show();
 
         public void Show()
         {
@@ -62,7 +60,8 @@ namespace Roguelike.UI
         public void OnLevelSelected(int levelId)
         {
             Hide();
-            //GameService.Instance.GetService<EventService>().OnLevelSelected.Invoke(levelId);
+            EventService.Instance.OnLevelSelected.Invoke(levelId);
+            GameService.Instance.ChangeGameState(GameState.CharacterSelection);
         }
 
         private void OnDestroy()

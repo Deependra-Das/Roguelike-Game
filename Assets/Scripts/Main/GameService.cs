@@ -120,7 +120,7 @@ namespace Roguelike.Main
                     EventService.Instance.OnMainMenu.Invoke();
                     break;
                 case GameState.LevelSelection:
-                    //GetService<EventService>().OnLevelSelection.Invoke();
+                    EventService.Instance.OnLevelSelection.Invoke();
                     break;
                 case GameState.CharacterSelection:
                     //GetService<EventService>().OnCharacterSelection.Invoke();
