@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 using Roguelike.Event;
 using Roguelike.Main;
+using Roguelike.Player;
 
 namespace Roguelike.UI
 {
@@ -39,17 +40,46 @@ namespace Roguelike.UI
 
         public void Show()
         {
+            _gameplayUIView.ResetTimer();
             _gameplayUIView.EnableView();
+            _gameplayUIView.OnGamePause(false);
+            _gameplayUIView.OnGameOver(false);
         }
 
         public void Hide()
         {
             _gameplayUIView.DisableView();
+            _gameplayUIView.OnGameOver(false);
         }
 
         private void OnDestroy()
         {
             UnsubscribeToEvents();
+        }
+
+        private void OnGamePause()
+        {
+            _gameplayUIView.OnGamePause(true);
+        }
+
+        private void OnGameContinue()
+        {
+            _gameplayUIView.OnGamePause(false);
+        }
+
+        private void OnGameOver()
+        {
+            _gameplayUIView.OnGameOver(true);
+        }
+
+        public int GetPlayerCurrentHealth()
+        {
+            return GameService.Instance.GetService<PlayerService>().GetPlayer().PlayerModel.CurrentHealth;
+        }
+
+        public int GetPlayerMaxHealth()
+        {
+            return GameService.Instance.GetService<PlayerService>().GetPlayer().PlayerModel.MaxHealth;
         }
     }
 }

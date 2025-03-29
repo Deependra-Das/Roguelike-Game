@@ -43,5 +43,10 @@ namespace Roguelike.Player
         }
 
         public void TakeDamage(int damage) => _controller.TakeDamage(damage);
+
+        public void OnEnemyDeath()
+        {
+            gameObject.SetActive(false);
+        }
     }
 }

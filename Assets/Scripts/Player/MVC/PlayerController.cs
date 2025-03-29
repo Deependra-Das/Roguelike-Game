@@ -1,6 +1,7 @@
 using Roguelike.Main;
 using Roguelike.Event;
 using UnityEngine;
+using Roguelike.Enemy;
 
 namespace Roguelike.Player
 {
@@ -10,6 +11,7 @@ namespace Roguelike.Player
         private PlayerModel _playerModel;
         private PlayerView _playerView;
         private bool isPaused = false;
+        protected bool isDead;
 
         public PlayerController(PlayerScriptableObject playerScriptableObject)
         {
@@ -49,15 +51,15 @@ namespace Roguelike.Player
 
         public void UpdatePlayer() 
         {
-            if (Input.GetKeyDown(KeyCode.Escape) && !isPaused)
+            if (isDead) return;
+
+            if (Input.GetKeyDown(KeyCode.Escape) && !isPaused && !isDead)
             {
                 PauseGame();
             }
         }       
 
         public void FixedUpdatePlayer() { }
-
-        public void TakeDamage(int damageTaken) { }
 
         private void PauseGame()
         {
@@ -78,6 +80,21 @@ namespace Roguelike.Player
 
         public void OnDestroy() => UnsubscribeToEvents();
 
+        public void TakeDamage(int damage)
+        {
+            _playerModel.UpdateCurrentHealth(-damage);
+            if (_playerModel.CurrentHealth <= 0)
+            {
+                isDead = true;
+                OnEnemyDeath();
+            }
+        }
+
+        public void OnEnemyDeath()
+        {
+            GameService.Instance.GetService<EventService>().OnGameOver.Invoke();
+            _playerView.OnEnemyDeath();
+        }
     }
 
 }

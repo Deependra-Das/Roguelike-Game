@@ -15,6 +15,7 @@ namespace Roguelike.Player
             SpawnRotation = playerDataObj.spawnRotation;
             MovementSpeed = playerDataObj.movementSpeed;
             MaxHealth = playerDataObj.maxHealth;
+            CurrentHealth = playerDataObj.maxHealth;
         }
 
         ~PlayerModel() { }
@@ -31,7 +32,16 @@ namespace Roguelike.Player
         public Vector3 SpawnRotation { get; private set; }
         public float MovementSpeed { get; private set; }
         public int MaxHealth { get; private set; }
+        public int CurrentHealth { get; private set; }
 
+        public void UpdateCurrentHealth(int value)
+        {
+            CurrentHealth += value;
+        }
+        public void UpdateMaxHealth(int value)
+        {
+            MaxHealth += value;
+        }
     }
 }
 
