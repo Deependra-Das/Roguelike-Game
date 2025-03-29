@@ -4,6 +4,7 @@ using Roguelike.Enemy;
 using Roguelike.Level;
 using UnityEngine;
 using System.Collections.Generic;
+using Roguelike.UI;
 
 namespace Roguelike.Player
 {
@@ -12,9 +13,9 @@ namespace Roguelike.Player
         private PlayerScriptableObject _playerScriptableObject;
         private PlayerModel _playerModel;
         private PlayerView _playerView;
-        private bool isPaused = false;
         protected bool isDead;
         protected List<int> expToUpgradeList;
+        private GameState _currentGameState;
 
         public PlayerController(PlayerScriptableObject playerScriptableObject)
         {
@@ -28,10 +29,10 @@ namespace Roguelike.Player
             InitializeView();
             SubscribeToEvents();
             expToUpgradeList = GameService.Instance.GetService<LevelService>().GetExpToUpgradeList();
-            //GameService.Instance.GetService<UIService>().UpdateMaxHealthSlider(_playerModel.MaxHealth);
-            //GameService.Instance.GetService<UIService>().UpdateCurrentHealthSlider(_playerModel.CurrentHealth);
-            //GameService.Instance.GetService<UIService>().UpdateMaxExpSlider(expToUpgradeList[_playerModel.CurrentExpLevel]);
-            //GameService.Instance.GetService<UIService>().UpdateCurrentExpSlider(_playerModel.CurrentExpPoints);
+            GameService.Instance.GetService<UIService>().UpdateMaxHealthSlider(_playerModel.MaxHealth);
+            GameService.Instance.GetService<UIService>().UpdateCurrentHealthSlider(_playerModel.CurrentHealth);
+            GameService.Instance.GetService<UIService>().UpdateMaxExpSlider(expToUpgradeList[_playerModel.CurrentExpLevel]);
+            GameService.Instance.GetService<UIService>().UpdateCurrentExpSlider(_playerModel.CurrentExpPoints);
         }
 
         private void InitializeModel()
@@ -58,26 +59,12 @@ namespace Roguelike.Player
         public void UpdatePlayer() 
         {
             if (isDead) return;
-
-            if (Input.GetKeyDown(KeyCode.Escape) && !isPaused && !isDead)
-            {
-                PauseGame();
-            }
-        }       
-
-        public void FixedUpdatePlayer() { }
-
-        private void PauseGame()
-        {
-            isPaused = true;
-            //GameService.Instance.GetService<EventService>().OnGamePaused.Invoke();
-            Debug.Log("Game Paused");
         }
 
-        private void ContinueGame()
+        public void SetGameState(GameState _newState)
         {
-            isPaused = false;
-            Debug.Log("Game Resumed");
+            _currentGameState = _newState;
+            _playerView.SetGameState(_currentGameState);
         }
 
         public PlayerModel PlayerModel { get { return _playerModel; } }
@@ -99,7 +86,7 @@ namespace Roguelike.Player
 
         public void OnEnemyDeath()
         {
-            //GameService.Instance.GetService<EventService>().OnGameOver.Invoke();
+            GameService.Instance.ChangeGameState(GameState.GameOver);
             _playerView.OnEnemyDeath();
         }
 

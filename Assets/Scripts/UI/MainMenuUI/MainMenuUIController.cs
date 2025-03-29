@@ -9,7 +9,7 @@ namespace Roguelike.UI
     public class MainMenuUIController : IUIController
     {
         private MainMenuUIView _mainMenuUIView;
-        public GameState CurrentGameState { get; private set; }
+        private GameState _currentGameState;
 
         public MainMenuUIController(MainMenuUIView mainMenuUIView)
         {
@@ -49,7 +49,7 @@ namespace Roguelike.UI
 
         public void SetGameState(GameState _newState)
         {
-            CurrentGameState = _newState;
+            _currentGameState = _newState;
         }
 
         public void OnNewGameButtonClicked()

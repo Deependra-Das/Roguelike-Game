@@ -12,11 +12,14 @@ namespace Roguelike.Player
         private List<PlayerScriptableObject> _playerScriptableObject;
         private PlayerController _playerController;
         private int _playerIDSelected = -1;
+        private GameState _currentGameState;
 
         public PlayerService(List<PlayerScriptableObject> playerScriptableObject)
         {
             _playerScriptableObject = playerScriptableObject;
         }
+
+        ~PlayerService() => UnsubscribeToEvents();
 
         public void Initialize(params object[] dependencies)
         {
@@ -25,14 +28,22 @@ namespace Roguelike.Player
 
         private void SubscribeToEvents()
         {
-            //GameService.Instance.GetService<EventService>().OnCharacterSelected.AddListener(SelectPlayer);
-            //GameService.Instance.GetService<EventService>().OnStartGameplay.AddListener(SpawnPlayer);
+            EventService.Instance.OnGameStateChange.AddListener(SetGameState);
+            EventService.Instance.OnCharacterSelected.AddListener(SelectPlayer);
+            EventService.Instance.OnStartGameplay.AddListener(SpawnPlayer);
         }
 
         private void UnsubscribeToEvents()
         {
-            //GameService.Instance.GetService<EventService>().OnCharacterSelected.RemoveListener(SelectPlayer);
-            //GameService.Instance.GetService<EventService>().OnStartGameplay.RemoveListener(SpawnPlayer);
+            EventService.Instance.OnGameStateChange.RemoveListener(SetGameState);
+            EventService.Instance.OnCharacterSelected.RemoveListener(SelectPlayer);
+            EventService.Instance.OnStartGameplay.RemoveListener(SpawnPlayer);
+        }
+
+        public void SetGameState(GameState _newState)
+        {
+            _currentGameState = _newState;
+            _playerController?.SetGameState(_currentGameState);
         }
 
         public void SelectPlayer(int playerId)

@@ -49,6 +49,7 @@ namespace Roguelike.Main
 
         public void InjectDependencies()
         {
+            EventService.Instance.Initialize();
             InitializeService<UIService>();
             InitializeService<LevelService>();
             InitializeService<PlayerService>();
@@ -97,6 +98,14 @@ namespace Roguelike.Main
             }
         }
 
+        void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Escape) && GameState==GameState.Gameplay)
+            {
+                ChangeGameState(GameState.GamePaused);
+            }
+        }
+
         public void SetCameraTarget(GameObject targetGameObject)
         {
             if (_cinemachineCamera != null && targetGameObject != null)
@@ -113,6 +122,7 @@ namespace Roguelike.Main
         public void ChangeGameState(GameState newState)
         {
             GameState = newState;
+            EventService.Instance.OnGameStateChange.Invoke(GameState);
 
             switch (newState)
             {
@@ -132,13 +142,13 @@ namespace Roguelike.Main
                     EventService.Instance.OnGameplay.Invoke();
                     break;
                 case GameState.GamePaused:
-                    //GetService<EventService>().OnGamePaused.Invoke();
+                    EventService.Instance.OnGamePaused.Invoke();
                     break;
                 case GameState.LevelCompleted:
-                    //GetService<EventService>().OnLevelCompleted.Invoke();
+                    EventService.Instance.OnLevelCompleted.Invoke();
                     break;
                 case GameState.GameOver:
-                    //GetService<EventService>().OnGameOver.Invoke();
+                    EventService.Instance.OnGameOver.Invoke();
                     break;
             }
         }

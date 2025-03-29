@@ -10,7 +10,7 @@ namespace Roguelike.UI
     public class GameplayUIController : IUIController
     {
         private GameplayUIView _gameplayUIView;
-        public GameState CurrentGameState { get; private set; }
+        private GameState _currentGameState;
 
         public GameplayUIController(GameplayUIView gameplayUIView)
         {
@@ -57,7 +57,8 @@ namespace Roguelike.UI
 
         public void SetGameState(GameState _newState)
         {
-            CurrentGameState = _newState;
+            _currentGameState = _newState;
+            _gameplayUIView.SetGameState(_currentGameState);
         }
 
         public void UpdateCurrentHealthSlider(float currentHealth)

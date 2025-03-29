@@ -16,6 +16,7 @@ namespace Roguelike.UI
         [SerializeField] private TMP_Text _experienceText;
         [SerializeField] private TMP_Text _timerText;
         private float gameTimer;
+        private GameState _currentGameState;
 
         public void SetController(IUIController controllerToSet)
         {
@@ -34,11 +35,16 @@ namespace Roguelike.UI
 
         private void Update()
         {
-            if (_controller.CurrentGameState==GameState.Gameplay)
+            if (_currentGameState == GameState.Gameplay)
             {
                 gameTimer += Time.deltaTime;
                 UpdateTimerText();
             }
+        }
+
+        public void SetGameState(GameState _newState)
+        {
+            _currentGameState = _newState;
         }
 
         public void OnGameStateChange()

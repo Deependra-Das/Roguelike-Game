@@ -33,7 +33,7 @@ namespace Roguelike.Event
             base.Awake();
         }
 
-        private void Start()
+        public void Initialize()
         {
             OnCharacterSelected = new EventController<Action<int>>();
             OnLevelSelected = new EventController<Action<int>>();

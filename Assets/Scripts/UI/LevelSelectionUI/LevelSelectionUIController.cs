@@ -11,8 +11,7 @@ namespace Roguelike.UI
         private LevelButtonView _levelButtonPrefab;
         private List<LevelScriptableObject> _level_SO;
         private LevelSelectionUIView _levelSelectionUIView;
-        public GameState CurrentGameState { get; private set; }
-
+        private GameState _currentGameState;
 
         public LevelSelectionUIController(LevelSelectionUIView levelSelectionUIView, LevelButtonView levelButtonPrefab, List<LevelScriptableObject> level_SO)
         {
@@ -55,7 +54,7 @@ namespace Roguelike.UI
 
         public void SetGameState(GameState _newState)
         {
-            CurrentGameState = _newState;
+            _currentGameState = _newState;
         }
 
         public void CreateLevelButtons()

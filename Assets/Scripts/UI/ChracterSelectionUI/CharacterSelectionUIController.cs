@@ -11,7 +11,7 @@ namespace Roguelike.UI
         private CharacterSelectionUIView _characterSelectionUIView;
         private CharacterButtonView _characterButtonPrefab;
         private List<PlayerScriptableObject> _character_SO;
-        public GameState CurrentGameState { get; private set; }
+        private GameState _currentGameState;
 
         public CharacterSelectionUIController(CharacterSelectionUIView characterSelectionUIView, CharacterButtonView characterButtonPrefab, List<PlayerScriptableObject> character_SO)
         {
@@ -57,7 +57,7 @@ namespace Roguelike.UI
 
         public void SetGameState(GameState _newState)
         {
-            CurrentGameState = _newState;
+            _currentGameState = _newState;
         }
 
         public void CreateCharacterButtons()
