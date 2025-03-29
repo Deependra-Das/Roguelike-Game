@@ -9,12 +9,15 @@ namespace Roguelike.UI
     public class MainMenuUIController : IUIController
     {
         private MainMenuUIView _mainMenuUIView;
+        public GameState CurrentGameState { get; private set; }
 
         public MainMenuUIController(MainMenuUIView mainMenuUIView)
         {
             _mainMenuUIView = mainMenuUIView;
             _mainMenuUIView.SetController(this);
         }
+
+        ~MainMenuUIController() => UnsubscribeToEvents();
 
         public void InitializeController()
         {
@@ -25,11 +28,13 @@ namespace Roguelike.UI
         private void SubscribeToEvents()
         {
             EventService.Instance.OnMainMenu.AddListener(Show);
+            EventService.Instance.OnGameStateChange.AddListener(SetGameState);
         }
 
         private void UnsubscribeToEvents()
         {
             EventService.Instance.OnMainMenu.RemoveListener(Show);
+            EventService.Instance.OnGameStateChange.RemoveListener(SetGameState);
         }
 
         public void Show()
@@ -42,6 +47,11 @@ namespace Roguelike.UI
             _mainMenuUIView.DisableView();
         }
 
+        public void SetGameState(GameState _newState)
+        {
+            CurrentGameState = _newState;
+        }
+
         public void OnNewGameButtonClicked()
         {
             Hide();
@@ -51,11 +61,6 @@ namespace Roguelike.UI
         private void OnQuitButtonClicked()
         {
             Application.Quit();
-        }
-
-        private void OnDestroy()
-        {
-            UnsubscribeToEvents();
         }
     }
 }

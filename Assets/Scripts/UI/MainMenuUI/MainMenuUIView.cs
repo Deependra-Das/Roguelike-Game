@@ -7,9 +7,9 @@ namespace Roguelike.UI
 {
     public class MainMenuUIView : MonoBehaviour, IUIView
     {
-        private MainMenuUIController _controller;
         [SerializeField] private Button _newGameButtonPrefab;
         [SerializeField] private Button _quitGameButtonPrefab;
+        private MainMenuUIController _controller;
 
         public void SetController(IUIController controllerToSet)
         {
@@ -41,7 +41,5 @@ namespace Roguelike.UI
         public void EnableView() => gameObject.SetActive(true);
 
         public void OnDestroy() => UnsubscribeToEvents();
-
-        
     }
 }

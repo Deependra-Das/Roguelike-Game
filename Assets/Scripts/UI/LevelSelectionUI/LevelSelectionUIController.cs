@@ -8,9 +8,11 @@ namespace Roguelike.UI
 {
     public class LevelSelectionUIController : IUIController
     {
+        private LevelButtonView _levelButtonPrefab;
+        private List<LevelScriptableObject> _level_SO;
         private LevelSelectionUIView _levelSelectionUIView;
-        [SerializeField] private LevelButtonView _levelButtonPrefab;
-        [SerializeField] private List<LevelScriptableObject> _level_SO;
+        public GameState CurrentGameState { get; private set; }
+
 
         public LevelSelectionUIController(LevelSelectionUIView levelSelectionUIView, LevelButtonView levelButtonPrefab, List<LevelScriptableObject> level_SO)
         {
@@ -19,6 +21,8 @@ namespace Roguelike.UI
             _levelSelectionUIView = levelSelectionUIView;
             _levelSelectionUIView.SetController(this);
         }
+
+        ~LevelSelectionUIController() => UnsubscribeToEvents();
 
         public void InitializeController()
         {
@@ -30,11 +34,13 @@ namespace Roguelike.UI
         private void SubscribeToEvents()
         {
             EventService.Instance.OnLevelSelection.AddListener(Show);
+            EventService.Instance.OnGameStateChange.AddListener(SetGameState);
         }
 
         private void UnsubscribeToEvents()
         {
             EventService.Instance.OnLevelSelection.RemoveListener(Show);
+            EventService.Instance.OnGameStateChange.AddListener(SetGameState);
         }
 
         public void Show()
@@ -45,6 +51,11 @@ namespace Roguelike.UI
         public void Hide()
         {
             _levelSelectionUIView.DisableView();
+        }
+
+        public void SetGameState(GameState _newState)
+        {
+            CurrentGameState = _newState;
         }
 
         public void CreateLevelButtons()
@@ -64,9 +75,5 @@ namespace Roguelike.UI
             GameService.Instance.ChangeGameState(GameState.CharacterSelection);
         }
 
-        private void OnDestroy()
-        {
-            UnsubscribeToEvents();
-        }
     }
 }

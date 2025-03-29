@@ -9,8 +9,9 @@ namespace Roguelike.UI
     public class CharacterSelectionUIController : IUIController
     {
         private CharacterSelectionUIView _characterSelectionUIView;
-        [SerializeField] private CharacterButtonView _characterButtonPrefab;
-        [SerializeField] private List<PlayerScriptableObject> _character_SO;
+        private CharacterButtonView _characterButtonPrefab;
+        private List<PlayerScriptableObject> _character_SO;
+        public GameState CurrentGameState { get; private set; }
 
         public CharacterSelectionUIController(CharacterSelectionUIView characterSelectionUIView, CharacterButtonView characterButtonPrefab, List<PlayerScriptableObject> character_SO)
         {
@@ -18,6 +19,11 @@ namespace Roguelike.UI
             _characterButtonPrefab = characterButtonPrefab;
             _characterSelectionUIView = characterSelectionUIView;
             _characterSelectionUIView.SetController(this);
+        }
+
+        ~CharacterSelectionUIController()
+        {
+            UnsubscribeToEvents();
         }
 
         public void InitializeController()
@@ -30,14 +36,14 @@ namespace Roguelike.UI
         private void SubscribeToEvents()
         {
             EventService.Instance.OnCharacterSelection.AddListener(Show);
+            EventService.Instance.OnGameStateChange.AddListener(SetGameState);
         }
 
         private void UnsubscribeToEvents()
         {
             EventService.Instance.OnCharacterSelection.RemoveListener(Show);
+            EventService.Instance.OnGameStateChange.RemoveListener(SetGameState);
         }
-
-        public void ShowCharacterSelectionUI(int levelId) => Show();
 
         public void Show()
         {
@@ -47,6 +53,11 @@ namespace Roguelike.UI
         public void Hide()
         {
             _characterSelectionUIView.DisableView();
+        }
+
+        public void SetGameState(GameState _newState)
+        {
+            CurrentGameState = _newState;
         }
 
         public void CreateCharacterButtons()
@@ -64,11 +75,6 @@ namespace Roguelike.UI
             EventService.Instance.OnCharacterSelected.Invoke(characterId);
             GameService.Instance.StartGameplay();
             Hide();
-        }
-
-        private void OnDestroy()
-        {
-            UnsubscribeToEvents();
         }
     }
 }
