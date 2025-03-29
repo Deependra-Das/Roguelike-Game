@@ -20,6 +20,7 @@ namespace Roguelike.Enemy
             Health = enemyDataObj.health;
             AttackPower = enemyDataObj.attackPower;
             AttackCooldown = enemyDataObj.attackCooldown;
+            ExpDrop = enemyDataObj.ExpDrop;
         }
 
         ~EnemyModel() { }
@@ -45,6 +46,6 @@ namespace Roguelike.Enemy
         public int Health { get; private set; }
         public int AttackPower { get; private set; }
         public float AttackCooldown { get; private set; }
-
+        public int ExpDrop { get; private set; }
     }
 }

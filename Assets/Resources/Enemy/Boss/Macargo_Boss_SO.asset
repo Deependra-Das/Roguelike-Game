@@ -21,5 +21,6 @@ MonoBehaviour:
   spawnRotation: {x: 0, y: 0, z: 0}
   movementSpeed: 1
   health: 50
-  attackPower: 10
-  attackCooldown: 10
+  attackPower: 5
+  attackCooldown: 15
+  ExpDrop: 20

@@ -20,7 +20,7 @@ namespace Roguelike.Event
         public EventController<Action> OnGiveUpButtonClicked { get; private set; }
         public EventController<Action> OnGameOver { get; private set; }
         public EventController<Action> OnLevelCompleted { get; private set; }
-        public EventController<Action<float,float,float,List<WaveConfig>>> OnStartWaveSpawn { get; private set; }
+        public EventController<Action<float,float,float,List<WaveConfig>>> OnStartWaveSpawn { get; private set; }        
 
         public EventService()
         {

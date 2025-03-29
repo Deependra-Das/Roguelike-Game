@@ -18,4 +18,4 @@ MonoBehaviour:
   spawnPosition: {x: 0, y: 0, z: 0}
   spawnRotation: {x: 0, y: 0, z: 0}
   movementSpeed: 5
-  maxHealth: 0
+  maxHealth: 10

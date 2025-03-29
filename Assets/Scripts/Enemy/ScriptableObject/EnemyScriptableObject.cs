@@ -17,6 +17,7 @@ namespace Roguelike.Enemy
         public int health;
         public int attackPower;
         public float attackCooldown;
+        public int ExpDrop;
     }
 }
 

@@ -10,6 +10,7 @@ namespace Roguelike.Level
     {
         private List<LevelScriptableObject> levelScriptableObjects;
         private int _levelIdSelected = -1;
+        private List<int> _expToUpgradeList;
 
         public LevelService(List<LevelScriptableObject> levelScriptableObjects)
         {
@@ -42,10 +43,40 @@ namespace Roguelike.Level
         public void LoadLevel()
         {
             var levelData = levelScriptableObjects.Find(levelSO => levelSO.ID == _levelIdSelected);
+            //InitializeExpToUpgrade(levelData);
             Object.Instantiate(levelData.levelPrefab);
             GameService.Instance.GetService<EventService>().OnStartWaveSpawn.Invoke(levelData.spawnIntervalDecrementRate, levelData.spawnFinalInterval,
                 levelData.waveInterval, levelData.enemyWaveData);
             UnsubscribeToEvents();
+        }
+
+        //private void InitializeExpToUpgrade(LevelScriptableObject levelData)
+        //{
+        //    int numberOfLevels = 30;
+        //    int baseExp = 10;
+        //    int increment1 = 10;  
+        //    int increment2 = 20;  
+        //    int levelThreshold = 5; 
+
+        //    for (int i = 0; i < numberOfLevels; i++)
+        //    {
+        //        int expRequired;
+        //        if (i <= levelThreshold)
+        //        {
+        //            expRequired = baseExp + (i * increment1);
+        //        }
+        //        else
+        //        {
+        //            expRequired = baseExp + (levelThreshold * increment1) + ((i - levelThreshold) * increment2);
+        //        }
+
+        //        levelData.expToUpgrade_SO.expToUpgradeList.Add(expRequired);
+        //    }
+        //}
+
+        public List<int> GetExpToUpgradeList()
+        {
+            return levelScriptableObjects.Find(levelSO => levelSO.ID == _levelIdSelected).expToUpgrade_SO.expToUpgradeList;
         }
     }
 }

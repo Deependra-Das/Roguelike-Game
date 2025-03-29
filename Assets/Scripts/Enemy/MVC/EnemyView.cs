@@ -18,8 +18,11 @@ namespace Roguelike.Enemy
 
         void FixedUpdate()
         {
-            Move();
-            _controller?.UpdateEnemy();
+            if(GameService.Instance.GetService<PlayerService>().GetPlayer().PlayerGameObject.activeSelf)
+            {
+                Move();
+                _controller?.UpdateEnemy();
+            }          
         }
 
         public void Move()

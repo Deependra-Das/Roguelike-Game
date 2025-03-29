@@ -33,3 +33,4 @@ MonoBehaviour:
   - enemy_SO: {fileID: 11400000, guid: e769ce109893e5143b30fba691bcf088, type: 2}
     spawnInitialInterval: 20
     spawnFrequencyPerWave: 1
+  expToUpgrade_SO: {fileID: 11400000, guid: 7ca682cf44de3634e994248beea4b80e, type: 2}
