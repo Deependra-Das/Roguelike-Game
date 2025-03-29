@@ -60,7 +60,7 @@ namespace Roguelike.Player
 
         public void UpdatePlayer() 
         {
-            if (isDead) return;
+            if (isDead || _currentGameState!=GameState.Gameplay) return;
         }
 
         public void SetGameState(GameState _newState)
@@ -77,12 +77,15 @@ namespace Roguelike.Player
 
         public void TakeDamage(int damage)
         {
-            _playerModel.UpdateCurrentHealth(-damage);
-            GameService.Instance.GetService<UIService>().UpdateCurrentHealthSlider(_playerModel.CurrentHealth);
-            if (_playerModel.CurrentHealth <= 0)
+            if (!isDead && _currentGameState == GameState.Gameplay)
             {
-                isDead = true;
-                OnEnemyDeath();
+                _playerModel.UpdateCurrentHealth(-damage);
+                GameService.Instance.GetService<UIService>().UpdateCurrentHealthSlider(_playerModel.CurrentHealth);
+                if (_playerModel.CurrentHealth <= 0)
+                {
+                    isDead = true;
+                    OnEnemyDeath();
+                }
             }
         }
 
