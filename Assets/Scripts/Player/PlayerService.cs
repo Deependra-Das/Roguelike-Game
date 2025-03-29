@@ -43,7 +43,6 @@ namespace Roguelike.Player
         public void SetGameState(GameState _newState)
         {
             _currentGameState = _newState;
-            _playerController?.SetGameState(_currentGameState);
         }
 
         public void SelectPlayer(int playerId)

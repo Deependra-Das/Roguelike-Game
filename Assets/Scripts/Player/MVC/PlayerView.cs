@@ -1,3 +1,4 @@
+using Roguelike.Event;
 using Roguelike.Main;
 using Roguelike.Player;
 using UnityEngine;
@@ -13,6 +14,11 @@ namespace Roguelike.Player
         private GameState _currentGameState;
 
         public void SetController(PlayerController controllerToSet) => _controller = controllerToSet;
+
+        public void SetGameState(GameState _newState)
+        {
+            _currentGameState = _newState;
+        }
 
         private void Update()
         {
@@ -46,11 +52,6 @@ namespace Roguelike.Player
                 _player_RB.linearVelocity = new Vector2(playerMoveDirection.x * _controller.PlayerModel.MovementSpeed,
                 playerMoveDirection.y * _controller.PlayerModel.MovementSpeed);
             }
-        }
-
-        public void SetGameState(GameState _newState)
-        {
-            _currentGameState = _newState;
         }
 
         public void TakeDamage(int damage) => _controller.TakeDamage(damage);

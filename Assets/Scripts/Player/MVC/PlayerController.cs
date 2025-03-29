@@ -45,15 +45,17 @@ namespace Roguelike.Player
             _playerView = Object.Instantiate(_playerModel.PlayerPrefab);
             _playerView.transform.position = _playerModel.SpawnPosition;
             _playerView.transform.rotation = Quaternion.Euler(_playerModel.SpawnRotation);
-            _playerView.SetController(this);           
+            _playerView.SetController(this);
         }
 
         private void SubscribeToEvents()
         {
+            EventService.Instance.OnGameStateChange.AddListener(SetGameState);
         }
 
         private void UnsubscribeToEvents()
         {
+            EventService.Instance.OnGameStateChange.RemoveListener(SetGameState);
         }
 
         public void UpdatePlayer() 
