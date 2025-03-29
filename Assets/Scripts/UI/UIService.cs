@@ -82,4 +82,14 @@ public class UIService : MonoBehaviour,IService
     {
         _gameplayUIController.UpdateMaxHealthSlider(maxHealth);
     }
+
+    public void UpdateCurrentExpSlider(float currentExp)
+    {
+        _gameplayUIController.UpdateCurrentExpSlider(currentExp);
+    }
+
+    public void UpdateMaxExpSlider(float maxExp)
+    {
+        _gameplayUIController.UpdateMaxExpSlider(maxExp);
+    }
 }

@@ -73,5 +73,10 @@ namespace Roguelike.Level
         //        levelData.expToUpgrade_SO.expToUpgradeList.Add(expRequired);
         //    }
         //}
+
+        public List<int> GetExpToUpgradeList()
+        {
+            return levelScriptableObjects.Find(levelSO => levelSO.ID == _levelIdSelected).expToUpgrade_SO.expToUpgradeList;
+        }
     }
 }

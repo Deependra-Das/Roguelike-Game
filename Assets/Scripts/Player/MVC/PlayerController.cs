@@ -1,7 +1,9 @@
 using Roguelike.Main;
 using Roguelike.Event;
-using UnityEngine;
 using Roguelike.Enemy;
+using Roguelike.Level;
+using UnityEngine;
+using System.Collections.Generic;
 
 namespace Roguelike.Player
 {
@@ -12,6 +14,7 @@ namespace Roguelike.Player
         private PlayerView _playerView;
         private bool isPaused = false;
         protected bool isDead;
+        protected List<int> expToUpgradeList;
 
         public PlayerController(PlayerScriptableObject playerScriptableObject)
         {
@@ -24,13 +27,16 @@ namespace Roguelike.Player
             InitializeModel();
             InitializeView();
             SubscribeToEvents();
+            expToUpgradeList = GameService.Instance.GetService<LevelService>().GetExpToUpgradeList();
+            GameService.Instance.GetService<UIService>().UpdateMaxHealthSlider(_playerModel.MaxHealth);
+            GameService.Instance.GetService<UIService>().UpdateCurrentHealthSlider(_playerModel.CurrentHealth);
+            GameService.Instance.GetService<UIService>().UpdateMaxExpSlider(expToUpgradeList[_playerModel.CurrentExpLevel]);
+            GameService.Instance.GetService<UIService>().UpdateCurrentExpSlider(_playerModel.CurrentExpPoints);
         }
 
         private void InitializeModel()
         {
             _playerModel = new PlayerModel(_playerScriptableObject);
-            GameService.Instance.GetService<UIService>().UpdateMaxHealthSlider(_playerModel.MaxHealth);
-            GameService.Instance.GetService<UIService>().UpdateCurrentHealthSlider(_playerModel.CurrentHealth);       
         }
 
         private void InitializeView()
@@ -102,6 +108,19 @@ namespace Roguelike.Player
         public void AddExperiencePoints(int value)
         {
             _playerModel.UpdateExperiencePoints(value);
+            GameService.Instance.GetService<UIService>().UpdateCurrentExpSlider(_playerModel.CurrentExpPoints);
+            if(_playerModel.CurrentExpPoints>= expToUpgradeList[_playerModel.CurrentExpLevel])
+            {
+                ExpLevelUp();
+            }
+        }
+
+        public void ExpLevelUp()
+        {
+            _playerModel.UpdateExperiencePoints(-(expToUpgradeList[_playerModel.CurrentExpLevel]));
+            GameService.Instance.GetService<UIService>().UpdateCurrentExpSlider(_playerModel.CurrentExpPoints);
+            _playerModel.UpdateExpLevel(_playerModel.CurrentExpLevel + 1);
+            GameService.Instance.GetService<UIService>().UpdateMaxExpSlider(expToUpgradeList[_playerModel.CurrentExpLevel]);
         }
     }
 

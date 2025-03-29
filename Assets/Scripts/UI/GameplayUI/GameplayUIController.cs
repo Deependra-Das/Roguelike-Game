@@ -82,5 +82,15 @@ namespace Roguelike.UI
         {
             _gameplayUIView.UpdateMaxHealthSlider(maxHealth);
         }
+
+        public void UpdateCurrentExpSlider(float currentExp)
+        {
+            _gameplayUIView.UpdateCurrentExpSlider(currentExp);
+        }
+
+        public void UpdateMaxExpSlider(float maxExp)
+        {
+            _gameplayUIView.UpdateMaxExpSlider(maxExp);
+        }
     }
 }

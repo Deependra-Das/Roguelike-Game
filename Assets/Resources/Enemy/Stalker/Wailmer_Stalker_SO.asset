@@ -23,4 +23,4 @@ MonoBehaviour:
   health: 10
   attackPower: 1
   attackCooldown: 0
-  xpDrop: 3
+  ExpDrop: 3

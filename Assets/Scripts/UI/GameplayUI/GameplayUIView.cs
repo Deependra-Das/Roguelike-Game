@@ -47,7 +47,6 @@ namespace Roguelike.UI
 
         public void UpdateCurrentHealthSlider(float currentHealth)
         {
-            Debug.Log(currentHealth);
             _healthSlider.value = currentHealth;
             UpdateHealthText();
         }
@@ -69,9 +68,22 @@ namespace Roguelike.UI
             float sec = Mathf.FloorToInt(gameTimer % 60f);
             _timerText.text = min.ToString("00") + ":" + sec.ToString("00");
         }
-        public void UpdateExperienceSlider(float currentHealth, float maxHealth)
-        {
 
+        public void UpdateCurrentExpSlider(float currentExp)
+        {
+            _experienceSlider.value = currentExp;
+            UpdateExpText();
+        }
+
+        public void UpdateMaxExpSlider(float maxExp)
+        {
+            _experienceSlider.maxValue = maxExp;
+            UpdateExpText();
+        }
+
+        public void UpdateExpText()
+        {
+            _experienceText.text = _experienceSlider.value + " / " + _experienceSlider.maxValue;
         }
 
         public void DisableView() => gameObject.SetActive(false);
