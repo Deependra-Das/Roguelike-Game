@@ -123,7 +123,7 @@ namespace Roguelike.Main
                     EventService.Instance.OnLevelSelection.Invoke();
                     break;
                 case GameState.CharacterSelection:
-                    //GetService<EventService>().OnCharacterSelection.Invoke();
+                    EventService.Instance.OnCharacterSelection.Invoke();
                     break;
                 case GameState.PowerUpSelection:
                     //GetService<EventService>().OnPowerUpSelection.Invoke();
@@ -141,6 +141,12 @@ namespace Roguelike.Main
                     //GetService<EventService>().OnGameOver.Invoke();
                     break;
             }
+        }
+
+        public void StartGameplay()
+        {
+            EventService.Instance.OnStartGameplay.Invoke();
+            ChangeGameState(GameState.Gameplay);
         }
     }
 }
