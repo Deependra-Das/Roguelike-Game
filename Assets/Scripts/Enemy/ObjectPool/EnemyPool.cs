@@ -37,5 +37,15 @@ namespace Roguelike.Enemy
                 throw new NotSupportedException("Enemy type not supported");
             }
         }
+
+        public void ResetPool()
+        {
+            foreach (var pooledItem in pooledItems)
+            {
+                UnityEngine.Object.Destroy(pooledItem.Item.GetEnemyView());
+            }
+
+            pooledItems.Clear();
+        }
     }
 }

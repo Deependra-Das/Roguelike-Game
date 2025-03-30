@@ -25,16 +25,19 @@ namespace Roguelike.Enemy
         public void Initialize(params object[] dependencies)
         {
             _enemyPoolObj = new EnemyPool();
+            SubscribeToEvents();
         }
 
         private void SubscribeToEvents()
         {
             EventService.Instance.OnGameStateChange.AddListener(SetGameState);
+            EventService.Instance.OnMainMenu.AddListener(ResetPool);
         }
 
         private void UnsubscribeToEvents()
         {
             EventService.Instance.OnGameStateChange.RemoveListener(SetGameState);
+            EventService.Instance.OnMainMenu.RemoveListener(ResetPool);
         }
 
         public void SetGameState(GameState _newState)
@@ -70,5 +73,9 @@ namespace Roguelike.Enemy
 
         public void ReturnEnemyToPool(EnemyController enemyToReturn) => _enemyPoolObj.ReturnItem(enemyToReturn);
 
+        private void ResetPool()
+        {
+            _enemyPoolObj.ResetPool();
+        }
     }
 }

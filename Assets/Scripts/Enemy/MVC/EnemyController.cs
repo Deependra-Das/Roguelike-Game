@@ -107,5 +107,7 @@ namespace Roguelike.Enemy
         }
 
         public virtual void OnCollisionWithPlayer() { }
+
+        public GameObject GetEnemyView() { return _enemyView.gameObject; }
     }
 }
