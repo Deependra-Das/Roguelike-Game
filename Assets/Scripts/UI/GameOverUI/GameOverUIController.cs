@@ -9,12 +9,15 @@ namespace Roguelike.UI
     public class GameOverUIController : IUIController
     {
         private GameOverUIView _gameOverUIView;
+        private GameState _currentGameState;
 
         public GameOverUIController(GameOverUIView gameOverUIView)
         {
             _gameOverUIView = gameOverUIView;
             _gameOverUIView.SetController(this);
         }
+
+        ~GameOverUIController() => UnsubscribeToEvents();
 
         public void InitializeController()
         {
@@ -25,14 +28,14 @@ namespace Roguelike.UI
 
         private void SubscribeToEvents()
         {
-            //GameService.Instance.GetService<EventService>().OnGameOver.AddListener(OnGameOver);
-            //GameService.Instance.GetService<EventService>().OnBackToMainMenuButtonClicked.AddListener(OnBackToMainMenu);
+            EventService.Instance.OnGameOver.AddListener(Show);
+            EventService.Instance.OnGameStateChange.AddListener(SetGameState);
         }
 
         private void UnsubscribeToEvents()
         {
-            //GameService.Instance.GetService<EventService>().OnGameOver.RemoveListener(OnGameOver);
-            //GameService.Instance.GetService<EventService>().OnBackToMainMenuButtonClicked.RemoveListener(OnBackToMainMenu);
+            EventService.Instance.OnGameOver.RemoveListener(Show);
+            EventService.Instance.OnGameStateChange.RemoveListener(SetGameState);
         }
 
         public void Show()
@@ -45,21 +48,17 @@ namespace Roguelike.UI
             _gameOverUIView.DisableView();
         }
 
-        private void OnGameOver()
+        public void SetGameState(GameState _newState)
         {
-            Show();
+            _currentGameState = _newState;
         }
 
-        private void OnBackToMainMenu()
+        public void OnBackButtonClicked()
         {
             Hide();
+            GameService.Instance.ChangeGameState(GameState.MainMenu);
         }
 
-        private void OnDestroy()
-        {
-            _gameOverUIView.OnDestroy();
-            UnsubscribeToEvents();
-        }
     }
 
 }

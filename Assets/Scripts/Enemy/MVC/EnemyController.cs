@@ -50,11 +50,13 @@ namespace Roguelike.Enemy
         private void SubscribeToEvents()
         {
             EventService.Instance.OnGameStateChange.AddListener(SetGameState);
+            EventService.Instance.OnGameOver.AddListener(OnGameOver);
         }
 
         private void UnsubscribeToEvents()
         {
             EventService.Instance.OnGameStateChange.RemoveListener(SetGameState);
+            EventService.Instance.OnGameOver.RemoveListener(OnGameOver);
         }
 
         public void SetGameState(GameState _newState)
@@ -84,6 +86,12 @@ namespace Roguelike.Enemy
                     OnEnemyDeath();
                 }
             }           
+        }
+
+        private void OnGameOver()
+        {
+            _enemyModel.UpdateHealth(_enemyModel.Health);
+            OnEnemyDeath();
         }
 
         public void OnEnemyDeath()
