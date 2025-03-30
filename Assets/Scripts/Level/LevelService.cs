@@ -11,11 +11,16 @@ namespace Roguelike.Level
         private List<LevelScriptableObject> levelScriptableObjects;
         private int _levelIdSelected = -1;
         private List<int> _expToUpgradeList;
+        private GameObject _activeLevelObj;
+        private GameState _currentGameState;
+
 
         public LevelService(List<LevelScriptableObject> levelScriptableObjects)
         {
             this.levelScriptableObjects = levelScriptableObjects;
         }
+
+        ~LevelService() => UnsubscribeToEvents();
 
         public void Initialize(params object[] dependencies)
         {
@@ -24,59 +29,52 @@ namespace Roguelike.Level
 
         private void SubscribeToEvents()
         {
-            GameService.Instance.GetService<EventService>().OnLevelSelected.AddListener(SelectLevel);
-            GameService.Instance.GetService<EventService>().OnStartGame.AddListener(LoadLevel);
+            EventService.Instance.OnGameStateChange.AddListener(SetGameState);
+            EventService.Instance.OnLevelSelected.AddListener(SelectLevel);
+            EventService.Instance.OnStartGameplay.AddListener(LoadLevel);
+            EventService.Instance.OnGameOver.AddListener(UnloadLevel);
+            EventService.Instance.OnLevelCompleted.AddListener(UnloadLevel);
         }
 
         private void UnsubscribeToEvents()
         {
-            GameService.Instance.GetService<EventService>().OnLevelSelected.RemoveListener(SelectLevel);
-            GameService.Instance.GetService<EventService>().OnStartGame.RemoveListener(LoadLevel);
+            EventService.Instance.OnGameStateChange.RemoveListener(SetGameState);
+            EventService.Instance.OnLevelSelected.RemoveListener(SelectLevel);
+            EventService.Instance.OnStartGameplay.RemoveListener(LoadLevel);
+            EventService.Instance.OnGameOver.RemoveListener(UnloadLevel);
+            EventService.Instance.OnLevelCompleted.RemoveListener(UnloadLevel);
         }
 
         private void SelectLevel(int levelID)
         {
-            Debug.Log(levelID);
             _levelIdSelected = levelID;
         }
 
         public void LoadLevel()
         {
             var levelData = levelScriptableObjects.Find(levelSO => levelSO.ID == _levelIdSelected);
-            //InitializeExpToUpgrade(levelData);
-            Object.Instantiate(levelData.levelPrefab);
-            GameService.Instance.GetService<EventService>().OnStartWaveSpawn.Invoke(levelData.spawnIntervalDecrementRate, levelData.spawnFinalInterval,
-                levelData.waveInterval, levelData.enemyWaveData);
-            UnsubscribeToEvents();
+            _activeLevelObj=Object.Instantiate(levelData.levelPrefab);
         }
 
-        //private void InitializeExpToUpgrade(LevelScriptableObject levelData)
-        //{
-        //    int numberOfLevels = 30;
-        //    int baseExp = 10;
-        //    int increment1 = 10;  
-        //    int increment2 = 20;  
-        //    int levelThreshold = 5; 
+        public void SetGameState(GameState _newState)
+        {
+            _currentGameState = _newState;
+        }
 
-        //    for (int i = 0; i < numberOfLevels; i++)
-        //    {
-        //        int expRequired;
-        //        if (i <= levelThreshold)
-        //        {
-        //            expRequired = baseExp + (i * increment1);
-        //        }
-        //        else
-        //        {
-        //            expRequired = baseExp + (levelThreshold * increment1) + ((i - levelThreshold) * increment2);
-        //        }
-
-        //        levelData.expToUpgrade_SO.expToUpgradeList.Add(expRequired);
-        //    }
-        //}
+        public LevelScriptableObject GetLevelData()
+        {
+            return levelScriptableObjects.Find(levelSO => levelSO.ID == _levelIdSelected);
+        }
 
         public List<int> GetExpToUpgradeList()
         {
             return levelScriptableObjects.Find(levelSO => levelSO.ID == _levelIdSelected).expToUpgrade_SO.expToUpgradeList;
+        }
+
+        private void UnloadLevel()
+        {
+            _levelIdSelected = -1;
+            Object.Destroy(_activeLevelObj);
         }
     }
 }

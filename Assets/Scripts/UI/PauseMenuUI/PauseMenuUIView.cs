@@ -7,13 +7,13 @@ namespace Roguelike.UI
 {
     public class PauseMenuUIView : MonoBehaviour, IUIView
     {
-        private PauseMenuUIController controller;
+        private PauseMenuUIController _controller;
         [SerializeField] private Button _continueButtonPrefab;
         [SerializeField] private Button _giveUpButtonPrefab;
 
         public void SetController(IUIController controllerToSet)
         {
-            controller = controllerToSet as PauseMenuUIController;
+            _controller = controllerToSet as PauseMenuUIController;
         }
 
         public void InitializeView()
@@ -37,16 +37,16 @@ namespace Roguelike.UI
 
         public void EnableView() => gameObject.SetActive(true);
 
-        public void OnDestroy() => UnsubscribeToEvents();
+        private void OnDestroy() => UnsubscribeToEvents();
 
         private void OnContinueButtonClicked()
         {
-            GameService.Instance.GetService<EventService>().OnContinueButtonClicked.Invoke();
+            _controller.OnContinueButtonClicked();
         }
 
         private void OnGiveUpButtonClicked()
         {
-            GameService.Instance.GetService<EventService>().OnGiveUpButtonClicked.Invoke();
+            _controller.OnGiveUpButtonClicked();
         }
     }
 }

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using Roguelike.Enemy;
 using Roguelike.Event;
 using Roguelike.Main;
+using Roguelike.Level;
 
 namespace Roguelike.Wave
 {
@@ -12,7 +13,7 @@ namespace Roguelike.Wave
     {
         [SerializeField] private Transform minPos;
         [SerializeField] private Transform maxPos;
-        private List<WaveConfig> _waveData = new List<WaveConfig>();
+        public List<WaveConfig> _waveData = new List<WaveConfig>();
         private float _spawnInitialIntervalDecrementRate;
         private float _spawnFinalInterval;
         private int _currentWaveIndex = 0;
@@ -20,6 +21,7 @@ namespace Roguelike.Wave
         private bool isSpawning = false;
         private bool isPaused = false;
         private Coroutine spawnCoroutine;
+        private GameState _currentGameState;
 
         public void Initialize(params object[] dependencies)
         {
@@ -28,40 +30,53 @@ namespace Roguelike.Wave
 
         private void SubscribeToEvents()
         {
-            GameService.Instance.GetService<EventService>().OnStartWaveSpawn.AddListener(StartWave);
-            GameService.Instance.GetService<EventService>().OnPauseGame.AddListener(PauseSpawning);
-            GameService.Instance.GetService<EventService>().OnContinueButtonClicked.AddListener(ResumeSpawning);
-            GameService.Instance.GetService<EventService>().OnGameOver.AddListener(StopSpawning);
-            GameService.Instance.GetService<EventService>().OnLevelCompleted.AddListener(StopSpawning);
+            EventService.Instance.OnGameStateChange.AddListener(SetGameState);
+            EventService.Instance.OnStartGameplay.AddListener(StartWave);
+            EventService.Instance.OnGamePaused.AddListener(PauseSpawning);
+            EventService.Instance.OnGameplay.AddListener(ResumeSpawning);
+            EventService.Instance.OnGameOver.AddListener(StopSpawning);
+            EventService.Instance.OnLevelCompleted.AddListener(StopSpawning);
         }
 
         private void UnsubscribeToEvents()
         {
-            GameService.Instance.GetService<EventService>().OnStartWaveSpawn.RemoveListener(StartWave);
-            GameService.Instance.GetService<EventService>().OnPauseGame.RemoveListener(PauseSpawning);
-            GameService.Instance.GetService<EventService>().OnContinueButtonClicked.RemoveListener(ResumeSpawning);
-            GameService.Instance.GetService<EventService>().OnGameOver.RemoveListener(StopSpawning);
-            GameService.Instance.GetService<EventService>().OnLevelCompleted.RemoveListener(StopSpawning);
+            EventService.Instance.OnGameStateChange.RemoveListener(SetGameState);
+            EventService.Instance.OnStartGameplay.RemoveListener(StartWave);
+            EventService.Instance.OnGamePaused.RemoveListener(PauseSpawning);
+            EventService.Instance.OnGameplay.RemoveListener(ResumeSpawning);
+            EventService.Instance.OnGameOver.RemoveListener(StopSpawning);
+            EventService.Instance.OnLevelCompleted.RemoveListener(StopSpawning);
         }
 
-        private void StartWave(float spawnInitialIntervalDecrementRate, float spawnFinalInterval, float waveInterval, List<WaveConfig> waveData)
+        public void SetGameState(GameState _newState)
         {
-            _currentWaveIndex = 1;
-            _spawnInitialIntervalDecrementRate = spawnInitialIntervalDecrementRate;
-            _spawnFinalInterval = spawnFinalInterval;
-            _waveInterval = waveInterval;
+            _currentGameState = _newState;
+        }
 
-            InitializeWaveData(waveData);
-
-            if (!isSpawning && !isPaused)
+        private void StartWave()
+        {
+            LevelScriptableObject levelData = GameService.Instance.GetService<LevelService>().GetLevelData();
+            if (levelData.enemyWaveData == null || levelData.enemyWaveData.Count == 0)
             {
-                isSpawning = true;
-                spawnCoroutine = StartCoroutine(SpawnWaves());
+                Debug.LogError("No wave data available to spawn.");
+                return;
             }
+
+            _currentWaveIndex = 1;
+            _spawnInitialIntervalDecrementRate = levelData.spawnIntervalDecrementRate;
+            _spawnFinalInterval = levelData.spawnFinalInterval;
+            _waveInterval = levelData.waveInterval;
+
+            InitializeWaveData(levelData.enemyWaveData);
+
+            isSpawning = true;
+            isPaused = false;
+            spawnCoroutine = StartCoroutine(SpawnWaves());
         }
 
         private void InitializeWaveData(List<WaveConfig> waveData)
         {
+            _waveData.Clear();
             foreach (WaveConfig waveConfig in waveData)
             {
                 WaveConfig config = new WaveConfig();
@@ -74,92 +89,51 @@ namespace Roguelike.Wave
 
         public void StopSpawning()
         {
-            if (isSpawning)
+            isSpawning = false;
+            if (spawnCoroutine != null)
             {
-                isSpawning = false;
-
-                if (spawnCoroutine != null)
-                {
-                    StopCoroutine(spawnCoroutine);
-                    spawnCoroutine = null;
-                }
-
+                StopCoroutine(spawnCoroutine);
+                spawnCoroutine = null;
                 Debug.Log("Spawning stopped.");
+                ResetWaveData();
             }
         }
 
         public void PauseSpawning()
         {
-            if (isSpawning && !isPaused)
-            {
-                isPaused = true;
-                Debug.Log("Spawning paused.");
-            }
+            isPaused = true;
+            Debug.Log("Spawning paused.");
         }
 
         public void ResumeSpawning()
         {
-            if (isSpawning && isPaused)
-            {
-                isPaused = false;
-                Debug.Log("Spawning resumed.");
-            }
+            isPaused = false;
+            Debug.Log("Spawning resumed.");
         }
 
         private IEnumerator SpawnWaves()
         {
-            while (isSpawning) 
+            while(isSpawning)
             {
-                if (isPaused)
-                {
-                    yield return null;
-                }
+                if (!isSpawning) yield break;
 
-                Debug.Log("Wave :" + _currentWaveIndex.ToString());
-                yield return StartCoroutine(SpawnWaveEnemies(_waveData));
-                _currentWaveIndex++;
-                foreach (var wave in _waveData)
+                foreach (WaveConfig waveConfig in _waveData)
                 {
-                    if (wave.spawnInitialInterval > _spawnFinalInterval)
+                    if (!isSpawning) yield break;
+                    if (isPaused) yield return new WaitUntil(() => !isPaused);
+
+                    for (int i = 0; i < waveConfig.spawnFrequencyPerWave; i++)
                     {
-                        wave.spawnInitialInterval *= _spawnInitialIntervalDecrementRate;
+                        if (!isSpawning) yield break;
+                        if (isPaused) yield return new WaitUntil(() => !isPaused);
+
+                        SpawnEnemy(waveConfig.enemy_SO.enemyID);
+                        yield return new WaitForSeconds(waveConfig.spawnInitialInterval);
                     }
                 }
 
-                yield return new WaitForSeconds(_waveInterval);
-            }
-        }
-
-        private IEnumerator SpawnWaveEnemies(List<WaveConfig> _waveData)
-        {
-            List<Coroutine> activeSpawnCoroutines = new List<Coroutine>();
-
-            foreach (var waveConfig in _waveData)
-            {
-                Coroutine spawnCoroutine = StartCoroutine(SpawnEnemiesOfType(waveConfig));
-                activeSpawnCoroutines.Add(spawnCoroutine);          
-            }
-
-            foreach (var activeCoroutine in activeSpawnCoroutines)
-            {
-                yield return activeCoroutine;
-            }
-        }
-
-        private IEnumerator SpawnEnemiesOfType(WaveConfig waveConfig)
-        {
-            for (int i = 0; i < waveConfig.spawnFrequencyPerWave; i++)
-            {
-                while (isPaused)
-                {
-                    yield return null;
-                }
-
                 if (!isSpawning) yield break;
-
-                yield return new WaitForSeconds(waveConfig.spawnInitialInterval);
-                SpawnEnemy(waveConfig.enemy_SO.enemyID);
-               
+                yield return new WaitForSeconds(_waveInterval);
             }
         }
 
@@ -198,6 +172,13 @@ namespace Roguelike.Wave
 
 
             return spawnPoint;
+        }
+
+        private void ResetWaveData()
+        {
+            _waveData.Clear();
+            isSpawning = false;
+            isPaused = false;
         }
 
     }

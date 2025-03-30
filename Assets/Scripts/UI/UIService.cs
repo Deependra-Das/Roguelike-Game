@@ -5,6 +5,7 @@ using Roguelike.Player;
 using Roguelike.Utilities;
 using Roguelike.UI;
 using Roguelike.Level;
+using Roguelike.Event;
 
 public class UIService : MonoBehaviour,IService
 {
@@ -40,6 +41,8 @@ public class UIService : MonoBehaviour,IService
     private GameplayUIController _gameplayUIController;
     [SerializeField] private GameplayUIView _gameplayUIView;
 
+    private GameState _currentGameState;
+
     private void Awake()
     {
         _mainMenuUIController = new MainMenuUIController(_mainMenuUIView);
@@ -65,13 +68,13 @@ public class UIService : MonoBehaviour,IService
 
     private void SubscribeToEvents()
     {
+        EventService.Instance.OnGameStateChange.AddListener(SetGameState);
     }
 
     private void UnsubscribeToEvents()
     {
+        EventService.Instance.OnGameStateChange.RemoveListener(SetGameState);
     }
-
-    private void OnDestroy() => UnsubscribeToEvents();
 
     public void UpdateCurrentHealthSlider(float currentHealth)
     {
@@ -92,4 +95,12 @@ public class UIService : MonoBehaviour,IService
     {
         _gameplayUIController.UpdateMaxExpSlider(maxExp);
     }
+
+    public void SetGameState(GameState _newState)
+    {
+        _currentGameState = _newState;
+        _gameplayUIView.SetGameState(_currentGameState);
+    }
+
+    private void OnDestroy() => UnsubscribeToEvents();
 }

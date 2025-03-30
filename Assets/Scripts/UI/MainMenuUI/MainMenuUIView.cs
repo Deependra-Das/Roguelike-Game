@@ -7,13 +7,13 @@ namespace Roguelike.UI
 {
     public class MainMenuUIView : MonoBehaviour, IUIView
     {
-        private MainMenuUIController controller;
         [SerializeField] private Button _newGameButtonPrefab;
         [SerializeField] private Button _quitGameButtonPrefab;
+        private MainMenuUIController _controller;
 
         public void SetController(IUIController controllerToSet)
         {
-            controller = controllerToSet as MainMenuUIController;
+            _controller = controllerToSet as MainMenuUIController;
         }
 
         public void InitializeView()
@@ -31,15 +31,15 @@ namespace Roguelike.UI
             _newGameButtonPrefab.onClick.RemoveListener(OnNewGameButtonClicked);
         }
 
+        private void OnNewGameButtonClicked()
+        {
+            _controller.OnNewGameButtonClicked();
+        }
+
         public void DisableView() => gameObject.SetActive(false);
 
         public void EnableView() => gameObject.SetActive(true);
 
         public void OnDestroy() => UnsubscribeToEvents();
-
-        private void OnNewGameButtonClicked()
-        {
-            GameService.Instance.GetService<EventService>().OnNewGameButtonClicked.Invoke();
-        }
     }
 }

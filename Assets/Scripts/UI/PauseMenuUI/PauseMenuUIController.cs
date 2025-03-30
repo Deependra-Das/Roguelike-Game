@@ -9,12 +9,15 @@ namespace Roguelike.UI
     public class PauseMenuUIController : IUIController
     {
         private PauseMenuUIView _pauseMenuUIView;
+        private GameState _currentGameState;
 
         public PauseMenuUIController(PauseMenuUIView pauseMenuUIView)
         {
             _pauseMenuUIView = pauseMenuUIView;
             _pauseMenuUIView.SetController(this);
         }
+
+        ~PauseMenuUIController() => UnsubscribeToEvents();
 
         public void InitializeController()
         {
@@ -25,16 +28,14 @@ namespace Roguelike.UI
 
         private void SubscribeToEvents()
         {
-            GameService.Instance.GetService<EventService>().OnPauseGame.AddListener(OnPauseGame);
-            GameService.Instance.GetService<EventService>().OnContinueButtonClicked.AddListener(OnContinueGame);
-            GameService.Instance.GetService<EventService>().OnGiveUpButtonClicked.AddListener(OnGiveUp);
+            EventService.Instance.OnGameStateChange.AddListener(SetGameState);
+            EventService.Instance.OnGamePaused.AddListener(Show);
         }
 
         private void UnsubscribeToEvents()
         {
-            GameService.Instance.GetService<EventService>().OnPauseGame.RemoveListener(OnPauseGame);
-            GameService.Instance.GetService<EventService>().OnContinueButtonClicked.RemoveListener(OnContinueGame);
-            GameService.Instance.GetService<EventService>().OnGiveUpButtonClicked.RemoveListener(OnGiveUp);
+            EventService.Instance.OnGameStateChange.RemoveListener(SetGameState);
+            EventService.Instance.OnGamePaused.RemoveListener(Show);
         }
 
         public void Show()
@@ -47,26 +48,22 @@ namespace Roguelike.UI
             _pauseMenuUIView.DisableView();
         }
 
-        private void OnPauseGame()
+        public void SetGameState(GameState _newState)
         {
-            Show();
+            _currentGameState = _newState;
         }
 
-        private void OnContinueGame()
+        public void OnContinueButtonClicked()
         {
             Hide();
+            GameService.Instance.ChangeGameState(GameState.Gameplay);
         }
 
-        private void OnGiveUp()
+        public void OnGiveUpButtonClicked()
         {
             Hide();
-            GameService.Instance.GetService<EventService>().OnGameOver.Invoke();
+            GameService.Instance.ChangeGameState(GameState.GameOver);
         }
 
-        private void OnDestroy()
-        {
-            _pauseMenuUIView.OnDestroy();
-            UnsubscribeToEvents();
-        }
     }
 }

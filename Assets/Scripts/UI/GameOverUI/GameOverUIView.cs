@@ -8,12 +8,12 @@ namespace Roguelike.UI
 {
     public class GameOverUIView : MonoBehaviour, IUIView
     {
-        private GameOverUIController controller;
+        private GameOverUIController _controller;
         [SerializeField] private Button _backToMainMenuButtonPrefab;
 
         public void SetController(IUIController controllerToSet)
         {
-            controller = controllerToSet as GameOverUIController;
+            _controller = controllerToSet as GameOverUIController;
         }
 
         public void InitializeView()
@@ -39,7 +39,7 @@ namespace Roguelike.UI
 
         private void OnBackToMainMenuButtonClicked()
         {
-            GameService.Instance.GetService<EventService>().OnBackToMainMenuButtonClicked.Invoke();
+            _controller.OnBackButtonClicked();
         }
     }
 }

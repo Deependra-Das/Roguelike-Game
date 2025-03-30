@@ -4,6 +4,7 @@ using Roguelike.Enemy;
 using Roguelike.Level;
 using UnityEngine;
 using System.Collections.Generic;
+using Roguelike.UI;
 
 namespace Roguelike.Player
 {
@@ -12,9 +13,9 @@ namespace Roguelike.Player
         private PlayerScriptableObject _playerScriptableObject;
         private PlayerModel _playerModel;
         private PlayerView _playerView;
-        private bool isPaused = false;
         protected bool isDead;
         protected List<int> expToUpgradeList;
+        private GameState _currentGameState;
 
         public PlayerController(PlayerScriptableObject playerScriptableObject)
         {
@@ -44,42 +45,30 @@ namespace Roguelike.Player
             _playerView = Object.Instantiate(_playerModel.PlayerPrefab);
             _playerView.transform.position = _playerModel.SpawnPosition;
             _playerView.transform.rotation = Quaternion.Euler(_playerModel.SpawnRotation);
-            _playerView.SetController(this);           
+            _playerView.SetController(this);
         }
 
         private void SubscribeToEvents()
         {
-            GameService.Instance.GetService<EventService>().OnContinueButtonClicked.AddListener(ContinueGame);
+            EventService.Instance.OnGameStateChange.AddListener(SetGameState);
+            EventService.Instance.OnGameOver.AddListener(OnGameOver);
         }
 
         private void UnsubscribeToEvents()
         {
-            GameService.Instance.GetService<EventService>().OnContinueButtonClicked.RemoveListener(ContinueGame);
+            EventService.Instance.OnGameStateChange.RemoveListener(SetGameState);
+            EventService.Instance.OnGameOver.RemoveListener(OnGameOver);
         }
 
         public void UpdatePlayer() 
         {
-            if (isDead) return;
-
-            if (Input.GetKeyDown(KeyCode.Escape) && !isPaused && !isDead)
-            {
-                PauseGame();
-            }
-        }       
-
-        public void FixedUpdatePlayer() { }
-
-        private void PauseGame()
-        {
-            isPaused = true;
-            GameService.Instance.GetService<EventService>().OnPauseGame.Invoke();
-            Debug.Log("Game Paused");
+            if (isDead || _currentGameState!=GameState.Gameplay) return;
         }
 
-        private void ContinueGame()
+        public void SetGameState(GameState _newState)
         {
-            isPaused = false;
-            Debug.Log("Game Resumed");
+            _currentGameState = _newState;
+            _playerView.SetGameState(_currentGameState);
         }
 
         public PlayerModel PlayerModel { get { return _playerModel; } }
@@ -90,19 +79,32 @@ namespace Roguelike.Player
 
         public void TakeDamage(int damage)
         {
-            _playerModel.UpdateCurrentHealth(-damage);
-            GameService.Instance.GetService<UIService>().UpdateCurrentHealthSlider(_playerModel.CurrentHealth);
-            if (_playerModel.CurrentHealth <= 0)
+            if (!isDead && _currentGameState == GameState.Gameplay)
             {
-                isDead = true;
-                OnEnemyDeath();
+                _playerModel.UpdateCurrentHealth(-damage);
+                GameService.Instance.GetService<UIService>().UpdateCurrentHealthSlider(_playerModel.CurrentHealth);
+                if (_playerModel.CurrentHealth <= 0)
+                {
+                    isDead = true;
+                    OnPlayerDeath();
+                }
             }
         }
 
-        public void OnEnemyDeath()
+        private void OnPlayerDeath()
         {
-            GameService.Instance.GetService<EventService>().OnGameOver.Invoke();
-            _playerView.OnEnemyDeath();
+            GameService.Instance.ChangeGameState(GameState.GameOver);
+            _playerView.OnPlayerDeath();
+        }
+
+        private void OnGameOver()
+        {
+            if(!isDead)
+            {
+                _playerModel.UpdateCurrentHealth(_playerModel.CurrentHealth);
+                isDead = true;
+                _playerView.OnPlayerDeath();
+            }
         }
 
         public void AddExperiencePoints(int value)

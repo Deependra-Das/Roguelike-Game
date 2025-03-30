@@ -9,7 +9,6 @@ using Roguelike.Player;
 using Roguelike.Enemy;
 using Roguelike.UI;
 using Roguelike.Wave;
-using UnityEngine.XR;
 
 namespace Roguelike.Main
 {
@@ -24,8 +23,8 @@ namespace Roguelike.Main
         [SerializeField] private List<PlayerScriptableObject> _playerScriptableObjects;
         [SerializeField] private List<EnemyScriptableObject> _enemyScriptableObjects;
 
-
         private Dictionary<Type, IService> _services = new Dictionary<Type, IService>();
+        public GameState GameState { get; private set; }
 
         protected override void Awake()
         {
@@ -36,12 +35,11 @@ namespace Roguelike.Main
         {
             RegisterServices();
             InjectDependencies();
-            Debug.Log("Game Service Running");
+            ChangeGameState(GameState.MainMenu);
         }
 
         private void RegisterServices()
         {
-            RegisterService<EventService>(new EventService());
             RegisterService<UIService>(_uiService);
             RegisterService<LevelService>(new LevelService(_levelScriptableObjects));
             RegisterService<PlayerService>(new PlayerService(_playerScriptableObjects));
@@ -51,7 +49,7 @@ namespace Roguelike.Main
 
         public void InjectDependencies()
         {
-            InitializeService<EventService>();
+            EventService.Instance.Initialize();
             InitializeService<UIService>();
             InitializeService<LevelService>();
             InitializeService<PlayerService>();
@@ -100,6 +98,14 @@ namespace Roguelike.Main
             }
         }
 
+        void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Escape) && GameState==GameState.Gameplay)
+            {
+                ChangeGameState(GameState.GamePaused);
+            }
+        }
+
         public void SetCameraTarget(GameObject targetGameObject)
         {
             if (_cinemachineCamera != null && targetGameObject != null)
@@ -111,6 +117,46 @@ namespace Roguelike.Main
                 Debug.LogWarning("Cinemachine Virtual Camera or Target GameObject is not assigned.");
             }
 
+        }
+
+        public void ChangeGameState(GameState newState)
+        {
+            GameState = newState;
+            EventService.Instance.OnGameStateChange.Invoke(GameState);
+
+            switch (newState)
+            {
+                case GameState.MainMenu:
+                    EventService.Instance.OnMainMenu.Invoke();
+                    break;
+                case GameState.LevelSelection:
+                    EventService.Instance.OnLevelSelection.Invoke();
+                    break;
+                case GameState.CharacterSelection:
+                    EventService.Instance.OnCharacterSelection.Invoke();
+                    break;
+                case GameState.PowerUpSelection:
+                    //GetService<EventService>().OnPowerUpSelection.Invoke();
+                    break;
+                case GameState.Gameplay:
+                    EventService.Instance.OnGameplay.Invoke();
+                    break;
+                case GameState.GamePaused:
+                    EventService.Instance.OnGamePaused.Invoke();
+                    break;
+                case GameState.LevelCompleted:
+                    EventService.Instance.OnLevelCompleted.Invoke();
+                    break;
+                case GameState.GameOver:
+                    EventService.Instance.OnGameOver.Invoke();
+                    break;
+            }
+        }
+
+        public void StartGameplay()
+        {
+            EventService.Instance.OnStartGameplay.Invoke();
+            ChangeGameState(GameState.Gameplay);
         }
     }
 }

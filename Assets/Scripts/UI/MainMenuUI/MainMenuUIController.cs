@@ -9,6 +9,7 @@ namespace Roguelike.UI
     public class MainMenuUIController : IUIController
     {
         private MainMenuUIView _mainMenuUIView;
+        private GameState _currentGameState;
 
         public MainMenuUIController(MainMenuUIView mainMenuUIView)
         {
@@ -16,25 +17,24 @@ namespace Roguelike.UI
             _mainMenuUIView.SetController(this);
         }
 
+        ~MainMenuUIController() => UnsubscribeToEvents();
+
         public void InitializeController()
         {
             _mainMenuUIView.InitializeView();
             SubscribeToEvents();
-            Show();
         }
 
         private void SubscribeToEvents()
         {
-            GameService.Instance.GetService<EventService>().OnNewGameButtonClicked.AddListener(OnNewGameButtonClicked);
-            GameService.Instance.GetService<EventService>().OnQuitGameButtonClicked.AddListener(OnQuitButtonClicked);
-            GameService.Instance.GetService<EventService>().OnBackToMainMenuButtonClicked.AddListener(OnBackToMainMenuButtonClicked);            
+            EventService.Instance.OnMainMenu.AddListener(Show);
+            EventService.Instance.OnGameStateChange.AddListener(SetGameState);
         }
 
         private void UnsubscribeToEvents()
         {
-            GameService.Instance.GetService<EventService>().OnNewGameButtonClicked.RemoveListener(OnNewGameButtonClicked);
-            GameService.Instance.GetService<EventService>().OnQuitGameButtonClicked.RemoveListener(OnQuitButtonClicked);
-            GameService.Instance.GetService<EventService>().OnBackToMainMenuButtonClicked.RemoveListener(OnBackToMainMenuButtonClicked);
+            EventService.Instance.OnMainMenu.RemoveListener(Show);
+            EventService.Instance.OnGameStateChange.RemoveListener(SetGameState);
         }
 
         public void Show()
@@ -47,25 +47,20 @@ namespace Roguelike.UI
             _mainMenuUIView.DisableView();
         }
 
-        private void OnNewGameButtonClicked()
+        public void SetGameState(GameState _newState)
+        {
+            _currentGameState = _newState;
+        }
+
+        public void OnNewGameButtonClicked()
         {
             Hide();
+            GameService.Instance.ChangeGameState(GameState.LevelSelection);
         }
 
         private void OnQuitButtonClicked()
         {
             Application.Quit();
-        }
-
-        private void OnBackToMainMenuButtonClicked()
-        {
-            Show();
-        }
-
-        private void OnDestroy()
-        {
-            _mainMenuUIView.OnDestroy();
-            UnsubscribeToEvents();
         }
     }
 }

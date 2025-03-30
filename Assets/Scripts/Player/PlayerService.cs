@@ -12,11 +12,14 @@ namespace Roguelike.Player
         private List<PlayerScriptableObject> _playerScriptableObject;
         private PlayerController _playerController;
         private int _playerIDSelected = -1;
+        private GameState _currentGameState;
 
         public PlayerService(List<PlayerScriptableObject> playerScriptableObject)
         {
             _playerScriptableObject = playerScriptableObject;
         }
+
+        ~PlayerService() => UnsubscribeToEvents();
 
         public void Initialize(params object[] dependencies)
         {
@@ -25,14 +28,23 @@ namespace Roguelike.Player
 
         private void SubscribeToEvents()
         {
-            GameService.Instance.GetService<EventService>().OnCharacterSelected.AddListener(SelectPlayer);
-            GameService.Instance.GetService<EventService>().OnStartGame.AddListener(SpawnPlayer);
+            EventService.Instance.OnGameStateChange.AddListener(SetGameState);
+            EventService.Instance.OnCharacterSelected.AddListener(SelectPlayer);
+            EventService.Instance.OnStartGameplay.AddListener(SpawnPlayer);
+            EventService.Instance.OnGameOver.AddListener(OnGameOver);
         }
 
         private void UnsubscribeToEvents()
         {
-            GameService.Instance.GetService<EventService>().OnCharacterSelected.RemoveListener(SelectPlayer);
-            GameService.Instance.GetService<EventService>().OnStartGame.RemoveListener(SpawnPlayer);
+            EventService.Instance.OnGameStateChange.RemoveListener(SetGameState);
+            EventService.Instance.OnCharacterSelected.RemoveListener(SelectPlayer);
+            EventService.Instance.OnStartGameplay.RemoveListener(SpawnPlayer);
+            EventService.Instance.OnGameOver.RemoveListener(OnGameOver);
+        }
+
+        public void SetGameState(GameState _newState)
+        {
+            _currentGameState = _newState;
         }
 
         public void SelectPlayer(int playerId)
@@ -48,5 +60,10 @@ namespace Roguelike.Player
         }
 
         public PlayerController GetPlayer() => _playerController;
+
+        private void OnGameOver()
+        {
+            _playerController = null;
+        }
     }
 }

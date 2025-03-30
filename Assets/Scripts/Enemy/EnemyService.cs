@@ -13,15 +13,33 @@ namespace Roguelike.Enemy
         private List<EnemyScriptableObject> _enemySO_List;
         private EnemyController _enemyController;
         private EnemyPool _enemyPoolObj;
+        private GameState _currentGameState;
 
         public EnemyService(List<EnemyScriptableObject> enemySO_List)
         {
             _enemySO_List = enemySO_List;
         }
 
+        ~EnemyService() => UnsubscribeToEvents();
+
         public void Initialize(params object[] dependencies)
         {
             _enemyPoolObj = new EnemyPool();
+        }
+
+        private void SubscribeToEvents()
+        {
+            EventService.Instance.OnGameStateChange.AddListener(SetGameState);
+        }
+
+        private void UnsubscribeToEvents()
+        {
+            EventService.Instance.OnGameStateChange.RemoveListener(SetGameState);
+        }
+
+        public void SetGameState(GameState _newState)
+        {
+            _currentGameState = _newState;
         }
 
         public EnemyController SpawnEnemy(int enemyId, Vector2 spawnPosition)

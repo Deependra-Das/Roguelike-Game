@@ -8,9 +8,10 @@ namespace Roguelike.UI
 {
     public class LevelSelectionUIController : IUIController
     {
+        private LevelButtonView _levelButtonPrefab;
+        private List<LevelScriptableObject> _level_SO;
         private LevelSelectionUIView _levelSelectionUIView;
-        [SerializeField] private LevelButtonView _levelButtonPrefab;
-        [SerializeField] private List<LevelScriptableObject> _level_SO;
+        private GameState _currentGameState;
 
         public LevelSelectionUIController(LevelSelectionUIView levelSelectionUIView, LevelButtonView levelButtonPrefab, List<LevelScriptableObject> level_SO)
         {
@@ -19,6 +20,8 @@ namespace Roguelike.UI
             _levelSelectionUIView = levelSelectionUIView;
             _levelSelectionUIView.SetController(this);
         }
+
+        ~LevelSelectionUIController() => UnsubscribeToEvents();
 
         public void InitializeController()
         {
@@ -29,15 +32,15 @@ namespace Roguelike.UI
 
         private void SubscribeToEvents()
         {
-            GameService.Instance.GetService<EventService>().OnNewGameButtonClicked.AddListener(ShowLevelSelectionUI);
+            EventService.Instance.OnLevelSelection.AddListener(Show);
+            EventService.Instance.OnGameStateChange.AddListener(SetGameState);
         }
 
         private void UnsubscribeToEvents()
         {
-            GameService.Instance.GetService<EventService>().OnNewGameButtonClicked.RemoveListener(ShowLevelSelectionUI);
+            EventService.Instance.OnLevelSelection.RemoveListener(Show);
+            EventService.Instance.OnGameStateChange.AddListener(SetGameState);
         }
-
-        public void ShowLevelSelectionUI() => Show();
 
         public void Show()
         {
@@ -47,6 +50,11 @@ namespace Roguelike.UI
         public void Hide()
         {
             _levelSelectionUIView.DisableView();
+        }
+
+        public void SetGameState(GameState _newState)
+        {
+            _currentGameState = _newState;
         }
 
         public void CreateLevelButtons()
@@ -62,12 +70,9 @@ namespace Roguelike.UI
         public void OnLevelSelected(int levelId)
         {
             Hide();
-            GameService.Instance.GetService<EventService>().OnLevelSelected.Invoke(levelId);
+            EventService.Instance.OnLevelSelected.Invoke(levelId);
+            GameService.Instance.ChangeGameState(GameState.CharacterSelection);
         }
 
-        private void OnDestroy()
-        {
-            UnsubscribeToEvents();
-        }
     }
 }
