@@ -45,11 +45,17 @@ TagManager:
   - name: Background
     uniqueID: 1292648251
     locked: 0
+  - name: Weapons
+    uniqueID: 3989683635
+    locked: 0
   - name: Objects
     uniqueID: 32325163
     locked: 0
   - name: Foreground
     uniqueID: 3904743789
+    locked: 0
+  - name: UI
+    uniqueID: 2980210221
     locked: 0
   m_RenderingLayers:
   - Default

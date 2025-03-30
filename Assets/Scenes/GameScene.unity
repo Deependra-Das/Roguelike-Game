@@ -420,6 +420,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minPos: {fileID: 796065379}
   maxPos: {fileID: 1127907583}
+  _waveData: []
 --- !u!1 &315481950
 GameObject:
   m_ObjectHideFlags: 0
@@ -1202,7 +1203,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: 000000003b3f0c4d2b3eed016da9bde8
+  m_ApplyToSortingLayers: 000000003b3f0c4d2b3eed016da9bde8b3bdcded2d66a2b1
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
