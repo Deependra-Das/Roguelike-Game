@@ -13,7 +13,7 @@ namespace Roguelike.Wave
     {
         [SerializeField] private Transform minPos;
         [SerializeField] private Transform maxPos;
-        private List<WaveConfig> _waveData = new List<WaveConfig>();
+        public List<WaveConfig> _waveData = new List<WaveConfig>();
         private float _spawnInitialIntervalDecrementRate;
         private float _spawnFinalInterval;
         private int _currentWaveIndex = 0;
@@ -95,6 +95,7 @@ namespace Roguelike.Wave
                 StopCoroutine(spawnCoroutine);
                 spawnCoroutine = null;
                 Debug.Log("Spawning stopped.");
+                ResetWaveData();
             }
         }
 
@@ -171,6 +172,13 @@ namespace Roguelike.Wave
 
 
             return spawnPoint;
+        }
+
+        private void ResetWaveData()
+        {
+            _waveData.Clear();
+            isSpawning = false;
+            isPaused = false;
         }
 
     }

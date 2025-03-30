@@ -51,11 +51,13 @@ namespace Roguelike.Player
         private void SubscribeToEvents()
         {
             EventService.Instance.OnGameStateChange.AddListener(SetGameState);
+            EventService.Instance.OnGameOver.AddListener(OnGameOver);
         }
 
         private void UnsubscribeToEvents()
         {
             EventService.Instance.OnGameStateChange.RemoveListener(SetGameState);
+            EventService.Instance.OnGameOver.RemoveListener(OnGameOver);
         }
 
         public void UpdatePlayer() 
@@ -84,15 +86,25 @@ namespace Roguelike.Player
                 if (_playerModel.CurrentHealth <= 0)
                 {
                     isDead = true;
-                    OnEnemyDeath();
+                    OnPlayerDeath();
                 }
             }
         }
 
-        public void OnEnemyDeath()
+        private void OnPlayerDeath()
         {
             GameService.Instance.ChangeGameState(GameState.GameOver);
-            _playerView.OnEnemyDeath();
+            _playerView.OnPlayerDeath();
+        }
+
+        private void OnGameOver()
+        {
+            if(!isDead)
+            {
+                _playerModel.UpdateCurrentHealth(_playerModel.CurrentHealth);
+                isDead = true;
+                _playerView.OnPlayerDeath();
+            }
         }
 
         public void AddExperiencePoints(int value)

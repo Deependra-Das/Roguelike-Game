@@ -31,6 +31,7 @@ namespace Roguelike.Player
             EventService.Instance.OnGameStateChange.AddListener(SetGameState);
             EventService.Instance.OnCharacterSelected.AddListener(SelectPlayer);
             EventService.Instance.OnStartGameplay.AddListener(SpawnPlayer);
+            EventService.Instance.OnGameOver.AddListener(OnGameOver);
         }
 
         private void UnsubscribeToEvents()
@@ -38,6 +39,7 @@ namespace Roguelike.Player
             EventService.Instance.OnGameStateChange.RemoveListener(SetGameState);
             EventService.Instance.OnCharacterSelected.RemoveListener(SelectPlayer);
             EventService.Instance.OnStartGameplay.RemoveListener(SpawnPlayer);
+            EventService.Instance.OnGameOver.RemoveListener(OnGameOver);
         }
 
         public void SetGameState(GameState _newState)
@@ -58,5 +60,10 @@ namespace Roguelike.Player
         }
 
         public PlayerController GetPlayer() => _playerController;
+
+        private void OnGameOver()
+        {
+            _playerController = null;
+        }
     }
 }

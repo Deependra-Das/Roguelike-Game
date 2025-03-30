@@ -91,12 +91,16 @@ namespace Roguelike.Enemy
         private void OnGameOver()
         {
             _enemyModel.UpdateHealth(_enemyModel.Health);
+            isDead = true;
             OnEnemyDeath();
         }
 
         public void OnEnemyDeath()
-        {
-            GameService.Instance.GetService<PlayerService>().GetPlayer().AddExperiencePoints(_enemyModel.ExpDrop);
+        {   
+            if(_currentGameState==GameState.Gameplay)
+            {
+                GameService.Instance.GetService<PlayerService>().GetPlayer().AddExperiencePoints(_enemyModel.ExpDrop);
+            }            
             UnsubscribeToEvents();
             _enemyView.gameObject.SetActive(false);
             GameService.Instance.GetService<EnemyService>().ReturnEnemyToPool(this);
