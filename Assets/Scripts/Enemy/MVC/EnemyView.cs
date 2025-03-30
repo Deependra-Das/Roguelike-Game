@@ -11,18 +11,35 @@ namespace Roguelike.Enemy
         [SerializeField] private Animator _enemyAnimator;
         private Transform _playerTransform;
         private Vector3 _enemyDirection;
+        private GameState _currentGameState;
 
         public EnemyController _controller { get; private set; }
 
         public void SetController(EnemyController controllerToSet) => _controller = controllerToSet;
 
+        public void SetGameState(GameState _newState)
+        {
+            _currentGameState = _newState;
+        }
+
+        void Update()
+        {
+            if (_currentGameState == GameState.Gameplay)
+            {
+               _controller?.UpdateEnemy();
+            }
+        }
+
         void FixedUpdate()
         {
-            if(GameService.Instance.GetService<PlayerService>().GetPlayer().PlayerGameObject.activeSelf)
+            if(_currentGameState==GameState.Gameplay)
             {
                 Move();
-                _controller?.UpdateEnemy();
-            }          
+            }
+            else
+            {
+                _enemy_RB.linearVelocity=Vector2.zero;
+            }
         }
 
         public void Move()

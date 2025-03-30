@@ -1,3 +1,4 @@
+using Roguelike.Event;
 using Roguelike.Main;
 using Roguelike.Player;
 using UnityEngine;
@@ -10,6 +11,7 @@ namespace Roguelike.Enemy
         protected EnemyView _enemyView;
         protected float lastAttackTime;
         protected bool isDead;
+        private GameState _currentGameState;
 
         public EnemyController(EnemyScriptableObject enemySO)
         {
@@ -40,11 +42,30 @@ namespace Roguelike.Enemy
             isDead = false;
             lastAttackTime = 0;
             _enemyView.transform.position = spawnPosition;
+            SubscribeToEvents();
+            SetGameState(GameService.Instance.GameState);
             _enemyView.gameObject.SetActive(true);
         }
+
+        private void SubscribeToEvents()
+        {
+            EventService.Instance.OnGameStateChange.AddListener(SetGameState);
+        }
+
+        private void UnsubscribeToEvents()
+        {
+            EventService.Instance.OnGameStateChange.RemoveListener(SetGameState);
+        }
+
+        public void SetGameState(GameState _newState)
+        {
+            _currentGameState = _newState;
+            _enemyView.SetGameState(_currentGameState);
+        }
+
         public void UpdateEnemy()
         {
-            if (isDead) return;
+            if (isDead || _currentGameState != GameState.Gameplay) return;
             Attack();
         }
 
@@ -54,17 +75,21 @@ namespace Roguelike.Enemy
 
         public void TakeDamage(int damage)
         {
-            _enemyModel.UpdateHealth(-damage);
-            if (_enemyModel.Health <= 0)
+            if(!isDead && _currentGameState == GameState.Gameplay)
             {
-                isDead = true;
-                OnEnemyDeath();
-            }
+                _enemyModel.UpdateHealth(-damage);
+                if (_enemyModel.Health <= 0)
+                {
+                    isDead = true;
+                    OnEnemyDeath();
+                }
+            }           
         }
 
         public void OnEnemyDeath()
         {
             GameService.Instance.GetService<PlayerService>().GetPlayer().AddExperiencePoints(_enemyModel.ExpDrop);
+            UnsubscribeToEvents();
             _enemyView.gameObject.SetActive(false);
             GameService.Instance.GetService<EnemyService>().ReturnEnemyToPool(this);
         }

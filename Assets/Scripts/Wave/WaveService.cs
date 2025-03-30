@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using Roguelike.Enemy;
 using Roguelike.Event;
 using Roguelike.Main;
+using Roguelike.Level;
 
 namespace Roguelike.Wave
 {
@@ -20,6 +21,7 @@ namespace Roguelike.Wave
         private bool isSpawning = false;
         private bool isPaused = false;
         private Coroutine spawnCoroutine;
+        private GameState _currentGameState;
 
         public void Initialize(params object[] dependencies)
         {
@@ -28,30 +30,38 @@ namespace Roguelike.Wave
 
         private void SubscribeToEvents()
         {
-            //GameService.Instance.GetService<EventService>().OnStartWaveSpawn.AddListener(StartWave);
-            //GameService.Instance.GetService<EventService>().OnGamePaused.AddListener(PauseSpawning);
-            //GameService.Instance.GetService<EventService>().OnContinueButtonClicked.AddListener(ResumeSpawning);
-            //GameService.Instance.GetService<EventService>().OnGameOver.AddListener(StopSpawning);
-            //GameService.Instance.GetService<EventService>().OnLevelCompleted.AddListener(StopSpawning);
+            EventService.Instance.OnGameStateChange.AddListener(SetGameState);
+            EventService.Instance.OnStartGameplay.AddListener(StartWave);
+            EventService.Instance.OnGamePaused.AddListener(PauseSpawning);
+            EventService.Instance.OnGameplay.AddListener(ResumeSpawning);
+            EventService.Instance.OnGameOver.AddListener(StopSpawning);
+            EventService.Instance.OnLevelCompleted.AddListener(StopSpawning);
         }
 
         private void UnsubscribeToEvents()
         {
-            //GameService.Instance.GetService<EventService>().OnStartWaveSpawn.RemoveListener(StartWave);
-            //GameService.Instance.GetService<EventService>().OnGamePaused.RemoveListener(PauseSpawning);
-            //GameService.Instance.GetService<EventService>().OnContinueButtonClicked.RemoveListener(ResumeSpawning);
-            //GameService.Instance.GetService<EventService>().OnGameOver.RemoveListener(StopSpawning);
-            //GameService.Instance.GetService<EventService>().OnLevelCompleted.RemoveListener(StopSpawning);
+            EventService.Instance.OnGameStateChange.RemoveListener(SetGameState);
+            EventService.Instance.OnStartGameplay.RemoveListener(StartWave);
+            EventService.Instance.OnGamePaused.RemoveListener(PauseSpawning);
+            EventService.Instance.OnGameplay.RemoveListener(ResumeSpawning);
+            EventService.Instance.OnGameOver.RemoveListener(StopSpawning);
+            EventService.Instance.OnLevelCompleted.RemoveListener(StopSpawning);
         }
 
-        private void StartWave(float spawnInitialIntervalDecrementRate, float spawnFinalInterval, float waveInterval, List<WaveConfig> waveData)
+        public void SetGameState(GameState _newState)
         {
-            _currentWaveIndex = 1;
-            _spawnInitialIntervalDecrementRate = spawnInitialIntervalDecrementRate;
-            _spawnFinalInterval = spawnFinalInterval;
-            _waveInterval = waveInterval;
+            _currentGameState = _newState;
+        }
 
-            InitializeWaveData(waveData);
+        private void StartWave()
+        {
+            LevelScriptableObject levelData = GameService.Instance.GetService<LevelService>().GetLevelData();
+            _currentWaveIndex = 1;
+            _spawnInitialIntervalDecrementRate = levelData.spawnIntervalDecrementRate;
+            _spawnFinalInterval = levelData.spawnFinalInterval;
+            _waveInterval = levelData.waveInterval;
+
+            InitializeWaveData(levelData.enemyWaveData);
 
             if (!isSpawning && !isPaused)
             {
