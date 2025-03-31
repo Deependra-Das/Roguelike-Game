@@ -95,6 +95,18 @@ namespace Roguelike.Weapon
             transform.localScale = endScale;
         }
 
+        public void UpdateMaxRadius(float newMaxRadius)
+        {
+            DeactivateWeapon();
+            _maxRadius = newMaxRadius;
+            ActivateWeapon();
+        }
+
+        public void UpdateAttackPower(int newAttackPower)
+        {
+            _attackPower = newAttackPower;
+        }
+
         private void OnGameOver()
         {
             Destroy(this.gameObject);
