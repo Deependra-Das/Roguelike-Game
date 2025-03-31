@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 3871445881022867695}
   - component: {fileID: 6570427522576216108}
   - component: {fileID: 5609321952731831004}
+  - component: {fileID: 8751297854510852430}
   m_Layer: 0
-  m_Name: AreaWeaponPrefab
+  m_Name: RadialReapWeaponPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -124,3 +125,20 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 3.75
+--- !u!114 &8751297854510852430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6105423455021675576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8369109003d4e54c8c5fee4138ddc30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _attackPower: 0
+  _minRadius: 0.5
+  _maxRadius: 1
+  _cycleTime: 2
+  _speed: 1

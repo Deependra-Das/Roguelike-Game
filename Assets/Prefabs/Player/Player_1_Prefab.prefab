@@ -223,4 +223,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _player_RB: {fileID: 5132601828808136608}
   _playerAnimator: {fileID: 1558445547520503923}
+  playerWeaponTransform: {fileID: 4191384183755385904}
   playerMoveDirection: {x: 0, y: 0, z: 0}

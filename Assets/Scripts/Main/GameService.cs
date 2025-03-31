@@ -9,6 +9,7 @@ using Roguelike.Player;
 using Roguelike.Enemy;
 using Roguelike.UI;
 using Roguelike.Wave;
+using Roguelike.Weapon;
 
 namespace Roguelike.Main
 {
@@ -22,6 +23,7 @@ namespace Roguelike.Main
         [SerializeField] private List<LevelScriptableObject> _levelScriptableObjects;
         [SerializeField] private List<PlayerScriptableObject> _playerScriptableObjects;
         [SerializeField] private List<EnemyScriptableObject> _enemyScriptableObjects;
+        [SerializeField] private List<WeaponScriptableObject> _weaponScriptableObjects;
 
         private Dictionary<Type, IService> _services = new Dictionary<Type, IService>();
         public GameState GameState { get; private set; }
@@ -43,6 +45,7 @@ namespace Roguelike.Main
             RegisterService<UIService>(_uiService);
             RegisterService<LevelService>(new LevelService(_levelScriptableObjects));
             RegisterService<PlayerService>(new PlayerService(_playerScriptableObjects));
+            RegisterService<WeaponService>(new WeaponService(_weaponScriptableObjects));
             RegisterService<EnemyService>(new EnemyService(_enemyScriptableObjects));
             RegisterService<WaveService>(_waveService);
         }
@@ -53,6 +56,7 @@ namespace Roguelike.Main
             InitializeService<UIService>();
             InitializeService<LevelService>();
             InitializeService<PlayerService>();
+            InitializeService<WeaponService>();
             InitializeService<EnemyService>();
             InitializeService<WaveService>();
         }

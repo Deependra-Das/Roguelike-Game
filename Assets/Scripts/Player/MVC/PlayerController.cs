@@ -5,6 +5,7 @@ using Roguelike.Level;
 using UnityEngine;
 using System.Collections.Generic;
 using Roguelike.UI;
+using Roguelike.Weapon;
 
 namespace Roguelike.Player
 {
@@ -16,6 +17,7 @@ namespace Roguelike.Player
         protected bool isDead;
         protected List<int> expToUpgradeList;
         private GameState _currentGameState;
+        private RadialReapWeapon _radialReap;
 
         public PlayerController(PlayerScriptableObject playerScriptableObject)
         {
@@ -33,6 +35,14 @@ namespace Roguelike.Player
             GameService.Instance.GetService<UIService>().UpdateCurrentHealthSlider(_playerModel.CurrentHealth);
             GameService.Instance.GetService<UIService>().UpdateMaxExpSlider(expToUpgradeList[_playerModel.CurrentExpLevel]);
             GameService.Instance.GetService<UIService>().UpdateCurrentExpSlider(_playerModel.CurrentExpPoints);
+            AddWeapon();
+        }
+
+        private void AddWeapon()
+        {
+            IWeapon weapon = GameService.Instance.GetService<WeaponService>().CreateWeapons(WeaponType.RadialReap,_playerView.playerWeaponTransform);
+            _radialReap = weapon as RadialReapWeapon;
+            _radialReap.ActivateWeapon();
         }
 
         private void InitializeModel()

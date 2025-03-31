@@ -9,6 +9,7 @@ namespace Roguelike.Player
     {
         [SerializeField] private Rigidbody2D _player_RB;
         [SerializeField] private Animator _playerAnimator;
+        [SerializeField] public Transform  playerWeaponTransform;
         private PlayerController _controller;
         public Vector3 playerMoveDirection;
         private GameState _currentGameState;
@@ -60,5 +61,6 @@ namespace Roguelike.Player
         {
             Destroy(this.gameObject);
         }
+
     }
 }

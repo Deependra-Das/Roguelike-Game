@@ -41,11 +41,13 @@ namespace Roguelike.UI
         public void Show()
         {
             _pauseMenuUIView.EnableView();
+            Time.timeScale = 0;
         }
 
         public void Hide()
         {
             _pauseMenuUIView.DisableView();
+            Time.timeScale = 1f;
         }
 
         public void SetGameState(GameState _newState)
