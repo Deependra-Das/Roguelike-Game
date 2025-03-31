@@ -55,6 +55,9 @@ namespace Roguelike.Weapon
                 case WeaponType.RadialReap:
                     weaponObject = Object.Instantiate(weaponData.weaponPrefab, spawnTransform.position, Quaternion.identity, spawnTransform);
                     break;
+                case WeaponType.OrbitalFury:
+                    weaponObject = Object.Instantiate(weaponData.weaponPrefab, spawnTransform.position, Quaternion.identity, spawnTransform);
+                    break;
 
                 default:
                     Debug.LogWarning("Weapon type not handled: " + type);

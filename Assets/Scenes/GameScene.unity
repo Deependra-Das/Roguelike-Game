@@ -3360,6 +3360,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 227a44f4f3d351546bdfd43b644d8556, type: 2}
   _weaponScriptableObjects:
   - {fileID: 11400000, guid: 5bc9d4b3f9c49834f9e1ae9ca387ed7f, type: 2}
+  - {fileID: 11400000, guid: 56580aa120718b046a4b80e545e6cecf, type: 2}
 --- !u!4 &1257729680
 Transform:
   m_ObjectHideFlags: 0

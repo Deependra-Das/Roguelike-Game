@@ -18,6 +18,7 @@ namespace Roguelike.Player
         protected List<int> expToUpgradeList;
         private GameState _currentGameState;
         private RadialReapWeapon _radialReap;
+        private OrbitalFuryWeapon _orbitalFury;
 
         public PlayerController(PlayerScriptableObject playerScriptableObject)
         {
@@ -40,9 +41,10 @@ namespace Roguelike.Player
 
         private void AddWeapon()
         {
-            IWeapon weapon = GameService.Instance.GetService<WeaponService>().CreateWeapons(WeaponType.RadialReap,_playerView.playerWeaponTransform);
-            _radialReap = weapon as RadialReapWeapon;
+            _radialReap = GameService.Instance.GetService<WeaponService>().CreateWeapons(WeaponType.RadialReap,_playerView.playerWeaponTransform) as RadialReapWeapon;
             _radialReap.ActivateWeapon();
+            _orbitalFury = GameService.Instance.GetService<WeaponService>().CreateWeapons(WeaponType.OrbitalFury, _playerView.playerWeaponTransform) as OrbitalFuryWeapon;
+            _orbitalFury.ActivateWeapon();
         }
 
         private void InitializeModel()
