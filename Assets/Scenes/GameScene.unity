@@ -3362,6 +3362,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5bc9d4b3f9c49834f9e1ae9ca387ed7f, type: 2}
   - {fileID: 11400000, guid: 56580aa120718b046a4b80e545e6cecf, type: 2}
   - {fileID: 11400000, guid: 71ea3cb0eae85804893fa6250b9cd192, type: 2}
+  _projectileScriptableObjects:
+  - {fileID: 11400000, guid: 2563a98c298c7b741b07867152812b9d, type: 2}
 --- !u!4 &1257729680
 Transform:
   m_ObjectHideFlags: 0

@@ -1,8 +1,9 @@
-using Roguelike.Weapon;
-
-public interface IWeapon
+namespace Roguelike.Weapon
 {
-    void Initialize(WeaponScriptableObject weapon_SO);
-    void ActivateWeapon();
-    void DeactivateWeapon();
+    public interface IWeapon
+    {
+        void Initialize(WeaponScriptableObject weapon_SO);
+        void ActivateWeapon();
+        void DeactivateWeapon();
+    }
 }
