@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using Roguelike.PowerUp;
 
 namespace Roguelike.Weapon
 {
@@ -17,6 +18,7 @@ namespace Roguelike.Weapon
         public float cycleTime;
         public float lifeTime;
         public float speed;
+        public PowerUpScriptableObject powerUp_SO;
     }
 
 }

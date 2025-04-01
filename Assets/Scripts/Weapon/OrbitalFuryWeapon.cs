@@ -26,9 +26,12 @@ namespace Roguelike.Weapon
 
         private List<Ball> _balls = new List<Ball>();
         private Coroutine _orbitCoroutine;
+        public WeaponScriptableObject Weapon_SO { get; private set; }
+
 
         public void Initialize(WeaponScriptableObject weapon_SO)
         {
+            Weapon_SO = weapon_SO;
             _numBalls = 1;
             _minRadius = weapon_SO.minRadius;
             _maxRadius = weapon_SO.maxRadius;

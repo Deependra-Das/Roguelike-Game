@@ -21,9 +21,11 @@ namespace Roguelike.Weapon
         private float speed;
         private Coroutine shootingCoroutine;
         private GameState _currentGameState;
+        public WeaponScriptableObject Weapon_SO { get; private set; }
 
         public void Initialize(WeaponScriptableObject weapon_SO)
         {
+            Weapon_SO = weapon_SO;
             numberOfProjectiles = 8;
             interval = weapon_SO.cycleTime;
             damage = weapon_SO.attackPower;

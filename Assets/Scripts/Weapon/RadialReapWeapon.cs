@@ -19,10 +19,11 @@ namespace Roguelike.Weapon
         private Vector3 _originalScale;
         private Coroutine _shrinkGrowCoroutine;
         private GameState _currentGameState;
-
+        public WeaponScriptableObject Weapon_SO { get; private set; }
         public void Initialize(WeaponScriptableObject weapon_SO)
         {
-            _attackPower=weapon_SO.attackPower;
+             Weapon_SO = weapon_SO;
+            _attackPower =weapon_SO.attackPower;
             _minRadius = weapon_SO.minRadius;
             _maxRadius = weapon_SO.maxRadius;
             _cycleTime = weapon_SO.cycleTime;

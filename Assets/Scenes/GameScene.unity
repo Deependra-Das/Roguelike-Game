@@ -597,6 +597,8 @@ MonoBehaviour:
   _gameOverUIView: {fileID: 822836642}
   _levelCompletedUIView: {fileID: 1667738117}
   _gameplayUIView: {fileID: 1459185215}
+  _powerUpSelectionUIView: {fileID: 519885303}
+  _powerUpButtonView: {fileID: 2104051034602832344, guid: b789e49f4a5d5f94aad353805409e100, type: 3}
 --- !u!1 &415566354
 GameObject:
   m_ObjectHideFlags: 0

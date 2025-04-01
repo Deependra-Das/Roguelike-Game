@@ -17,9 +17,7 @@ namespace Roguelike.Player
         protected bool isDead;
         protected List<int> expToUpgradeList;
         private GameState _currentGameState;
-        private RadialReapWeapon _radialReap;
-        private OrbitalFuryWeapon _orbitalFury;
-        private ScatterShotWeapon _scatterShot;
+        private List<IWeapon> _weapons = new List<IWeapon>();
 
         public PlayerController(PlayerScriptableObject playerScriptableObject)
         {
@@ -42,12 +40,11 @@ namespace Roguelike.Player
 
         private void AddWeapon()
         {
-            //_radialReap = GameService.Instance.GetService<WeaponService>().CreateWeapons(WeaponType.RadialReap,_playerView.playerWeaponTransform) as RadialReapWeapon;
-            //_radialReap.ActivateWeapon();
-            //_orbitalFury = GameService.Instance.GetService<WeaponService>().CreateWeapons(WeaponType.OrbitalFury, _playerView.playerWeaponTransform) as OrbitalFuryWeapon;
-            //_orbitalFury.ActivateWeapon();
-            //_scatterShot = GameService.Instance.GetService<WeaponService>().CreateWeapons(WeaponType.ScatterShot, _playerView.playerWeaponTransform) as ScatterShotWeapon;
-            //_scatterShot.ActivateWeapon();
+            _weapons.Clear();
+            _weapons.Add(GameService.Instance.GetService<WeaponService>().CreateWeapons(WeaponType.RadialReap,_playerView.playerWeaponTransform));
+            _weapons.Add(GameService.Instance.GetService<WeaponService>().CreateWeapons(WeaponType.OrbitalFury, _playerView.playerWeaponTransform));
+            _weapons.Add(GameService.Instance.GetService<WeaponService>().CreateWeapons(WeaponType.ScatterShot, _playerView.playerWeaponTransform));
+            EventService.Instance.OnWeaponAdded.Invoke(_weapons);
         }
 
         private void InitializeModel()
@@ -138,6 +135,7 @@ namespace Roguelike.Player
             GameService.Instance.GetService<UIService>().UpdateCurrentExpSlider(_playerModel.CurrentExpPoints);
             _playerModel.UpdateExpLevel(_playerModel.CurrentExpLevel + 1);
             GameService.Instance.GetService<UIService>().UpdateMaxExpSlider(expToUpgradeList[_playerModel.CurrentExpLevel]);
+            GameService.Instance.ChangeGameState(GameState.PowerUpSelection);
         }
     }
 
