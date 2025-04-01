@@ -109,6 +109,7 @@ namespace Roguelike.Weapon
 
         private void OnGameOver()
         {
+            DeactivateWeapon();
             Destroy(this.gameObject);
         }
 
