@@ -99,7 +99,7 @@ TrailRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1111485603066088203}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -145,8 +145,8 @@ TrailRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0.002948761
-        value: 0.83333397
+        time: 0.011797227
+        value: 0.5200019
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -282,7 +282,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40a738b592376874aa83b86e118da4b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: -5018083291900488478}
   damage: 1
   lifeTime: 0
   speed: 10
-  rb: {fileID: -5018083291900488478}
