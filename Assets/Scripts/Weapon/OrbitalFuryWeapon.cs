@@ -29,7 +29,7 @@ namespace Roguelike.Weapon
 
         public void Initialize(WeaponScriptableObject weapon_SO)
         {
-            _numBalls = 8;
+            _numBalls = 1;
             _minRadius = weapon_SO.minRadius;
             _maxRadius = weapon_SO.maxRadius;
             _speed = weapon_SO.speed;
@@ -103,10 +103,26 @@ namespace Roguelike.Weapon
             }
         }
 
+        public void UpdateNumberOfBall(int newNumBalls)
+        {
+            DeactivateWeapon();
+            _numBalls = newNumBalls;
+            ActivateWeapon();
+        }
+
+        public void UpdateDamagePerBall(int newDamagePerBall)
+        {
+            DeactivateWeapon();
+            _damagePerBall = newDamagePerBall;
+            ActivateWeapon();
+        }
+
         private void OnGameOver()
         {
+            DeactivateWeapon();
             Destroy(this.gameObject);
         }
+
     }
 
 }
