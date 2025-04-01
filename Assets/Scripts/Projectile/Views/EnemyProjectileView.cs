@@ -1,11 +1,11 @@
-using Roguelike.Enemy;
+using Roguelike.Player;
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
 namespace Roguelike.Projectile
 {
-    public class PlayerProjectileView : MonoBehaviour
+    public class EnemyProjectileView : MonoBehaviour
     {
         [SerializeField] private Rigidbody2D rb;
         private int damage;
@@ -14,9 +14,9 @@ namespace Roguelike.Projectile
         private bool isActive=false;
         private float timeAlive = 0f;
 
-        public PlayerProjectileController _controller { get; private set; }
+        public EnemyProjectileController _controller { get; private set; }
 
-        public void SetController(PlayerProjectileController controllerToSet) => _controller = controllerToSet;
+        public void SetController(EnemyProjectileController controllerToSet) => _controller = controllerToSet;
 
         public void Initialize(Vector3 spawnPosition, Vector3 direction, int damage, float lifeTime, float speed)
         {
@@ -56,10 +56,10 @@ namespace Roguelike.Projectile
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            EnemyView enemyObj = other.gameObject.GetComponent<EnemyView>();
-            if (enemyObj != null)
+            PlayerView playerObj = other.gameObject.GetComponent<PlayerView>();
+            if (playerObj != null)
             {
-                enemyObj.TakeDamage(damage);
+                playerObj.TakeDamage(damage);
                 ReturnProjectileToPool();
             }
         }

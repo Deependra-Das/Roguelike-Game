@@ -24,3 +24,8 @@ MonoBehaviour:
   attackPower: 2
   attackCooldown: 5
   ExpDrop: 5
+  numberOfProjectiles: 4
+  projectileDamage: 1
+  projectileRadius: 10
+  projectileLifeTime: 3
+  projectileSpeed: 3

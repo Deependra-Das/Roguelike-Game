@@ -19,7 +19,11 @@ public class ProjectilePool : GenericObjectPool<IProjectile>
         {
             return new PlayerProjectileController(_projectileData);
         }
-    
+        else if (typeof(T) == typeof(EnemyProjectileController))
+        {
+            return new EnemyProjectileController(_projectileData);
+        }
+
         else
         {
             throw new NotSupportedException("Projectile type not supported");

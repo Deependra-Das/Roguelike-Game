@@ -59,7 +59,8 @@ namespace Roguelike.Projectile
             {
                 case ProjectileType.PlayerBall:
                     return (IProjectile)_projectilePoolObj.GetProjectile<PlayerProjectileController>(fetchedData);
-   
+                case ProjectileType.EnemyOrb:
+                    return (IProjectile)_projectilePoolObj.GetProjectile<EnemyProjectileController>(fetchedData);
                 default:
                     throw new Exception($"Failed to Create IProjectile class for: {fetchedData.projectileType}");
             }
