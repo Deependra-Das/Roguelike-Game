@@ -26,4 +26,14 @@ public class ProjectilePool : GenericObjectPool<IProjectile>
         }
     }
 
+    public void ResetPool()
+    {
+        foreach (var pooledItem in pooledItems)
+        {
+            UnityEngine.Object.Destroy(pooledItem.Item.GetProjectileGameObject());
+        }
+
+        pooledItems.Clear();
+    }
+
 }

@@ -30,11 +30,13 @@ namespace Roguelike.Projectile
         private void SubscribeToEvents()
         {
             EventService.Instance.OnGameStateChange.AddListener(SetGameState);
+            EventService.Instance.OnMainMenu.AddListener(ResetPool);
         }
 
         private void UnsubscribeToEvents()
         {
             EventService.Instance.OnGameStateChange.RemoveListener(SetGameState);
+            EventService.Instance.OnMainMenu.RemoveListener(ResetPool);
         }
 
         public void SetGameState(GameState _newState)
@@ -65,6 +67,10 @@ namespace Roguelike.Projectile
 
         public void ReturnProjectileToPool(IProjectile projectileToReturn) => _projectilePoolObj.ReturnItem(projectileToReturn);
 
+        private void ResetPool()
+        {
+            _projectilePoolObj.ResetPool();
+        }
     }
 }
 

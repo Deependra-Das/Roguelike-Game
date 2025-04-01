@@ -64,9 +64,6 @@ namespace Roguelike.Weapon
             {
                 float angle = (i * 360f) / numberOfProjectiles;
                 Vector3 direction = new Vector3(Mathf.Cos(Mathf.Deg2Rad * angle) * radius, Mathf.Sin(Mathf.Deg2Rad * angle) * radius, 0f);
-                //GameObject projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
-                //PlayerProjectile projectileScript = projectile.GetComponent<PlayerProjectile>();
-                //projectileScript.Initialize(direction, damage, lifeTime, speed);
                 GameService.Instance.GetService<ProjectileService>().SpawnProjectile(ProjectileType.PlayerBall, transform.position, direction, damage, lifeTime, speed);
             }
         }

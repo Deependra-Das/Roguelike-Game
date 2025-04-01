@@ -30,5 +30,7 @@ namespace Roguelike.Projectile
             GameService.Instance.GetService<ProjectileService>().ReturnProjectileToPool(this);
         }
 
+        public GameObject GetProjectileGameObject() { return _playerProjectileView.gameObject; }
+
     }
 }
