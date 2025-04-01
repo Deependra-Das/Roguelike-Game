@@ -15,6 +15,7 @@ namespace Roguelike.Weapon
         public float minRadius;
         public float maxRadius;
         public float cycleTime;
+        public float lifeTime;
         public float speed;
     }
 
