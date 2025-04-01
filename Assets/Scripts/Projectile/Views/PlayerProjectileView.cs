@@ -11,6 +11,8 @@ namespace Roguelike.Projectile
         public int damage;
         public float lifeTime;
         public float speed;
+        private bool isActive=false;
+        private float timeAlive = 0f;
 
         public PlayerProjectileController _controller { get; private set; }
 
@@ -27,23 +29,27 @@ namespace Roguelike.Projectile
             {
                 rb.linearVelocity = direction.normalized * speed;
             }
-            StartCoroutine(LifetimeCoroutine());
+            timeAlive = 0;
+            isActive = true;
         }
 
-        private IEnumerator LifetimeCoroutine()
+        void Update()
         {
-            yield return new WaitForSeconds(lifeTime);
-            ReturnProjectileToPool();
+            if(isActive)
+            {
+                timeAlive += Time.deltaTime;
+
+                if (timeAlive >= lifeTime)
+                {
+                    ReturnProjectileToPool();
+                }
+            }
         }
 
-        //private void RotateProjectile(Vector3 direction)
-        //{
-        //    float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        //    transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
-        //}
 
         public void ReturnProjectileToPool()
         {
+            isActive = false;
             gameObject.SetActive(false);
             _controller.ReturnProjectileToPool();
         }

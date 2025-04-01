@@ -22,4 +22,4 @@ MonoBehaviour:
   maxRadius: 5
   cycleTime: 2
   lifeTime: 0.5
-  speed: 10
+  speed: 5

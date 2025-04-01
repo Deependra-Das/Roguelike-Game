@@ -21,8 +21,8 @@ namespace Roguelike.Projectile
 
         public void Configure(Vector3 spawnPosition, Vector3 direction, int damage, float lifeTime, float speed)
         {
-            _playerProjectileView.Initialize(spawnPosition, direction, damage, lifeTime, speed);
             _playerProjectileView.gameObject.SetActive(true);
+            _playerProjectileView.Initialize(spawnPosition, direction, damage, lifeTime, speed);
         }
 
         public void ReturnProjectileToPool()
