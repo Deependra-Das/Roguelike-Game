@@ -71,5 +71,7 @@ namespace Roguelike.Enemy
             }
         }
 
+        public void TakeDamage(int damage) => _controller.TakeDamage(damage);
+
     }
 }

@@ -1,3 +1,5 @@
+using Roguelike.Main;
+using Roguelike.Projectile;
 using UnityEngine;
 
 namespace Roguelike.Enemy
@@ -13,20 +15,19 @@ namespace Roguelike.Enemy
             if (Time.time - lastAttackTime >= _enemyModel.AttackCooldown)
             {
                 lastAttackTime = Time.time;
-                ShootProjectilesIn8Directions();
+                ShootProjectiles();
             }
         }
 
-        private void ShootProjectilesIn8Directions()
+        private void ShootProjectiles()
         {
-            Vector2[] directions = new Vector2[]
+            for (int i = 0; i < _enemyModel.NumberOfProjectiles; i++)
             {
-            Vector2.up, Vector2.down, Vector2.left, Vector2.right,
-            new Vector2(1, 1).normalized, new Vector2(1, -1).normalized,
-            new Vector2(-1, 1).normalized, new Vector2(-1, -1).normalized
-            };
-
-            Debug.Log("Projectile Shot");
+                float angle = (i * 360f) / _enemyModel.NumberOfProjectiles;
+                Vector3 direction = new Vector3(Mathf.Cos(Mathf.Deg2Rad * angle) * _enemyModel.ProjectileRadius, Mathf.Sin(Mathf.Deg2Rad * angle) * _enemyModel.ProjectileRadius, 0f);
+                GameService.Instance.GetService<ProjectileService>().SpawnProjectile(ProjectileType.EnemyOrb, new Vector2(_enemyView.gameObject.transform.position.x, _enemyView.gameObject.transform.position.y + 1),
+                    direction, _enemyModel.ProjectileDamage, _enemyModel.ProjectileLifeTime, _enemyModel.ProjectileSpeed);
+            }
         }
 
     }

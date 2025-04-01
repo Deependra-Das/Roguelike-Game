@@ -21,6 +21,12 @@ namespace Roguelike.Enemy
             AttackPower = enemyDataObj.attackPower;
             AttackCooldown = enemyDataObj.attackCooldown;
             ExpDrop = enemyDataObj.ExpDrop;
+
+            NumberOfProjectiles = enemyDataObj.numberOfProjectiles;
+            ProjectileDamage = enemyDataObj.projectileDamage;
+            ProjectileRadius = enemyDataObj.projectileRadius;
+            ProjectileLifeTime = enemyDataObj.projectileLifeTime;
+            ProjectileSpeed = enemyDataObj.projectileSpeed;
         }
 
         ~EnemyModel() { }
@@ -47,5 +53,10 @@ namespace Roguelike.Enemy
         public int AttackPower { get; private set; }
         public float AttackCooldown { get; private set; }
         public int ExpDrop { get; private set; }
+        public int NumberOfProjectiles { get; private set; }
+        public int ProjectileDamage { get; private set; }
+        public float ProjectileRadius { get; private set; }
+        public float ProjectileLifeTime { get; private set; }
+        public float ProjectileSpeed { get; private set; }
     }
 }

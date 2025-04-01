@@ -5,6 +5,7 @@ using Roguelike.Level;
 using UnityEngine;
 using System.Collections.Generic;
 using Roguelike.UI;
+using Roguelike.Weapon;
 
 namespace Roguelike.Player
 {
@@ -16,6 +17,9 @@ namespace Roguelike.Player
         protected bool isDead;
         protected List<int> expToUpgradeList;
         private GameState _currentGameState;
+        private RadialReapWeapon _radialReap;
+        private OrbitalFuryWeapon _orbitalFury;
+        private ScatterShotWeapon _scatterShot;
 
         public PlayerController(PlayerScriptableObject playerScriptableObject)
         {
@@ -33,6 +37,17 @@ namespace Roguelike.Player
             GameService.Instance.GetService<UIService>().UpdateCurrentHealthSlider(_playerModel.CurrentHealth);
             GameService.Instance.GetService<UIService>().UpdateMaxExpSlider(expToUpgradeList[_playerModel.CurrentExpLevel]);
             GameService.Instance.GetService<UIService>().UpdateCurrentExpSlider(_playerModel.CurrentExpPoints);
+            AddWeapon();
+        }
+
+        private void AddWeapon()
+        {
+            //_radialReap = GameService.Instance.GetService<WeaponService>().CreateWeapons(WeaponType.RadialReap,_playerView.playerWeaponTransform) as RadialReapWeapon;
+            //_radialReap.ActivateWeapon();
+            //_orbitalFury = GameService.Instance.GetService<WeaponService>().CreateWeapons(WeaponType.OrbitalFury, _playerView.playerWeaponTransform) as OrbitalFuryWeapon;
+            //_orbitalFury.ActivateWeapon();
+            //_scatterShot = GameService.Instance.GetService<WeaponService>().CreateWeapons(WeaponType.ScatterShot, _playerView.playerWeaponTransform) as ScatterShotWeapon;
+            //_scatterShot.ActivateWeapon();
         }
 
         private void InitializeModel()

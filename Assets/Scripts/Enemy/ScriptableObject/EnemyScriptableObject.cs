@@ -18,6 +18,12 @@ namespace Roguelike.Enemy
         public int attackPower;
         public float attackCooldown;
         public int ExpDrop;
+
+        public int numberOfProjectiles;
+        public int projectileDamage;
+        public float projectileRadius;
+        public float projectileLifeTime;
+        public float projectileSpeed;
     }
 }
 

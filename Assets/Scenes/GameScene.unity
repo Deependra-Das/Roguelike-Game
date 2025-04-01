@@ -420,6 +420,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minPos: {fileID: 796065379}
   maxPos: {fileID: 1127907583}
+  _waveData: []
 --- !u!1 &315481950
 GameObject:
   m_ObjectHideFlags: 0
@@ -1202,7 +1203,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: 000000003b3f0c4d2b3eed016da9bde8
+  m_ApplyToSortingLayers: 000000003b3f0c4d2b3eed016da9bde8b3bdcded2d66a2b1
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -3357,6 +3358,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 81c0513473c4f3341936dafd1bfabcf1, type: 2}
   - {fileID: 11400000, guid: b3caf8504ef46064d9378c4c3b24f7d0, type: 2}
   - {fileID: 11400000, guid: 227a44f4f3d351546bdfd43b644d8556, type: 2}
+  _weaponScriptableObjects:
+  - {fileID: 11400000, guid: 5bc9d4b3f9c49834f9e1ae9ca387ed7f, type: 2}
+  - {fileID: 11400000, guid: 56580aa120718b046a4b80e545e6cecf, type: 2}
+  - {fileID: 11400000, guid: 71ea3cb0eae85804893fa6250b9cd192, type: 2}
+  _projectileScriptableObjects:
+  - {fileID: 11400000, guid: 2563a98c298c7b741b07867152812b9d, type: 2}
+  - {fileID: 11400000, guid: 311d54f8b78fc784fa95a2059d454694, type: 2}
 --- !u!4 &1257729680
 Transform:
   m_ObjectHideFlags: 0
