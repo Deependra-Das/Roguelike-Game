@@ -11,6 +11,7 @@ using Roguelike.UI;
 using Roguelike.Wave;
 using Roguelike.Weapon;
 using Roguelike.Projectile;
+using System.Collections;
 
 namespace Roguelike.Main
 {
@@ -19,6 +20,8 @@ namespace Roguelike.Main
         [SerializeField] private CinemachineCamera _cinemachineCamera;
         [SerializeField] private UIService _uiService;
         [SerializeField] private WaveService _waveService;
+
+        [SerializeField] private int InitialExpAfterSpawnTimer = 0;
 
         [Header("Scriptable Objects")]
         [SerializeField] private List<LevelScriptableObject> _levelScriptableObjects;
@@ -144,7 +147,7 @@ namespace Roguelike.Main
                     EventService.Instance.OnCharacterSelection.Invoke();
                     break;
                 case GameState.PowerUpSelection:
-                    //GetService<EventService>().OnPowerUpSelection.Invoke();
+                    EventService.Instance.OnPowerUpSelection.Invoke();
                     break;
                 case GameState.Gameplay:
                     EventService.Instance.OnGameplay.Invoke();
@@ -165,6 +168,13 @@ namespace Roguelike.Main
         {
             EventService.Instance.OnStartGameplay.Invoke();
             ChangeGameState(GameState.Gameplay);
+            StartCoroutine(GiveIntialSpawnExpPoints(InitialExpAfterSpawnTimer));
+        }
+
+        public IEnumerator GiveIntialSpawnExpPoints(float waitTime)
+        {
+            yield return new WaitForSeconds(waitTime);
+            GetService<PlayerService>().GetPlayer().AddExperiencePoints(1);
         }
     }
 }

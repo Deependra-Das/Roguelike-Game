@@ -13,54 +13,44 @@ namespace Roguelike.Weapon
     using System.Collections.Generic;
     using UnityEngine;
 
-    public class OrbitalFuryWeapon : MonoBehaviour, IWeapon
+    public class OrbitalFuryWeapon : WeaponController
     {
         [SerializeField] private GameObject _ballPrefab;
         private int _numBalls;
-        private float _minRadius;
-        private float _maxRadius;
-        private float _speed;
-        private int _damagePerBall;
-        private float _cycleTime;
-        private GameState _currentGameState;
-
+      
         private List<Ball> _balls = new List<Ball>();
         private Coroutine _orbitCoroutine;
 
-        public void Initialize(WeaponScriptableObject weapon_SO)
+        public override void Initialize(WeaponScriptableObject weapon_SO)
         {
             _numBalls = 1;
             _minRadius = weapon_SO.minRadius;
             _maxRadius = weapon_SO.maxRadius;
             _speed = weapon_SO.speed;
-            _damagePerBall=weapon_SO.attackPower;
+            _attackPower=weapon_SO.attackPower;
             _cycleTime = weapon_SO.cycleTime;
+            Weapon_SO = weapon_SO;
+            CurrentWeaponLevel = 0;
+            SubscribeToEvents();
         }
 
-        private void SubscribeToEvents()
+        protected override void SubscribeToEvents()
         {
-            EventService.Instance.OnGameStateChange.AddListener(SetGameState);
             EventService.Instance.OnGameOver.AddListener(OnGameOver);
         }
 
-        private void UnsubscribeToEvents()
+        protected override void UnsubscribeToEvents()
         {
-            EventService.Instance.OnGameStateChange.RemoveListener(SetGameState);
             EventService.Instance.OnGameOver.RemoveListener(OnGameOver);
         }
 
-        public void SetGameState(GameState _newState)
-        {
-            _currentGameState = _newState;
-        }
-
-        public void ActivateWeapon()
+        public override void ActivateWeapon()
         {
             gameObject.SetActive(true);
             CreateBalls();
         }
 
-        public void DeactivateWeapon()
+        public override void DeactivateWeapon()
         {
             foreach (var ball in _balls)
             {
@@ -92,7 +82,7 @@ namespace Roguelike.Weapon
 
                 if (ball != null)
                 {
-                    ball.Initialize(_damagePerBall, _speed, transform, _minRadius, _maxRadius, _cycleTime, _numBalls, i);
+                    ball.Initialize(_attackPower, _speed, transform, _minRadius, _maxRadius, _cycleTime, _numBalls, i);
                     ball.StartOrbit();
                     _balls.Add(ball);
                 }
@@ -103,24 +93,36 @@ namespace Roguelike.Weapon
             }
         }
 
-        public void UpdateNumberOfBall(int newNumBalls)
+        public override void ActivateUpgradeWeapon()
+        {
+            switch (Weapon_SO.powerUp_SO.powerUpList[CurrentWeaponLevel].powerUpTypes)
+            {
+                case PowerUpTypes.Activate:
+                    ActivateWeapon();
+                    break;
+                case PowerUpTypes.NumOfProjectiles:
+                    UpdateNumberOfBall();
+                    break;
+                case PowerUpTypes.Damage:
+                    UpdateDamagePerBall();
+                    break;
+            }
+
+            CurrentWeaponLevel++;
+        }
+
+        public void UpdateNumberOfBall()
         {
             DeactivateWeapon();
-            _numBalls = newNumBalls;
+            _numBalls = (int)Weapon_SO.powerUp_SO.powerUpList[CurrentWeaponLevel].value;
             ActivateWeapon();
         }
 
-        public void UpdateDamagePerBall(int newDamagePerBall)
+        public void UpdateDamagePerBall()
         {
             DeactivateWeapon();
-            _damagePerBall = newDamagePerBall;
+            _attackPower = (int)Weapon_SO.powerUp_SO.powerUpList[CurrentWeaponLevel].value; ;
             ActivateWeapon();
-        }
-
-        private void OnGameOver()
-        {
-            DeactivateWeapon();
-            Destroy(this.gameObject);
         }
 
     }

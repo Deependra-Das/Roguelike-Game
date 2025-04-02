@@ -23,4 +23,9 @@ MonoBehaviour:
   health: 10
   attackPower: 1
   attackCooldown: 0
-  ExpDrop: 3
+  ExpDrop: 2
+  numberOfProjectiles: 0
+  projectileDamage: 0
+  projectileRadius: 0
+  projectileLifeTime: 0
+  projectileSpeed: 0

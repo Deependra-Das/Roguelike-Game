@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14c7165d3f626674bb57c8dcfc0ce355, type: 3}
+  m_Name: ScatterShotWeaponPowerUp_SO
+  m_EditorClassIdentifier: 
+  powerUpList:
+  - powerUpTypes: 0
+    value: 0
+    description: Activate Weapon
+  - powerUpTypes: 2
+    value: 4
+    description: Number Of Projectiles +1
+  - powerUpTypes: 3
+    value: 2
+    description: Damage +1
+  - powerUpTypes: 1
+    value: 1
+    description: Projectile Range +1
+  - powerUpTypes: 2
+    value: 6
+    description: Number Of Projectiles +2
+  - powerUpTypes: 3
+    value: 3
+    description: Damage +1
+  - powerUpTypes: 1
+    value: 2
+    description: Projectile Range +1
+  - powerUpTypes: 2
+    value: 8
+    description: Number Of Projectiles +4
+  - powerUpTypes: 3
+    value: 5
+    description: Damage +1
+  - powerUpTypes: 1
+    value: 3
+    description: Projectile Range +1

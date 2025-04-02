@@ -2,19 +2,65 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
-using Roguelike.UI;
+using Roguelike.Main;
+using Roguelike.Player;
 
-public class PowerUpSelectionUIView : MonoBehaviour, IUIView
+namespace Roguelike.UI
 {
-    private PowerUpSelectionUIController _controller;
-    [SerializeField] private Transform _powerUpButtonContainer;
+    public class PowerUpSelectionUIView : MonoBehaviour, IUIView
+    {
+        private PowerUpSelectionUIController _controller;
+        [SerializeField] private Transform _weaponUpgradeButtonContainer;
+        [SerializeField] private Transform _heathUpgradeButtonContainer;
+        [SerializeField] private Button _skipUpgradeButton;
+        [SerializeField] private int AllowSkipUpgradeAtLevel;
 
-    public void SetController(IUIController controllerToSet) => _controller = controllerToSet as PowerUpSelectionUIController;
+        private void Start()
+        {
+            _skipUpgradeButton.onClick.AddListener(OnSkipUpgradeButtonClicked);
+        }
 
-    public void DisableView() => gameObject.SetActive(false);
+        public void SetController(IUIController controllerToSet) => _controller = controllerToSet as PowerUpSelectionUIController;
 
-    public void EnableView() => gameObject.SetActive(true);
+        public void DisableView() => gameObject.SetActive(false);
 
-    public PowerUpButtonView AddButton(PowerUpButtonView powerUpButtonPrefab) => Instantiate(powerUpButtonPrefab, _powerUpButtonContainer);
+        public void EnableView()
+        {
+            gameObject.SetActive(true);
+            SetViewData();
+        }
+
+        public PowerUpButtonView AddWeaponPowerUpButton(PowerUpButtonView powerUpButtonPrefab) => Instantiate(powerUpButtonPrefab, _weaponUpgradeButtonContainer);
+
+        public HealingButtonView AddHealingButton(HealingButtonView healingButtonPrefab) => Instantiate(healingButtonPrefab, _heathUpgradeButtonContainer);
+
+        public HealthUpgradeButtonView AddHealthUpgradeButton(HealthUpgradeButtonView healthUpgradeButtonPrefab) => Instantiate(healthUpgradeButtonPrefab, _heathUpgradeButtonContainer);
+
+        public void OnSkipUpgradeButtonClicked()
+        {
+            _controller.OnSkipUpgrade();
+        }
+
+        private void SetViewData()
+        {
+            int playerExpLevel = GameService.Instance.GetService<PlayerService>().GetPlayer().PlayerModel.CurrentExpLevel;
+
+            if (playerExpLevel <= AllowSkipUpgradeAtLevel)
+            {
+                _skipUpgradeButton.gameObject.SetActive(false);
+            }
+            else
+            {
+                _skipUpgradeButton.gameObject.SetActive(true);
+            }
+        }
+
+        public void OnDestroy()
+        {
+            _skipUpgradeButton.onClick.RemoveListener(OnSkipUpgradeButtonClicked);
+            Destroy(gameObject);
+        }
+
+    }
 
 }

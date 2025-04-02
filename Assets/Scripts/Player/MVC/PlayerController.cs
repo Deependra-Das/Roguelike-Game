@@ -17,9 +17,7 @@ namespace Roguelike.Player
         protected bool isDead;
         protected List<int> expToUpgradeList;
         private GameState _currentGameState;
-        private RadialReapWeapon _radialReap;
-        private OrbitalFuryWeapon _orbitalFury;
-        private ScatterShotWeapon _scatterShot;
+        private List<WeaponController> _weapons = new List<WeaponController>();
 
         public PlayerController(PlayerScriptableObject playerScriptableObject)
         {
@@ -32,22 +30,26 @@ namespace Roguelike.Player
             InitializeModel();
             InitializeView();
             SubscribeToEvents();
+            UpdateInitialHealthOnUI();
+            AddWeapon();
+        }
+
+        private void UpdateInitialHealthOnUI()
+        {
             expToUpgradeList = GameService.Instance.GetService<LevelService>().GetExpToUpgradeList();
             GameService.Instance.GetService<UIService>().UpdateMaxHealthSlider(_playerModel.MaxHealth);
             GameService.Instance.GetService<UIService>().UpdateCurrentHealthSlider(_playerModel.CurrentHealth);
             GameService.Instance.GetService<UIService>().UpdateMaxExpSlider(expToUpgradeList[_playerModel.CurrentExpLevel]);
             GameService.Instance.GetService<UIService>().UpdateCurrentExpSlider(_playerModel.CurrentExpPoints);
-            AddWeapon();
         }
 
         private void AddWeapon()
         {
-            //_radialReap = GameService.Instance.GetService<WeaponService>().CreateWeapons(WeaponType.RadialReap,_playerView.playerWeaponTransform) as RadialReapWeapon;
-            //_radialReap.ActivateWeapon();
-            //_orbitalFury = GameService.Instance.GetService<WeaponService>().CreateWeapons(WeaponType.OrbitalFury, _playerView.playerWeaponTransform) as OrbitalFuryWeapon;
-            //_orbitalFury.ActivateWeapon();
-            //_scatterShot = GameService.Instance.GetService<WeaponService>().CreateWeapons(WeaponType.ScatterShot, _playerView.playerWeaponTransform) as ScatterShotWeapon;
-            //_scatterShot.ActivateWeapon();
+            _weapons.Clear();
+            _weapons.Add(GameService.Instance.GetService<WeaponService>().CreateWeapons(WeaponType.RadialReap,_playerView.playerWeaponTransform));
+            _weapons.Add(GameService.Instance.GetService<WeaponService>().CreateWeapons(WeaponType.OrbitalFury, _playerView.playerWeaponTransform));
+            _weapons.Add(GameService.Instance.GetService<WeaponService>().CreateWeapons(WeaponType.ScatterShot, _playerView.playerWeaponTransform));
+            EventService.Instance.OnWeaponAdded.Invoke(_weapons);
         }
 
         private void InitializeModel()
@@ -84,6 +86,7 @@ namespace Roguelike.Player
         {
             _currentGameState = _newState;
             _playerView.SetGameState(_currentGameState);
+            Debug.Log(_currentGameState.ToString());
         }
 
         public PlayerModel PlayerModel { get { return _playerModel; } }
@@ -134,10 +137,25 @@ namespace Roguelike.Player
 
         public void ExpLevelUp()
         {
-            _playerModel.UpdateExperiencePoints(-(expToUpgradeList[_playerModel.CurrentExpLevel]));
+            int valueToDeduct = expToUpgradeList[_playerModel.CurrentExpLevel];
+            _playerModel.UpdateExperiencePoints(-(valueToDeduct));
             GameService.Instance.GetService<UIService>().UpdateCurrentExpSlider(_playerModel.CurrentExpPoints);
-            _playerModel.UpdateExpLevel(_playerModel.CurrentExpLevel + 1);
+            _playerModel.UpdateExpLevel();
             GameService.Instance.GetService<UIService>().UpdateMaxExpSlider(expToUpgradeList[_playerModel.CurrentExpLevel]);
+            GameService.Instance.ChangeGameState(GameState.PowerUpSelection);
+        }
+
+        public void Heal()
+        {
+            int amountToHeal = _playerModel.MaxHealth - _playerModel.CurrentHealth;
+            _playerModel.UpdateCurrentHealth(amountToHeal);
+            GameService.Instance.GetService<UIService>().UpdateCurrentHealthSlider(_playerModel.CurrentHealth);
+        }
+
+        public void UpgradeMaxHealth(int value)
+        {
+            _playerModel.UpdateMaxHealth(value);
+            GameService.Instance.GetService<UIService>().UpdateMaxHealthSlider(_playerModel.MaxHealth);
         }
     }
 
