@@ -37,6 +37,7 @@ namespace Roguelike.UI
 
         public void OnDestroy()
         {
+            GetComponent<Button>().onClick.RemoveListener(OnPowerUpButtonClicked);
             Destroy(gameObject);
         }
     }

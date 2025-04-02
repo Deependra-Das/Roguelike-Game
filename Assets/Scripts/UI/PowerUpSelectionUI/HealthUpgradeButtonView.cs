@@ -43,6 +43,7 @@ namespace Roguelike.UI
 
         public void OnDestroy()
         {
+            GetComponent<Button>().onClick.RemoveListener(OnHealthUpgradeButtonClicked);
             Destroy(gameObject);
         }
     }

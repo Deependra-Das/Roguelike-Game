@@ -126,9 +126,15 @@ namespace Roguelike.UI
             GameService.Instance.GetService<PlayerService>().GetPlayer().Heal();
             Hide();
         }
+
         public void OnHealthUpgradeSelected(int value)
         {
             GameService.Instance.GetService<PlayerService>().GetPlayer().UpgradeMaxHealth(value);
+            Hide();
+        }
+
+        public void OnContinueWithoutUpgrade()
+        {
             Hide();
         }
 

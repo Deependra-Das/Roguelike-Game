@@ -23,7 +23,7 @@ MonoBehaviour:
   health: 5
   attackPower: 2
   attackCooldown: 5
-  ExpDrop: 5
+  ExpDrop: 3
   numberOfProjectiles: 4
   projectileDamage: 1
   projectileRadius: 10

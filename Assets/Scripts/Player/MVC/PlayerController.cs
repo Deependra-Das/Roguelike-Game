@@ -132,9 +132,12 @@ namespace Roguelike.Player
 
         public void ExpLevelUp()
         {
-            _playerModel.UpdateExperiencePoints(-(expToUpgradeList[_playerModel.CurrentExpLevel]));
+            int valueToDeduct = expToUpgradeList[_playerModel.CurrentExpLevel];
+            Debug.Log("-->" + _playerModel.CurrentExpLevel.ToString() + " - " + _playerModel.CurrentExpPoints.ToString() + " - " + valueToDeduct.ToString());
+            _playerModel.UpdateExperiencePoints(-(valueToDeduct));
             GameService.Instance.GetService<UIService>().UpdateCurrentExpSlider(_playerModel.CurrentExpPoints);
-            _playerModel.UpdateExpLevel(_playerModel.CurrentExpLevel + 1);
+            _playerModel.UpdateExpLevel();
+            Debug.Log(_playerModel.CurrentExpLevel.ToString() + " - " + _playerModel.CurrentExpPoints.ToString() + " - " + expToUpgradeList[_playerModel.CurrentExpLevel].ToString());
             GameService.Instance.GetService<UIService>().UpdateMaxExpSlider(expToUpgradeList[_playerModel.CurrentExpLevel]);
             GameService.Instance.ChangeGameState(GameState.PowerUpSelection);
         }

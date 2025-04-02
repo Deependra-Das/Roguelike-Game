@@ -53,9 +53,9 @@ namespace Roguelike.Player
             CurrentExpPoints += value;
         }
 
-        public void UpdateExpLevel(int value)
+        public void UpdateExpLevel()
         {
-            CurrentExpLevel += value;
+            CurrentExpLevel++;
         }
     }
 }

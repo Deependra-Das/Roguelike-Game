@@ -10,6 +10,12 @@ namespace Roguelike.UI
         private PowerUpSelectionUIController _controller;
         [SerializeField] private Transform _weaponUpgradeButtonContainer;
         [SerializeField] private Transform _heathUpgradeButtonContainer;
+        [SerializeField] private Button _ContinueWithoutUpgradeButton;
+
+        private void Start()
+        {
+            _ContinueWithoutUpgradeButton.onClick.AddListener(OnContinueWithoutUpgradeButtonClicked);
+        }
 
         public void SetController(IUIController controllerToSet) => _controller = controllerToSet as PowerUpSelectionUIController;
 
@@ -22,6 +28,16 @@ namespace Roguelike.UI
         public HealingButtonView AddHealingButton(HealingButtonView healingButtonPrefab) => Instantiate(healingButtonPrefab, _heathUpgradeButtonContainer);
 
         public HealthUpgradeButtonView AddHealthUpgradeButton(HealthUpgradeButtonView healthUpgradeButtonPrefab) => Instantiate(healthUpgradeButtonPrefab, _heathUpgradeButtonContainer);
+
+        public void OnContinueWithoutUpgradeButtonClicked()
+        {
+            _controller.OnContinueWithoutUpgrade();
+        }
+
+        public void OnDestroy()
+        {
+            Destroy(gameObject);
+        }
 
     }
 
