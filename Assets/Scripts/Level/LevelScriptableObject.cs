@@ -15,6 +15,7 @@ namespace Roguelike.Level
         public string levelName;
         public string levelDescription;
         public float spawnIntervalDecrementRate;
+        public float spawnFrequencyIncreaseFactor;
         public float spawnFinalInterval;
         public float waveInterval;
         public List<WaveConfig> enemyWaveData;
