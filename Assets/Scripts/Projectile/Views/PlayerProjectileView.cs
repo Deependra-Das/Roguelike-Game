@@ -7,7 +7,7 @@ namespace Roguelike.Projectile
 {
     public class PlayerProjectileView : MonoBehaviour
     {
-        [SerializeField] private Rigidbody2D rb;
+        [SerializeField] private Rigidbody2D playerprojectile_RB;
         private int damage;
         private float lifeTime;
         private float speed;
@@ -25,9 +25,9 @@ namespace Roguelike.Projectile
             this.lifeTime = lifeTime;
             this.speed = speed;
 
-            if (rb != null)
+            if (playerprojectile_RB != null)
             {
-                rb.linearVelocity = direction.normalized * speed;
+                playerprojectile_RB.linearVelocity = direction.normalized * speed;
             }
             timeAlive = 0;
             isActive = true;
@@ -45,7 +45,6 @@ namespace Roguelike.Projectile
                 }
             }
         }
-
 
         public void ReturnProjectileToPool()
         {

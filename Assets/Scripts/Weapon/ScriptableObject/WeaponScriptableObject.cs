@@ -18,6 +18,7 @@ namespace Roguelike.Weapon
         public float cycleTime;
         public float lifeTime;
         public float speed;
+        public int initialProjectileCount;
         public PowerUpScriptableObject powerUp_SO;
     }
 

@@ -19,7 +19,7 @@ namespace Roguelike.Weapon
 
         public override void Initialize(WeaponScriptableObject weapon_SO)
         {
-            _numberOfProjectiles = 2;
+            _numberOfProjectiles = weapon_SO.initialProjectileCount;
             _cycleTime = weapon_SO.cycleTime;
             _attackPower = weapon_SO.attackPower;
             _minRadius = weapon_SO.minRadius;

@@ -23,7 +23,7 @@ namespace Roguelike.Weapon
 
         public override void Initialize(WeaponScriptableObject weapon_SO)
         {
-            _numBalls = 1;
+            _numBalls = weapon_SO.initialProjectileCount;
             _minRadius = weapon_SO.minRadius;
             _maxRadius = weapon_SO.maxRadius;
             _speed = weapon_SO.speed;

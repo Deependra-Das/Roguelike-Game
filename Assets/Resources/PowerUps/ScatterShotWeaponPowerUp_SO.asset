@@ -20,7 +20,7 @@ MonoBehaviour:
     value: 4
     description: Number Of Projectiles +1
   - powerUpTypes: 3
-    value: 2
+    value: 4
     description: Damage +1
   - powerUpTypes: 1
     value: 1
@@ -29,8 +29,8 @@ MonoBehaviour:
     value: 6
     description: Number Of Projectiles +2
   - powerUpTypes: 3
-    value: 3
-    description: Damage +1
+    value: 6
+    description: Damage +2
   - powerUpTypes: 1
     value: 2
     description: Projectile Range +1
@@ -38,8 +38,8 @@ MonoBehaviour:
     value: 8
     description: Number Of Projectiles +4
   - powerUpTypes: 3
-    value: 5
-    description: Damage +1
+    value: 8
+    description: Damage +2
   - powerUpTypes: 1
     value: 3
     description: Projectile Range +1

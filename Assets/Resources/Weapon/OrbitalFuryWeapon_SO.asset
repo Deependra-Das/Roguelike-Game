@@ -17,10 +17,11 @@ MonoBehaviour:
   weaponImage: {fileID: 0}
   weaponName: Orbital Fury
   weaponDescription: 
-  attackPower: 1
+  attackPower: 3
   minRadius: 0
   maxRadius: 3
   cycleTime: 1
   lifeTime: 0
   speed: 100
+  initialProjectileCount: 2
   powerUp_SO: {fileID: 11400000, guid: 35bc9b28fd94bad43870157650cd05f2, type: 2}

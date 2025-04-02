@@ -12,34 +12,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14c7165d3f626674bb57c8dcfc0ce355, type: 3}
   m_Name: OribtalFuryWeaponPowerUp_SO
   m_EditorClassIdentifier: 
-  weaponType: 2
   powerUpList:
   - powerUpTypes: 0
     value: 0
     description: Activate Weapon
   - powerUpTypes: 2
-    value: 2
-    description: Number Of Balls +1
-  - powerUpTypes: 3
-    value: 2
-    description: Damage +1
-  - powerUpTypes: 2
     value: 3
     description: Number Of Balls +1
   - powerUpTypes: 3
-    value: 3
+    value: 4
     description: Damage +1
   - powerUpTypes: 2
     value: 4
     description: Number Of Balls +1
   - powerUpTypes: 3
-    value: 4
+    value: 5
+    description: Damage +1
+  - powerUpTypes: 2
+    value: 5
+    description: Number Of Balls +1
+  - powerUpTypes: 3
+    value: 6
     description: Damage +1
   - powerUpTypes: 2
     value: 6
-    description: Number Of Balls +2
+    description: Number Of Balls +1
   - powerUpTypes: 3
-    value: 5
+    value: 8
     description: Damage +2
   - powerUpTypes: 2
     value: 8
