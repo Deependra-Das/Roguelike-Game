@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections.Generic;
 using System.Collections;
 using Roguelike.Event;
 using Roguelike.Main;
@@ -12,7 +13,8 @@ namespace Roguelike.Weapon
     {
         private Vector3 _originalScale;
         private Coroutine _shrinkGrowCoroutine;
-
+        private List<EnemyView> _enemiesInRange = new List<EnemyView>();
+        private float _damageTimer;
         public override void Initialize(WeaponScriptableObject weapon_SO)
         {
             _attackPower = weapon_SO.attackPower;
@@ -20,8 +22,10 @@ namespace Roguelike.Weapon
             _maxRadius = weapon_SO.maxRadius;
             _cycleTime = weapon_SO.cycleTime;
             _speed = weapon_SO.speed;
+            _lifeTime = weapon_SO.lifeTime;
             Weapon_SO = weapon_SO;
             CurrentWeaponLevel = 0;
+            _damageTimer = 0;
             SubscribeToEvents();
             gameObject.SetActive(false);
         }
@@ -36,11 +40,25 @@ namespace Roguelike.Weapon
             EventService.Instance.OnGameOver.RemoveListener(OnGameOver);
         }
 
+        private void Update()
+        {
+            _damageTimer -= Time.deltaTime;
+            if (_damageTimer <= 0)
+            {
+                _damageTimer = _lifeTime;
+                for(int i=0; i< _enemiesInRange.Count;i++)
+                {
+                    _enemiesInRange[i].TakeDamage(_attackPower);
+                }
+            }
+        }
+
         public override void ActivateWeapon()
         {
             gameObject.SetActive(true);
             _originalScale = transform.localScale;
-
+            _damageTimer = 0;
+            _enemiesInRange.Clear();
             if (_shrinkGrowCoroutine == null)
             {
                 _shrinkGrowCoroutine = StartCoroutine(ShrinkGrowCycle());
@@ -117,12 +135,20 @@ namespace Roguelike.Weapon
             ActivateWeapon();
         }
 
-        protected void OnTriggerStay2D(Collider2D collider)
+        protected void OnTriggerEnter2D(Collider2D collider)
         {
             EnemyView enemyObj = collider.gameObject.GetComponent<EnemyView>();
             if (enemyObj != null)
             {
-                enemyObj.TakeDamage(_attackPower);
+               _enemiesInRange.Add(enemyObj);
+            }
+        }
+        protected void OnTriggerExit2D(Collider2D collider)
+        {
+            EnemyView enemyObj = collider.gameObject.GetComponent<EnemyView>();
+            if (enemyObj != null)
+            {
+                _enemiesInRange.Remove(enemyObj);
             }
         }
     }
