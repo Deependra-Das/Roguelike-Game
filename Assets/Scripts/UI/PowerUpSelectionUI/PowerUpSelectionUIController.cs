@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Roguelike.Event;
 using Roguelike.Main;
 using Roguelike.Weapon;
+using Roguelike.Player;
 using Roguelike.Projectile;
 using Unity.VisualScripting;
 
@@ -122,18 +123,17 @@ namespace Roguelike.UI
 
         public void OnHealingSelected()
         {
-            Debug.Log("Player Healed");
+            GameService.Instance.GetService<PlayerService>().GetPlayer().Heal();
             Hide();
         }
         public void OnHealthUpgradeSelected(int value)
         {
-            Debug.Log("Player Selected Health Upgrade");
+            GameService.Instance.GetService<PlayerService>().GetPlayer().UpgradeMaxHealth(value);
             Hide();
         }
 
         private void OnGameOver()
         {
-            UnsubscribeToEvents();
             foreach (var button in _weaponPowerupButtonList)
             {
                 button.OnDestroy();
@@ -141,5 +141,6 @@ namespace Roguelike.UI
             _healingButtonView.OnDestroy();
             _healthUpgradeButtonView.OnDestroy();
         }
+
     }
 }

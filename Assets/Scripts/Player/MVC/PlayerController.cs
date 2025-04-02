@@ -138,6 +138,19 @@ namespace Roguelike.Player
             GameService.Instance.GetService<UIService>().UpdateMaxExpSlider(expToUpgradeList[_playerModel.CurrentExpLevel]);
             GameService.Instance.ChangeGameState(GameState.PowerUpSelection);
         }
+
+        public void Heal()
+        {
+            int amountToHeal = _playerModel.MaxHealth - _playerModel.CurrentHealth;
+            _playerModel.UpdateCurrentHealth(amountToHeal);
+            GameService.Instance.GetService<UIService>().UpdateCurrentHealthSlider(_playerModel.CurrentHealth);
+        }
+
+        public void UpgradeMaxHealth(int value)
+        {
+            _playerModel.UpdateMaxHealth(value);
+            GameService.Instance.GetService<UIService>().UpdateMaxHealthSlider(_playerModel.MaxHealth);
+        }
     }
 
 }
