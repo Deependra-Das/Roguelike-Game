@@ -20,7 +20,7 @@ namespace Roguelike.UI
 
         public void SetOwner(PowerUpSelectionUIController owner) => this.owner = owner;
 
-        private void OnPowerUpButtonClicked() => owner.OnPowerUpSelected(_weaponObj);
+        private void OnPowerUpButtonClicked() => owner.OnWeaponPowerUpSelected(_weaponObj);
 
         public void InitializeView(WeaponController weaponObj)
         {

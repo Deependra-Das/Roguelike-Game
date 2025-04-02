@@ -45,6 +45,8 @@ public class UIService : MonoBehaviour,IService
     private PowerUpSelectionUIController _powerUpSelectionUIController;
     [SerializeField] private PowerUpSelectionUIView _powerUpSelectionUIView;
     [SerializeField] private PowerUpButtonView _powerUpButtonView;
+    [SerializeField] private HealthUpgradeButtonView _healthUpgradeButtonView;
+    [SerializeField] private HealingButtonView _healingButtonView;
 
     private GameState _currentGameState;
 
@@ -57,7 +59,7 @@ public class UIService : MonoBehaviour,IService
         _gameOverUIController = new GameOverUIController(_gameOverUIView);
         _levelCompletedUIController = new LevelCompletedUIController(_levelCompletedUIView);
         _gameplayUIController = new GameplayUIController(_gameplayUIView);
-        _powerUpSelectionUIController = new PowerUpSelectionUIController(_powerUpSelectionUIView, _powerUpButtonView);
+        _powerUpSelectionUIController = new PowerUpSelectionUIController(_powerUpSelectionUIView, _powerUpButtonView, _healthUpgradeButtonView, _healingButtonView);
     }
 
     public void Initialize(params object[] dependencies)

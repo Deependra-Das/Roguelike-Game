@@ -12,13 +12,21 @@ namespace Roguelike.UI
     {
         private PowerUpSelectionUIView _powerUpSelectionUIView;
         private PowerUpButtonView _powerUpButtonPrefab;
-        private List<PowerUpButtonView> _powerupButtonList;
+        private HealthUpgradeButtonView _healthUpgradeButtonPrefab;
+        private HealingButtonView _healingButtonPrefab;
+        private List<PowerUpButtonView> _weaponPowerupButtonList;
+        private HealthUpgradeButtonView _healthUpgradeButtonView;
+        private HealingButtonView _healingButtonView;
+
         private GameState _currentGameState;
 
-        public PowerUpSelectionUIController(PowerUpSelectionUIView powerUpSelectionUIView, PowerUpButtonView powerUpButtonPrefab)
+        public PowerUpSelectionUIController(PowerUpSelectionUIView powerUpSelectionUIView, PowerUpButtonView powerUpButtonPrefab,
+            HealthUpgradeButtonView healthUpgradeButtonPrefab, HealingButtonView healingButtonPrefab)
         {
             _powerUpButtonPrefab = powerUpButtonPrefab;
             _powerUpSelectionUIView = powerUpSelectionUIView;
+            _healingButtonPrefab = healingButtonPrefab;
+            _healthUpgradeButtonPrefab = healthUpgradeButtonPrefab;
             _powerUpSelectionUIView.SetController(this);
         }
 
@@ -26,7 +34,7 @@ namespace Roguelike.UI
 
         public void InitializeController()
         {
-            _powerupButtonList = new List<PowerUpButtonView>();
+            _weaponPowerupButtonList = new List<PowerUpButtonView>();
             SubscribeToEvents();
             Hide();
         }
@@ -35,7 +43,7 @@ namespace Roguelike.UI
         {
             EventService.Instance.OnGameStateChange.AddListener(SetGameState);
             EventService.Instance.OnPowerUpSelection.AddListener(Show);
-            EventService.Instance.OnWeaponAdded.AddListener(CreatePowerUpButtons);
+            EventService.Instance.OnWeaponAdded.AddListener(CreateWeaponPowerUpButtons);
             EventService.Instance.OnGameOver.AddListener(OnGameOver);
         }
 
@@ -43,7 +51,7 @@ namespace Roguelike.UI
         {
             EventService.Instance.OnGameStateChange.RemoveListener(SetGameState);
             EventService.Instance.OnPowerUpSelection.RemoveListener(Show);
-            EventService.Instance.OnWeaponAdded.RemoveListener(CreatePowerUpButtons);
+            EventService.Instance.OnWeaponAdded.RemoveListener(CreateWeaponPowerUpButtons);
             EventService.Instance.OnGameOver.RemoveListener(OnGameOver);
         }
 
@@ -58,6 +66,7 @@ namespace Roguelike.UI
         public void Hide()
         {
             Time.timeScale = 1;
+            GameService.Instance.ChangeGameState(GameState.Gameplay);
             _powerUpSelectionUIView.DisableView();
         }
 
@@ -66,42 +75,71 @@ namespace Roguelike.UI
             _currentGameState = _newState;
         }
 
-        public void CreatePowerUpButtons(List<WeaponController> weaponList)
+        public void CreateWeaponPowerUpButtons(List<WeaponController> weaponList)
         {
-            _powerupButtonList.Clear();
+            _weaponPowerupButtonList.Clear();
             
             foreach (WeaponController weapon in weaponList)
             {
-                var newButton = _powerUpSelectionUIView.AddButton(_powerUpButtonPrefab);
+                var newButton = _powerUpSelectionUIView.AddWeaponPowerUpButton(_powerUpButtonPrefab);
                 newButton.SetOwner(this);        
                 newButton.InitializeView(weapon);
-                _powerupButtonList.Add(newButton);
+                _weaponPowerupButtonList.Add(newButton);
             }
+
+            CreateHealthPowerUpButtons();
+        }
+
+        public void CreateHealthPowerUpButtons()
+        {
+            _healingButtonView = _powerUpSelectionUIView.AddHealingButton(_healingButtonPrefab);
+            _healingButtonView.SetOwner(this);
+            _healingButtonView.InitializeView();
+
+            _healthUpgradeButtonView = _powerUpSelectionUIView.AddHealthUpgradeButton(_healthUpgradeButtonPrefab);
+            _healthUpgradeButtonView.SetOwner(this);
+            _healthUpgradeButtonView.InitializeView();
         }
 
         public void UpdatePowerUpButtons()
         {
-            foreach (var button in _powerupButtonList)
+            foreach (var button in _weaponPowerupButtonList)
             {
                 button.SetPowerUpButtonData();
             }
+
+            _healthUpgradeButtonView.SetHealthPowerUpButtonData();
+            _healingButtonView.SetHealingButtonData();
         }
 
-        public void OnPowerUpSelected(WeaponController weaponObj)
+        public void OnWeaponPowerUpSelected(WeaponController weaponObj)
         {
             weaponObj.ActivateUpgradeWeapon();
             UpdatePowerUpButtons();
             Hide();
-            GameService.Instance.ChangeGameState(GameState.Gameplay);
+           
+        }
+
+        public void OnHealingSelected()
+        {
+            Debug.Log("Player Healed");
+            Hide();
+        }
+        public void OnHealthUpgradeSelected(int value)
+        {
+            Debug.Log("Player Selected Health Upgrade");
+            Hide();
         }
 
         private void OnGameOver()
         {
             UnsubscribeToEvents();
-            foreach (var button in _powerupButtonList)
+            foreach (var button in _weaponPowerupButtonList)
             {
                 button.OnDestroy();
-            }            
+            }
+            _healingButtonView.OnDestroy();
+            _healthUpgradeButtonView.OnDestroy();
         }
     }
 }

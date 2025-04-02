@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6346347185967651171}
   - component: {fileID: 7732839773611877820}
   m_Layer: 5
-  m_Name: PowerUpText
+  m_Name: HealingText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -65,9 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Power Up Description
-
-'
+  m_text: Heal to Max HP
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
@@ -150,7 +148,7 @@ GameObject:
   - component: {fileID: 2151438157831504707}
   - component: {fileID: 4262216769638093211}
   m_Layer: 5
-  m_Name: WeaponNameText
+  m_Name: HealingText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -203,7 +201,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Weapon Name
+  m_text: Healing
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -286,7 +284,7 @@ GameObject:
   - component: {fileID: 1261421977007013414}
   - component: {fileID: 8161670378526482789}
   m_Layer: 5
-  m_Name: WeaponImage
+  m_Name: HealingImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -339,8 +337,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -362,9 +360,9 @@ GameObject:
   - component: {fileID: 3310194308340719702}
   - component: {fileID: 7415048162399356291}
   - component: {fileID: 5478572871520971961}
-  - component: {fileID: 2104051034602832344}
+  - component: {fileID: 6442080354995223842}
   m_Layer: 5
-  m_Name: PowerUp_Button_Prefab
+  m_Name: Healing_Button_Prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -500,7 +498,7 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
---- !u!114 &2104051034602832344
+--- !u!114 &6442080354995223842
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -509,9 +507,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 5874449171491547966}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc1e95ecce09bb947b82aa63826334aa, type: 3}
+  m_Script: {fileID: 11500000, guid: 9ff884300807e094ea9b5b253a2e6f5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _weaponNameText: {fileID: 4262216769638093211}
-  _powerUpText: {fileID: 7732839773611877820}
-  _weaponImage: {fileID: 8161670378526482789}

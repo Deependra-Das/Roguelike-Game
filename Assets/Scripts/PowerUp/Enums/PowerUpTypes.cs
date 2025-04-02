@@ -5,5 +5,6 @@ public enum PowerUpTypes
     Activate,
     Radius,
     NumOfProjectiles,
-    Damage
+    Damage,
+    HealthUpgrade
 }
