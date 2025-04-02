@@ -42,12 +42,12 @@ namespace Roguelike.Player
 
         private void AddWeapon()
         {
-            //_radialReap = GameService.Instance.GetService<WeaponService>().CreateWeapons(WeaponType.RadialReap,_playerView.playerWeaponTransform) as RadialReapWeapon;
-            //_radialReap.ActivateWeapon();
-            //_orbitalFury = GameService.Instance.GetService<WeaponService>().CreateWeapons(WeaponType.OrbitalFury, _playerView.playerWeaponTransform) as OrbitalFuryWeapon;
-            //_orbitalFury.ActivateWeapon();
-            //_scatterShot = GameService.Instance.GetService<WeaponService>().CreateWeapons(WeaponType.ScatterShot, _playerView.playerWeaponTransform) as ScatterShotWeapon;
-            //_scatterShot.ActivateWeapon();
+            _radialReap = GameService.Instance.GetService<WeaponService>().CreateWeapons(WeaponType.RadialReap, _playerView.playerWeaponTransform) as RadialReapWeapon;
+            _radialReap.ActivateWeapon();
+            _orbitalFury = GameService.Instance.GetService<WeaponService>().CreateWeapons(WeaponType.OrbitalFury, _playerView.playerWeaponTransform) as OrbitalFuryWeapon;
+            _orbitalFury.ActivateWeapon();
+            _scatterShot = GameService.Instance.GetService<WeaponService>().CreateWeapons(WeaponType.ScatterShot, _playerView.playerWeaponTransform) as ScatterShotWeapon;
+            _scatterShot.ActivateWeapon();
         }
 
         private void InitializeModel()

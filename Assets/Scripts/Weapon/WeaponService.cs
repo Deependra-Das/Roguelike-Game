@@ -38,10 +38,10 @@ namespace Roguelike.Weapon
             _currentGameState = _newState;
         }
 
-        public IWeapon CreateWeapons(WeaponType type, Transform spawnTransform)
+        public WeaponController CreateWeapons(WeaponType type, Transform spawnTransform)
         {
             WeaponScriptableObject weaponData = _weapon_SO_List.Find(weapon => weapon.weaponType == type);
-            IWeapon weapon = null;
+            WeaponController weapon = null;
             GameObject weaponObject = null;
 
             if (weaponData == null)
@@ -69,7 +69,7 @@ namespace Roguelike.Weapon
             }
             if (weaponObject != null)
             {
-                weapon = weaponObject.GetComponent<IWeapon>();
+                weapon = weaponObject.GetComponent<WeaponController>();
                 weapon.Initialize(weaponData);
             }
             else

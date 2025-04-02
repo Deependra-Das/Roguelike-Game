@@ -21,4 +21,5 @@ MonoBehaviour:
   minRadius: 0
   maxRadius: 3
   cycleTime: 1
+  lifeTime: 0
   speed: 100

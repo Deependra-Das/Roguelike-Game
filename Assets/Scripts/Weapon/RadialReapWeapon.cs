@@ -8,19 +8,13 @@ using Roguelike.Enemy;
 
 namespace Roguelike.Weapon
 {
-    public class RadialReapWeapon : MonoBehaviour, IWeapon
+    public class RadialReapWeapon : WeaponController
     {
-        private int _attackPower;
-        private float _minRadius;
-        private float _maxRadius;
-        private float _cycleTime;
-        private float _speed;
-
         private Vector3 _originalScale;
         private Coroutine _shrinkGrowCoroutine;
         private GameState _currentGameState;
 
-        public void Initialize(WeaponScriptableObject weapon_SO)
+        public override void Initialize(WeaponScriptableObject weapon_SO)
         {
             _attackPower=weapon_SO.attackPower;
             _minRadius = weapon_SO.minRadius;
@@ -41,12 +35,7 @@ namespace Roguelike.Weapon
             EventService.Instance.OnGameOver.RemoveListener(OnGameOver);
         }
 
-        public void SetGameState(GameState _newState)
-        {
-            _currentGameState = _newState;
-        }
-
-        public void ActivateWeapon()
+        public override void ActivateWeapon()
         {
             gameObject.SetActive(true);
             _originalScale = transform.localScale;
@@ -57,7 +46,7 @@ namespace Roguelike.Weapon
             }
         }
 
-        public void DeactivateWeapon()
+        public override void DeactivateWeapon()
         {
             if (_shrinkGrowCoroutine != null)
             {
