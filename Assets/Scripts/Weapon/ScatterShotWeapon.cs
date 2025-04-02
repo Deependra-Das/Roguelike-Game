@@ -10,28 +10,21 @@ using Roguelike.Projectile;
 
 namespace Roguelike.Weapon
 {
-    public class ScatterShotWeapon : MonoBehaviour, IWeapon
+    public class ScatterShotWeapon : WeaponController
     {
         [SerializeField] private GameObject projectilePrefab;
-        private int numberOfProjectiles;
-        private float interval;
-        private int damage;
-        private float radius;
-        private float lifeTime;
-        private float speed;
-        private Coroutine shootingCoroutine;
-        private GameState _currentGameState;
-        public WeaponScriptableObject Weapon_SO { get; private set; }
 
-        public void Initialize(WeaponScriptableObject weapon_SO)
+        private int _numberOfProjectiles;
+        private Coroutine shootingCoroutine;    
+
+        public override void Initialize(WeaponScriptableObject weapon_SO)
         {
-            Weapon_SO = weapon_SO;
-            numberOfProjectiles = 8;
-            interval = weapon_SO.cycleTime;
-            damage = weapon_SO.attackPower;
-            radius = weapon_SO.maxRadius;
-            lifeTime = weapon_SO.lifeTime;
-            speed = weapon_SO.speed;
+            _numberOfProjectiles = 8;
+            _cycleTime = weapon_SO.cycleTime;
+            _attackPower = weapon_SO.attackPower;
+            _minRadius = weapon_SO.minRadius;
+            _lifeTime = weapon_SO.lifeTime;
+            _speed = weapon_SO.speed;
         }
 
         private void SubscribeToEvents()
@@ -46,31 +39,26 @@ namespace Roguelike.Weapon
             EventService.Instance.OnGameOver.RemoveListener(OnGameOver);
         }
 
-        public void SetGameState(GameState _newState)
-        {
-            _currentGameState = _newState;
-        }
-
         private IEnumerator ShootingCoroutine()
         {
             while (true)
             {
                 ShootProjectiles();
-                yield return new WaitForSeconds(interval);
+                yield return new WaitForSeconds(_cycleTime);
             }
         }
 
         private void ShootProjectiles()
         {
-            for (int i = 0; i < numberOfProjectiles; i++)
+            for (int i = 0; i < _numberOfProjectiles; i++)
             {
-                float angle = (i * 360f) / numberOfProjectiles;
-                Vector3 direction = new Vector3(Mathf.Cos(Mathf.Deg2Rad * angle) * radius, Mathf.Sin(Mathf.Deg2Rad * angle) * radius, 0f);
-                GameService.Instance.GetService<ProjectileService>().SpawnProjectile(ProjectileType.PlayerBall, transform.position, direction, damage, lifeTime, speed);
+                float angle = (i * 360f) / _numberOfProjectiles;
+                Vector3 direction = new Vector3(Mathf.Cos(Mathf.Deg2Rad * angle) * _minRadius, Mathf.Sin(Mathf.Deg2Rad * angle) * _minRadius, 0f);
+                GameService.Instance.GetService<ProjectileService>().SpawnProjectile(ProjectileType.PlayerBall, transform.position, direction, _attackPower, _lifeTime, _speed);
             }
         }
 
-        public void ActivateWeapon()
+        public override void ActivateWeapon()
         {
             gameObject.SetActive(true);
             if (shootingCoroutine == null)
@@ -80,7 +68,7 @@ namespace Roguelike.Weapon
         
         }
 
-        public void DeactivateWeapon()
+        public override void DeactivateWeapon()
         {
             if (shootingCoroutine != null)
             {

@@ -17,7 +17,7 @@ namespace Roguelike.Player
         protected bool isDead;
         protected List<int> expToUpgradeList;
         private GameState _currentGameState;
-        private List<IWeapon> _weapons = new List<IWeapon>();
+        private List<WeaponController> _weapons = new List<WeaponController>();
 
         public PlayerController(PlayerScriptableObject playerScriptableObject)
         {

@@ -13,30 +13,21 @@ namespace Roguelike.Weapon
     using System.Collections.Generic;
     using UnityEngine;
 
-    public class OrbitalFuryWeapon : MonoBehaviour, IWeapon
+    public class OrbitalFuryWeapon : WeaponController
     {
         [SerializeField] private GameObject _ballPrefab;
         private int _numBalls;
-        private float _minRadius;
-        private float _maxRadius;
-        private float _speed;
-        private int _damagePerBall;
-        private float _cycleTime;
-        private GameState _currentGameState;
-
+      
         private List<Ball> _balls = new List<Ball>();
         private Coroutine _orbitCoroutine;
-        public WeaponScriptableObject Weapon_SO { get; private set; }
 
-
-        public void Initialize(WeaponScriptableObject weapon_SO)
+        public override void Initialize(WeaponScriptableObject weapon_SO)
         {
-            Weapon_SO = weapon_SO;
             _numBalls = 1;
             _minRadius = weapon_SO.minRadius;
             _maxRadius = weapon_SO.maxRadius;
             _speed = weapon_SO.speed;
-            _damagePerBall=weapon_SO.attackPower;
+            _attackPower=weapon_SO.attackPower;
             _cycleTime = weapon_SO.cycleTime;
         }
 
@@ -52,18 +43,13 @@ namespace Roguelike.Weapon
             EventService.Instance.OnGameOver.RemoveListener(OnGameOver);
         }
 
-        public void SetGameState(GameState _newState)
-        {
-            _currentGameState = _newState;
-        }
-
-        public void ActivateWeapon()
+        public override void ActivateWeapon()
         {
             gameObject.SetActive(true);
             CreateBalls();
         }
 
-        public void DeactivateWeapon()
+        public override void DeactivateWeapon()
         {
             foreach (var ball in _balls)
             {
@@ -95,7 +81,7 @@ namespace Roguelike.Weapon
 
                 if (ball != null)
                 {
-                    ball.Initialize(_damagePerBall, _speed, transform, _minRadius, _maxRadius, _cycleTime, _numBalls, i);
+                    ball.Initialize(_attackPower, _speed, transform, _minRadius, _maxRadius, _cycleTime, _numBalls, i);
                     ball.StartOrbit();
                     _balls.Add(ball);
                 }
@@ -116,7 +102,7 @@ namespace Roguelike.Weapon
         public void UpdateDamagePerBall(int newDamagePerBall)
         {
             DeactivateWeapon();
-            _damagePerBall = newDamagePerBall;
+            _attackPower = newDamagePerBall;
             ActivateWeapon();
         }
 
