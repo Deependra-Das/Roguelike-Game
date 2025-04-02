@@ -2,6 +2,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
+using Roguelike.Main;
+using Roguelike.Player;
 
 namespace Roguelike.UI
 {
@@ -10,18 +12,23 @@ namespace Roguelike.UI
         private PowerUpSelectionUIController _controller;
         [SerializeField] private Transform _weaponUpgradeButtonContainer;
         [SerializeField] private Transform _heathUpgradeButtonContainer;
-        [SerializeField] private Button _ContinueWithoutUpgradeButton;
+        [SerializeField] private Button _skipUpgradeButton;
+        [SerializeField] private int AllowSkipUpgradeAtLevel;
 
         private void Start()
         {
-            _ContinueWithoutUpgradeButton.onClick.AddListener(OnContinueWithoutUpgradeButtonClicked);
+            _skipUpgradeButton.onClick.AddListener(OnSkipUpgradeButtonClicked);
         }
 
         public void SetController(IUIController controllerToSet) => _controller = controllerToSet as PowerUpSelectionUIController;
 
         public void DisableView() => gameObject.SetActive(false);
 
-        public void EnableView() => gameObject.SetActive(true);
+        public void EnableView()
+        {
+            gameObject.SetActive(true);
+            SetViewData();
+        }
 
         public PowerUpButtonView AddWeaponPowerUpButton(PowerUpButtonView powerUpButtonPrefab) => Instantiate(powerUpButtonPrefab, _weaponUpgradeButtonContainer);
 
@@ -29,13 +36,28 @@ namespace Roguelike.UI
 
         public HealthUpgradeButtonView AddHealthUpgradeButton(HealthUpgradeButtonView healthUpgradeButtonPrefab) => Instantiate(healthUpgradeButtonPrefab, _heathUpgradeButtonContainer);
 
-        public void OnContinueWithoutUpgradeButtonClicked()
+        public void OnSkipUpgradeButtonClicked()
         {
-            _controller.OnContinueWithoutUpgrade();
+            _controller.OnSkipUpgrade();
+        }
+
+        private void SetViewData()
+        {
+            int playerExpLevel = GameService.Instance.GetService<PlayerService>().GetPlayer().PlayerModel.CurrentExpLevel;
+
+            if (playerExpLevel <= AllowSkipUpgradeAtLevel)
+            {
+                _skipUpgradeButton.gameObject.SetActive(false);
+            }
+            else
+            {
+                _skipUpgradeButton.gameObject.SetActive(true);
+            }
         }
 
         public void OnDestroy()
         {
+            _skipUpgradeButton.onClick.RemoveListener(OnSkipUpgradeButtonClicked);
             Destroy(gameObject);
         }
 

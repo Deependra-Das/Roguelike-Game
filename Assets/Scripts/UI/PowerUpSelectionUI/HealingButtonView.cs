@@ -4,27 +4,36 @@ using UnityEngine.UI;
 using Roguelike.Player;
 using Roguelike.Weapon;
 using Roguelike.PowerUp;
+using Roguelike.Main;
 
 namespace Roguelike.UI
 {
     public class HealingButtonView : MonoBehaviour
     {
         private PowerUpSelectionUIController owner;
+        [SerializeField] private Button _healingButton;
+        [SerializeField] private GameObject _notAvaialableBanner;
 
         private void Start()
         {
-            GetComponent<Button>().onClick.AddListener(OnHealingButtonClicked);
+            _healingButton.onClick.AddListener(OnHealingButtonClicked);
         }
 
         public void SetOwner(PowerUpSelectionUIController owner) => this.owner = owner;
 
-        public void InitializeView()
-        {
-            SetHealingButtonData();
-        }
+        public void InitializeView() { }
 
         public void SetHealingButtonData()
         {
+            EnableButton();
+            _notAvaialableBanner.SetActive(false);
+            int curHealth = GameService.Instance.GetService<PlayerService>().GetPlayer().PlayerModel.CurrentHealth;
+            int maxHealth = GameService.Instance.GetService<PlayerService>().GetPlayer().PlayerModel.MaxHealth;
+            if (curHealth == maxHealth)
+            {
+                _notAvaialableBanner.SetActive(true);
+                DisableButton();
+            }
         }
 
         private void OnHealingButtonClicked() 
@@ -34,8 +43,18 @@ namespace Roguelike.UI
 
         public void OnDestroy()
         {
-            GetComponent<Button>().onClick.RemoveListener(OnHealingButtonClicked);
+            _healingButton.onClick.RemoveListener(OnHealingButtonClicked);
             Destroy(gameObject);
+        }
+
+        public void DisableButton()
+        {
+            _healingButton.interactable = false;
+        }
+
+        public void EnableButton()
+        {
+            _healingButton.interactable = true;
         }
     }
 }

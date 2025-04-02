@@ -133,7 +133,7 @@ namespace Roguelike.UI
             Hide();
         }
 
-        public void OnContinueWithoutUpgrade()
+        public void OnSkipUpgrade()
         {
             Hide();
         }

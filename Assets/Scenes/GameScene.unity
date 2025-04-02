@@ -1300,7 +1300,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _weaponUpgradeButtonContainer: {fileID: 910363763}
   _heathUpgradeButtonContainer: {fileID: 772491031}
-  _ContinueWithoutUpgradeButton: {fileID: 1220464454}
+  _skipUpgradeButton: {fileID: 1220464454}
+  AllowSkipUpgradeAtLevel: 1
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -3585,11 +3586,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6660558474599606270, guid: 68c66732bc0caaf469c87889edbdc487, type: 3}
       propertyPath: m_text
-      value: Continue Without Upgrade
+      value: Skip Upgrading
       objectReference: {fileID: 0}
     - target: {fileID: 6981951451334725346, guid: 68c66732bc0caaf469c87889edbdc487, type: 3}
       propertyPath: m_Name
-      value: ContinueWithoutUpgradeButton
+      value: SkipUpgradeButton
       objectReference: {fileID: 0}
     - target: {fileID: 7009845025499810055, guid: 68c66732bc0caaf469c87889edbdc487, type: 3}
       propertyPath: m_Pivot.x
@@ -3617,7 +3618,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7009845025499810055, guid: 68c66732bc0caaf469c87889edbdc487, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 560
+      value: 400
       objectReference: {fileID: 0}
     - target: {fileID: 7009845025499810055, guid: 68c66732bc0caaf469c87889edbdc487, type: 3}
       propertyPath: m_SizeDelta.y

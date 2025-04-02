@@ -11,12 +11,13 @@ namespace Roguelike.UI
         [SerializeField] private TextMeshProUGUI _weaponNameText;
         [SerializeField] private TextMeshProUGUI _powerUpText;
         [SerializeField] private Image _weaponImage;
-
+        [SerializeField] private Button _powerUpButton;
+        [SerializeField] private GameObject _maxLevelBanner;
 
         private PowerUpSelectionUIController owner;
         private WeaponController _weaponObj;
 
-        private void Start() => GetComponent<Button>().onClick.AddListener(OnPowerUpButtonClicked);
+        private void Start() => _powerUpButton.onClick.AddListener(OnPowerUpButtonClicked);
 
         public void SetOwner(PowerUpSelectionUIController owner) => this.owner = owner;
 
@@ -30,15 +31,36 @@ namespace Roguelike.UI
 
         public void SetPowerUpButtonData()
         {
+            EnableButton();
+            _maxLevelBanner.SetActive(false);
             int currentWeaponLevel = _weaponObj.CurrentWeaponLevel;
-            _weaponNameText.text = _weaponObj.Weapon_SO.weaponName.ToString();
-            _powerUpText.text = _weaponObj.Weapon_SO.powerUp_SO.powerUpList[currentWeaponLevel].description.ToString();
+
+            if(_weaponObj.CurrentWeaponLevel>= _weaponObj.Weapon_SO.powerUp_SO.powerUpList.Count)
+            {
+                _maxLevelBanner.SetActive(true);
+                DisableButton();
+            }
+            else
+            {
+                _weaponNameText.text = _weaponObj.Weapon_SO.weaponName.ToString();
+                _powerUpText.text = _weaponObj.Weapon_SO.powerUp_SO.powerUpList[currentWeaponLevel].description.ToString();
+            }
         }
 
         public void OnDestroy()
         {
-            GetComponent<Button>().onClick.RemoveListener(OnPowerUpButtonClicked);
+            _powerUpButton.onClick.RemoveListener(OnPowerUpButtonClicked);
             Destroy(gameObject);
+        }
+
+        public void DisableButton()
+        {
+            _powerUpButton.interactable = false;
+        }
+
+        public void EnableButton()
+        {
+            _powerUpButton.interactable = true;
         }
     }
 }

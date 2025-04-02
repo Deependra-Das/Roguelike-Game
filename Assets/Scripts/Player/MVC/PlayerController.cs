@@ -30,12 +30,17 @@ namespace Roguelike.Player
             InitializeModel();
             InitializeView();
             SubscribeToEvents();
+            UpdateInitialHealthOnUI();
+            AddWeapon();
+        }
+
+        private void UpdateInitialHealthOnUI()
+        {
             expToUpgradeList = GameService.Instance.GetService<LevelService>().GetExpToUpgradeList();
             GameService.Instance.GetService<UIService>().UpdateMaxHealthSlider(_playerModel.MaxHealth);
             GameService.Instance.GetService<UIService>().UpdateCurrentHealthSlider(_playerModel.CurrentHealth);
             GameService.Instance.GetService<UIService>().UpdateMaxExpSlider(expToUpgradeList[_playerModel.CurrentExpLevel]);
             GameService.Instance.GetService<UIService>().UpdateCurrentExpSlider(_playerModel.CurrentExpPoints);
-            AddWeapon();
         }
 
         private void AddWeapon()
@@ -133,11 +138,9 @@ namespace Roguelike.Player
         public void ExpLevelUp()
         {
             int valueToDeduct = expToUpgradeList[_playerModel.CurrentExpLevel];
-            Debug.Log("-->" + _playerModel.CurrentExpLevel.ToString() + " - " + _playerModel.CurrentExpPoints.ToString() + " - " + valueToDeduct.ToString());
             _playerModel.UpdateExperiencePoints(-(valueToDeduct));
             GameService.Instance.GetService<UIService>().UpdateCurrentExpSlider(_playerModel.CurrentExpPoints);
             _playerModel.UpdateExpLevel();
-            Debug.Log(_playerModel.CurrentExpLevel.ToString() + " - " + _playerModel.CurrentExpPoints.ToString() + " - " + expToUpgradeList[_playerModel.CurrentExpLevel].ToString());
             GameService.Instance.GetService<UIService>().UpdateMaxExpSlider(expToUpgradeList[_playerModel.CurrentExpLevel]);
             GameService.Instance.ChangeGameState(GameState.PowerUpSelection);
         }
