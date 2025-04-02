@@ -21,6 +21,7 @@ MonoBehaviour:
   minRadius: 0
   maxRadius: 1
   cycleTime: 2
-  lifeTime: 0
+  lifeTime: 0.5
   speed: 5
+  initialProjectileCount: 0
   powerUp_SO: {fileID: 11400000, guid: d66d90f3f81635b4f90f79814c98a6f2, type: 2}

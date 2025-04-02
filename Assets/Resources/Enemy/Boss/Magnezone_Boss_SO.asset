@@ -19,11 +19,11 @@ MonoBehaviour:
   enemyName: Magnezone
   spawnPosition: {x: -100, y: 100, z: 0}
   spawnRotation: {x: 0, y: 0, z: 0}
-  movementSpeed: 1
-  health: 25
+  movementSpeed: 0.5
+  health: 20
   attackPower: 10
   attackCooldown: 15
-  ExpDrop: 50
+  ExpDrop: 10
   numberOfProjectiles: 8
   projectileDamage: 1
   projectileRadius: 10
