@@ -10,7 +10,7 @@ namespace Roguelike.Weapon
         protected float _maxRadius;
         protected float _lifeTime;
         protected float _speed;
-        protected GameState _currentGameState;
+        public int CurrentWeaponLevel { get; protected set; }
         public WeaponScriptableObject Weapon_SO { get; protected set; }
 
         public virtual void Initialize(WeaponScriptableObject weapon_SO) { }
@@ -18,11 +18,7 @@ namespace Roguelike.Weapon
         public virtual void DeactivateWeapon() { }
         protected virtual void SubscribeToEvents() { }
         protected virtual void UnsubscribeToEvents() { }
-
-        public void SetGameState(GameState _newState)
-        {
-            _currentGameState = _newState;
-        }
+        public virtual void ActivateUpgradeWeapon() { }
 
         protected void OnGameOver()
         {

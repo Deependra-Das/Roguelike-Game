@@ -19,25 +19,24 @@ namespace Roguelike.Weapon
 
         public override void Initialize(WeaponScriptableObject weapon_SO)
         {
-            _numberOfProjectiles = 8;
+            _numberOfProjectiles = 2;
             _cycleTime = weapon_SO.cycleTime;
             _attackPower = weapon_SO.attackPower;
             _minRadius = weapon_SO.minRadius;
             _lifeTime = weapon_SO.lifeTime;
             _speed = weapon_SO.speed;
             Weapon_SO = weapon_SO;
+            CurrentWeaponLevel = 0;
             SubscribeToEvents();
         }
 
         protected override void SubscribeToEvents()
         {
-            EventService.Instance.OnGameStateChange.AddListener(SetGameState);
             EventService.Instance.OnGameOver.AddListener(OnGameOver);
         }
 
         protected override void UnsubscribeToEvents()
         {
-            EventService.Instance.OnGameStateChange.RemoveListener(SetGameState);
             EventService.Instance.OnGameOver.RemoveListener(OnGameOver);
         }
 
@@ -80,6 +79,37 @@ namespace Roguelike.Weapon
             gameObject.SetActive(false);
         }
 
+        public override void ActivateUpgradeWeapon()
+        {
+            switch(Weapon_SO.powerUp_SO.powerUpList[CurrentWeaponLevel].powerUpTypes)
+            {
+                case PowerUpTypes.Activate:
+                    ActivateWeapon();
+                    break;
+                case PowerUpTypes.Radius:
+                    UpdateLifeTimeForRadius();
+                    break;
+                case PowerUpTypes.NumOfProjectiles:
+                    UpdateNumberOfProjectiles();
+                    break;
+            }           
+
+            CurrentWeaponLevel++;
+        }
+
+        private void UpdateLifeTimeForRadius()
+        {
+            DeactivateWeapon();
+            _lifeTime = Weapon_SO.powerUp_SO.powerUpList[CurrentWeaponLevel].value;
+            ActivateWeapon();
+        }
+
+        private void UpdateNumberOfProjectiles()
+        {
+            DeactivateWeapon();
+            _numberOfProjectiles = (int)Weapon_SO.powerUp_SO.powerUpList[CurrentWeaponLevel].value;
+            ActivateWeapon();
+        }
 
     }
 

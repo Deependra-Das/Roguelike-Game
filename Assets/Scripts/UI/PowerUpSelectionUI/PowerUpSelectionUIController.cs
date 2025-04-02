@@ -4,6 +4,7 @@ using Roguelike.Event;
 using Roguelike.Main;
 using Roguelike.Weapon;
 using Roguelike.Projectile;
+using Unity.VisualScripting;
 
 namespace Roguelike.UI
 {
@@ -11,7 +12,7 @@ namespace Roguelike.UI
     {
         private PowerUpSelectionUIView _powerUpSelectionUIView;
         private PowerUpButtonView _powerUpButtonPrefab;
-        private List<WeaponController> weaponList;
+        private List<PowerUpButtonView> _powerupButtonList;
         private GameState _currentGameState;
 
         public PowerUpSelectionUIController(PowerUpSelectionUIView powerUpSelectionUIView, PowerUpButtonView powerUpButtonPrefab)
@@ -25,6 +26,7 @@ namespace Roguelike.UI
 
         public void InitializeController()
         {
+            _powerupButtonList = new List<PowerUpButtonView>();
             SubscribeToEvents();
             Hide();
         }
@@ -34,6 +36,7 @@ namespace Roguelike.UI
             EventService.Instance.OnGameStateChange.AddListener(SetGameState);
             EventService.Instance.OnPowerUpSelection.AddListener(Show);
             EventService.Instance.OnWeaponAdded.AddListener(CreatePowerUpButtons);
+            EventService.Instance.OnGameOver.AddListener(OnGameOver);
         }
 
         private void UnsubscribeToEvents()
@@ -41,12 +44,14 @@ namespace Roguelike.UI
             EventService.Instance.OnGameStateChange.RemoveListener(SetGameState);
             EventService.Instance.OnPowerUpSelection.RemoveListener(Show);
             EventService.Instance.OnWeaponAdded.RemoveListener(CreatePowerUpButtons);
+            EventService.Instance.OnGameOver.RemoveListener(OnGameOver);
         }
 
 
         public void Show()
         {
             _powerUpSelectionUIView.EnableView();
+            UpdatePowerUpButtons();
             Time.timeScale = 0;
         }
 
@@ -63,36 +68,40 @@ namespace Roguelike.UI
 
         public void CreatePowerUpButtons(List<WeaponController> weaponList)
         {
-            foreach (WeaponController weapons in weaponList)
+            _powerupButtonList.Clear();
+            
+            foreach (WeaponController weapon in weaponList)
             {
                 var newButton = _powerUpSelectionUIView.AddButton(_powerUpButtonPrefab);
-                newButton.SetOwner(this);
-
-                switch(weapons)
-                {
-                    case RadialReapWeapon:
-                        Debug.Log("RR");
-                        break;
-                    case OrbitalFuryWeapon:
-                        Debug.Log("OF");
-                        break;
-                    case ScatterShotWeapon:
-                        Debug.Log("SS");
-                        break;
-                }
-                //newButton.SetPowerUpButtonData(weapons);
+                newButton.SetOwner(this);        
+                newButton.InitializeView(weapon);
+                _powerupButtonList.Add(newButton);
             }
         }
 
-        public void OnPowerUpSelected()
+        public void UpdatePowerUpButtons()
         {
+            foreach (var button in _powerupButtonList)
+            {
+                button.SetPowerUpButtonData();
+            }
+        }
+
+        public void OnPowerUpSelected(WeaponController weaponObj)
+        {
+            weaponObj.ActivateUpgradeWeapon();
+            UpdatePowerUpButtons();
             Hide();
             GameService.Instance.ChangeGameState(GameState.Gameplay);
         }
 
-        private void OnDestroy()
+        private void OnGameOver()
         {
             UnsubscribeToEvents();
+            foreach (var button in _powerupButtonList)
+            {
+                button.OnDestroy();
+            }            
         }
     }
 }

@@ -15,24 +15,24 @@ namespace Roguelike.Weapon
 
         public override void Initialize(WeaponScriptableObject weapon_SO)
         {
-            _attackPower =weapon_SO.attackPower;
+            _attackPower = weapon_SO.attackPower;
             _minRadius = weapon_SO.minRadius;
             _maxRadius = weapon_SO.maxRadius;
             _cycleTime = weapon_SO.cycleTime;
             _speed = weapon_SO.speed;
             Weapon_SO = weapon_SO;
+            CurrentWeaponLevel = 0;
             SubscribeToEvents();
+            gameObject.SetActive(false);
         }
 
         protected override void SubscribeToEvents()
         {
-            EventService.Instance.OnGameStateChange.AddListener(SetGameState);
             EventService.Instance.OnGameOver.AddListener(OnGameOver);
         }
 
         protected override void UnsubscribeToEvents()
         {
-            EventService.Instance.OnGameStateChange.RemoveListener(SetGameState);
             EventService.Instance.OnGameOver.RemoveListener(OnGameOver);
         }
 
@@ -85,16 +85,36 @@ namespace Roguelike.Weapon
             transform.localScale = endScale;
         }
 
-        public void UpdateMaxRadius(float newMaxRadius)
+        public override void ActivateUpgradeWeapon()
+        {
+            switch (Weapon_SO.powerUp_SO.powerUpList[CurrentWeaponLevel].powerUpTypes)
+            {
+                case PowerUpTypes.Activate:
+                    ActivateWeapon();
+                    break;
+                case PowerUpTypes.Radius:
+                    UpdateMaxRadius();
+                    break;
+                case PowerUpTypes.Damage:
+                    UpdateAttackPower();
+                    break;
+            }
+
+            CurrentWeaponLevel++;
+        }
+
+        public void UpdateMaxRadius()
         {
             DeactivateWeapon();
-            _maxRadius = newMaxRadius;
+            _maxRadius = Weapon_SO.powerUp_SO.powerUpList[CurrentWeaponLevel].value;
             ActivateWeapon();
         }
 
-        public void UpdateAttackPower(int newAttackPower)
+        public void UpdateAttackPower()
         {
-            _attackPower = newAttackPower;
+            DeactivateWeapon();
+            _attackPower = (int)Weapon_SO.powerUp_SO.powerUpList[CurrentWeaponLevel].value;
+            ActivateWeapon();
         }
 
         protected void OnTriggerStay2D(Collider2D collider)

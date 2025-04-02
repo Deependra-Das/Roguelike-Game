@@ -12,13 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14c7165d3f626674bb57c8dcfc0ce355, type: 3}
   m_Name: ScatterShotWeaponPowerUp_SO
   m_EditorClassIdentifier: 
-  weaponType: 1
   powerUpList:
   - powerUpTypes: 0
     value: 0
     description: Activate Weapon
   - powerUpTypes: 2
-    value: 2
+    value: 4
     description: Number Of Projectiles +1
   - powerUpTypes: 3
     value: 2
@@ -27,7 +26,7 @@ MonoBehaviour:
     value: 1
     description: Projectile Range +1
   - powerUpTypes: 2
-    value: 4
+    value: 6
     description: Number Of Projectiles +2
   - powerUpTypes: 3
     value: 3

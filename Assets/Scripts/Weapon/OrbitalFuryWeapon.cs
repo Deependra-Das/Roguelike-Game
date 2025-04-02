@@ -30,18 +30,17 @@ namespace Roguelike.Weapon
             _attackPower=weapon_SO.attackPower;
             _cycleTime = weapon_SO.cycleTime;
             Weapon_SO = weapon_SO;
+            CurrentWeaponLevel = 0;
             SubscribeToEvents();
         }
 
         protected override void SubscribeToEvents()
         {
-            EventService.Instance.OnGameStateChange.AddListener(SetGameState);
             EventService.Instance.OnGameOver.AddListener(OnGameOver);
         }
 
         protected override void UnsubscribeToEvents()
         {
-            EventService.Instance.OnGameStateChange.RemoveListener(SetGameState);
             EventService.Instance.OnGameOver.RemoveListener(OnGameOver);
         }
 
@@ -94,17 +93,35 @@ namespace Roguelike.Weapon
             }
         }
 
-        public void UpdateNumberOfBall(int newNumBalls)
+        public override void ActivateUpgradeWeapon()
+        {
+            switch (Weapon_SO.powerUp_SO.powerUpList[CurrentWeaponLevel].powerUpTypes)
+            {
+                case PowerUpTypes.Activate:
+                    ActivateWeapon();
+                    break;
+                case PowerUpTypes.NumOfProjectiles:
+                    UpdateNumberOfBall();
+                    break;
+                case PowerUpTypes.Damage:
+                    UpdateDamagePerBall();
+                    break;
+            }
+
+            CurrentWeaponLevel++;
+        }
+
+        public void UpdateNumberOfBall()
         {
             DeactivateWeapon();
-            _numBalls = newNumBalls;
+            _numBalls = (int)Weapon_SO.powerUp_SO.powerUpList[CurrentWeaponLevel].value;
             ActivateWeapon();
         }
 
-        public void UpdateDamagePerBall(int newDamagePerBall)
+        public void UpdateDamagePerBall()
         {
             DeactivateWeapon();
-            _attackPower = newDamagePerBall;
+            _attackPower = (int)Weapon_SO.powerUp_SO.powerUpList[CurrentWeaponLevel].value; ;
             ActivateWeapon();
         }
 
