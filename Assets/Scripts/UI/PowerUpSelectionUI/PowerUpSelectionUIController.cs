@@ -11,7 +11,7 @@ namespace Roguelike.UI
     {
         private PowerUpSelectionUIView _powerUpSelectionUIView;
         private PowerUpButtonView _powerUpButtonPrefab;
-        private List<IWeapon> weaponList;
+        private List<WeaponController> weaponList;
         private GameState _currentGameState;
 
         public PowerUpSelectionUIController(PowerUpSelectionUIView powerUpSelectionUIView, PowerUpButtonView powerUpButtonPrefab)
@@ -61,9 +61,9 @@ namespace Roguelike.UI
             _currentGameState = _newState;
         }
 
-        public void CreatePowerUpButtons(List<IWeapon> weaponList)
+        public void CreatePowerUpButtons(List<WeaponController> weaponList)
         {
-            foreach (IWeapon weapons in weaponList)
+            foreach (WeaponController weapons in weaponList)
             {
                 var newButton = _powerUpSelectionUIView.AddButton(_powerUpButtonPrefab);
                 newButton.SetOwner(this);

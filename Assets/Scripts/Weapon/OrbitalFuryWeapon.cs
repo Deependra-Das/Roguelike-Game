@@ -29,15 +29,17 @@ namespace Roguelike.Weapon
             _speed = weapon_SO.speed;
             _attackPower=weapon_SO.attackPower;
             _cycleTime = weapon_SO.cycleTime;
+            Weapon_SO = weapon_SO;
+            SubscribeToEvents();
         }
 
-        private void SubscribeToEvents()
+        protected override void SubscribeToEvents()
         {
             EventService.Instance.OnGameStateChange.AddListener(SetGameState);
             EventService.Instance.OnGameOver.AddListener(OnGameOver);
         }
 
-        private void UnsubscribeToEvents()
+        protected override void UnsubscribeToEvents()
         {
             EventService.Instance.OnGameStateChange.RemoveListener(SetGameState);
             EventService.Instance.OnGameOver.RemoveListener(OnGameOver);
@@ -104,12 +106,6 @@ namespace Roguelike.Weapon
             DeactivateWeapon();
             _attackPower = newDamagePerBall;
             ActivateWeapon();
-        }
-
-        private void OnGameOver()
-        {
-            DeactivateWeapon();
-            Destroy(this.gameObject);
         }
 
     }

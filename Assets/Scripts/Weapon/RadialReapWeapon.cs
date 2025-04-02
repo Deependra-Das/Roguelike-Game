@@ -19,16 +19,18 @@ namespace Roguelike.Weapon
             _minRadius = weapon_SO.minRadius;
             _maxRadius = weapon_SO.maxRadius;
             _cycleTime = weapon_SO.cycleTime;
-                _speed = weapon_SO.speed;
+            _speed = weapon_SO.speed;
+            Weapon_SO = weapon_SO;
+            SubscribeToEvents();
         }
 
-        private void SubscribeToEvents()
+        protected override void SubscribeToEvents()
         {
             EventService.Instance.OnGameStateChange.AddListener(SetGameState);
             EventService.Instance.OnGameOver.AddListener(OnGameOver);
         }
 
-        private void UnsubscribeToEvents()
+        protected override void UnsubscribeToEvents()
         {
             EventService.Instance.OnGameStateChange.RemoveListener(SetGameState);
             EventService.Instance.OnGameOver.RemoveListener(OnGameOver);
@@ -93,12 +95,6 @@ namespace Roguelike.Weapon
         public void UpdateAttackPower(int newAttackPower)
         {
             _attackPower = newAttackPower;
-        }
-
-        private void OnGameOver()
-        {
-            DeactivateWeapon();
-            Destroy(this.gameObject);
         }
 
         protected void OnTriggerStay2D(Collider2D collider)

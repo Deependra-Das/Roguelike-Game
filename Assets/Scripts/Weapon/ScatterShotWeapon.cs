@@ -25,15 +25,17 @@ namespace Roguelike.Weapon
             _minRadius = weapon_SO.minRadius;
             _lifeTime = weapon_SO.lifeTime;
             _speed = weapon_SO.speed;
+            Weapon_SO = weapon_SO;
+            SubscribeToEvents();
         }
 
-        private void SubscribeToEvents()
+        protected override void SubscribeToEvents()
         {
             EventService.Instance.OnGameStateChange.AddListener(SetGameState);
             EventService.Instance.OnGameOver.AddListener(OnGameOver);
         }
 
-        private void UnsubscribeToEvents()
+        protected override void UnsubscribeToEvents()
         {
             EventService.Instance.OnGameStateChange.RemoveListener(SetGameState);
             EventService.Instance.OnGameOver.RemoveListener(OnGameOver);
@@ -78,11 +80,6 @@ namespace Roguelike.Weapon
             gameObject.SetActive(false);
         }
 
-        private void OnGameOver()
-        {
-            DeactivateWeapon();
-            Destroy(this.gameObject);
-        }
 
     }
 
