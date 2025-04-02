@@ -166,8 +166,8 @@ namespace Roguelike.Wave
                 if (!isSpawning) yield break;
                 if (isPaused) yield return new WaitUntil(() => !isPaused);
 
-                SpawnEnemy(waveConfig.enemy_SO.enemyID);
                 yield return new WaitForSeconds(waveConfig.spawnInitialInterval);
+                SpawnEnemy(waveConfig.enemy_SO.enemyID);
             }
         }
 
