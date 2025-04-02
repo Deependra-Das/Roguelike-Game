@@ -41,6 +41,11 @@ public class UIService : MonoBehaviour,IService
     private GameplayUIController _gameplayUIController;
     [SerializeField] private GameplayUIView _gameplayUIView;
 
+    [Header("PowerUp Selection UI")]
+    private PowerUpSelectionUIController _powerUpSelectionUIController;
+    [SerializeField] private PowerUpSelectionUIView _powerUpSelectionUIView;
+    [SerializeField] private PowerUpButtonView _powerUpButtonView;
+
     private GameState _currentGameState;
 
     private void Awake()
@@ -52,6 +57,7 @@ public class UIService : MonoBehaviour,IService
         _gameOverUIController = new GameOverUIController(_gameOverUIView);
         _levelCompletedUIController = new LevelCompletedUIController(_levelCompletedUIView);
         _gameplayUIController = new GameplayUIController(_gameplayUIView);
+        _powerUpSelectionUIController = new PowerUpSelectionUIController(_powerUpSelectionUIView, _powerUpButtonView);
     }
 
     public void Initialize(params object[] dependencies)
@@ -63,6 +69,7 @@ public class UIService : MonoBehaviour,IService
         _gameOverUIController.InitializeController();
         _levelCompletedUIController.InitializeController();
         _gameplayUIController.InitializeController();
+        _powerUpSelectionUIController.InitializeController();
         SubscribeToEvents();
     }
 

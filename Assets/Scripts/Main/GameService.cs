@@ -144,7 +144,7 @@ namespace Roguelike.Main
                     EventService.Instance.OnCharacterSelection.Invoke();
                     break;
                 case GameState.PowerUpSelection:
-                    //GetService<EventService>().OnPowerUpSelection.Invoke();
+                    EventService.Instance.OnPowerUpSelection.Invoke();
                     break;
                 case GameState.Gameplay:
                     EventService.Instance.OnGameplay.Invoke();
