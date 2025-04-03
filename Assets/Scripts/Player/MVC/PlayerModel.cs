@@ -16,6 +16,7 @@ namespace Roguelike.Player
             MovementSpeed = playerDataObj.movementSpeed;
             MaxHealth = playerDataObj.maxHealth;
             CurrentHealth = playerDataObj.maxHealth;
+            ImmunityDuration = playerDataObj.immunityDuration;
             CurrentExpPoints = 0;
             CurrentExpLevel = 0;
         }
@@ -37,6 +38,7 @@ namespace Roguelike.Player
         public int CurrentHealth { get; private set; }
         public int CurrentExpPoints { get; private set; }
         public int CurrentExpLevel { get; private set; }
+        public float ImmunityDuration { get; private set; }
 
         public void UpdateCurrentHealth(int value)
         {

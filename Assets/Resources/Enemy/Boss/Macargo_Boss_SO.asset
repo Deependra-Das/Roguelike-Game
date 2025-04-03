@@ -23,6 +23,7 @@ MonoBehaviour:
   health: 20
   attackPower: 10
   attackCooldown: 15
+  knockBackDuration: 0.3
   ExpDrop: 10
   numberOfProjectiles: 8
   projectileDamage: 1

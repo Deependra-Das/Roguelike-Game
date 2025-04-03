@@ -13,6 +13,7 @@ using Roguelike.Weapon;
 using Roguelike.Projectile;
 using System.Collections;
 using Roguelike.VFX;
+using Roguelike.DamageNumber;
 
 namespace Roguelike.Main
 {
@@ -24,6 +25,7 @@ namespace Roguelike.Main
 
         [SerializeField] private int _waitTimeBeforeInitialExp = 0;
         [SerializeField] private GameObject _smokeVFXPrefab;
+        [SerializeField] private GameObject _dmgNumPrefab;
 
         [Header("Scriptable Objects")]
         [SerializeField] private List<LevelScriptableObject> _levelScriptableObjects;
@@ -57,6 +59,7 @@ namespace Roguelike.Main
             RegisterService<EnemyService>(new EnemyService(_enemyScriptableObjects));
             RegisterService<WaveService>(_waveService);
             RegisterService<VFXService>(new VFXService(_smokeVFXPrefab));
+            RegisterService<DamageNumberService>(new DamageNumberService(_dmgNumPrefab));
         }
 
         public void InjectDependencies()
@@ -70,6 +73,7 @@ namespace Roguelike.Main
             InitializeService<EnemyService>();
             InitializeService<WaveService>();
             InitializeService<VFXService>();
+            InitializeService<DamageNumberService>();
         }
 
         public void RegisterService<T>(IService service) where T : IService

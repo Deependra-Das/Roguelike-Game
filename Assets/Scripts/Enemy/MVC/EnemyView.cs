@@ -1,3 +1,4 @@
+using Roguelike.DamageNumber;
 using Roguelike.Main;
 using Roguelike.Player;
 using UnityEngine;
@@ -12,6 +13,7 @@ namespace Roguelike.Enemy
         private Transform _playerTransform;
         private Vector3 _enemyDirection;
         private GameState _currentGameState;
+        private float _knockBackTimer;
 
         public EnemyController _controller { get; private set; }
 
@@ -34,7 +36,8 @@ namespace Roguelike.Enemy
         {
             if(_currentGameState==GameState.Gameplay)
             {
-                Move();
+                CheckKnockBack();
+                Move(); 
             }
             else
             {
@@ -42,7 +45,7 @@ namespace Roguelike.Enemy
             }
         }
 
-        public void Move()
+        protected void Move()
         {
             _playerTransform = GameService.Instance.GetService<PlayerService>().GetPlayer().PlayerGameObject.transform;
 
@@ -61,6 +64,23 @@ namespace Roguelike.Enemy
                 _enemyDirection.y * _controller.GetEnemyModel.MovementSpeed);
         }
 
+        protected void CheckKnockBack()
+        {
+            if (_knockBackTimer > 0)
+            {
+                _knockBackTimer -= Time.deltaTime;
+                if (_controller.GetEnemyModel.MovementSpeed > 0)
+                {
+                    _controller.GetEnemyModel.SetMovementSpeed(-_controller.GetEnemyModel.MovementSpeed);
+                }
+                if (_knockBackTimer <= 0)
+                {
+                    _controller.GetEnemyModel.SetMovementSpeed(Mathf.Abs(_controller.GetEnemyModel.MovementSpeed));
+                }
+            }
+        }
+
+
         protected void OnCollisionStay2D(Collision2D collision)
         {
             PlayerView playerObj = collision.gameObject.GetComponent<PlayerView>();
@@ -71,7 +91,12 @@ namespace Roguelike.Enemy
             }
         }
 
-        public void TakeDamage(int damage) => _controller.TakeDamage(damage);
+        public void TakeDamage(int damage)
+        {
+            _knockBackTimer = _controller.GetEnemyModel.KnockBackDuration;
+            GameService.Instance.GetService<DamageNumberService>().SpawnDamageNumber(transform.position, damage);
+            _controller.TakeDamage(damage);
+        }
 
     }
 }

@@ -9,6 +9,10 @@ using Roguelike.Event;
 
 public class UIService : MonoBehaviour,IService
 {
+    [Header("Canvas Transforms")]
+    [SerializeField] private Transform _canvasTransform;
+    [SerializeField] private Transform _dmgCanvasTransform;
+
     [Header("Main Menu UI")]
     private MainMenuUIController _mainMenuUIController;
     [SerializeField] private MainMenuUIView _mainMenuUIView;
@@ -112,4 +116,7 @@ public class UIService : MonoBehaviour,IService
     }
 
     private void OnDestroy() => UnsubscribeToEvents();
+
+    public Transform GetCanvasTransform => _canvasTransform;
+    public Transform GetDamageCanvasTransform => _dmgCanvasTransform;
 }
