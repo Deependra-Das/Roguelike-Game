@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 using Roguelike.Event;
 using Roguelike.Main;
+using Roguelike.Sound;
 
 namespace Roguelike.UI
 {
@@ -57,12 +58,14 @@ namespace Roguelike.UI
 
         public void OnContinueButtonClicked()
         {
+            GameService.Instance.GetService<SoundService>().PlaySFX(SoundType.ButtonClick);
             Hide();
             GameService.Instance.ChangeGameState(GameState.Gameplay);
         }
 
         public void OnGiveUpButtonClicked()
         {
+            GameService.Instance.GetService<SoundService>().PlaySFX(SoundType.ButtonClick);
             Hide();
             GameService.Instance.ChangeGameState(GameState.GameOver);
         }

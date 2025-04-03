@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 using Roguelike.Event;
 using Roguelike.Main;
+using Roguelike.Sound;
 
 namespace Roguelike.UI
 {
@@ -39,6 +40,7 @@ namespace Roguelike.UI
 
         public void Show()
         {
+            GameService.Instance.GetService<SoundService>().PlayBGM(SoundType.MainBGM, true);
             _mainMenuUIView.EnableView();
         }
 
@@ -54,12 +56,14 @@ namespace Roguelike.UI
 
         public void OnNewGameButtonClicked()
         {
+            GameService.Instance.GetService<SoundService>().PlaySFX(SoundType.ButtonClick);
             Hide();
             GameService.Instance.ChangeGameState(GameState.LevelSelection);
         }
 
-        private void OnQuitButtonClicked()
+        public void OnQuitButtonClicked()
         {
+            GameService.Instance.GetService<SoundService>().PlaySFX(SoundType.ButtonClick);
             Application.Quit();
         }
     }

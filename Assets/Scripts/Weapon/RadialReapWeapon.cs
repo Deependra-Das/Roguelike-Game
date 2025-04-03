@@ -6,6 +6,7 @@ using Roguelike.Event;
 using Roguelike.Main;
 using Roguelike.Player;
 using Roguelike.Enemy;
+using Roguelike.Sound;
 
 namespace Roguelike.Weapon
 {
@@ -80,8 +81,11 @@ namespace Roguelike.Weapon
         {
             while (true)
             {
+                GameService.Instance.GetService<SoundService>().PlayWeaponSFX(SoundType.RadialReapGrow);
                 yield return StartCoroutine(ScaleObject(_maxRadius, _minRadius));
+                GameService.Instance.GetService<SoundService>().PlayWeaponSFX(SoundType.RadialReapShrink);
                 yield return StartCoroutine(ScaleObject(_minRadius, _maxRadius));
+             
             }
         }
 

@@ -8,12 +8,12 @@ namespace Roguelike.UI
 {
     public class LevelCompletedUIView : MonoBehaviour, IUIView
     {
-        private LevelCompletedUIController controller;
+        private LevelCompletedUIController _controller;
         [SerializeField] private Button _backToMainMenuButtonPrefab;
 
         public void SetController(IUIController controllerToSet)
         {
-            controller = controllerToSet as LevelCompletedUIController;
+            _controller = controllerToSet as LevelCompletedUIController;
         }
 
         public void InitializeView()
@@ -23,12 +23,12 @@ namespace Roguelike.UI
 
         private void SubscribeToEvents()
         {
-            //_backToMainMenuButtonPrefab.onClick.AddListener(OnBackToMainMenuButtonClicked);
+            _backToMainMenuButtonPrefab.onClick.AddListener(OnBackToMainMenuButtonClicked);
         }
 
         private void UnsubscribeToEvents()
         {
-            //_backToMainMenuButtonPrefab.onClick.RemoveListener(OnBackToMainMenuButtonClicked);
+            _backToMainMenuButtonPrefab.onClick.RemoveListener(OnBackToMainMenuButtonClicked);
         }
 
         public void DisableView() => gameObject.SetActive(false);
@@ -39,7 +39,7 @@ namespace Roguelike.UI
 
         private void OnBackToMainMenuButtonClicked()
         {
-            //GameService.Instance.GetService<EventService>().OnBackToMainMenuButtonClicked.Invoke();
+            _controller.OnBackButtonClicked();
         }
     }
 }

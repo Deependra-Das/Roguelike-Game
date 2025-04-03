@@ -14,18 +14,25 @@ using Roguelike.Projectile;
 using System.Collections;
 using Roguelike.VFX;
 using Roguelike.DamageNumber;
+using Roguelike.Sound;
 
 namespace Roguelike.Main
 {
     public class GameService : GenericMonoSingleton<GameService>
     {
         [SerializeField] private CinemachineCamera _cinemachineCamera;
+        [SerializeField] private int _waitTimeBeforeInitialExp = 0;
+
+        [Header("Service References")]
         [SerializeField] private UIService _uiService;
         [SerializeField] private WaveService _waveService;
 
-        [SerializeField] private int _waitTimeBeforeInitialExp = 0;
+        [Header("Prefabs")]
         [SerializeField] private GameObject _smokeVFXPrefab;
         [SerializeField] private GameObject _dmgNumPrefab;
+
+        [Header("Audio Sources")]
+        [SerializeField] private List<AudioSource> _audioSourceList;
 
         [Header("Scriptable Objects")]
         [SerializeField] private List<LevelScriptableObject> _levelScriptableObjects;
@@ -33,6 +40,7 @@ namespace Roguelike.Main
         [SerializeField] private List<EnemyScriptableObject> _enemyScriptableObjects;
         [SerializeField] private List<WeaponScriptableObject> _weaponScriptableObjects;
         [SerializeField] private List<ProjectileScriptableObject> _projectileScriptableObjects;
+        [SerializeField] private SoundScriptableObject _audioList;
 
         private Dictionary<Type, IService> _services = new Dictionary<Type, IService>();
         public GameState GameState { get; private set; }
@@ -60,12 +68,14 @@ namespace Roguelike.Main
             RegisterService<WaveService>(_waveService);
             RegisterService<VFXService>(new VFXService(_smokeVFXPrefab));
             RegisterService<DamageNumberService>(new DamageNumberService(_dmgNumPrefab));
+            RegisterService<SoundService>(new SoundService(_audioList, _audioSourceList));
         }
 
         public void InjectDependencies()
         {
             EventService.Instance.Initialize();
             InitializeService<UIService>();
+            InitializeService<SoundService>();
             InitializeService<LevelService>();
             InitializeService<PlayerService>();
             InitializeService<ProjectileService>();
@@ -121,6 +131,7 @@ namespace Roguelike.Main
         {
             if (Input.GetKeyDown(KeyCode.Escape) && GameState==GameState.Gameplay)
             {
+                GameService.Instance.GetService<SoundService>().PlaySFX(SoundType.GamePause);
                 ChangeGameState(GameState.GamePaused);
             }
         }
@@ -182,7 +193,10 @@ namespace Roguelike.Main
         public IEnumerator GiveIntialSpawnExpPoints(float waitTime)
         {
             yield return new WaitForSeconds(waitTime);
-            GetService<PlayerService>().GetPlayer().AddExperiencePoints(1);
+            if(GameState==GameState.Gameplay)
+            {
+                GetService<PlayerService>().GetPlayer().AddExperiencePoints(1);
+            }            
         }
     }
 }

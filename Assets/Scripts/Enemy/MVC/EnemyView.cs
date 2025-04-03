@@ -1,6 +1,7 @@
 using Roguelike.DamageNumber;
 using Roguelike.Main;
 using Roguelike.Player;
+using Roguelike.Sound;
 using UnityEngine;
 
 namespace Roguelike.Enemy
@@ -94,6 +95,7 @@ namespace Roguelike.Enemy
         public void TakeDamage(int damage)
         {
             _knockBackTimer = _controller.GetEnemyModel.KnockBackDuration;
+            GameService.Instance.GetService<SoundService>().PlayEnemySFX(SoundType.EnemyDamage);
             GameService.Instance.GetService<DamageNumberService>().SpawnDamageNumber(transform.position, damage);
             _controller.TakeDamage(damage);
         }

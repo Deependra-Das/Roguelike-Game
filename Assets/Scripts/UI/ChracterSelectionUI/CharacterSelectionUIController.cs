@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Roguelike.Event;
 using Roguelike.Main;
 using Roguelike.Player;
+using Roguelike.Sound;
 
 namespace Roguelike.UI
 {
@@ -72,6 +73,7 @@ namespace Roguelike.UI
 
         public void OnCharacterSelected(int characterId)
         {
+            GameService.Instance.GetService<SoundService>().PlaySFX(SoundType.ButtonClick);
             EventService.Instance.OnCharacterSelected.Invoke(characterId);
             GameService.Instance.StartGameplay();
             Hide();

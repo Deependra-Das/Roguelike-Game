@@ -2,6 +2,8 @@ using Roguelike.Enemy;
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using Roguelike.Main;
+using Roguelike.Sound;
 
 namespace Roguelike.Weapon
 {
@@ -18,7 +20,6 @@ namespace Roguelike.Weapon
         private int _ballIndex;
         private Coroutine _orbitCoroutine;
 
-        // Updated Initialize method
         public void Initialize(int damage, float speed, Transform center, float minRadius, float maxRadius, float cycleTime, int totalBalls, int ballIndex)
         {
             _damage = damage;
@@ -51,18 +52,11 @@ namespace Roguelike.Weapon
                 {
                     timeElapsed += Time.deltaTime;
                     _radius = Mathf.Lerp(_minRadius, _maxRadius, Mathf.PingPong(timeElapsed / _cycleTime, 1f));
-
                     float angle = (360f / _totalBalls) * _ballIndex + (Time.time * _speed);
-
-                    float angleInRadians = Mathf.Deg2Rad * angle;
-
-               
-                    Vector3 offset = new Vector3(Mathf.Cos(angleInRadians) * _radius,
-                                                 Mathf.Sin(angleInRadians) * _radius,
-                                                 0);
-
-        
+                    float angleInRadians = Mathf.Deg2Rad * angle;               
+                    Vector3 offset = new Vector3(Mathf.Cos(angleInRadians) * _radius, Mathf.Sin(angleInRadians) * _radius, 0);        
                     transform.position = _center.position + offset;
+                    GameService.Instance.GetService<SoundService>().PlayWeaponSFX(SoundType.OrbitalFury);
                 }
                 yield return null;
             }

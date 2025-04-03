@@ -3,18 +3,21 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 using Roguelike.Event;
 using Roguelike.Main;
+using Roguelike.Sound;
 
 namespace Roguelike.UI
 {
     public class LevelCompletedUIController : IUIController
     {
         private LevelCompletedUIView _levelCompletedUIView;
+        private GameState _currentGameState;
 
         public LevelCompletedUIController(LevelCompletedUIView levelCompletedUIView)
         {
             _levelCompletedUIView = levelCompletedUIView;
             _levelCompletedUIView.SetController(this);
         }
+        ~LevelCompletedUIController() => UnsubscribeToEvents();
 
         public void InitializeController()
         {
@@ -25,18 +28,19 @@ namespace Roguelike.UI
 
         private void SubscribeToEvents()
         {
-            //GameService.Instance.GetService<EventService>().OnLevelCompleted.AddListener(OnLevelCompleted);
-            //GameService.Instance.GetService<EventService>().OnBackToMainMenuButtonClicked.AddListener(OnBackToMainMenu);
+            EventService.Instance.OnLevelCompleted.AddListener(Show);
+            EventService.Instance.OnGameStateChange.AddListener(SetGameState);
         }
 
         private void UnsubscribeToEvents()
         {
-            //GameService.Instance.GetService<EventService>().OnLevelCompleted.RemoveListener(OnLevelCompleted);
-            //GameService.Instance.GetService<EventService>().OnBackToMainMenuButtonClicked.RemoveListener(OnBackToMainMenu);
+            EventService.Instance.OnLevelCompleted.RemoveListener(Show);
+            EventService.Instance.OnGameStateChange.RemoveListener(SetGameState);
         }
 
         public void Show()
         {
+            GameService.Instance.GetService<SoundService>().PlayBGM(SoundType.LevelCompleted);
             _levelCompletedUIView.EnableView();
         }
 
@@ -45,14 +49,16 @@ namespace Roguelike.UI
             _levelCompletedUIView.DisableView();
         }
 
-        private void OnLevelCompleted()
+        public void SetGameState(GameState _newState)
         {
-            Show();
+            _currentGameState = _newState;
         }
 
-        private void OnBackToMainMenu()
+        public void OnBackButtonClicked()
         {
+            GameService.Instance.GetService<SoundService>().PlaySFX(SoundType.ButtonClick);
             Hide();
+            GameService.Instance.ChangeGameState(GameState.MainMenu);
         }
 
         private void OnDestroy()

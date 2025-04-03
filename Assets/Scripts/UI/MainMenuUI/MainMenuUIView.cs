@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Roguelike.Main;
 using Roguelike.Event;
+using Roguelike.Sound;
 
 namespace Roguelike.UI
 {
@@ -34,6 +35,11 @@ namespace Roguelike.UI
         private void OnNewGameButtonClicked()
         {
             _controller.OnNewGameButtonClicked();
+        }
+
+        private void OnQuitGameButtonClicked()
+        {
+            _controller.OnQuitButtonClicked();
         }
 
         public void DisableView() => gameObject.SetActive(false);
