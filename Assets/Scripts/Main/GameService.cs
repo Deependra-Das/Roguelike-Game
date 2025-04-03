@@ -12,6 +12,7 @@ using Roguelike.Wave;
 using Roguelike.Weapon;
 using Roguelike.Projectile;
 using System.Collections;
+using Roguelike.VFX;
 
 namespace Roguelike.Main
 {
@@ -21,7 +22,8 @@ namespace Roguelike.Main
         [SerializeField] private UIService _uiService;
         [SerializeField] private WaveService _waveService;
 
-        [SerializeField] private int InitialExpAfterSpawnTimer = 0;
+        [SerializeField] private int _waitTimeBeforeInitialExp = 0;
+        [SerializeField] private GameObject _smokeVFXPrefab;
 
         [Header("Scriptable Objects")]
         [SerializeField] private List<LevelScriptableObject> _levelScriptableObjects;
@@ -54,6 +56,7 @@ namespace Roguelike.Main
             RegisterService<WeaponService>(new WeaponService(_weaponScriptableObjects));
             RegisterService<EnemyService>(new EnemyService(_enemyScriptableObjects));
             RegisterService<WaveService>(_waveService);
+            RegisterService<VFXService>(new VFXService(_smokeVFXPrefab));
         }
 
         public void InjectDependencies()
@@ -66,6 +69,7 @@ namespace Roguelike.Main
             InitializeService<WeaponService>();
             InitializeService<EnemyService>();
             InitializeService<WaveService>();
+            InitializeService<VFXService>();
         }
 
         public void RegisterService<T>(IService service) where T : IService
@@ -168,7 +172,7 @@ namespace Roguelike.Main
         {
             EventService.Instance.OnStartGameplay.Invoke();
             ChangeGameState(GameState.Gameplay);
-            StartCoroutine(GiveIntialSpawnExpPoints(InitialExpAfterSpawnTimer));
+            StartCoroutine(GiveIntialSpawnExpPoints(_waitTimeBeforeInitialExp));
         }
 
         public IEnumerator GiveIntialSpawnExpPoints(float waitTime)
