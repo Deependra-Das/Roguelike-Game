@@ -19,3 +19,4 @@ MonoBehaviour:
   spawnRotation: {x: 0, y: 0, z: 0}
   movementSpeed: 2
   maxHealth: 20
+  immunityDuration: 1

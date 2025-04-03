@@ -12,5 +12,6 @@ namespace Roguelike.Player
         public Vector3 spawnRotation;
         public float movementSpeed;
         public int maxHealth;
+        public float immunityDuration;
     }
 }

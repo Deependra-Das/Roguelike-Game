@@ -13,6 +13,8 @@ namespace Roguelike.Player
         private PlayerController _controller;
         public Vector3 playerMoveDirection;
         private GameState _currentGameState;
+        private bool _isImmune;
+        private float _immunityTimer;
 
         public void SetController(PlayerController controllerToSet) => _controller = controllerToSet;
 
@@ -42,6 +44,14 @@ namespace Roguelike.Player
                     _playerAnimator.SetBool("moving", true);
                 }
 
+                if(_immunityTimer>0)
+                {
+                    _immunityTimer-=Time.deltaTime;
+                }
+                else
+                {
+                    _isImmune = false;
+                }
                 _controller?.UpdatePlayer();
             }         
         }
@@ -55,7 +65,16 @@ namespace Roguelike.Player
             }
         }
 
-        public void TakeDamage(int damage) => _controller.TakeDamage(damage);
+        public void TakeDamage(int damage)
+        {
+            if(!_isImmune)
+            {
+                _isImmune = true;
+                _immunityTimer=_controller.PlayerModel.ImmunityDuration;
+                _controller.TakeDamage(damage);
+            }
+           
+        }
 
         public void OnPlayerDeath()
         {
