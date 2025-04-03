@@ -9,7 +9,7 @@ using Roguelike.Level;
 
 namespace Roguelike.Wave
 {
-    public class WaveService : MonoBehaviour,IService
+    public class WaveService : MonoBehaviour, IService
     {
         [SerializeField] private Transform minPos;
         [SerializeField] private Transform maxPos;
@@ -84,7 +84,7 @@ namespace Roguelike.Wave
                 config.enemy_SO = waveConfig.enemy_SO;
                 config.spawnFrequencyPerWave = waveConfig.spawnFrequencyPerWave;
                 config.spawnInitialInterval = waveConfig.spawnInitialInterval;
-                config.spawnCoroutines = waveConfig.spawnCoroutines;
+                config.spawnCoroutines = new List<Coroutine>();
                 _waveData.Add(config);
             }
         }
@@ -96,15 +96,16 @@ namespace Roguelike.Wave
             {
                 StopCoroutine(spawnCoroutine);
                 spawnCoroutine = null;
-                Debug.Log("Spawning stopped.");
             }
 
             foreach (var waveConfig in _waveData)
             {
                 foreach (var coroutine in waveConfig.spawnCoroutines)
                 {
-                    StopCoroutine(coroutine);
+                    if (coroutine != null)
+                        StopCoroutine(coroutine);
                 }
+                waveConfig.spawnCoroutines.Clear();
             }
 
             ResetWaveData();
@@ -113,13 +114,11 @@ namespace Roguelike.Wave
         public void PauseSpawning()
         {
             isPaused = true;
-            Debug.Log("Spawning paused.");
         }
 
         public void ResumeSpawning()
         {
             isPaused = false;
-            Debug.Log("Spawning resumed.");
         }
 
         private IEnumerator SpawnWaves()
@@ -135,7 +134,9 @@ namespace Roguelike.Wave
                     if (!isSpawning) yield break;
                     if (isPaused) yield return new WaitUntil(() => !isPaused);
 
-                    spawnCoroutines.Add(StartCoroutine(SpawnEnemiesForWave(waveConfig)));
+                    Coroutine coroutine = StartCoroutine(SpawnEnemiesForWave(waveConfig));
+                    spawnCoroutines.Add(coroutine);
+                    waveConfig.spawnCoroutines.Add(coroutine);
                 }
 
                 foreach (var coroutine in spawnCoroutines)
@@ -154,8 +155,6 @@ namespace Roguelike.Wave
 
                 if (!isSpawning) yield break;
                 yield return new WaitForSeconds(_waveInterval);
-       
-                Debug.Log(_waveData[0].spawnInitialInterval);
             }
         }
 
@@ -182,28 +181,13 @@ namespace Roguelike.Wave
             if (Random.Range(0f, 1f) > 0.5f)
             {
                 spawnPoint.x = Random.Range(minPos.position.x, maxPos.position.x);
-                if (Random.Range(0f, 1f) > 0.5f)
-                {
-                    spawnPoint.y = minPos.position.y;
-                }
-                else
-                {
-                    spawnPoint.y = maxPos.position.y;
-                }
+                spawnPoint.y = Random.Range(0f, 1f) > 0.5f ? minPos.position.y : maxPos.position.y;
             }
             else
             {
                 spawnPoint.y = Random.Range(minPos.position.y, maxPos.position.y);
-                if (Random.Range(0f, 1f) > 0.5f)
-                {
-                    spawnPoint.x = minPos.position.x;
-                }
-                else
-                {
-                    spawnPoint.x = maxPos.position.x;
-                }
+                spawnPoint.x = Random.Range(0f, 1f) > 0.5f ? minPos.position.x : maxPos.position.x;
             }
-
 
             return spawnPoint;
         }
@@ -214,7 +198,7 @@ namespace Roguelike.Wave
             isSpawning = false;
             isPaused = false;
         }
-
     }
+
 
 }
