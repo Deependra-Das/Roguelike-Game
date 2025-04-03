@@ -1,6 +1,7 @@
 using Roguelike.Event;
 using Roguelike.Main;
 using Roguelike.Player;
+using Roguelike.VFX;
 using UnityEngine;
 
 namespace Roguelike.Enemy
@@ -102,12 +103,13 @@ namespace Roguelike.Enemy
                 GameService.Instance.GetService<PlayerService>().GetPlayer().AddExperiencePoints(_enemyModel.ExpDrop);
             }            
             UnsubscribeToEvents();
+            GameService.Instance.GetService<VFXService>().SpawnVFX(_enemyView.gameObject.transform.position);
             _enemyView.gameObject.SetActive(false);
             GameService.Instance.GetService<EnemyService>().ReturnEnemyToPool(this);
         }
 
         public virtual void OnCollisionWithPlayer() { }
 
-        public GameObject GetEnemyView() { return _enemyView.gameObject; }
+        public GameObject GetEnemyGameObject() { return _enemyView.gameObject; }
     }
 }
