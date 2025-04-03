@@ -131,7 +131,6 @@ namespace Roguelike.Main
         {
             if (Input.GetKeyDown(KeyCode.Escape) && GameState==GameState.Gameplay)
             {
-                GameService.Instance.GetService<SoundService>().PlaySFX(SoundType.GamePause);
                 ChangeGameState(GameState.GamePaused);
             }
         }

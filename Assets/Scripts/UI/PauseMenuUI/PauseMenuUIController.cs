@@ -41,6 +41,7 @@ namespace Roguelike.UI
 
         public void Show()
         {
+            GameService.Instance.GetService<SoundService>().PlaySFX(SoundType.GamePause);
             _pauseMenuUIView.EnableView();
             Time.timeScale = 0;
         }
