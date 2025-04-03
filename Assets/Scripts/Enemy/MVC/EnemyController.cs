@@ -52,13 +52,15 @@ namespace Roguelike.Enemy
         private void SubscribeToEvents()
         {
             EventService.Instance.OnGameStateChange.AddListener(SetGameState);
-            EventService.Instance.OnGameOver.AddListener(OnGameOver);
+            EventService.Instance.OnGameOver.AddListener(OnGameOver); 
+            EventService.Instance.OnLevelCompleted.AddListener(OnGameOver);
         }
 
         private void UnsubscribeToEvents()
         {
             EventService.Instance.OnGameStateChange.RemoveListener(SetGameState);
             EventService.Instance.OnGameOver.RemoveListener(OnGameOver);
+            EventService.Instance.OnLevelCompleted.RemoveListener(OnGameOver);
         }
 
         public void SetGameState(GameState _newState)

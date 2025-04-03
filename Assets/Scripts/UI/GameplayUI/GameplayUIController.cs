@@ -33,7 +33,7 @@ namespace Roguelike.UI
             EventService.Instance.OnStartGameplay.AddListener(Show);
             EventService.Instance.OnGameStateChange.AddListener(SetGameState);
             EventService.Instance.OnGameOver.AddListener(Hide);
-            EventService.Instance.OnLevelCompleted.RemoveListener(Hide);
+            EventService.Instance.OnLevelCompleted.AddListener(Hide);
         }
 
         private void UnsubscribeToEvents()
@@ -52,6 +52,7 @@ namespace Roguelike.UI
 
         public void Hide()
         {
+            Debug.Log("Hit-"+_currentGameState);
             _gameplayUIView.DisableView();
         }
 

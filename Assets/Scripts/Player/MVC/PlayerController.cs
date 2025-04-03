@@ -70,12 +70,14 @@ namespace Roguelike.Player
         {
             EventService.Instance.OnGameStateChange.AddListener(SetGameState);
             EventService.Instance.OnGameOver.AddListener(OnGameOver);
+            EventService.Instance.OnLevelCompleted.AddListener(OnGameOver);
         }
 
         private void UnsubscribeToEvents()
         {
             EventService.Instance.OnGameStateChange.RemoveListener(SetGameState);
             EventService.Instance.OnGameOver.RemoveListener(OnGameOver);
+            EventService.Instance.OnLevelCompleted.AddListener(OnGameOver);
         }
 
         public void UpdatePlayer() 
@@ -132,7 +134,15 @@ namespace Roguelike.Player
             GameService.Instance.GetService<UIService>().UpdateCurrentExpSlider(_playerModel.CurrentExpPoints);
             if(_playerModel.CurrentExpPoints>= expToUpgradeList[_playerModel.CurrentExpLevel])
             {
-                ExpLevelUp();
+                if(!CheckMaxExpLevelReached())
+                {
+                    ExpLevelUp();
+                }
+                else
+                {
+                    GameService.Instance.ChangeGameState(GameState.LevelCompleted);
+                }
+            
             }
         }
 
@@ -158,6 +168,16 @@ namespace Roguelike.Player
         {
             _playerModel.UpdateMaxHealth(value);
             GameService.Instance.GetService<UIService>().UpdateMaxHealthSlider(_playerModel.MaxHealth);
+        }
+
+        private bool CheckMaxExpLevelReached()
+        {
+            Debug.Log(_playerModel.CurrentExpLevel + "-" + expToUpgradeList.Count);
+            if (_playerModel.CurrentExpLevel>= expToUpgradeList.Count-1)
+            {  
+                return true;
+            }
+            return false;
         }
     }
 
