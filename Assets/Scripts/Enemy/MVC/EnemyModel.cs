@@ -20,6 +20,7 @@ namespace Roguelike.Enemy
             Health = enemyDataObj.health;
             AttackPower = enemyDataObj.attackPower;
             AttackCooldown = enemyDataObj.attackCooldown;
+            KnockBackDuration = enemyDataObj.knockBackDuration;
             ExpDrop = enemyDataObj.ExpDrop;
 
             NumberOfProjectiles = enemyDataObj.numberOfProjectiles;
@@ -41,6 +42,11 @@ namespace Roguelike.Enemy
             Health += value;
         }
 
+        public void SetMovementSpeed(float value)
+        {
+            MovementSpeed = value;
+        }
+
         public int EnemyID { get; private set; }
         public EnemyType EnemyType { get; private set; }
         public EnemyView EnemyPrefab { get; private set; }
@@ -52,6 +58,7 @@ namespace Roguelike.Enemy
         public int Health { get; private set; }
         public int AttackPower { get; private set; }
         public float AttackCooldown { get; private set; }
+        public float KnockBackDuration { get; private set; }
         public int ExpDrop { get; private set; }
         public int NumberOfProjectiles { get; private set; }
         public int ProjectileDamage { get; private set; }
