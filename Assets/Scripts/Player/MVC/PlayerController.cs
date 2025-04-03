@@ -6,6 +6,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using Roguelike.UI;
 using Roguelike.Weapon;
+using Roguelike.Sound;
 
 namespace Roguelike.Player
 {
@@ -142,6 +143,7 @@ namespace Roguelike.Player
             GameService.Instance.GetService<UIService>().UpdateCurrentExpSlider(_playerModel.CurrentExpPoints);
             _playerModel.UpdateExpLevel();
             GameService.Instance.GetService<UIService>().UpdateMaxExpSlider(expToUpgradeList[_playerModel.CurrentExpLevel]);
+            GameService.Instance.GetService<SoundService>().PlaySFX(SoundType.LevelUp);
             GameService.Instance.ChangeGameState(GameState.PowerUpSelection);
         }
 

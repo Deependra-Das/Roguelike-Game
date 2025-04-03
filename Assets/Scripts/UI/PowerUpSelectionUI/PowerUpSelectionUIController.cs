@@ -6,6 +6,7 @@ using Roguelike.Weapon;
 using Roguelike.Player;
 using Roguelike.Projectile;
 using Unity.VisualScripting;
+using Roguelike.Sound;
 
 namespace Roguelike.UI
 {
@@ -115,6 +116,7 @@ namespace Roguelike.UI
 
         public void OnWeaponPowerUpSelected(WeaponController weaponObj)
         {
+            GameService.Instance.GetService<SoundService>().PlaySFX(SoundType.WeaponUpgradeButtonClick);
             weaponObj.ActivateUpgradeWeapon();
             UpdatePowerUpButtons();
             Hide();
@@ -123,18 +125,21 @@ namespace Roguelike.UI
 
         public void OnHealingSelected()
         {
+            GameService.Instance.GetService<SoundService>().PlaySFX(SoundType.HealButtonClick);
             GameService.Instance.GetService<PlayerService>().GetPlayer().Heal();
             Hide();
         }
 
         public void OnHealthUpgradeSelected(int value)
         {
+            GameService.Instance.GetService<SoundService>().PlaySFX(SoundType.HealthUpgradeButtonClick);
             GameService.Instance.GetService<PlayerService>().GetPlayer().UpgradeMaxHealth(value);
             Hide();
         }
 
         public void OnSkipUpgrade()
         {
+            GameService.Instance.GetService<SoundService>().PlaySFX(SoundType.ButtonClick);
             Hide();
         }
 

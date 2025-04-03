@@ -7,6 +7,7 @@ using Roguelike.Main;
 using Roguelike.Player;
 using Roguelike.Enemy;
 using Roguelike.Projectile;
+using Roguelike.Sound;
 
 namespace Roguelike.Weapon
 {
@@ -44,6 +45,7 @@ namespace Roguelike.Weapon
         {
             while (true)
             {
+                GameService.Instance.GetService<SoundService>().PlayWeaponSFX(SoundType.ScatterShot);
                 ShootProjectiles();
                 yield return new WaitForSeconds(_cycleTime);
             }

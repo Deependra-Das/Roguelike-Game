@@ -1,6 +1,7 @@
 using Roguelike.Event;
 using Roguelike.Main;
 using Roguelike.Player;
+using Roguelike.Sound;
 using Roguelike.VFX;
 using UnityEngine;
 
@@ -103,6 +104,8 @@ namespace Roguelike.Enemy
                 GameService.Instance.GetService<PlayerService>().GetPlayer().AddExperiencePoints(_enemyModel.ExpDrop);
             }            
             UnsubscribeToEvents();
+
+            GameService.Instance.GetService<SoundService>().PlayEnemySFX(SoundType.EnemyDeath);
             GameService.Instance.GetService<VFXService>().SpawnVFX(new Vector2(_enemyView.gameObject.transform.position.x, _enemyView.gameObject.transform.position.y));
             _enemyView.gameObject.SetActive(false);
             GameService.Instance.GetService<EnemyService>().ReturnEnemyToPool(this);

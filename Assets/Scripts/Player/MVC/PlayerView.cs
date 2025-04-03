@@ -1,6 +1,7 @@
 using Roguelike.Event;
 using Roguelike.Main;
 using Roguelike.Player;
+using Roguelike.Sound;
 using UnityEngine;
 
 namespace Roguelike.Player
@@ -71,6 +72,7 @@ namespace Roguelike.Player
             {
                 _isImmune = true;
                 _immunityTimer=_controller.PlayerModel.ImmunityDuration;
+                GameService.Instance.GetService<SoundService>().PlayPlayerSFX(SoundType.PlayerDamage);
                 _controller.TakeDamage(damage);
             }
            

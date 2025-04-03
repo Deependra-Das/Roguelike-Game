@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Roguelike.Main;
 using Roguelike.Utilities;
 using Roguelike.Event;
+using Roguelike.Sound;
 
 namespace Roguelike.Level
 {
@@ -54,6 +55,18 @@ namespace Roguelike.Level
         {
             var levelData = levelScriptableObjects.Find(levelSO => levelSO.ID == _levelIdSelected);
             _activeLevelObj=Object.Instantiate(levelData.levelPrefab);
+            switch(_levelIdSelected)
+            {
+                case 1:
+                    GameService.Instance.GetService<SoundService>().PlayBGM(SoundType.BGM1, true);
+                    break;
+                case 2:
+                    GameService.Instance.GetService<SoundService>().PlayBGM(SoundType.BGM2, true);
+                    break;
+                case 3:
+                    GameService.Instance.GetService<SoundService>().PlayBGM(SoundType.BGM3, true);
+                    break;
+            }
         }
 
         public void SetGameState(GameState _newState)
