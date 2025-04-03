@@ -1,3 +1,4 @@
+using Roguelike.DamageNumber;
 using Roguelike.Main;
 using Roguelike.Player;
 using UnityEngine;
@@ -71,7 +72,11 @@ namespace Roguelike.Enemy
             }
         }
 
-        public void TakeDamage(int damage) => _controller.TakeDamage(damage);
+        public void TakeDamage(int damage)
+        {
+            GameService.Instance.GetService<DamageNumberService>().SpawnDamageNumber(transform.position, damage);
+            _controller.TakeDamage(damage);
+        }
 
     }
 }
