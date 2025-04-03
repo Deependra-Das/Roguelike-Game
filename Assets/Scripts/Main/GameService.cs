@@ -20,6 +20,7 @@ namespace Roguelike.Main
 {
     public class GameService : GenericMonoSingleton<GameService>
     {
+        #region Inspector-Dependencies
         [SerializeField] private CinemachineCamera _cinemachineCamera;
         [SerializeField] private int _waitTimeBeforeInitialExp = 0;
 
@@ -41,6 +42,7 @@ namespace Roguelike.Main
         [SerializeField] private List<WeaponScriptableObject> _weaponScriptableObjects;
         [SerializeField] private List<ProjectileScriptableObject> _projectileScriptableObjects;
         [SerializeField] private SoundScriptableObject _audioList;
+        #endregion
 
         private Dictionary<Type, IService> _services = new Dictionary<Type, IService>();
         public GameState GameState { get; private set; }
@@ -145,7 +147,6 @@ namespace Roguelike.Main
             {
                 Debug.LogWarning("Cinemachine Virtual Camera or Target GameObject is not assigned.");
             }
-
         }
 
         public void ChangeGameState(GameState newState)
@@ -186,6 +187,7 @@ namespace Roguelike.Main
         {
             EventService.Instance.OnStartGameplay.Invoke();
             ChangeGameState(GameState.Gameplay);
+            _cinemachineCamera.PreviousStateIsValid = false;
             StartCoroutine(GiveIntialSpawnExpPoints(_waitTimeBeforeInitialExp));
         }
 
