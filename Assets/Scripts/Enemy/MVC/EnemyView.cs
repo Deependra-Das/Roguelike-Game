@@ -13,7 +13,7 @@ namespace Roguelike.Enemy
         private Transform _playerTransform;
         private Vector3 _enemyDirection;
         private GameState _currentGameState;
-        private float _knockBackCounter;
+        private float _knockBackTimer;
 
         public EnemyController _controller { get; private set; }
 
@@ -66,14 +66,14 @@ namespace Roguelike.Enemy
 
         protected void CheckKnockBack()
         {
-            if (_knockBackCounter > 0)
+            if (_knockBackTimer > 0)
             {
-                _knockBackCounter -= Time.deltaTime;
+                _knockBackTimer -= Time.deltaTime;
                 if (_controller.GetEnemyModel.MovementSpeed > 0)
                 {
                     _controller.GetEnemyModel.SetMovementSpeed(-_controller.GetEnemyModel.MovementSpeed);
                 }
-                if (_knockBackCounter <= 0)
+                if (_knockBackTimer <= 0)
                 {
                     _controller.GetEnemyModel.SetMovementSpeed(Mathf.Abs(_controller.GetEnemyModel.MovementSpeed));
                 }
@@ -93,7 +93,7 @@ namespace Roguelike.Enemy
 
         public void TakeDamage(int damage)
         {
-            _knockBackCounter = _controller.GetEnemyModel.KnockBackDuration;
+            _knockBackTimer = _controller.GetEnemyModel.KnockBackDuration;
             GameService.Instance.GetService<DamageNumberService>().SpawnDamageNumber(transform.position, damage);
             _controller.TakeDamage(damage);
         }

@@ -103,7 +103,7 @@ namespace Roguelike.Enemy
                 GameService.Instance.GetService<PlayerService>().GetPlayer().AddExperiencePoints(_enemyModel.ExpDrop);
             }            
             UnsubscribeToEvents();
-            GameService.Instance.GetService<VFXService>().SpawnVFX(_enemyView.gameObject.transform.position);
+            GameService.Instance.GetService<VFXService>().SpawnVFX(new Vector2(_enemyView.gameObject.transform.position.x, _enemyView.gameObject.transform.position.y));
             _enemyView.gameObject.SetActive(false);
             GameService.Instance.GetService<EnemyService>().ReturnEnemyToPool(this);
         }
