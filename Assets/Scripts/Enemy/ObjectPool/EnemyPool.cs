@@ -42,7 +42,7 @@ namespace Roguelike.Enemy
         {
             foreach (var pooledItem in pooledItems)
             {
-                UnityEngine.Object.Destroy(pooledItem.Item.GetEnemyView());
+                UnityEngine.Object.Destroy(pooledItem.Item.GetEnemyGameObject());
             }
 
             pooledItems.Clear();
