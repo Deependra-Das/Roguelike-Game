@@ -1,4 +1,5 @@
 using Roguelike.Main;
+using Roguelike.Player;
 using UnityEngine;
 namespace Roguelike.Weapon
 {
@@ -23,8 +24,11 @@ namespace Roguelike.Weapon
 
         protected void OnGameOver()
         {
-            DeactivateWeapon();
-            Destroy(this.gameObject);
+            if (GameService.Instance.GetService<PlayerService>().GetPlayer() != null)
+            {
+                DeactivateWeapon();
+                Destroy(this.gameObject);
+            }  
         }
 
     }
