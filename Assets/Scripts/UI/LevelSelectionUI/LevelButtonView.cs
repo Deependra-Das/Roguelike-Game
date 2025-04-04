@@ -10,6 +10,7 @@ namespace Roguelike.UI
 {
     public class LevelButtonView : MonoBehaviour
     {
+        [SerializeField] private Button _levelButton;
         [SerializeField] private TextMeshProUGUI _levelNameText;
         [SerializeField] private TextMeshProUGUI _levelDescriptionText;
         [SerializeField] private TextMeshProUGUI _levelHighScoreText;
@@ -19,7 +20,9 @@ namespace Roguelike.UI
         private LevelSelectionUIController owner;
         private int _levelId;
         
-        private void Start() => GetComponent<Button>().onClick.AddListener(OnLevelButtonClicked);
+        private void OnEnable() => _levelButton.onClick.AddListener(OnLevelButtonClicked);
+
+        private void OnDisable() => _levelButton.onClick.RemoveListener(OnLevelButtonClicked);
 
         public void SetOwner(LevelSelectionUIController owner) => this.owner = owner;
 

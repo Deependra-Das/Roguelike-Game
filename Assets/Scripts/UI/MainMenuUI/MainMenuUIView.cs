@@ -17,10 +17,9 @@ namespace Roguelike.UI
             _controller = controllerToSet as MainMenuUIController;
         }
 
-        public void InitializeView()
-        {
-            SubscribeToEvents();
-        }
+        private void OnEnable() => SubscribeToEvents();
+
+        private void OnDisable() => UnsubscribeToEvents();
 
         private void SubscribeToEvents()
         {
@@ -46,6 +45,5 @@ namespace Roguelike.UI
 
         public void EnableView() => gameObject.SetActive(true);
 
-        public void OnDestroy() => UnsubscribeToEvents();
     }
 }
