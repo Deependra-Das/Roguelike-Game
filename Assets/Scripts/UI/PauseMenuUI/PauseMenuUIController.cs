@@ -22,7 +22,6 @@ namespace Roguelike.UI
 
         public void InitializeController()
         {
-            _pauseMenuUIView.InitializeView();
             SubscribeToEvents();
             Hide();
         }

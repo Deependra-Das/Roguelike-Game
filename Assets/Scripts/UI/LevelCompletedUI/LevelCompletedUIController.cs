@@ -10,18 +10,17 @@ namespace Roguelike.UI
     public class LevelCompletedUIController : IUIController
     {
         private LevelCompletedUIView _levelCompletedUIView;
-        private GameState _currentGameState;
 
         public LevelCompletedUIController(LevelCompletedUIView levelCompletedUIView)
         {
             _levelCompletedUIView = levelCompletedUIView;
             _levelCompletedUIView.SetController(this);
         }
+
         ~LevelCompletedUIController() => UnsubscribeToEvents();
 
         public void InitializeController()
         {
-            _levelCompletedUIView.InitializeView();
             SubscribeToEvents();
             Hide();
         }
@@ -29,13 +28,11 @@ namespace Roguelike.UI
         private void SubscribeToEvents()
         {
             EventService.Instance.OnLevelCompleted.AddListener(Show);
-            EventService.Instance.OnGameStateChange.AddListener(SetGameState);
         }
 
         private void UnsubscribeToEvents()
         {
             EventService.Instance.OnLevelCompleted.RemoveListener(Show);
-            EventService.Instance.OnGameStateChange.RemoveListener(SetGameState);
         }
 
         public void Show()
@@ -49,11 +46,6 @@ namespace Roguelike.UI
             _levelCompletedUIView.DisableView();
         }
 
-        public void SetGameState(GameState _newState)
-        {
-            _currentGameState = _newState;
-        }
-
         public void OnBackButtonClicked()
         {
             GameService.Instance.GetService<SoundService>().PlaySFX(SoundType.ButtonClick);
@@ -61,11 +53,6 @@ namespace Roguelike.UI
             GameService.Instance.ChangeGameState(GameState.MainMenu);
         }
 
-        private void OnDestroy()
-        {
-            _levelCompletedUIView.OnDestroy();
-            UnsubscribeToEvents();
-        }
     }
 
 }

@@ -10,7 +10,6 @@ namespace Roguelike.UI
     public class GameOverUIController : IUIController
     {
         private GameOverUIView _gameOverUIView;
-        private GameState _currentGameState;
 
         public GameOverUIController(GameOverUIView gameOverUIView)
         {
@@ -22,7 +21,6 @@ namespace Roguelike.UI
 
         public void InitializeController()
         {
-            _gameOverUIView.InitializeView();
             SubscribeToEvents();
             Hide();
         }
@@ -30,13 +28,11 @@ namespace Roguelike.UI
         private void SubscribeToEvents()
         {
             EventService.Instance.OnGameOver.AddListener(Show);
-            EventService.Instance.OnGameStateChange.AddListener(SetGameState);
         }
 
         private void UnsubscribeToEvents()
         {
             EventService.Instance.OnGameOver.RemoveListener(Show);
-            EventService.Instance.OnGameStateChange.RemoveListener(SetGameState);
         }
 
         public void Show()
@@ -48,11 +44,6 @@ namespace Roguelike.UI
         public void Hide()
         {
             _gameOverUIView.DisableView();
-        }
-
-        public void SetGameState(GameState _newState)
-        {
-            _currentGameState = _newState;
         }
 
         public void OnBackButtonClicked()
