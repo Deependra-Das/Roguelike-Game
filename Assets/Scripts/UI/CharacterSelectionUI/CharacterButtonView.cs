@@ -7,6 +7,7 @@ namespace Roguelike.UI
 {
     public class CharacterButtonView : MonoBehaviour
     {
+        [SerializeField] private Button _characterButton;
         [SerializeField] private TextMeshProUGUI _characterNameText;
         [SerializeField] private Image _characterImage;
         [SerializeField] private Slider _healthSlider;
@@ -17,7 +18,9 @@ namespace Roguelike.UI
         private CharacterSelectionUIController owner;
         private int _characterId;
 
-        private void Start() => GetComponent<Button>().onClick.AddListener(OnCharacterButtonClicked);
+        private void OnEnable() => _characterButton.onClick.AddListener(OnCharacterButtonClicked);
+
+        private void OnDisable() => _characterButton.onClick.RemoveListener(OnCharacterButtonClicked);
 
         public void SetOwner(CharacterSelectionUIController owner) => this.owner = owner;
 

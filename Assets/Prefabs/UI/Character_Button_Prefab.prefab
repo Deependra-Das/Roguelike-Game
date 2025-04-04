@@ -198,6 +198,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 904175d4ba4340b4abf8ea8c83069baa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _characterButton: {fileID: 9174056685747746069}
   _characterNameText: {fileID: 5587044408836102084}
   _characterImage: {fileID: 6346661746712769998}
   _healthSlider: {fileID: 3188166386090544228}
