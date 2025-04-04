@@ -20,7 +20,7 @@ MonoBehaviour:
   spawnIntervalDecrementRate: 0.9
   spawnFrequencyIncreaseFactor: 1.1
   spawnFinalInterval: 0.3
-  waveInterval: 5
+  waveInterval: 3
   enemyWaveData:
   - enemy_SO: {fileID: 11400000, guid: 122282ee7e63e2f4493a8e7e6f62d3a3, type: 2}
     spawnInitialInterval: 2
@@ -32,6 +32,6 @@ MonoBehaviour:
     spawnInitialInterval: 5
     spawnFrequencyPerWave: 5
   - enemy_SO: {fileID: 11400000, guid: 81b910138f1728d42ae1142a24a72e3c, type: 2}
-    spawnInitialInterval: 30
+    spawnInitialInterval: 10
     spawnFrequencyPerWave: 3
   expToUpgrade_SO: {fileID: 11400000, guid: 7ca682cf44de3634e994248beea4b80e, type: 2}
