@@ -282,4 +282,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3632d34e7b9de81439dd32151400ea89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: -5018083291900488478}
+  _enemyProjectile_RB: {fileID: -5018083291900488478}

@@ -10,9 +10,7 @@ namespace Roguelike.Projectile
     public class ProjectileService : IService
     {
         private ProjectilePool _projectilePoolObj;
-        private GameState _currentGameState;
         private List<ProjectileScriptableObject> _projectileSO_List;
-
 
         public ProjectileService(List<ProjectileScriptableObject> projectileSO_List) 
         {
@@ -29,19 +27,12 @@ namespace Roguelike.Projectile
 
         private void SubscribeToEvents()
         {
-            EventService.Instance.OnGameStateChange.AddListener(SetGameState);
             EventService.Instance.OnMainMenu.AddListener(ResetPool);
         }
 
         private void UnsubscribeToEvents()
         {
-            EventService.Instance.OnGameStateChange.RemoveListener(SetGameState);
             EventService.Instance.OnMainMenu.RemoveListener(ResetPool);
-        }
-
-        public void SetGameState(GameState _newState)
-        {
-            _currentGameState = _newState;
         }
 
         public IProjectile SpawnProjectile(ProjectileType projectileType, Vector2 spawnPosition, Vector3 direction, int damage, float lifeTime, float speed)

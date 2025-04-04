@@ -9,5 +9,4 @@ namespace Roguelike.PowerUp
     {
         public List<PowerUp> powerUpList;
     }
-
 }

@@ -7,12 +7,12 @@ namespace Roguelike.Projectile
 {
     public class PlayerProjectileView : MonoBehaviour
     {
-        [SerializeField] private Rigidbody2D playerprojectile_RB;
-        private int damage;
-        private float lifeTime;
-        private float speed;
-        private bool isActive=false;
-        private float timeAlive = 0f;
+        [SerializeField] private Rigidbody2D _playerprojectile_RB;
+        private int _damage;
+        private float _lifeTime;
+        private float _speed;
+        private bool _isActive=false;
+        private float _timeAlive = 0f;
 
         public PlayerProjectileController _controller { get; private set; }
 
@@ -21,25 +21,25 @@ namespace Roguelike.Projectile
         public void Initialize(Vector3 spawnPosition, Vector3 direction, int damage, float lifeTime, float speed)
         {
             transform.position = spawnPosition;
-            this.damage = damage;
-            this.lifeTime = lifeTime;
-            this.speed = speed;
+            this._damage = damage;
+            this._lifeTime = lifeTime;
+            this._speed = speed;
 
-            if (playerprojectile_RB != null)
+            if (_playerprojectile_RB != null)
             {
-                playerprojectile_RB.linearVelocity = direction.normalized * speed;
+                _playerprojectile_RB.linearVelocity = direction.normalized * speed;
             }
-            timeAlive = 0;
-            isActive = true;
+            _timeAlive = 0;
+            _isActive = true;
         }
 
         void Update()
         {
-            if(isActive)
+            if(_isActive)
             {
-                timeAlive += Time.deltaTime;
+                _timeAlive += Time.deltaTime;
 
-                if (timeAlive >= lifeTime)
+                if (_timeAlive >= _lifeTime)
                 {
                     ReturnProjectileToPool();
                 }
@@ -48,7 +48,7 @@ namespace Roguelike.Projectile
 
         public void ReturnProjectileToPool()
         {
-            isActive = false;
+            _isActive = false;
             gameObject.SetActive(false);
             _controller.ReturnProjectileToPool();
         }
@@ -58,7 +58,7 @@ namespace Roguelike.Projectile
             EnemyView enemyObj = other.gameObject.GetComponent<EnemyView>();
             if (enemyObj != null)
             {
-                enemyObj.TakeDamage(damage);
+                enemyObj.TakeDamage(_damage);
                 ReturnProjectileToPool();
             }
         }

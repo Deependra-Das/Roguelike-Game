@@ -282,4 +282,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40a738b592376874aa83b86e118da4b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerprojectile_RB: {fileID: -5018083291900488478}
+  _playerprojectile_RB: {fileID: -5018083291900488478}
