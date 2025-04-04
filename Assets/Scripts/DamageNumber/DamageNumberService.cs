@@ -10,7 +10,8 @@ namespace Roguelike.DamageNumber
         private GameObject _damageNumberPrefab;
         private DamageNumberPool _damageNumberPoolObj;
         private GameState _currentGameState;
-        private Transform dmgCanvasTransform;
+        private Transform _dmgCanvasTransform;
+
         public DamageNumberService(GameObject damageNumberPrefab)
         {
             _damageNumberPrefab = damageNumberPrefab;
@@ -21,7 +22,7 @@ namespace Roguelike.DamageNumber
         public void Initialize(params object[] dependencies)
         {
             _damageNumberPoolObj = new DamageNumberPool(_damageNumberPrefab);
-            dmgCanvasTransform = GameService.Instance.GetService<UIService>().GetDamageCanvasTransform;
+            _dmgCanvasTransform = GameService.Instance.GetService<UIService>().GetDamageCanvasTransform;
             SubscribeToEvents();
         }
 
@@ -45,8 +46,9 @@ namespace Roguelike.DamageNumber
         public void SpawnDamageNumber(Vector3 position, int damageValue)
         {
             DamageNumberController damageNumber = _damageNumberPoolObj.GetDamageNumber<DamageNumberController>(_damageNumberPrefab);
-            damageNumber.Configure(position, dmgCanvasTransform, damageValue);
+            damageNumber.Configure(position, _dmgCanvasTransform, damageValue);
         }
+
         public void ReturnDamageNumberToPool(DamageNumberController damageNumberToReturn) => _damageNumberPoolObj.ReturnItem(damageNumberToReturn);
 
         private void ResetPool()
