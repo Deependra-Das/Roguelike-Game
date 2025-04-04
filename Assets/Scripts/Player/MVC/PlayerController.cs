@@ -89,7 +89,6 @@ namespace Roguelike.Player
         {
             _currentGameState = _newState;
             _playerView.SetGameState(_currentGameState);
-            Debug.Log(_currentGameState.ToString());
         }
 
         public PlayerModel PlayerModel { get { return _playerModel; } }
@@ -172,7 +171,6 @@ namespace Roguelike.Player
 
         private bool CheckMaxExpLevelReached()
         {
-            Debug.Log(_playerModel.CurrentExpLevel + "-" + expToUpgradeList.Count);
             if (_playerModel.CurrentExpLevel>= expToUpgradeList.Count-1)
             {  
                 return true;

@@ -3,6 +3,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
 using Roguelike.Level;
+using Roguelike.Main;
+using Roguelike.HighScore;
 
 namespace Roguelike.UI
 {
@@ -10,6 +12,7 @@ namespace Roguelike.UI
     {
         [SerializeField] private TextMeshProUGUI _levelNameText;
         [SerializeField] private TextMeshProUGUI _levelDescriptionText;
+        [SerializeField] private TextMeshProUGUI _levelHighScoreText;
         [SerializeField] private Image _levelImage;
         [SerializeField] private List<Image> _enemyImages;
 
@@ -32,6 +35,15 @@ namespace Roguelike.UI
             {
                 _enemyImages[i].sprite = levelData.enemyWaveData[i].enemy_SO.enemyImage;
             }
+            SetHighScore();
+        }
+
+        public void SetHighScore()
+        {
+            float highScore = GameService.Instance.GetService<HighScoreService>().GetHighScore(_levelId);
+            float min = Mathf.FloorToInt(highScore / 60f);
+            float sec = Mathf.FloorToInt(highScore % 60f);
+            _levelHighScoreText.text = "High Score : "+min.ToString("00") + ":" + sec.ToString("00");
         }
     }
 }

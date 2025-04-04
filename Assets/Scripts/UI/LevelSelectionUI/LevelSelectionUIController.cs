@@ -12,6 +12,7 @@ namespace Roguelike.UI
         private LevelButtonView _levelButtonPrefab;
         private List<LevelScriptableObject> _level_SO;
         private LevelSelectionUIView _levelSelectionUIView;
+        private List<LevelButtonView> _levelButtons = new List<LevelButtonView>();
         private GameState _currentGameState;
 
         public LevelSelectionUIController(LevelSelectionUIView levelSelectionUIView, LevelButtonView levelButtonPrefab, List<LevelScriptableObject> level_SO)
@@ -46,6 +47,7 @@ namespace Roguelike.UI
         public void Show()
         {
             _levelSelectionUIView.EnableView();
+            UpdateButonsView();
         }
 
         public void Hide()
@@ -60,11 +62,21 @@ namespace Roguelike.UI
 
         public void CreateLevelButtons()
         {
-           foreach(var levelData in _level_SO)
+            _levelButtons.Clear();
+           foreach (var levelData in _level_SO)
             {
                 var newButton = _levelSelectionUIView.AddButton(_levelButtonPrefab);
                 newButton.SetOwner(this);
                 newButton.SetLevelButtonData(levelData);
+                _levelButtons.Add(newButton);
+            }
+        }
+
+        public void UpdateButonsView()
+        {
+            foreach (var levelButtton in _levelButtons)
+            {
+                levelButtton.SetHighScore();
             }
         }
 

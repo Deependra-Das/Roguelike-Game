@@ -12,7 +12,10 @@ namespace Roguelike.HighScore
         public HighScoreService() { }
         ~HighScoreService() => UnsubscribeToEvents();
 
-        public void Initialize(params object[] dependencies) { }
+        public void Initialize(params object[] dependencies) 
+        {
+            SubscribeToEvents();
+        }
 
         private void SubscribeToEvents()
         {
@@ -29,6 +32,7 @@ namespace Roguelike.HighScore
             int levelId = GameService.Instance.GetService<LevelService>().LevelIdSelected;
             float score = GameService.Instance.GameTimer;
             float currentHighScore = GetHighScore(levelId);
+            Debug.Log("Hit");
             if (score > currentHighScore)
             {
                 PlayerPrefs.SetFloat(levelId + "_HighScore", score);

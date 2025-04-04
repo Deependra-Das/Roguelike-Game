@@ -46,13 +46,11 @@ namespace Roguelike.UI
 
         public void Show()
         {
-            _gameplayUIView.InitializeView();
             _gameplayUIView.EnableView();
         }
 
         public void Hide()
         {
-            Debug.Log("Hit-"+_currentGameState);
             _gameplayUIView.DisableView();
         }
 

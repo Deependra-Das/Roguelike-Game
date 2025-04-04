@@ -22,16 +22,6 @@ namespace Roguelike.UI
             _controller = controllerToSet as GameplayUIController;
         }
 
-        public void InitializeView()
-        {
-            ResetTimer();
-        }
-
-        public void ResetTimer()
-        {
-            gameTimer = 0;
-        }
-
         private void Update()
         {
             if (_currentGameState == GameState.Gameplay)
@@ -43,11 +33,6 @@ namespace Roguelike.UI
         public void SetGameState(GameState _newState)
         {
             _currentGameState = _newState;
-        }
-
-        public void OnGameStateChange()
-        {
-            gameTimer = 0;
         }
 
         public void UpdateCurrentHealthSlider(float currentHealth)

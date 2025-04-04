@@ -166,6 +166,7 @@ namespace Roguelike.Main
             switch (newState)
             {
                 case GameState.MainMenu:
+                    Time.timeScale = 1;
                     EventService.Instance.OnMainMenu.Invoke();
                     break;
                 case GameState.LevelSelection:
@@ -184,10 +185,12 @@ namespace Roguelike.Main
                     EventService.Instance.OnGamePaused.Invoke();
                     break;
                 case GameState.LevelCompleted:
+                    Time.timeScale = 0;
                     EventService.Instance.OnSaveHighScore.Invoke();
                     EventService.Instance.OnLevelCompleted.Invoke();
                     break;
                 case GameState.GameOver:
+                    Time.timeScale = 0;
                     EventService.Instance.OnSaveHighScore.Invoke();
                     EventService.Instance.OnGameOver.Invoke();
                     break;
@@ -199,6 +202,7 @@ namespace Roguelike.Main
             EventService.Instance.OnStartGameplay.Invoke();
             ChangeGameState(GameState.Gameplay);
             _cinemachineCamera.PreviousStateIsValid = false;
+            ResetGameTimer();
             StartCoroutine(GiveIntialSpawnExpPoints(_waitTimeBeforeInitialExp));
         }
 
@@ -209,6 +213,11 @@ namespace Roguelike.Main
             {
                 GetService<PlayerService>().GetPlayer().AddExperiencePoints(1);
             }            
+        }
+
+        private void ResetGameTimer()
+        {
+            GameTimer = 0;
         }
     }
 }
