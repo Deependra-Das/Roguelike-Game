@@ -21,10 +21,9 @@ namespace Roguelike.UI
 
         private PowerUpSelectionUIController owner;
 
-        private void Start()
-        {
-            _healthUpgradeButton.onClick.AddListener(OnHealthUpgradeButtonClicked);
-        }
+        private void OnEnable() => _healthUpgradeButton.onClick.AddListener(OnHealthUpgradeButtonClicked);
+
+        private void OnDisable() => _healthUpgradeButton.onClick.RemoveListener(OnHealthUpgradeButtonClicked);
 
         public void InitializeView()
         {
@@ -65,12 +64,6 @@ namespace Roguelike.UI
             owner.OnHealthUpgradeSelected(newMaxHealthToUpdate);
         }
 
-        public void OnDestroy()
-        {
-            _healthUpgradeButton.onClick.RemoveListener(OnHealthUpgradeButtonClicked);
-            Destroy(gameObject);
-        }
-
         public void DisableButton()
         {
             _healthUpgradeButton.interactable = false;
@@ -79,6 +72,12 @@ namespace Roguelike.UI
         public void EnableButton()
         {
             _healthUpgradeButton.interactable = true;
+        }
+
+        public void OnDestroy()
+        {
+            _healthUpgradeButton.onClick.RemoveListener(OnHealthUpgradeButtonClicked);
+            Destroy(gameObject);
         }
     }
 }

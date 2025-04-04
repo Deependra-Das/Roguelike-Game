@@ -5,7 +5,6 @@ using Roguelike.Main;
 using Roguelike.Weapon;
 using Roguelike.Player;
 using Roguelike.Projectile;
-using Unity.VisualScripting;
 using Roguelike.Sound;
 
 namespace Roguelike.UI

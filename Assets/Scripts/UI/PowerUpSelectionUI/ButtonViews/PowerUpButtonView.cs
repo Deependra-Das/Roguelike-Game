@@ -17,7 +17,9 @@ namespace Roguelike.UI
         private PowerUpSelectionUIController owner;
         private WeaponController _weaponObj;
 
-        private void Start() => _powerUpButton.onClick.AddListener(OnPowerUpButtonClicked);
+        private void OnEnable() => _powerUpButton.onClick.AddListener(OnPowerUpButtonClicked);
+
+        private void OnDisable() => _powerUpButton.onClick.RemoveListener(OnPowerUpButtonClicked);
 
         public void SetOwner(PowerUpSelectionUIController owner) => this.owner = owner;
 
@@ -48,12 +50,6 @@ namespace Roguelike.UI
             }
         }
 
-        public void OnDestroy()
-        {
-            _powerUpButton.onClick.RemoveListener(OnPowerUpButtonClicked);
-            Destroy(gameObject);
-        }
-
         public void DisableButton()
         {
             _powerUpButton.interactable = false;
@@ -62,6 +58,12 @@ namespace Roguelike.UI
         public void EnableButton()
         {
             _powerUpButton.interactable = true;
+        }
+
+        public void OnDestroy()
+        {
+            _powerUpButton.onClick.RemoveListener(OnPowerUpButtonClicked);
+            Destroy(gameObject);
         }
     }
 }

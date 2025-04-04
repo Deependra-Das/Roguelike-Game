@@ -15,12 +15,11 @@ namespace Roguelike.UI
         [SerializeField] private Button _skipUpgradeButton;
         [SerializeField] private int AllowSkipUpgradeAtLevel;
 
-        private void Start()
-        {
-            _skipUpgradeButton.onClick.AddListener(OnSkipUpgradeButtonClicked);
-        }
+        private void OnEnable() => _skipUpgradeButton.onClick.AddListener(OnSkipUpgradeButtonClicked);
 
-        public void SetController(IUIController controllerToSet) => _controller = controllerToSet as PowerUpSelectionUIController;
+        private void OnDisable() => _skipUpgradeButton.onClick.RemoveListener(OnSkipUpgradeButtonClicked);
+
+        public void SetController(IUIController controllerToSet) => _controller = controllerToSet as PowerUpSelectionUIController;   
 
         public void DisableView() => gameObject.SetActive(false);
 
@@ -53,12 +52,6 @@ namespace Roguelike.UI
             {
                 _skipUpgradeButton.gameObject.SetActive(true);
             }
-        }
-
-        public void OnDestroy()
-        {
-            _skipUpgradeButton.onClick.RemoveListener(OnSkipUpgradeButtonClicked);
-            Destroy(gameObject);
         }
 
     }

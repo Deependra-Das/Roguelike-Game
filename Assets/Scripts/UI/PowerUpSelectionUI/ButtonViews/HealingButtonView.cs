@@ -14,10 +14,9 @@ namespace Roguelike.UI
         [SerializeField] private Button _healingButton;
         [SerializeField] private GameObject _notAvaialableBanner;
 
-        private void Start()
-        {
-            _healingButton.onClick.AddListener(OnHealingButtonClicked);
-        }
+        private void OnEnable() => _healingButton.onClick.AddListener(OnHealingButtonClicked);
+
+        private void OnDisable() => _healingButton.onClick.RemoveListener(OnHealingButtonClicked);
 
         public void SetOwner(PowerUpSelectionUIController owner) => this.owner = owner;
 
@@ -41,12 +40,6 @@ namespace Roguelike.UI
             owner.OnHealingSelected();
         }
 
-        public void OnDestroy()
-        {
-            _healingButton.onClick.RemoveListener(OnHealingButtonClicked);
-            Destroy(gameObject);
-        }
-
         public void DisableButton()
         {
             _healingButton.interactable = false;
@@ -55,6 +48,12 @@ namespace Roguelike.UI
         public void EnableButton()
         {
             _healingButton.interactable = true;
+        }
+
+        public void OnDestroy()
+        {
+            _healingButton.onClick.RemoveListener(OnHealingButtonClicked);
+            Destroy(gameObject);
         }
     }
 }
