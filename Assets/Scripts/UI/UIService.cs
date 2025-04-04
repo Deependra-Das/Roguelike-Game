@@ -9,6 +9,8 @@ using Roguelike.Event;
 
 public class UIService : MonoBehaviour,IService
 {
+    #region Inspector Dependencies
+
     [Header("Canvas Transforms")]
     [SerializeField] private Transform _canvasTransform;
     [SerializeField] private Transform _dmgCanvasTransform;
@@ -52,6 +54,8 @@ public class UIService : MonoBehaviour,IService
     [SerializeField] private HealthUpgradeButtonView _healthUpgradeButtonView;
     [SerializeField] private HealingButtonView _healingButtonView;
 
+    #endregion
+
     private GameState _currentGameState;
 
     private void Awake()
@@ -78,6 +82,8 @@ public class UIService : MonoBehaviour,IService
         _powerUpSelectionUIController.InitializeController();
         SubscribeToEvents();
     }
+
+    private void OnDisable() => UnsubscribeToEvents();
 
     private void SubscribeToEvents()
     {
@@ -115,8 +121,7 @@ public class UIService : MonoBehaviour,IService
         _gameplayUIView.SetGameState(_currentGameState);
     }
 
-    private void OnDestroy() => UnsubscribeToEvents();
-
     public Transform GetCanvasTransform => _canvasTransform;
+
     public Transform GetDamageCanvasTransform => _dmgCanvasTransform;
 }
