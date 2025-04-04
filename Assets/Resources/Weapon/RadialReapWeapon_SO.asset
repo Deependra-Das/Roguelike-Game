@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponType: 0
   weaponPrefab: {fileID: 6105423455021675576, guid: 958467e05be74c94b95725e2b09edbd2, type: 3}
-  weaponImage: {fileID: 0}
+  weaponImage: {fileID: 4967318987925556168, guid: 332edce8f83c8584881bd36d329623f5, type: 3}
   weaponName: Radial Reap
   weaponDescription: 
   attackPower: 1

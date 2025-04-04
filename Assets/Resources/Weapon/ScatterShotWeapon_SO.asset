@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponType: 1
   weaponPrefab: {fileID: 6105423455021675576, guid: 6660752950a3d6b4ca1c4dc7342b5510, type: 3}
-  weaponImage: {fileID: 0}
+  weaponImage: {fileID: 159859321923236106, guid: 93860e08dc8bb6c48b9f888d07b5083b, type: 3}
   weaponName: Scatter Shot
   weaponDescription: 
   attackPower: 3

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponType: 2
   weaponPrefab: {fileID: 7126678929449248471, guid: 1243bf611017b3a41aa89ba260462ecb, type: 3}
-  weaponImage: {fileID: 0}
+  weaponImage: {fileID: 3903764843242818901, guid: db3f4fd40397a434698b9d198fe34b43, type: 3}
   weaponName: Orbital Fury
   weaponDescription: 
   attackPower: 3

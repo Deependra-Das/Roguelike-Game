@@ -15,7 +15,7 @@ MonoBehaviour:
   enemyID: 3
   enemyType: 0
   enemyPrefab: {fileID: 3294686028035639538, guid: 8ab320e7e0f22d04d9ee313b7b24ac43, type: 3}
-  enemyImage: {fileID: 0}
+  enemyImage: {fileID: 21300000, guid: b208608c74663fd418c66f14b29c5db4, type: 3}
   enemyName: Roggenrola
   spawnPosition: {x: -100, y: 100, z: 0}
   spawnRotation: {x: 0, y: 0, z: 0}

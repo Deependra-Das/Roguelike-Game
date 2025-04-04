@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 3
   playerPrefab: {fileID: 5355729241712278829, guid: e7896044055b26e4080289663acb1975, type: 3}
-  characterName: Character 3
+  playerImage: {fileID: -2474250949257483082, guid: f1d60d488cedbe645b8310e8a847cd33, type: 3}
+  characterName: Misty
   spawnPosition: {x: 0, y: 0, z: 0}
   spawnRotation: {x: 0, y: 0, z: 0}
   movementSpeed: 5

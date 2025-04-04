@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections.Generic;
 using Roguelike.Level;
 
 namespace Roguelike.UI
@@ -9,7 +10,8 @@ namespace Roguelike.UI
     {
         [SerializeField] private TextMeshProUGUI _levelNameText;
         [SerializeField] private TextMeshProUGUI _levelDescriptionText;
-        [SerializeField] private TextMeshProUGUI _levelStatusText;
+        [SerializeField] private Image _levelImage;
+        [SerializeField] private List<Image> _enemyImages;
 
         private LevelSelectionUIController owner;
         private int _levelId;
@@ -24,7 +26,12 @@ namespace Roguelike.UI
         {
             _levelId = levelData.ID;
             _levelNameText.SetText(levelData.levelName);
-            _levelNameText.SetText(levelData.levelDescription);
+            _levelDescriptionText.SetText(levelData.levelDescription);
+            _levelImage.sprite = levelData.levelImage;
+            for(int i=0;i<levelData.enemyWaveData.Count;i++)
+            {
+                _enemyImages[i].sprite = levelData.enemyWaveData[i].enemy_SO.enemyImage;
+            }
         }
     }
 }

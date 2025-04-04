@@ -54,6 +54,7 @@ namespace Roguelike.Main
 
         private void Start()
         {
+            EventService.Instance.Initialize();
             RegisterServices();
             InjectDependencies();
             ChangeGameState(GameState.MainMenu);
@@ -75,7 +76,6 @@ namespace Roguelike.Main
 
         public void InjectDependencies()
         {
-            EventService.Instance.Initialize();
             InitializeService<UIService>();
             InitializeService<SoundService>();
             InitializeService<LevelService>();

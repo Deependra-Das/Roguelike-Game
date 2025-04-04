@@ -9,7 +9,7 @@ namespace Roguelike.Weapon
     {
         public WeaponType weaponType;
         public GameObject weaponPrefab;
-        public Image weaponImage;
+        public Sprite weaponImage;
         public string weaponName;
         public string weaponDescription;
         public int attackPower;
