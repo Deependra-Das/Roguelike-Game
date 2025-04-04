@@ -15,7 +15,7 @@ MonoBehaviour:
   enemyID: 2
   enemyType: 0
   enemyPrefab: {fileID: 3294686028035639538, guid: 2491d8004ea66c64a92123898e08b2ab, type: 3}
-  enemyImage: {fileID: 0}
+  enemyImage: {fileID: 21300000, guid: ee7efbbc773cc49459f497177733ac53, type: 3}
   enemyName: Qwilfish
   spawnPosition: {x: -100, y: 100, z: 0}
   spawnRotation: {x: 0, y: 0, z: 0}

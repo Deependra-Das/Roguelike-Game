@@ -15,7 +15,7 @@ MonoBehaviour:
   enemyID: 7
   enemyType: 2
   enemyPrefab: {fileID: 3294686028035639538, guid: eb11b9bc2d16fb84b966fea8a716a886, type: 3}
-  enemyImage: {fileID: 0}
+  enemyImage: {fileID: 21300000, guid: 645baa5c69fce284ba1747f524f9c545, type: 3}
   enemyName: Cloyster
   spawnPosition: {x: -100, y: 100, z: 0}
   spawnRotation: {x: 0, y: 0, z: 0}

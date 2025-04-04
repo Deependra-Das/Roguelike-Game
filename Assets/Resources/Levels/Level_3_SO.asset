@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 3
   levelPrefab: {fileID: 784940421047383469, guid: 278f6be3c7fbd5a48a499adb213a7ebe, type: 3}
-  levelImage: {fileID: 0}
-  levelName: Level 3
-  levelDescription: Level 3 Description
+  levelImage: {fileID: -5889749906266933800, guid: acc6a5f3c46007d47ab01e628ca7d66a, type: 3}
+  levelName: Molten Isle Of Cinder
+  levelDescription: A fiery island surrounded by lava with scorched, molten terrain.
   spawnIntervalDecrementRate: 0.9
   spawnFrequencyIncreaseFactor: 1.1
   spawnFinalInterval: 0.3
-  waveInterval: 5
+  waveInterval: 3
   enemyWaveData:
   - enemy_SO: {fileID: 11400000, guid: 82e4dfd36ac087e4d8bfa4f8d39b5729, type: 2}
     spawnInitialInterval: 2
@@ -32,6 +32,6 @@ MonoBehaviour:
     spawnInitialInterval: 5
     spawnFrequencyPerWave: 5
   - enemy_SO: {fileID: 11400000, guid: 8d879c5b24d8bc344bea148badb7017e, type: 2}
-    spawnInitialInterval: 30
+    spawnInitialInterval: 10
     spawnFrequencyPerWave: 3
   expToUpgrade_SO: {fileID: 11400000, guid: 7ca682cf44de3634e994248beea4b80e, type: 2}

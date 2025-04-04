@@ -11,7 +11,7 @@ namespace Roguelike.Level
     {
         public int ID;
         public GameObject levelPrefab;
-        public Image levelImage;
+        public Sprite levelImage;
         public string levelName;
         public string levelDescription;
         public float spawnIntervalDecrementRate;

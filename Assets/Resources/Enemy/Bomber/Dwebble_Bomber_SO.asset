@@ -15,7 +15,7 @@ MonoBehaviour:
   enemyID: 1
   enemyType: 0
   enemyPrefab: {fileID: 3294686028035639538, guid: a9f3aefcf02fa9c41bbc475b2a6017a4, type: 3}
-  enemyImage: {fileID: 0}
+  enemyImage: {fileID: 21300000, guid: 351c191824890fe4f971105bdaeb2dd8, type: 3}
   enemyName: Dwebble
   spawnPosition: {x: -100, y: 100, z: 0}
   spawnRotation: {x: 0, y: 0, z: 0}

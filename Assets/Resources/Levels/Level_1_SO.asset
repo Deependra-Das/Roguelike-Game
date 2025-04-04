@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 1
   levelPrefab: {fileID: 5224971711066648777, guid: 762de9369c5fe18478d02b1fd4c8da6c, type: 3}
-  levelImage: {fileID: 0}
-  levelName: Level 1
-  levelDescription: Level 1 Description
+  levelImage: {fileID: -5830527214089153635, guid: 97df1aa8060a681459c4aad58e2e62be, type: 3}
+  levelName: The Lost Island
+  levelDescription: A sandy island map surrounded by water
   spawnIntervalDecrementRate: 0.9
   spawnFrequencyIncreaseFactor: 1.1
   spawnFinalInterval: 0.3
-  waveInterval: 5
+  waveInterval: 3
   enemyWaveData:
   - enemy_SO: {fileID: 11400000, guid: c7bb5c5baf709af45a5229c57864d4c8, type: 2}
     spawnInitialInterval: 2
@@ -32,6 +32,6 @@ MonoBehaviour:
     spawnInitialInterval: 5
     spawnFrequencyPerWave: 5
   - enemy_SO: {fileID: 11400000, guid: e769ce109893e5143b30fba691bcf088, type: 2}
-    spawnInitialInterval: 30
+    spawnInitialInterval: 10
     spawnFrequencyPerWave: 3
   expToUpgrade_SO: {fileID: 11400000, guid: 7ca682cf44de3634e994248beea4b80e, type: 2}

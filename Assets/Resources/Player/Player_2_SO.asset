@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 2
   playerPrefab: {fileID: 5355729241712278829, guid: 467d5ed07d366bf49b1752e5bdcb0e4f, type: 3}
-  characterName: Character 2
+  playerImage: {fileID: 3345508739736421500, guid: 6824f9831e4d5584dae4f26a5d5018a9, type: 3}
+  characterName: Brock
   spawnPosition: {x: 0, y: 0, z: 0}
   spawnRotation: {x: 0, y: 0, z: 0}
   movementSpeed: 2

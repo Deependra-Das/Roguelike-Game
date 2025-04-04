@@ -10,6 +10,7 @@ namespace Roguelike.Player
         {
             PlayerID = playerDataObj.ID;
             PlayerPrefab = playerDataObj.playerPrefab;
+            PlayerImage = playerDataObj.playerImage;
             CharacterName = playerDataObj.characterName;
             SpawnPosition = playerDataObj.spawnPosition;
             SpawnRotation = playerDataObj.spawnRotation;
@@ -30,6 +31,7 @@ namespace Roguelike.Player
 
         public int PlayerID { get; private set; }
         public PlayerView PlayerPrefab { get; private set; }
+        public Sprite PlayerImage { get; private set; }
         public string CharacterName { get; private set; }
         public Vector3 SpawnPosition { get; private set; }
         public Vector3 SpawnRotation { get; private set; }

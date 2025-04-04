@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 2
   levelPrefab: {fileID: 8092968357209972071, guid: 51d7eed7e481d0843b1b3f43bc3fcd5a, type: 3}
-  levelImage: {fileID: 0}
-  levelName: Level 2
-  levelDescription: Level 2 Description
+  levelImage: {fileID: -8971143343992950655, guid: 0c64c338802e1604994aa2b08a6dca8f, type: 3}
+  levelName: The Enchanted Pond
+  levelDescription: A serene map with water & lush greenery
   spawnIntervalDecrementRate: 0.9
   spawnFrequencyIncreaseFactor: 1.1
   spawnFinalInterval: 0.3
-  waveInterval: 5
+  waveInterval: 3
   enemyWaveData:
   - enemy_SO: {fileID: 11400000, guid: 122282ee7e63e2f4493a8e7e6f62d3a3, type: 2}
     spawnInitialInterval: 2
@@ -32,6 +32,6 @@ MonoBehaviour:
     spawnInitialInterval: 5
     spawnFrequencyPerWave: 5
   - enemy_SO: {fileID: 11400000, guid: 81b910138f1728d42ae1142a24a72e3c, type: 2}
-    spawnInitialInterval: 30
+    spawnInitialInterval: 10
     spawnFrequencyPerWave: 3
   expToUpgrade_SO: {fileID: 11400000, guid: 7ca682cf44de3634e994248beea4b80e, type: 2}

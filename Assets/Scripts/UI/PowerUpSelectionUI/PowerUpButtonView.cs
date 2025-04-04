@@ -33,9 +33,10 @@ namespace Roguelike.UI
         {
             EnableButton();
             _maxLevelBanner.SetActive(false);
+            _weaponImage.sprite = _weaponObj.Weapon_SO.weaponImage;
             int currentWeaponLevel = _weaponObj.CurrentWeaponLevel;
 
-            if(_weaponObj.CurrentWeaponLevel>= _weaponObj.Weapon_SO.powerUp_SO.powerUpList.Count)
+            if (_weaponObj.CurrentWeaponLevel>= _weaponObj.Weapon_SO.powerUp_SO.powerUpList.Count)
             {
                 _maxLevelBanner.SetActive(true);
                 DisableButton();

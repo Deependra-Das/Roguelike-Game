@@ -8,6 +8,11 @@ namespace Roguelike.UI
     public class CharacterButtonView : MonoBehaviour
     {
         [SerializeField] private TextMeshProUGUI _characterNameText;
+        [SerializeField] private Image _characterImage;
+        [SerializeField] private Slider _healthSlider;
+        [SerializeField] private Slider _speedSlider;
+        [SerializeField] private int _maxHealth;
+        [SerializeField] private int _maxSpeed;
 
         private CharacterSelectionUIController owner;
         private int _characterId;
@@ -21,7 +26,13 @@ namespace Roguelike.UI
         public void SetCharacterButtonData(PlayerScriptableObject characterData)
         {
             _characterId = characterData.ID;
-            _characterNameText.SetText(characterData.characterName);
+            _characterNameText.text =characterData.characterName;
+            _characterImage.sprite = characterData.playerImage;
+            _healthSlider.maxValue = _maxHealth;
+            _healthSlider.value = characterData.maxHealth;
+            _speedSlider.maxValue = _maxSpeed;
+            _speedSlider.value = characterData.movementSpeed;
+            
         }
     }
 }

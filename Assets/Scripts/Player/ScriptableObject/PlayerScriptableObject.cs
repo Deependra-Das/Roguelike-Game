@@ -7,6 +7,7 @@ namespace Roguelike.Player
     {
         public int ID;
         public PlayerView playerPrefab;
+        public Sprite playerImage;
         public string characterName;
         public Vector3 spawnPosition;
         public Vector3 spawnRotation;
