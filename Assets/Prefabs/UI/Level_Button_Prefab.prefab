@@ -942,6 +942,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _levelNameText: {fileID: 6833575803847227323}
   _levelDescriptionText: {fileID: 7878707216745824496}
+  _levelHighScoreText: {fileID: 3693625973530377710}
   _levelImage: {fileID: 3026387767621296858}
   _enemyImages:
   - {fileID: 515282547631795310}

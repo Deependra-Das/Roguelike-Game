@@ -15,6 +15,7 @@ using System.Collections;
 using Roguelike.VFX;
 using Roguelike.DamageNumber;
 using Roguelike.Sound;
+using Roguelike.HighScore;
 
 namespace Roguelike.Main
 {
@@ -46,6 +47,7 @@ namespace Roguelike.Main
 
         private Dictionary<Type, IService> _services = new Dictionary<Type, IService>();
         public GameState GameState { get; private set; }
+        public float GameTimer { get; private set; }
 
         protected override void Awake()
         {
@@ -63,6 +65,8 @@ namespace Roguelike.Main
         private void RegisterServices()
         {
             RegisterService<UIService>(_uiService);
+            RegisterService<SoundService>(new SoundService(_audioList, _audioSourceList));
+            RegisterService<HighScoreService>(new HighScoreService());
             RegisterService<LevelService>(new LevelService(_levelScriptableObjects));
             RegisterService<PlayerService>(new PlayerService(_playerScriptableObjects));
             RegisterService<ProjectileService>(new ProjectileService(_projectileScriptableObjects));
@@ -71,13 +75,13 @@ namespace Roguelike.Main
             RegisterService<WaveService>(_waveService);
             RegisterService<VFXService>(new VFXService(_smokeVFXPrefab));
             RegisterService<DamageNumberService>(new DamageNumberService(_dmgNumPrefab));
-            RegisterService<SoundService>(new SoundService(_audioList, _audioSourceList));
         }
 
         public void InjectDependencies()
         {
             InitializeService<UIService>();
             InitializeService<SoundService>();
+            InitializeService<HighScoreService>();
             InitializeService<LevelService>();
             InitializeService<PlayerService>();
             InitializeService<ProjectileService>();
@@ -131,9 +135,14 @@ namespace Roguelike.Main
 
         void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Escape) && GameState==GameState.Gameplay)
+            if (GameState == GameState.Gameplay)
             {
-                ChangeGameState(GameState.GamePaused);
+                GameTimer += Time.deltaTime;
+
+                if (Input.GetKeyDown(KeyCode.Escape))
+                {
+                    ChangeGameState(GameState.GamePaused);
+                }
             }
         }
 
@@ -157,6 +166,7 @@ namespace Roguelike.Main
             switch (newState)
             {
                 case GameState.MainMenu:
+                    Time.timeScale = 1;
                     EventService.Instance.OnMainMenu.Invoke();
                     break;
                 case GameState.LevelSelection:
@@ -175,9 +185,13 @@ namespace Roguelike.Main
                     EventService.Instance.OnGamePaused.Invoke();
                     break;
                 case GameState.LevelCompleted:
+                    Time.timeScale = 0;
+                    EventService.Instance.OnSaveHighScore.Invoke();
                     EventService.Instance.OnLevelCompleted.Invoke();
                     break;
                 case GameState.GameOver:
+                    Time.timeScale = 0;
+                    EventService.Instance.OnSaveHighScore.Invoke();
                     EventService.Instance.OnGameOver.Invoke();
                     break;
             }
@@ -188,6 +202,7 @@ namespace Roguelike.Main
             EventService.Instance.OnStartGameplay.Invoke();
             ChangeGameState(GameState.Gameplay);
             _cinemachineCamera.PreviousStateIsValid = false;
+            ResetGameTimer();
             StartCoroutine(GiveIntialSpawnExpPoints(_waitTimeBeforeInitialExp));
         }
 
@@ -198,6 +213,11 @@ namespace Roguelike.Main
             {
                 GetService<PlayerService>().GetPlayer().AddExperiencePoints(1);
             }            
+        }
+
+        private void ResetGameTimer()
+        {
+            GameTimer = 0;
         }
     }
 }

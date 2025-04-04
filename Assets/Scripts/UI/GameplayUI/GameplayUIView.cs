@@ -15,7 +15,6 @@ namespace Roguelike.UI
         [SerializeField] private TMP_Text _healthText;
         [SerializeField] private TMP_Text _experienceText;
         [SerializeField] private TMP_Text _timerText;
-        private float gameTimer;
         private GameState _currentGameState;
 
         public void SetController(IUIController controllerToSet)
@@ -23,21 +22,10 @@ namespace Roguelike.UI
             _controller = controllerToSet as GameplayUIController;
         }
 
-        public void InitializeView()
-        {
-            ResetTimer();
-        }
-
-        public void ResetTimer()
-        {
-            gameTimer = 0;
-        }
-
         private void Update()
         {
             if (_currentGameState == GameState.Gameplay)
             {
-                gameTimer += Time.deltaTime;
                 UpdateTimerText();
             }
         }
@@ -45,11 +33,6 @@ namespace Roguelike.UI
         public void SetGameState(GameState _newState)
         {
             _currentGameState = _newState;
-        }
-
-        public void OnGameStateChange()
-        {
-            gameTimer = 0;
         }
 
         public void UpdateCurrentHealthSlider(float currentHealth)
@@ -71,6 +54,7 @@ namespace Roguelike.UI
 
         private void UpdateTimerText()
         {
+            float gameTimer = GameService.Instance.GameTimer;
             float min = Mathf.FloorToInt(gameTimer / 60f);
             float sec = Mathf.FloorToInt(gameTimer % 60f);
             _timerText.text = min.ToString("00") + ":" + sec.ToString("00");
