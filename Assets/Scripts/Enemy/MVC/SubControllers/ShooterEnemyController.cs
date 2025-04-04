@@ -2,15 +2,12 @@ using Roguelike.Main;
 using Roguelike.Projectile;
 using Roguelike.Sound;
 using UnityEngine;
-using static UnityEngine.RuleTile.TilingRuleOutput;
 
 namespace Roguelike.Enemy
 {
     public class ShooterEnemyController : EnemyController
     {
-        public ShooterEnemyController(EnemyScriptableObject enemySO) : base(enemySO)
-        {
-        }
+        public ShooterEnemyController(EnemyScriptableObject enemySO) : base(enemySO) {}
 
         protected override void Attack() 
         {

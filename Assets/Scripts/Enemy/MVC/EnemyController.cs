@@ -20,6 +20,8 @@ namespace Roguelike.Enemy
             InitializeController(enemySO);
         }
 
+        ~EnemyController() => UnsubscribeToEvents();
+
         private void InitializeController(EnemyScriptableObject enemySO)
         {
             InitializeModel(enemySO);

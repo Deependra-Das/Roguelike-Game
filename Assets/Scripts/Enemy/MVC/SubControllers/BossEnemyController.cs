@@ -7,9 +7,7 @@ namespace Roguelike.Enemy
 {
     public class BossEnemyController : EnemyController
     {
-        public BossEnemyController(EnemyScriptableObject enemySO) : base(enemySO)
-        {
-        }
+        public BossEnemyController(EnemyScriptableObject enemySO) : base(enemySO) {}
 
         protected override void Attack()
         {
@@ -25,9 +23,14 @@ namespace Roguelike.Enemy
             for (int i = 0; i < _enemyModel.NumberOfProjectiles; i++)
             {
                 float angle = (i * 360f) / _enemyModel.NumberOfProjectiles;
-                Vector3 direction = new Vector3(Mathf.Cos(Mathf.Deg2Rad * angle) * _enemyModel.ProjectileRadius, Mathf.Sin(Mathf.Deg2Rad * angle) * _enemyModel.ProjectileRadius, 0f);
+
+                Vector3 direction = new Vector3(Mathf.Cos(Mathf.Deg2Rad * angle) * _enemyModel.ProjectileRadius, 
+                    Mathf.Sin(Mathf.Deg2Rad * angle) * _enemyModel.ProjectileRadius, 0f);
+
                 GameService.Instance.GetService<SoundService>().PlayWeaponSFX(SoundType.EnemyProjectile);
-                GameService.Instance.GetService<ProjectileService>().SpawnProjectile(ProjectileType.EnemyOrb, new Vector2(_enemyView.gameObject.transform.position.x, _enemyView.gameObject.transform.position.y + 1),
+
+                GameService.Instance.GetService<ProjectileService>().SpawnProjectile(ProjectileType.EnemyOrb, 
+                    new Vector2(_enemyView.gameObject.transform.position.x, _enemyView.gameObject.transform.position.y + 1),
                     direction, _enemyModel.ProjectileDamage, _enemyModel.ProjectileLifeTime, _enemyModel.ProjectileSpeed);
             }
         }

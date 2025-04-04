@@ -81,7 +81,6 @@ namespace Roguelike.Enemy
             }
         }
 
-
         protected void OnCollisionStay2D(Collision2D collision)
         {
             PlayerView playerObj = collision.gameObject.GetComponent<PlayerView>();
