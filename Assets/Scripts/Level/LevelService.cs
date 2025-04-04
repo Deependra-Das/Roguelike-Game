@@ -10,11 +10,10 @@ namespace Roguelike.Level
     public class LevelService : IService
     {
         private List<LevelScriptableObject> levelScriptableObjects;
-        private int _levelIdSelected = -1;
         private List<int> _expToUpgradeList;
         private GameObject _activeLevelObj;
         private GameState _currentGameState;
-
+        public int LevelIdSelected { get; private set; }
 
         public LevelService(List<LevelScriptableObject> levelScriptableObjects)
         {
@@ -48,14 +47,14 @@ namespace Roguelike.Level
 
         private void SelectLevel(int levelID)
         {
-            _levelIdSelected = levelID;
+            LevelIdSelected = levelID;
         }
 
         public void LoadLevel()
         {
-            var levelData = levelScriptableObjects.Find(levelSO => levelSO.ID == _levelIdSelected);
+            var levelData = levelScriptableObjects.Find(levelSO => levelSO.ID == LevelIdSelected);
             _activeLevelObj=Object.Instantiate(levelData.levelPrefab);
-            switch(_levelIdSelected)
+            switch(LevelIdSelected)
             {
                 case 1:
                     GameService.Instance.GetService<SoundService>().PlayBGM(SoundType.BGM1, true);
@@ -76,18 +75,19 @@ namespace Roguelike.Level
 
         public LevelScriptableObject GetLevelData()
         {
-            return levelScriptableObjects.Find(levelSO => levelSO.ID == _levelIdSelected);
+            return levelScriptableObjects.Find(levelSO => levelSO.ID == LevelIdSelected);
         }
 
         public List<int> GetExpToUpgradeList()
         {
-            return levelScriptableObjects.Find(levelSO => levelSO.ID == _levelIdSelected).expToUpgrade_SO.expToUpgradeList;
+            return levelScriptableObjects.Find(levelSO => levelSO.ID == LevelIdSelected).expToUpgrade_SO.expToUpgradeList;
         }
 
         private void UnloadLevel()
         {
-            _levelIdSelected = -1;
+            LevelIdSelected = -1;
             Object.Destroy(_activeLevelObj);
         }
+
     }
 }
