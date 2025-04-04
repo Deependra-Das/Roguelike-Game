@@ -33,7 +33,7 @@ namespace Roguelike.HighScore
             int levelId = GameService.Instance.GetService<LevelService>().LevelIdSelected;
             float score = GameService.Instance.GameTimer;
             float currentHighScore = GetHighScore(levelId);
-            Debug.Log("Hit");
+            EventService.Instance.OnSetFinalScore.Invoke(score, currentHighScore);
             if (score > currentHighScore)
             {
                 PlayerPrefs.SetFloat(levelId + "_HighScore", score);

@@ -28,11 +28,13 @@ namespace Roguelike.UI
         private void SubscribeToEvents()
         {
             EventService.Instance.OnLevelCompleted.AddListener(Show);
+            EventService.Instance.OnSetFinalScore.AddListener(UpdateScoreData);
         }
 
         private void UnsubscribeToEvents()
         {
             EventService.Instance.OnLevelCompleted.RemoveListener(Show);
+            EventService.Instance.OnSetFinalScore.RemoveListener(UpdateScoreData);
         }
 
         public void Show()
@@ -44,6 +46,11 @@ namespace Roguelike.UI
         public void Hide()
         {
             _levelCompletedUIView.DisableView();
+        }
+
+        private void UpdateScoreData(float score, float highScore)
+        {
+            _levelCompletedUIView.UpdateScoreData(score, highScore);
         }
 
         public void OnBackButtonClicked()

@@ -27,6 +27,7 @@ namespace Roguelike.Event
         public EventController<Action> OnGameOver { get; private set; }
         public EventController<Action> OnLevelCompleted { get; private set; }
         public EventController<Action> OnSaveHighScore { get; private set; }
+        public EventController<Action<float, float>> OnSetFinalScore { get; private set; }
         public EventController<Action<List<WeaponController>>> OnWeaponAdded { get; private set; }
         public EventController<Action<float,float,float,List<WaveConfig>>> OnStartWaveSpawn { get; private set; }
         public EventController<Action<GameState>> OnGameStateChange { get; private set; }
@@ -57,6 +58,7 @@ namespace Roguelike.Event
             OnGameOver = new EventController<Action>();
             OnLevelCompleted = new EventController<Action>();
             OnSaveHighScore = new EventController<Action>();
+            OnSetFinalScore = new EventController<Action<float, float>>();
             OnWeaponAdded = new EventController<Action<List<WeaponController>>>();
             OnStartWaveSpawn = new EventController<Action<float,float,float, List<WaveConfig>>>();
         }

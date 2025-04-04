@@ -28,11 +28,13 @@ namespace Roguelike.UI
         private void SubscribeToEvents()
         {
             EventService.Instance.OnGameOver.AddListener(Show);
+            EventService.Instance.OnSetFinalScore.AddListener(UpdateScoreData);
         }
 
         private void UnsubscribeToEvents()
         {
             EventService.Instance.OnGameOver.RemoveListener(Show);
+            EventService.Instance.OnSetFinalScore.RemoveListener(UpdateScoreData);
         }
 
         public void Show()
@@ -44,6 +46,11 @@ namespace Roguelike.UI
         public void Hide()
         {
             _gameOverUIView.DisableView();
+        }
+
+        private void UpdateScoreData(float score, float highScore)
+        {
+            _gameOverUIView.UpdateScoreData(score, highScore);
         }
 
         public void OnBackButtonClicked()
