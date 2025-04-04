@@ -16,6 +16,7 @@ namespace Roguelike.Weapon
         private Coroutine _shrinkGrowCoroutine;
         private List<EnemyView> _enemiesInRange = new List<EnemyView>();
         private float _damageTimer;
+
         public override void Initialize(WeaponScriptableObject weapon_SO)
         {
             _attackPower = weapon_SO.attackPower;
@@ -27,6 +28,7 @@ namespace Roguelike.Weapon
             Weapon_SO = weapon_SO;
             CurrentWeaponLevel = 0;
             _damageTimer = 0;
+            
             SubscribeToEvents();
             gameObject.SetActive(false);
         }
@@ -147,6 +149,7 @@ namespace Roguelike.Weapon
                _enemiesInRange.Add(enemyObj);
             }
         }
+
         protected void OnTriggerExit2D(Collider2D collider)
         {
             EnemyView enemyObj = collider.gameObject.GetComponent<EnemyView>();

@@ -9,15 +9,10 @@ using Roguelike.Enemy;
 
 namespace Roguelike.Weapon
 {
-    using System.Collections;
-    using System.Collections.Generic;
-    using UnityEngine;
-
     public class OrbitalFuryWeapon : WeaponController
     {
         [SerializeField] private GameObject _ballPrefab;
-        private int _numBalls;
-      
+        private int _numBalls;      
         private List<Ball> _balls = new List<Ball>();
         private Coroutine _orbitCoroutine;
 
@@ -31,7 +26,9 @@ namespace Roguelike.Weapon
             _cycleTime = weapon_SO.cycleTime;
             Weapon_SO = weapon_SO;
             CurrentWeaponLevel = 0;
+            
             SubscribeToEvents();
+            gameObject.SetActive(false);
         }
 
         protected override void SubscribeToEvents()

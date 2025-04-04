@@ -14,7 +14,6 @@ namespace Roguelike.Weapon
     public class ScatterShotWeapon : WeaponController
     {
         [SerializeField] private GameObject projectilePrefab;
-
         private int _numberOfProjectiles;
         private Coroutine shootingCoroutine;    
 
@@ -28,7 +27,9 @@ namespace Roguelike.Weapon
             _speed = weapon_SO.speed;
             Weapon_SO = weapon_SO;
             CurrentWeaponLevel = 0;
+        
             SubscribeToEvents();
+            gameObject.SetActive(false);
         }
 
         protected override void SubscribeToEvents()

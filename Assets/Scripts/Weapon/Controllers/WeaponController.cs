@@ -13,6 +13,7 @@ namespace Roguelike.Weapon
         public int CurrentWeaponLevel { get; protected set; }
         public WeaponScriptableObject Weapon_SO { get; protected set; }
 
+        ~WeaponController() => UnsubscribeToEvents();
         public virtual void Initialize(WeaponScriptableObject weapon_SO) { }
         public virtual void ActivateWeapon() { }
         public virtual void DeactivateWeapon() { }
@@ -26,6 +27,5 @@ namespace Roguelike.Weapon
             Destroy(this.gameObject);
         }
 
-        protected void OnDestroy() => UnsubscribeToEvents();
     }
 }
