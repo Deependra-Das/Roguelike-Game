@@ -15,16 +15,18 @@ namespace Roguelike.Player
         private PlayerScriptableObject _playerScriptableObject;
         private PlayerModel _playerModel;
         private PlayerView _playerView;
-        protected bool isDead;
-        protected List<int> expToUpgradeList;
         private GameState _currentGameState;
         private List<WeaponController> _weapons = new List<WeaponController>();
+        protected bool isDead;
+        protected List<int> expToUpgradeList;
 
         public PlayerController(PlayerScriptableObject playerScriptableObject)
         {
             _playerScriptableObject = playerScriptableObject;
             InitializeController();
         }
+
+        ~PlayerController() => UnsubscribeToEvents();
 
         private void InitializeController()
         {
@@ -94,8 +96,6 @@ namespace Roguelike.Player
         public PlayerModel PlayerModel { get { return _playerModel; } }
 
         public GameObject PlayerGameObject { get { return _playerView.gameObject; } }
-
-        public void OnDestroy() => UnsubscribeToEvents();
 
         public void TakeDamage(int damage)
         {

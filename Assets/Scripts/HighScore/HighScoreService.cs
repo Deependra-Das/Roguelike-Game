@@ -10,6 +10,7 @@ namespace Roguelike.HighScore
     public class HighScoreService : IService
     {
         public HighScoreService() { }
+
         ~HighScoreService() => UnsubscribeToEvents();
 
         public void Initialize(params object[] dependencies) 
