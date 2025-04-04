@@ -24,10 +24,10 @@ namespace Roguelike.Sound
             _audioSourceBGM = audioSourceList[1];
             _audioSourcePlayer = audioSourceList[2];
             _audioSourceEnemy = audioSourceList[3];
-           _audioSourceRadialReap = audioSourceList[4];
-        _audioSourceOrbitalFury = audioSourceList[5];
-        _audioSourceScatterShot = audioSourceList[6];
-        _audioSourceEnemyProjectile = audioSourceList[7];
+            _audioSourceRadialReap = audioSourceList[4];
+            _audioSourceOrbitalFury = audioSourceList[5];
+            _audioSourceScatterShot = audioSourceList[6];
+            _audioSourceEnemyProjectile = audioSourceList[7];
         }
 
         public void Initialize(params object[] dependencies) {}
