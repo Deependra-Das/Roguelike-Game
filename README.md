@@ -2,7 +2,7 @@
 
 ## Overview
 
-This is rogue-like survival game where you must waves of monsters that keep on spawning more & more to take you down. Choose your weapons & upgrades them to become stronger and survive as long as you can!
+Monster Survivors is rogue-like survival game where you must waves of monsters that keep on spawning more & more to take you down. Choose your weapons & upgrades them to become stronger and survive as long as you can!
 The project uses design patterns like Service Locator, MVC, Object Pooling & Observer Pattern.
 
 ---
@@ -95,6 +95,6 @@ Exp To Level Up Data: Contains attributes for levels as indexes & the respective
 
 ## Gameplay Video
 
-
+https://youtu.be/PYPasITLEB0
 
 
