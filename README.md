@@ -84,6 +84,7 @@ Exp To Level Up Data: Contains attributes for levels as indexes & the respective
 
 ## Architecture Block Diagram
 
+![Monster Survivors - Roguelike Survival Game](https://github.com/user-attachments/assets/de73ffdc-cc03-4b5a-9f29-6d82a3ae0375)
 
 ---
 
