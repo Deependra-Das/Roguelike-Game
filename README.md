@@ -90,6 +90,7 @@ Exp To Level Up Data: Contains attributes for levels as indexes & the respective
 
 ## Playable build
 
+https://outscal.com/iamdeep75/game/play-monster-survivors-roguelike-game-game
 
 ---
 
