@@ -1,36 +1,82 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+# This file configures the connection settings for Unity Services (Cloud Services).
+# It corresponds to settings often managed via the 'Services' window (Window -> Services)
+# or potentially 'Edit -> Project Settings -> Services' in the Unity Editor.
+# The '!u!310' is Unity's internal class ID for UnityConnectSettings. '&1' is a YAML anchor.
 --- !u!310 &1
 UnityConnectSettings:
+  # m_ObjectHideFlags: Internal Unity field for tracking object changes. Usually left untouched.
   m_ObjectHideFlags: 0
+  # serializedVersion: Internal version number for the format of these settings.
   serializedVersion: 1
-  m_Enabled: 0
-  m_TestMode: 0
-  m_EventOldUrl: https://api.uca.cloud.unity3d.com/v1/events
-  m_EventUrl: https://cdp.cloud.unity3d.com/v1/events
-  m_ConfigUrl: https://config.uca.cloud.unity3d.com
-  m_DashboardUrl: https://dashboard.unity3d.com
-  m_TestInitMode: 0
+
+  # --- General Unity Services Connection ---
+  # m_Enabled: Master switch for enabling Unity Services integration within the Editor.
+  # Note: This specific file shows it's currently disabled (0).
+  m_Enabled: 0 # 0 = false, 1 = true
+
+  # m_TestMode: Enables test mode for some services, potentially using different endpoints or behaviors.
+  m_TestMode: 0 # 0 = false, 1 = true
+
+  # --- Service URLs ---
+  # These URLs point to Unity's backend infrastructure. Generally, do not modify these manually.
+  m_EventOldUrl: https://api.uca.cloud.unity3d.com/v1/events # Older event endpoint
+  m_EventUrl: https://cdp.cloud.unity3d.com/v1/events # Current primary event endpoint (CDP = Cloud Data Platform)
+  m_ConfigUrl: https://config.uca.cloud.unity3d.com # Endpoint for fetching remote configurations
+  m_DashboardUrl: https://dashboard.unity3d.com # URL for the main Unity Services Dashboard website
+  m_TestInitMode: 0 # Internal flag related to initialization testing.
+
+  # --- Crash Reporting Service (UGS Crash and Exception Reporting) ---
   CrashReportingSettings:
+    # m_EventUrl: Specific endpoint for sending crash and exception reports.
     m_EventUrl: https://perf-events.cloud.unity3d.com
-    m_Enabled: 0
+    # m_Enabled: Enables/Disables the Crash Reporting service. Currently disabled (0).
+    m_Enabled: 0 # 0 = false, 1 = true
+    # m_LogBufferSize: Size of the log buffer included with crash reports (in KB or lines, context dependent).
     m_LogBufferSize: 10
-    m_CaptureEditorExceptions: 1
+    # m_CaptureEditorExceptions: If enabled (1), attempts to capture exceptions that occur within the Unity Editor itself.
+    # Note: This is enabled (1) even though the service itself is disabled (0). It might capture locally or have no effect when service is off.
+    m_CaptureEditorExceptions: 1 # 0 = false, 1 = true
+
+  # --- Unity In-App Purchasing (IAP) Service ---
   UnityPurchasingSettings:
-    m_Enabled: 0
-    m_TestMode: 0
+    # m_Enabled: Enables/Disables the Unity IAP service integration. Currently disabled (0).
+    m_Enabled: 0 # 0 = false, 1 = true
+    # m_TestMode: Enables test mode for IAP, often simulating purchases without real transactions.
+    m_TestMode: 0 # 0 = false, 1 = true
+
+  # --- Unity Analytics Service ---
   UnityAnalyticsSettings:
-    m_Enabled: 0
-    m_TestMode: 0
-    m_InitializeOnStartup: 1
+    # m_Enabled: Enables/Disables the Unity Analytics service. Currently disabled (0).
+    m_Enabled: 0 # 0 = false, 1 = true
+    # m_TestMode: Enables Analytics test mode.
+    m_TestMode: 0 # 0 = false, 1 = true
+    # m_InitializeOnStartup: If enabled (1), attempts to initialize Analytics automatically when the game starts.
+    # Has no effect if the service itself (m_Enabled) is disabled (0).
+    m_InitializeOnStartup: 1 # 0 = false, 1 = true
+    # m_PackageRequiringCoreStatsPresent: Internal flag related to dependencies.
     m_PackageRequiringCoreStatsPresent: 0
+
+  # --- Unity Ads Service ---
   UnityAdsSettings:
-    m_Enabled: 0
-    m_InitializeOnStartup: 1
-    m_TestMode: 0
-    m_IosGameId: 
-    m_AndroidGameId: 
-    m_GameIds: {}
-    m_GameId: 
+    # m_Enabled: Enables/Disables the Unity Ads service. Currently disabled (0).
+    m_Enabled: 0 # 0 = false, 1 = true
+    # m_InitializeOnStartup: If enabled (1), attempts to initialize Ads automatically when the game starts.
+    # Has no effect if the service itself (m_Enabled) is disabled (0).
+    m_InitializeOnStartup: 1 # 0 = false, 1 = true
+    # m_TestMode: Enables Ads test mode, which serves test advertisements instead of real ones.
+    m_TestMode: 0 # 0 = false, 1 = true
+
+    # --- Ads Game IDs ---
+    # These MUST be filled with the specific IDs from your Unity Dashboard (dashboard.unity3d.com) if you enable Ads.
+    m_IosGameId: # Placeholder for iOS Game ID
+    m_AndroidGameId: # Placeholder for Android Game ID
+    m_GameIds: {} # Potentially used for platform-specific IDs in newer versions.
+    m_GameId: # Legacy or potentially combined Game ID field.
+
+  # --- Performance Reporting Service (Deprecated/Integrated into Crash Reporting) ---
+  # In modern Unity versions, this is often superseded by UGS Crash and Exception Reporting.
   PerformanceReportingSettings:
-    m_Enabled: 0
+    # m_Enabled: Enables/Disables Performance Reporting. Currently disabled (0).
+    m_Enabled: 0 # 0 = false, 1 = true
