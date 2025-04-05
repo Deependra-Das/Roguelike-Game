@@ -45,19 +45,33 @@ namespace Roguelike.Weapon
         private IEnumerator OrbitCoroutine()
         {
             float timeElapsed = 0f;
+            bool hasPlayedSound = false;
 
             while (true)
             {
                 if (_center != null)
                 {
                     timeElapsed += Time.deltaTime;
-                    _radius = Mathf.Lerp(_minRadius, _maxRadius, Mathf.PingPong(timeElapsed / _cycleTime, 1f));
+                    float pingPongValue = Mathf.PingPong(timeElapsed / _cycleTime, 1f);
+                    _radius = Mathf.Lerp(_minRadius, _maxRadius, pingPongValue);
+
+                    if (pingPongValue < 0.05f && !hasPlayedSound)
+                    {
+                        GameService.Instance.GetService<SoundService>().PlayWeaponSFX(SoundType.OrbitalFury);
+                        hasPlayedSound = true;
+                    }
+                    else if (pingPongValue > 0.95f)
+                    {
+                        hasPlayedSound = false;
+                    }
+
                     float angle = (360f / _totalBalls) * _ballIndex + (Time.time * _speed);
-                    float angleInRadians = Mathf.Deg2Rad * angle;               
-                    Vector3 offset = new Vector3(Mathf.Cos(angleInRadians) * _radius, Mathf.Sin(angleInRadians) * _radius, 0);        
+                    float angleInRadians = Mathf.Deg2Rad * angle;
+
+                    Vector3 offset = new Vector3(Mathf.Cos(angleInRadians) * _radius, Mathf.Sin(angleInRadians) * _radius, 0);
                     transform.position = _center.position + offset;
-                    GameService.Instance.GetService<SoundService>().PlayWeaponSFX(SoundType.OrbitalFury);
                 }
+
                 yield return null;
             }
         }
