@@ -1,7 +1,22 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+# This file configures Unity's interaction with external version control systems (like Git, SVN, Mercurial).
+# It corresponds to the settings found in Edit -> Project Settings -> Version Control.
+# The '!u!890905787' is Unity's internal class ID for VersionControlSettings. '&1' is a YAML anchor.
 --- !u!890905787 &1
 VersionControlSettings:
+  # m_ObjectHideFlags: Internal Unity field used for tracking object changes. Typically left at 0 unless Unity modifies it.
   m_ObjectHideFlags: 0
+
+  # m_Mode: Specifies how Unity should handle version control integration, particularly meta files.
+  # Options:
+  #   - Hidden Meta Files: Older mode, generally NOT recommended. Meta files are hidden and harder to manage with VCS.
+  #   - Visible Meta Files: RECOMMENDED for external VCS (Git, SVN). Creates a visible .meta file for every asset, crucial for tracking dependencies and settings.
+  #   - Perforce / Plastic SCM: Specific modes for integration with these systems.
   m_Mode: Visible Meta Files
-  m_TrackPackagesOutsideProject: 0
+
+  # m_TrackPackagesOutsideProject: Determines if Unity should attempt to track changes in immutable packages
+  # located outside the project's direct 'Packages' folder (e.g., in the global cache).
+  # 0 = false (Recommended): Do not track these external packages. Version control should focus on your project assets and settings.
+  # 1 = true: Attempt to track (Rarely used or needed).
+  m_TrackPackagesOutsideProject: 0 # Corresponds to 'false'
