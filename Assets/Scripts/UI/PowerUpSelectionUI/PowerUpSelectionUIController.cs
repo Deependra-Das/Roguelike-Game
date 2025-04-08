@@ -29,16 +29,12 @@ namespace Roguelike.UI
             _healingButtonPrefab = healingButtonPrefab;
             _healthUpgradeButtonPrefab = healthUpgradeButtonPrefab;
             _powerUpSelectionUIView.SetController(this);
-        }
-
-        ~PowerUpSelectionUIController() => UnsubscribeToEvents();
-
-        public void InitializeController()
-        {
             _weaponPowerupButtonList = new List<PowerUpButtonView>();
             SubscribeToEvents();
             Hide();
         }
+
+        ~PowerUpSelectionUIController() => UnsubscribeToEvents();
 
         private void SubscribeToEvents()
         {

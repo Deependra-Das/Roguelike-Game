@@ -26,7 +26,6 @@ namespace Roguelike.Main
         [SerializeField] private int _waitTimeBeforeInitialExp = 0;
 
         [Header("Service References")]
-        [SerializeField] private UIService _uiService;
         [SerializeField] private WaveService _waveService;
 
         [Header("Prefabs")]
@@ -57,6 +56,7 @@ namespace Roguelike.Main
         private void Start()
         {
             EventService.Instance.Initialize();
+            UIService.Instance.Initialize(_levelScriptableObjects,_playerScriptableObjects);
             RegisterServices();
             InjectDependencies();
             ChangeGameState(GameState.MainMenu);
@@ -64,7 +64,6 @@ namespace Roguelike.Main
 
         private void RegisterServices()
         {
-                ServiceLocator.Instance.RegisterService<UIService>(_uiService);
                 ServiceLocator.Instance.RegisterService<SoundService>(new SoundService(_audioList, _audioSourceList));
                 ServiceLocator.Instance.RegisterService<HighScoreService>(new HighScoreService());
                 ServiceLocator.Instance.RegisterService<LevelService>(new LevelService(_levelScriptableObjects));
@@ -79,7 +78,6 @@ namespace Roguelike.Main
 
         public void InjectDependencies()
         {
-                ServiceLocator.Instance.InitializeService<UIService>(_uiService);
                 ServiceLocator.Instance.InitializeService<SoundService>(_audioList, _audioSourceList);
                 ServiceLocator.Instance.InitializeService<HighScoreService>();
                 ServiceLocator.Instance.InitializeService<LevelService>(_levelScriptableObjects);

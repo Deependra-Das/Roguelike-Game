@@ -15,16 +15,11 @@ namespace Roguelike.UI
         public PauseMenuUIController(PauseMenuUIView pauseMenuUIView)
         {
             _pauseMenuUIView = pauseMenuUIView;
-            _pauseMenuUIView.SetController(this);
+            _pauseMenuUIView.SetController(this); SubscribeToEvents();
+            Hide();
         }
 
         ~PauseMenuUIController() => UnsubscribeToEvents();
-
-        public void InitializeController()
-        {
-            SubscribeToEvents();
-            Hide();
-        }
 
         private void SubscribeToEvents()
         {

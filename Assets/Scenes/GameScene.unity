@@ -854,16 +854,8 @@ MonoBehaviour:
   _mainMenuUIView: {fileID: 1369063250}
   _levelSelectionView: {fileID: 1582525825}
   _levelButtonPrefab: {fileID: 1666769781558551828, guid: f12f6cb312817fa4b94af2fb98589cc7, type: 3}
-  _level_SO:
-  - {fileID: 11400000, guid: e9a19df4d21133c48884a11cf9d6db2b, type: 2}
-  - {fileID: 11400000, guid: ec6ffef45fbae69409306ed9dc5b444e, type: 2}
-  - {fileID: 11400000, guid: 4f1dd9aee90d35043b47b6dfac61e921, type: 2}
   _characterSelectionView: {fileID: 835597340}
   _characterButtonPrefab: {fileID: 4800097807915837908, guid: 67a030ba5e9f0fd40af914eebb2600f0, type: 3}
-  _player_SO:
-  - {fileID: 11400000, guid: 9e1d7b0606562a64c8f95720ba3600d2, type: 2}
-  - {fileID: 11400000, guid: 824ec1f2c2dbb374d9d88ff7d7cd2e0a, type: 2}
-  - {fileID: 11400000, guid: 517b132a98d73cb4eabf799144be8ac9, type: 2}
   _pauseMenuUIView: {fileID: 890474943}
   _gameOverUIView: {fileID: 822836642}
   _levelCompletedUIView: {fileID: 1667738117}
@@ -4369,7 +4361,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _cinemachineCamera: {fileID: 724533660}
   _waitTimeBeforeInitialExp: 3
-  _uiService: {fileID: 326961516}
   _waveService: {fileID: 230813140}
   _smokeVFXPrefab: {fileID: 992096693747426543, guid: 1e778f21b1a7a8642948e25d314a5e44, type: 3}
   _dmgNumPrefab: {fileID: 4412402055109693301, guid: 9d187f7564fdc404f8f485725f669d52, type: 3}

@@ -40,10 +40,10 @@ namespace Roguelike.Player
         private void UpdateInitialHealthOnUI()
         {
             expToUpgradeList = GameService.Instance.GetService<LevelService>().GetExpToUpgradeList();
-            GameService.Instance.GetService<UIService>().UpdateMaxHealthSlider(_playerModel.MaxHealth);
-            GameService.Instance.GetService<UIService>().UpdateCurrentHealthSlider(_playerModel.CurrentHealth);
-            GameService.Instance.GetService<UIService>().UpdateMaxExpSlider(expToUpgradeList[_playerModel.CurrentExpLevel]);
-            GameService.Instance.GetService<UIService>().UpdateCurrentExpSlider(_playerModel.CurrentExpPoints);
+            UIService.Instance.UpdateMaxHealthSlider(_playerModel.MaxHealth);
+            UIService.Instance.UpdateCurrentHealthSlider(_playerModel.CurrentHealth);
+            UIService.Instance.UpdateMaxExpSlider(expToUpgradeList[_playerModel.CurrentExpLevel]);
+            UIService.Instance.UpdateCurrentExpSlider(_playerModel.CurrentExpPoints);
         }
 
         private void AddWeapon()
@@ -102,7 +102,7 @@ namespace Roguelike.Player
             if (!isDead && _currentGameState == GameState.Gameplay)
             {
                 _playerModel.UpdateCurrentHealth(-damage);
-                GameService.Instance.GetService<UIService>().UpdateCurrentHealthSlider(_playerModel.CurrentHealth);
+                UIService.Instance.UpdateCurrentHealthSlider(_playerModel.CurrentHealth);
                 if (_playerModel.CurrentHealth <= 0)
                 {
                     isDead = true;
@@ -130,7 +130,8 @@ namespace Roguelike.Player
         public void AddExperiencePoints(int value)
         {
             _playerModel.UpdateExperiencePoints(value);
-            GameService.Instance.GetService<UIService>().UpdateCurrentExpSlider(_playerModel.CurrentExpPoints);
+            UIService.Instance.UpdateCurrentExpSlider(_playerModel.CurrentExpPoints);
+
             if(_playerModel.CurrentExpPoints>= expToUpgradeList[_playerModel.CurrentExpLevel])
             {
                 if(!CheckMaxExpLevelReached())
@@ -149,9 +150,9 @@ namespace Roguelike.Player
         {
             int valueToDeduct = expToUpgradeList[_playerModel.CurrentExpLevel];
             _playerModel.UpdateExperiencePoints(-(valueToDeduct));
-            GameService.Instance.GetService<UIService>().UpdateCurrentExpSlider(_playerModel.CurrentExpPoints);
+            UIService.Instance.UpdateCurrentExpSlider(_playerModel.CurrentExpPoints);
             _playerModel.UpdateExpLevel();
-            GameService.Instance.GetService<UIService>().UpdateMaxExpSlider(expToUpgradeList[_playerModel.CurrentExpLevel]);
+            UIService.Instance.UpdateMaxExpSlider(expToUpgradeList[_playerModel.CurrentExpLevel]);
             GameService.Instance.GetService<SoundService>().PlaySFX(SoundType.LevelUp);
             GameService.Instance.ChangeGameState(GameState.PowerUpSelection);
         }
@@ -160,13 +161,13 @@ namespace Roguelike.Player
         {
             int amountToHeal = _playerModel.MaxHealth - _playerModel.CurrentHealth;
             _playerModel.UpdateCurrentHealth(amountToHeal);
-            GameService.Instance.GetService<UIService>().UpdateCurrentHealthSlider(_playerModel.CurrentHealth);
+            UIService.Instance.UpdateCurrentHealthSlider(_playerModel.CurrentHealth);
         }
 
         public void UpgradeMaxHealth(int value)
         {
             _playerModel.UpdateMaxHealth(value);
-            GameService.Instance.GetService<UIService>().UpdateMaxHealthSlider(_playerModel.MaxHealth);
+            UIService.Instance.UpdateMaxHealthSlider(_playerModel.MaxHealth);
         }
 
         private bool CheckMaxExpLevelReached()

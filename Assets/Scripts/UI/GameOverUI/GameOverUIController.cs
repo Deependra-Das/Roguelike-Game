@@ -15,15 +15,11 @@ namespace Roguelike.UI
         {
             _gameOverUIView = gameOverUIView;
             _gameOverUIView.SetController(this);
-        }
-
-        ~GameOverUIController() => UnsubscribeToEvents();
-
-        public void InitializeController()
-        {
             SubscribeToEvents();
             Hide();
         }
+
+        ~GameOverUIController() => UnsubscribeToEvents();
 
         private void SubscribeToEvents()
         {

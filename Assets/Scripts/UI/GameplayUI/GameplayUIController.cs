@@ -16,16 +16,12 @@ namespace Roguelike.UI
         {
             _gameplayUIView = gameplayUIView;
             _gameplayUIView.SetController(this);
+            SubscribeToEvents();
         }
 
         ~GameplayUIController()
         {
             UnsubscribeToEvents();
-        }
-
-        public void InitializeController()
-        {
-            SubscribeToEvents();
         }
 
         private void SubscribeToEvents()

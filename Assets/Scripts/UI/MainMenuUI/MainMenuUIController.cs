@@ -16,14 +16,10 @@ namespace Roguelike.UI
         {
             _mainMenuUIView = mainMenuUIView;
             _mainMenuUIView.SetController(this);
+            SubscribeToEvents();
         }
 
         ~MainMenuUIController() => UnsubscribeToEvents();
-
-        public void InitializeController()
-        {
-            SubscribeToEvents();
-        }
 
         private void SubscribeToEvents()
         {

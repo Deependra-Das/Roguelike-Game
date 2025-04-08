@@ -15,15 +15,11 @@ namespace Roguelike.UI
         {
             _levelCompletedUIView = levelCompletedUIView;
             _levelCompletedUIView.SetController(this);
-        }
-
-        ~LevelCompletedUIController() => UnsubscribeToEvents();
-
-        public void InitializeController()
-        {
             SubscribeToEvents();
             Hide();
         }
+
+        ~LevelCompletedUIController() => UnsubscribeToEvents();
 
         private void SubscribeToEvents()
         {

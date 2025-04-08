@@ -21,16 +21,12 @@ namespace Roguelike.UI
             _levelButtonPrefab = levelButtonPrefab;
             _levelSelectionUIView = levelSelectionUIView;
             _levelSelectionUIView.SetController(this);
-        }
-
-        ~LevelSelectionUIController() => UnsubscribeToEvents();
-
-        public void InitializeController()
-        {
             CreateLevelButtons();
             SubscribeToEvents();
             Hide();
         }
+
+        ~LevelSelectionUIController() => UnsubscribeToEvents();
 
         private void SubscribeToEvents()
         {

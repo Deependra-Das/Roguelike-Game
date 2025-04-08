@@ -20,18 +20,14 @@ namespace Roguelike.UI
             _characterButtonPrefab = characterButtonPrefab;
             _characterSelectionUIView = characterSelectionUIView;
             _characterSelectionUIView.SetController(this);
+            CreateCharacterButtons();
+            SubscribeToEvents();
+            Hide();
         }
 
         ~CharacterSelectionUIController()
         {
             UnsubscribeToEvents();
-        }
-
-        public void InitializeController()
-        {
-            CreateCharacterButtons();
-            SubscribeToEvents();
-            Hide();
         }
 
         private void SubscribeToEvents()

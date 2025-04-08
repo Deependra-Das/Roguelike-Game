@@ -38,7 +38,6 @@ namespace Roguelike.UI
             {
                 _enemyImages[i].sprite = levelData.enemyWaveData[i].enemy_SO.enemyImage;
             }
-            SetHighScore();
         }
 
         public void SetHighScore()
