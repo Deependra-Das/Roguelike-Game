@@ -1,6 +1,7 @@
 using UnityEngine;
 using System;
 using System.Collections.Generic;
+using System.Collections;
 using Unity.Cinemachine;
 using Roguelike.Utilities;
 using Roguelike.Event;
@@ -11,7 +12,6 @@ using Roguelike.UI;
 using Roguelike.Wave;
 using Roguelike.Weapon;
 using Roguelike.Projectile;
-using System.Collections;
 using Roguelike.VFX;
 using Roguelike.DamageNumber;
 using Roguelike.Sound;
@@ -64,73 +64,37 @@ namespace Roguelike.Main
 
         private void RegisterServices()
         {
-            RegisterService<UIService>(_uiService);
-            RegisterService<SoundService>(new SoundService(_audioList, _audioSourceList));
-            RegisterService<HighScoreService>(new HighScoreService());
-            RegisterService<LevelService>(new LevelService(_levelScriptableObjects));
-            RegisterService<PlayerService>(new PlayerService(_playerScriptableObjects));
-            RegisterService<ProjectileService>(new ProjectileService(_projectileScriptableObjects));
-            RegisterService<WeaponService>(new WeaponService(_weaponScriptableObjects));
-            RegisterService<EnemyService>(new EnemyService(_enemyScriptableObjects));
-            RegisterService<WaveService>(_waveService);
-            RegisterService<VFXService>(new VFXService(_smokeVFXPrefab));
-            RegisterService<DamageNumberService>(new DamageNumberService(_dmgNumPrefab));
+                ServiceLocator.Instance.RegisterService<UIService>(_uiService);
+                ServiceLocator.Instance.RegisterService<SoundService>(new SoundService(_audioList, _audioSourceList));
+                ServiceLocator.Instance.RegisterService<HighScoreService>(new HighScoreService());
+                ServiceLocator.Instance.RegisterService<LevelService>(new LevelService(_levelScriptableObjects));
+                ServiceLocator.Instance.RegisterService<PlayerService>(new PlayerService(_playerScriptableObjects));
+                ServiceLocator.Instance.RegisterService<ProjectileService>(new ProjectileService(_projectileScriptableObjects));
+                ServiceLocator.Instance.RegisterService<WeaponService>(new WeaponService(_weaponScriptableObjects));
+                ServiceLocator.Instance.RegisterService<EnemyService>(new EnemyService(_enemyScriptableObjects));
+                ServiceLocator.Instance.RegisterService<WaveService>(_waveService);
+                ServiceLocator.Instance.RegisterService<VFXService>(new VFXService(_smokeVFXPrefab));
+                ServiceLocator.Instance.RegisterService<DamageNumberService>(new DamageNumberService(_dmgNumPrefab));
         }
 
         public void InjectDependencies()
         {
-            InitializeService<UIService>();
-            InitializeService<SoundService>();
-            InitializeService<HighScoreService>();
-            InitializeService<LevelService>();
-            InitializeService<PlayerService>();
-            InitializeService<ProjectileService>();
-            InitializeService<WeaponService>();
-            InitializeService<EnemyService>();
-            InitializeService<WaveService>();
-            InitializeService<VFXService>();
-            InitializeService<DamageNumberService>();
-        }
-
-        public void RegisterService<T>(IService service) where T : IService
-        {
-            Type serviceType = typeof(T);
-            if (!_services.ContainsKey(serviceType))
-            {
-                _services[serviceType] = service;
-            }
-            else
-            {
-                Debug.LogWarning($"{serviceType} is already registered.");
-            }
-        }
-
-        public void InitializeService<T>(params object[] dependencies) where T : IService
-        {
-            Type serviceType = typeof(T);
-            if (_services.ContainsKey(serviceType))
-            {
-                IService service = _services[serviceType];
-                service.Initialize(dependencies);
-            }
-            else
-            {
-                Debug.LogWarning($"Service {serviceType} is not registered.");
-            }
+                ServiceLocator.Instance.InitializeService<UIService>(_uiService);
+                ServiceLocator.Instance.InitializeService<SoundService>(_audioList, _audioSourceList);
+                ServiceLocator.Instance.InitializeService<HighScoreService>();
+                ServiceLocator.Instance.InitializeService<LevelService>(_levelScriptableObjects);
+                ServiceLocator.Instance.InitializeService<PlayerService>(_playerScriptableObjects);
+                ServiceLocator.Instance.InitializeService<ProjectileService>(_projectileScriptableObjects);
+                ServiceLocator.Instance.InitializeService<WeaponService>(_weaponScriptableObjects);
+                ServiceLocator.Instance.InitializeService<EnemyService>(_enemyScriptableObjects);
+                ServiceLocator.Instance.InitializeService<WaveService>(_waveService);
+                ServiceLocator.Instance.InitializeService<VFXService>(_smokeVFXPrefab);
+                ServiceLocator.Instance.InitializeService<DamageNumberService>(_dmgNumPrefab);
         }
 
         public T GetService<T>() where T : IService
         {
-            Type serviceType = typeof(T);
-            if (_services.ContainsKey(serviceType))
-            {
-                return (T)_services[serviceType];
-            }
-            else
-            {
-                Debug.LogError($"{serviceType} is not registered.");
-                return default;
-            }
+            return ServiceLocator.Instance.GetService<T>();
         }
 
         void Update()
