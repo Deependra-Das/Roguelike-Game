@@ -16,7 +16,7 @@ namespace Roguelike.Player
 
         public PlayerService(PlayerScriptableObject playerScriptableObject)
         {
-            _playerDataDictionary = ConvertPlayerDataListToDictionary(playerScriptableObject.playerDataList);
+            ConvertPlayerDataListToDictionary(playerScriptableObject.playerDataList);
         }
 
         ~PlayerService() => UnsubscribeToEvents();
@@ -73,16 +73,14 @@ namespace Roguelike.Player
             _playerController = null;
         }
 
-        Dictionary<int, PlayerData> ConvertPlayerDataListToDictionary(List<PlayerData> playerList)
+        private void ConvertPlayerDataListToDictionary(List<PlayerData> playerDataList)
         {
-            Dictionary<int, PlayerData> playerDictionary = new Dictionary<int, PlayerData>();
+            _playerDataDictionary = new Dictionary<int, PlayerData>();
 
-            foreach (var player in playerList)
+            foreach (var player in playerDataList)
             {
-                playerDictionary.Add(player.ID, player);
+                _playerDataDictionary.Add(player.ID, player);
             }
-
-            return playerDictionary;
         }
     }
 }

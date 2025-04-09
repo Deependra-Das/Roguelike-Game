@@ -28,7 +28,7 @@ namespace Roguelike.UI
 
         private void OnLevelButtonClicked() => owner.OnLevelSelected(_levelId);
 
-        public void SetLevelButtonData(LevelScriptableObject levelData)
+        public void SetLevelButtonData(LevelData levelData)
         {
             _levelId = levelData.ID;
             _levelNameText.SetText(levelData.levelName);

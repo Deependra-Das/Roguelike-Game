@@ -36,7 +36,7 @@ namespace Roguelike.Main
         [SerializeField] private List<AudioSource> _audioSourceList;
 
         [Header("Scriptable Objects")]
-        [SerializeField] private List<LevelScriptableObject> _levelScriptableObjects;
+        [SerializeField] private LevelScriptableObject _levelScriptableObject;
         [SerializeField] private PlayerScriptableObject _playerScriptableObject;
         [SerializeField] private List<EnemyScriptableObject> _enemyScriptableObjects;
         [SerializeField] private List<WeaponScriptableObject> _weaponScriptableObjects;
@@ -66,7 +66,7 @@ namespace Roguelike.Main
         {
                 ServiceLocator.Instance.RegisterService<SoundService>(new SoundService(_audioList, _audioSourceList));
                 ServiceLocator.Instance.RegisterService<HighScoreService>(new HighScoreService());
-                ServiceLocator.Instance.RegisterService<LevelService>(new LevelService(_levelScriptableObjects));
+                ServiceLocator.Instance.RegisterService<LevelService>(new LevelService(_levelScriptableObject));
                 ServiceLocator.Instance.RegisterService<PlayerService>(new PlayerService(_playerScriptableObject));
                 ServiceLocator.Instance.RegisterService<ProjectileService>(new ProjectileService(_projectileScriptableObjects));
                 ServiceLocator.Instance.RegisterService<WeaponService>(new WeaponService(_weaponScriptableObjects));
@@ -74,7 +74,7 @@ namespace Roguelike.Main
                 ServiceLocator.Instance.RegisterService<WaveService>(_waveService);
                 ServiceLocator.Instance.RegisterService<VFXService>(new VFXService(_smokeVFXPrefab));
                 ServiceLocator.Instance.RegisterService<DamageNumberService>(new DamageNumberService(_dmgNumPrefab));
-                ServiceLocator.Instance.RegisterService<UIService>(new UIService(_uiDataScriptableObject, _levelScriptableObjects, _playerScriptableObject));
+                ServiceLocator.Instance.RegisterService<UIService>(new UIService(_uiDataScriptableObject, _levelScriptableObject, _playerScriptableObject));
         }
 
         public void InitializeServices()

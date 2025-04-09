@@ -56,7 +56,7 @@ namespace Roguelike.Wave
 
         private void StartWave()
         {
-            LevelScriptableObject levelData = GameService.Instance.GetService<LevelService>().GetLevelData();
+            LevelData levelData = GameService.Instance.GetService<LevelService>().GetLevelData();
             if (levelData.enemyWaveData == null || levelData.enemyWaveData.Count == 0)
             {
                 Debug.LogError("No wave data available to spawn.");

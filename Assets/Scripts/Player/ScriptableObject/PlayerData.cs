@@ -15,5 +15,4 @@ namespace Roguelike.Player
         public int maxHealth;
         public float immunityDuration;
     }
-
 }

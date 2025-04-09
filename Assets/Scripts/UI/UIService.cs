@@ -15,7 +15,7 @@ namespace Roguelike.UI
         private Transform _uiCanvasTransform;
         private Transform _dmgNumcanvasTransform;
 
-        private List<LevelScriptableObject> _level_SO;
+        private LevelScriptableObject _level_SO;
         private PlayerScriptableObject _player_SO;
         private UI_Data_ScriptableObject _uiData_SO;
 
@@ -28,10 +28,10 @@ namespace Roguelike.UI
         private GameplayUIController _gameplayUIController;
         private PowerUpSelectionUIController _powerUpSelectionUIController;
 
-        public UIService(UI_Data_ScriptableObject uI_Data_SO, List<LevelScriptableObject> level_SO_List, PlayerScriptableObject player_SO)
+        public UIService(UI_Data_ScriptableObject uI_Data_SO, LevelScriptableObject level_SO, PlayerScriptableObject player_SO)
         {
             _uiData_SO = uI_Data_SO;
-            _level_SO = level_SO_List;
+            _level_SO = level_SO;
             _player_SO = player_SO;
             CreateCanvas();
             SubscribeToEvents();
