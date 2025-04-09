@@ -46,11 +46,11 @@ namespace Roguelike.UI
 
         private void CreateCanvas()
         {
-            GameObject uiCanvas = Object.Instantiate(_uiData_SO.uiCanvas);
-            _uiCanvasTransform = uiCanvas.transform;
-
             GameObject dmgNumCanvas = Object.Instantiate(_uiData_SO.dmgNumCanvas);
             _dmgNumcanvasTransform = dmgNumCanvas.transform;
+
+            GameObject uiCanvas = Object.Instantiate(_uiData_SO.uiCanvas);
+            _uiCanvasTransform = uiCanvas.transform;
         }
 
         private void IntializeControllers()
