@@ -42,6 +42,7 @@ namespace Roguelike.Main
         [SerializeField] private List<WeaponScriptableObject> _weaponScriptableObjects;
         [SerializeField] private List<ProjectileScriptableObject> _projectileScriptableObjects;
         [SerializeField] private SoundScriptableObject _audioList;
+        [SerializeField] private UI_Data_ScriptableObject _uiDataScriptableObject;
         #endregion
 
         private Dictionary<Type, IService> _services = new Dictionary<Type, IService>();
@@ -56,7 +57,6 @@ namespace Roguelike.Main
         private void Start()
         {
             EventService.Instance.Initialize();
-            UIService.Instance.Initialize(_levelScriptableObjects,_playerScriptableObjects);
             RegisterServices();
             InjectDependencies();
             ChangeGameState(GameState.MainMenu);
@@ -74,10 +74,12 @@ namespace Roguelike.Main
                 ServiceLocator.Instance.RegisterService<WaveService>(_waveService);
                 ServiceLocator.Instance.RegisterService<VFXService>(new VFXService(_smokeVFXPrefab));
                 ServiceLocator.Instance.RegisterService<DamageNumberService>(new DamageNumberService(_dmgNumPrefab));
+                ServiceLocator.Instance.RegisterService<UIService>(new UIService());
         }
 
         public void InjectDependencies()
         {
+                ServiceLocator.Instance.InitializeService<UIService>(_uiDataScriptableObject, _levelScriptableObjects, _playerScriptableObjects);
                 ServiceLocator.Instance.InitializeService<SoundService>(_audioList, _audioSourceList);
                 ServiceLocator.Instance.InitializeService<HighScoreService>();
                 ServiceLocator.Instance.InitializeService<LevelService>(_levelScriptableObjects);

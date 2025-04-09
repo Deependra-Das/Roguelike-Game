@@ -14,11 +14,11 @@ namespace Roguelike.UI
         private List<PlayerScriptableObject> _character_SO;
         private GameState _currentGameState;
 
-        public CharacterSelectionUIController(CharacterSelectionUIView characterSelectionUIView, CharacterButtonView characterButtonPrefab, List<PlayerScriptableObject> character_SO)
+        public CharacterSelectionUIController(CharacterSelectionUIView characterSelectionUIPrefab, CharacterButtonView characterButtonPrefab, Transform uiCanvasTransform, List<PlayerScriptableObject> character_SO)
         {
             _character_SO = character_SO;
             _characterButtonPrefab = characterButtonPrefab;
-            _characterSelectionUIView = characterSelectionUIView;
+            _characterSelectionUIView = Object.Instantiate(characterSelectionUIPrefab, uiCanvasTransform);
             _characterSelectionUIView.SetController(this);
             CreateCharacterButtons();
             SubscribeToEvents();

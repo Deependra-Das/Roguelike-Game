@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b8db4bdfb2ea8344b9d11fb0ea7dbba, type: 3}
+  m_Name: UI_Data_SO
+  m_EditorClassIdentifier: 
+  uiCanvas: {fileID: 4309180092540324897, guid: d96643b7114cb1d43bc07ba9e513c02e, type: 3}
+  dmgNumCanvas: {fileID: 1891242938831602666, guid: d8da4c0ef981f574d867443597620d84, type: 3}
+  mainMenuUIPrefab: {fileID: 480740691231213392, guid: 79dbdeb9bb91e474eaeab1eead812956, type: 3}
+  levelSelectionPrefab: {fileID: 6608468071854664727, guid: aaa39691f09b2514e8e9543e5f49ada0, type: 3}
+  levelButtonPrefab: {fileID: 1666769781558551828, guid: f12f6cb312817fa4b94af2fb98589cc7, type: 3}
+  characterSelectionPrefab: {fileID: 5699449554534293049, guid: 36577f73d16362c44889d49799806446, type: 3}
+  characterButtonPrefab: {fileID: 4800097807915837908, guid: 67a030ba5e9f0fd40af914eebb2600f0, type: 3}
+  pauseMenuUIPrefab: {fileID: 8383641847848822049, guid: b250e3bf6b9b3fe48ac58073a397c4ab, type: 3}
+  gameOverUIPrefab: {fileID: 16832501497663187, guid: e5bc8a77b9030a547a18a1f7000ae2a6, type: 3}
+  levelCompletedUIPrefab: {fileID: 890615945791267816, guid: e51ae3ddca62a134bb4ac9e725f7cd47, type: 3}
+  gameplayUIPrefab: {fileID: 79468875585506693, guid: 94e834249f2982b4e8c2736d2c2c5acb, type: 3}
+  powerUpSelectionUIPrefab: {fileID: 5556793615199333837, guid: e53ced7a9d27ccf4e89cfc0b614532de, type: 3}
+  powerUpButtonPrefab: {fileID: 2104051034602832344, guid: b789e49f4a5d5f94aad353805409e100, type: 3}
+  healthUpgradeButtonPrefab: {fileID: 8044021269782223076, guid: 326f2e274d1c6cb4c8b7e9caa2d84240, type: 3}
+  healingButtonPrefab: {fileID: 6442080354995223842, guid: fb6d2a3f109f9604f87aaa667688bf68, type: 3}

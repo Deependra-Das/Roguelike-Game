@@ -11,9 +11,9 @@ namespace Roguelike.UI
     {
         private GameOverUIView _gameOverUIView;
 
-        public GameOverUIController(GameOverUIView gameOverUIView)
+        public GameOverUIController(GameOverUIView gameOverUIPrefab, Transform uiCanvasTransform)
         {
-            _gameOverUIView = gameOverUIView;
+            _gameOverUIView = Object.Instantiate(gameOverUIPrefab, uiCanvasTransform);
             _gameOverUIView.SetController(this);
             SubscribeToEvents();
             Hide();

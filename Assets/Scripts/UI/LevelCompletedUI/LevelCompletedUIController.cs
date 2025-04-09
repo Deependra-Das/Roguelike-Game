@@ -11,9 +11,9 @@ namespace Roguelike.UI
     {
         private LevelCompletedUIView _levelCompletedUIView;
 
-        public LevelCompletedUIController(LevelCompletedUIView levelCompletedUIView)
+        public LevelCompletedUIController(LevelCompletedUIView levelCompletedUIPrefab, Transform uiCanvasTransform)
         {
-            _levelCompletedUIView = levelCompletedUIView;
+            _levelCompletedUIView = Object.Instantiate(levelCompletedUIPrefab, uiCanvasTransform);
             _levelCompletedUIView.SetController(this);
             SubscribeToEvents();
             Hide();

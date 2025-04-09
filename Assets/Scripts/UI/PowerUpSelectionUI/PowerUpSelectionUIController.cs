@@ -21,14 +21,16 @@ namespace Roguelike.UI
 
         private GameState _currentGameState;
 
-        public PowerUpSelectionUIController(PowerUpSelectionUIView powerUpSelectionUIView, PowerUpButtonView powerUpButtonPrefab,
-            HealthUpgradeButtonView healthUpgradeButtonPrefab, HealingButtonView healingButtonPrefab)
+        public PowerUpSelectionUIController(PowerUpSelectionUIView powerUpSelectionUIPrefab, PowerUpButtonView powerUpButtonPrefab,
+            HealthUpgradeButtonView healthUpgradeButtonPrefab, HealingButtonView healingButtonPrefab, Transform uiCanvasTransform)
         {
             _powerUpButtonPrefab = powerUpButtonPrefab;
-            _powerUpSelectionUIView = powerUpSelectionUIView;
             _healingButtonPrefab = healingButtonPrefab;
             _healthUpgradeButtonPrefab = healthUpgradeButtonPrefab;
+
+            _powerUpSelectionUIView = Object.Instantiate(powerUpSelectionUIPrefab, uiCanvasTransform);
             _powerUpSelectionUIView.SetController(this);
+
             _weaponPowerupButtonList = new List<PowerUpButtonView>();
             SubscribeToEvents();
             Hide();

@@ -15,11 +15,11 @@ namespace Roguelike.UI
         private List<LevelButtonView> _levelButtons = new List<LevelButtonView>();
         private GameState _currentGameState;
 
-        public LevelSelectionUIController(LevelSelectionUIView levelSelectionUIView, LevelButtonView levelButtonPrefab, List<LevelScriptableObject> level_SO)
+        public LevelSelectionUIController(LevelSelectionUIView levelSelectionUIPrefab, LevelButtonView levelButtonPrefab, Transform uiCanvasTransform, List<LevelScriptableObject> level_SO)
         {
             _level_SO = level_SO;
             _levelButtonPrefab = levelButtonPrefab;
-            _levelSelectionUIView = levelSelectionUIView;
+            _levelSelectionUIView = Object.Instantiate(levelSelectionUIPrefab, uiCanvasTransform);
             _levelSelectionUIView.SetController(this);
             CreateLevelButtons();
             SubscribeToEvents();

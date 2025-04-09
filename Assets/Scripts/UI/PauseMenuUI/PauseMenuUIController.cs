@@ -12,9 +12,9 @@ namespace Roguelike.UI
         private PauseMenuUIView _pauseMenuUIView;
         private GameState _currentGameState;
 
-        public PauseMenuUIController(PauseMenuUIView pauseMenuUIView)
+        public PauseMenuUIController(PauseMenuUIView pauseMenuUIPrefab, Transform uiCanvasTransform)
         {
-            _pauseMenuUIView = pauseMenuUIView;
+            _pauseMenuUIView = Object.Instantiate(pauseMenuUIPrefab, uiCanvasTransform);
             _pauseMenuUIView.SetController(this); SubscribeToEvents();
             Hide();
         }

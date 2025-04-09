@@ -12,9 +12,9 @@ namespace Roguelike.UI
         private MainMenuUIView _mainMenuUIView;
         private GameState _currentGameState;
 
-        public MainMenuUIController(MainMenuUIView mainMenuUIView)
+        public MainMenuUIController(MainMenuUIView mainMenuUIPrefab, Transform uiCanvasTransform)
         {
-            _mainMenuUIView = mainMenuUIView;
+            _mainMenuUIView = Object.Instantiate(mainMenuUIPrefab, uiCanvasTransform);
             _mainMenuUIView.SetController(this);
             SubscribeToEvents();
         }

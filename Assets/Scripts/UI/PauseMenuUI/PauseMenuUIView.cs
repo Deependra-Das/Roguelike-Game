@@ -5,7 +5,7 @@ using Roguelike.Event;
 
 namespace Roguelike.UI
 {
-    public class PauseMenuUIView : MonoBehaviour, IUIView
+    public class PauseMenuUIView : MonoBehaviour
     {
         private PauseMenuUIController _controller;
         [SerializeField] private Button _continueButtonPrefab;

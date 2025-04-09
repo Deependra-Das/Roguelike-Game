@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Roguelike.UI;
 
-public class LevelSelectionUIView : MonoBehaviour, IUIView
+public class LevelSelectionUIView : MonoBehaviour
 {
     private LevelSelectionUIController _controller;
     [SerializeField] private Transform _levelButtonContainer;

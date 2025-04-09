@@ -8,48 +8,16 @@ using Roguelike.Event;
 
 namespace Roguelike.UI
 {
-    public class UIService : GenericMonoSingleton<UIService>
-    {
-        #region Inspector Dependencies
-
-        [Header("Canvas Transforms")]
-        [SerializeField] private Transform _canvasTransform;
-        [SerializeField] private Transform _dmgCanvasTransform;
-
-        [Header("Main Menu UI")]
-        [SerializeField] private MainMenuUIView _mainMenuUIView;
-
-        [Header("Level Selection UI")]
-        [SerializeField] private LevelSelectionUIView _levelSelectionView;
-        [SerializeField] private LevelButtonView _levelButtonPrefab;
-
-        [Header("Character Selection UI")]
-        [SerializeField] private CharacterSelectionUIView _characterSelectionView;
-        [SerializeField] private CharacterButtonView _characterButtonPrefab;
-
-        [Header("Pause Menu UI")]
-        [SerializeField] private PauseMenuUIView _pauseMenuUIView;
-
-        [Header("Game Over UI")]
-        [SerializeField] private GameOverUIView _gameOverUIView;
-
-        [Header("Level Completed UI")]
-        [SerializeField] private LevelCompletedUIView _levelCompletedUIView;
-
-        [Header("Gameplay UI")]
-        [SerializeField] private GameplayUIView _gameplayUIView;
-
-        [Header("PowerUp Selection UI")]
-        [SerializeField] private PowerUpSelectionUIView _powerUpSelectionUIView;
-        [SerializeField] private PowerUpButtonView _powerUpButtonView;
-        [SerializeField] private HealthUpgradeButtonView _healthUpgradeButtonView;
-        [SerializeField] private HealingButtonView _healingButtonView;
-
-        #endregion
-
+    public class UIService : IService
+    { 
         private GameState _currentGameState;
+
+        private Transform _uiCanvasTransform;
+        private Transform _dmgNumcanvasTransform;
+
         private List<LevelScriptableObject> _level_SO;
         private List<PlayerScriptableObject> _player_SO;
+        private UI_Data_ScriptableObject _uiData_SO;
 
         private MainMenuUIController _mainMenuUIController;
         private LevelSelectionUIController _levelSelectionController;
@@ -60,25 +28,37 @@ namespace Roguelike.UI
         private GameplayUIController _gameplayUIController;
         private PowerUpSelectionUIController _powerUpSelectionUIController;
 
-        protected override void Awake()
-        {
-            base.Awake();
-        }
 
         public void Initialize(params object[] dependencies)
         {
-            _level_SO = (List<LevelScriptableObject>)dependencies[0];
-            _player_SO = (List<PlayerScriptableObject>)dependencies[1];
+            _uiData_SO = (UI_Data_ScriptableObject)dependencies[0];
+            _level_SO = (List<LevelScriptableObject>)dependencies[1];
+            _player_SO = (List<PlayerScriptableObject>)dependencies[2];
 
-            _mainMenuUIController = new MainMenuUIController(_mainMenuUIView);
-            _levelSelectionController = new LevelSelectionUIController(_levelSelectionView, _levelButtonPrefab, _level_SO);
-            _characterSelectionController = new CharacterSelectionUIController(_characterSelectionView, _characterButtonPrefab, _player_SO);
-            _pauseMenuUIController = new PauseMenuUIController(_pauseMenuUIView);
-            _gameOverUIController = new GameOverUIController(_gameOverUIView);
-            _levelCompletedUIController = new LevelCompletedUIController(_levelCompletedUIView);
-            _gameplayUIController = new GameplayUIController(_gameplayUIView);
-            _powerUpSelectionUIController = new PowerUpSelectionUIController(_powerUpSelectionUIView, _powerUpButtonView, _healthUpgradeButtonView, _healingButtonView);
+            CreateCanvas();
+            IntializeControllers();
             SubscribeToEvents();
+        }
+
+        private void CreateCanvas()
+        {
+            GameObject uiCanvas = Object.Instantiate(_uiData_SO.uiCanvas);
+            _uiCanvasTransform = uiCanvas.transform;
+
+            GameObject dmgNumCanvas = Object.Instantiate(_uiData_SO.dmgNumCanvas);
+            _dmgNumcanvasTransform = dmgNumCanvas.transform;
+        }
+
+        private void IntializeControllers()
+        {
+            _mainMenuUIController = new MainMenuUIController(_uiData_SO.mainMenuUIPrefab, _uiCanvasTransform);
+            _levelSelectionController = new LevelSelectionUIController(_uiData_SO.levelSelectionPrefab, _uiData_SO.levelButtonPrefab, _uiCanvasTransform, _level_SO);
+            _characterSelectionController = new CharacterSelectionUIController(_uiData_SO.characterSelectionPrefab, _uiData_SO.characterButtonPrefab, _uiCanvasTransform, _player_SO);
+            _gameplayUIController = new GameplayUIController(_uiData_SO.gameplayUIPrefab, _uiCanvasTransform);
+            _powerUpSelectionUIController = new PowerUpSelectionUIController(_uiData_SO.powerUpSelectionUIPrefab, _uiData_SO.powerUpButtonPrefab, _uiData_SO.healthUpgradeButtonPrefab, _uiData_SO.healingButtonPrefab, _uiCanvasTransform);
+            _pauseMenuUIController = new PauseMenuUIController(_uiData_SO.pauseMenuUIPrefab, _uiCanvasTransform);
+            _gameOverUIController = new GameOverUIController(_uiData_SO.gameOverUIPrefab, _uiCanvasTransform);
+            _levelCompletedUIController = new LevelCompletedUIController(_uiData_SO.levelCompletedUIPrefab, _uiCanvasTransform);       
         }
 
         private void OnDisable() => UnsubscribeToEvents();
@@ -116,12 +96,11 @@ namespace Roguelike.UI
         public void SetGameState(GameState _newState)
         {
             _currentGameState = _newState;
-            _gameplayUIView.SetGameState(_currentGameState);
         }
 
-        public Transform GetCanvasTransform => _canvasTransform;
+        public Transform GetCanvasTransform => _uiCanvasTransform;
 
-        public Transform GetDamageCanvasTransform => _dmgCanvasTransform;
+        public Transform GetDamageCanvasTransform => _dmgNumcanvasTransform;
     }
 }
 
