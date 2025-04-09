@@ -6,8 +6,6 @@ namespace Roguelike.Enemy
     {
         public BomberEnemyController(EnemyScriptableObject enemySO) : base(enemySO) {}
 
-        protected override void Attack() {}
-
         public override void OnCollisionWithPlayer()
         {
             isDead = true;
