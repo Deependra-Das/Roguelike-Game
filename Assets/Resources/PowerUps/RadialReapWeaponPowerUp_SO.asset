@@ -16,6 +16,9 @@ MonoBehaviour:
   - powerUpTypes: 0
     value: 0
     description: Activate Weapon
+  - powerUpTypes: 1
+    value: 2
+    description: Range +1
   - powerUpTypes: 3
     value: 2
     description: Damage +1
@@ -23,7 +26,7 @@ MonoBehaviour:
     value: 3
     description: Damage +1
   - powerUpTypes: 1
-    value: 1
+    value: 3
     description: Range +1
   - powerUpTypes: 3
     value: 4
@@ -32,17 +35,14 @@ MonoBehaviour:
     value: 5
     description: Damage +1
   - powerUpTypes: 1
-    value: 2
+    value: 4
     description: Range +1
   - powerUpTypes: 3
     value: 6
     description: Damage +1
   - powerUpTypes: 3
-    value: 7
-    description: Damage +1
-  - powerUpTypes: 1
-    value: 3
-    description: Range +1
+    value: 8
+    description: Damage +2
   - powerUpTypes: 3
     value: 10
     description: Damage +2

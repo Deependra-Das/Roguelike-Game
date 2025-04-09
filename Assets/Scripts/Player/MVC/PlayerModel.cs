@@ -6,7 +6,7 @@ namespace Roguelike.Player
     {
         private PlayerController _playerController;
 
-        public PlayerModel(PlayerScriptableObject playerDataObj)
+        public PlayerModel(PlayerData playerDataObj)
         {
             PlayerID = playerDataObj.ID;
             PlayerPrefab = playerDataObj.playerPrefab;

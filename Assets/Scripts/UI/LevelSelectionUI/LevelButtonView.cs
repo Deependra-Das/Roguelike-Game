@@ -28,7 +28,7 @@ namespace Roguelike.UI
 
         private void OnLevelButtonClicked() => owner.OnLevelSelected(_levelId);
 
-        public void SetLevelButtonData(LevelScriptableObject levelData)
+        public void SetLevelButtonData(LevelData levelData)
         {
             _levelId = levelData.ID;
             _levelNameText.SetText(levelData.levelName);
@@ -38,12 +38,11 @@ namespace Roguelike.UI
             {
                 _enemyImages[i].sprite = levelData.enemyWaveData[i].enemy_SO.enemyImage;
             }
-            SetHighScore();
         }
 
         public void SetHighScore()
         {
-            float highScore = GameService.Instance.GetService<HighScoreService>().GetHighScore(_levelId);
+            float highScore = ServiceLocator.Instance.GetService<HighScoreService>().GetHighScore(_levelId);
             float min = Mathf.FloorToInt(highScore / 60f);
             float sec = Mathf.FloorToInt(highScore % 60f);
             _levelHighScoreText.text = "High Score : "+min.ToString("00") + ":" + sec.ToString("00");

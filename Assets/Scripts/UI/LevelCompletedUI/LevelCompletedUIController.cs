@@ -11,19 +11,15 @@ namespace Roguelike.UI
     {
         private LevelCompletedUIView _levelCompletedUIView;
 
-        public LevelCompletedUIController(LevelCompletedUIView levelCompletedUIView)
+        public LevelCompletedUIController(LevelCompletedUIView levelCompletedUIPrefab, Transform uiCanvasTransform)
         {
-            _levelCompletedUIView = levelCompletedUIView;
+            _levelCompletedUIView = Object.Instantiate(levelCompletedUIPrefab, uiCanvasTransform);
             _levelCompletedUIView.SetController(this);
-        }
-
-        ~LevelCompletedUIController() => UnsubscribeToEvents();
-
-        public void InitializeController()
-        {
             SubscribeToEvents();
             Hide();
         }
+
+        ~LevelCompletedUIController() => UnsubscribeToEvents();
 
         private void SubscribeToEvents()
         {
@@ -39,7 +35,7 @@ namespace Roguelike.UI
 
         public void Show()
         {
-            GameService.Instance.GetService<SoundService>().PlayBGM(SoundType.LevelCompleted);
+            ServiceLocator.Instance.GetService<SoundService>().PlayBGM(SoundType.LevelCompleted);
             _levelCompletedUIView.EnableView();
         }
 
@@ -55,7 +51,7 @@ namespace Roguelike.UI
 
         public void OnBackButtonClicked()
         {
-            GameService.Instance.GetService<SoundService>().PlaySFX(SoundType.ButtonClick);
+            ServiceLocator.Instance.GetService<SoundService>().PlaySFX(SoundType.ButtonClick);
             Hide();
             GameService.Instance.ChangeGameState(GameState.MainMenu);
         }

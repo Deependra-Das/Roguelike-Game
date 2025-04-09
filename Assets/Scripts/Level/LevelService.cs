@@ -9,15 +9,15 @@ namespace Roguelike.Level
 {
     public class LevelService : IService
     {
-        private List<LevelScriptableObject> levelScriptableObjects;
+        private Dictionary<int, LevelData> _levelDataDictionary;
         private List<int> _expToUpgradeList;
         private GameObject _activeLevelObj;
         private GameState _currentGameState;
         public int LevelIdSelected { get; private set; }
 
-        public LevelService(List<LevelScriptableObject> levelScriptableObjects)
+        public LevelService(LevelScriptableObject levelScriptableObject)
         {
-            this.levelScriptableObjects = levelScriptableObjects;
+            ConvertLevelDataListToDictionary(levelScriptableObject.levelDataList);
         }
 
         ~LevelService() => UnsubscribeToEvents();
@@ -52,18 +52,19 @@ namespace Roguelike.Level
 
         public void LoadLevel()
         {
-            var levelData = levelScriptableObjects.Find(levelSO => levelSO.ID == LevelIdSelected);
+            LevelData levelData = _levelDataDictionary[LevelIdSelected];
+
             _activeLevelObj=Object.Instantiate(levelData.levelPrefab);
             switch(LevelIdSelected)
             {
                 case 1:
-                    GameService.Instance.GetService<SoundService>().PlayBGM(SoundType.BGM1, true);
+                    ServiceLocator.Instance.GetService<SoundService>().PlayBGM(SoundType.BGM1, true);
                     break;
                 case 2:
-                    GameService.Instance.GetService<SoundService>().PlayBGM(SoundType.BGM2, true);
+                    ServiceLocator.Instance.GetService<SoundService>().PlayBGM(SoundType.BGM2, true);
                     break;
                 case 3:
-                    GameService.Instance.GetService<SoundService>().PlayBGM(SoundType.BGM3, true);
+                    ServiceLocator.Instance.GetService<SoundService>().PlayBGM(SoundType.BGM3, true);
                     break;
             }
         }
@@ -73,14 +74,14 @@ namespace Roguelike.Level
             _currentGameState = _newState;
         }
 
-        public LevelScriptableObject GetLevelData()
+        public LevelData GetLevelData()
         {
-            return levelScriptableObjects.Find(levelSO => levelSO.ID == LevelIdSelected);
+            return _levelDataDictionary[LevelIdSelected];
         }
 
         public List<int> GetExpToUpgradeList()
         {
-            return levelScriptableObjects.Find(levelSO => levelSO.ID == LevelIdSelected).expToUpgrade_SO.expToUpgradeList;
+            return _levelDataDictionary[LevelIdSelected].expToUpgrade_SO.expToUpgradeList;
         }
 
         private void UnloadLevel()
@@ -89,5 +90,14 @@ namespace Roguelike.Level
             Object.Destroy(_activeLevelObj);
         }
 
+        private void ConvertLevelDataListToDictionary(List<LevelData> levelDataList)
+        {
+            _levelDataDictionary = new Dictionary<int, LevelData>();
+
+            foreach (var level in levelDataList)
+            {
+                _levelDataDictionary.Add(level.ID, level);
+            }
+        }
     }
 }

@@ -12,18 +12,14 @@ namespace Roguelike.UI
         private MainMenuUIView _mainMenuUIView;
         private GameState _currentGameState;
 
-        public MainMenuUIController(MainMenuUIView mainMenuUIView)
+        public MainMenuUIController(MainMenuUIView mainMenuUIPrefab, Transform uiCanvasTransform)
         {
-            _mainMenuUIView = mainMenuUIView;
+            _mainMenuUIView = Object.Instantiate(mainMenuUIPrefab, uiCanvasTransform);
             _mainMenuUIView.SetController(this);
+            SubscribeToEvents();
         }
 
         ~MainMenuUIController() => UnsubscribeToEvents();
-
-        public void InitializeController()
-        {
-            SubscribeToEvents();
-        }
 
         private void SubscribeToEvents()
         {
@@ -39,7 +35,7 @@ namespace Roguelike.UI
 
         public void Show()
         {
-            GameService.Instance.GetService<SoundService>().PlayBGM(SoundType.MainBGM, true);
+            ServiceLocator.Instance.GetService<SoundService>().PlayBGM(SoundType.MainBGM, true);
             _mainMenuUIView.EnableView();
         }
 
@@ -55,14 +51,14 @@ namespace Roguelike.UI
 
         public void OnNewGameButtonClicked()
         {
-            GameService.Instance.GetService<SoundService>().PlaySFX(SoundType.ButtonClick);
+            ServiceLocator.Instance.GetService<SoundService>().PlaySFX(SoundType.ButtonClick);
             Hide();
             GameService.Instance.ChangeGameState(GameState.LevelSelection);
         }
 
         public void OnQuitButtonClicked()
         {
-            GameService.Instance.GetService<SoundService>().PlaySFX(SoundType.ButtonClick);
+            ServiceLocator.Instance.GetService<SoundService>().PlaySFX(SoundType.ButtonClick);
             Application.Quit();
         }
     }

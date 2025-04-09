@@ -12,20 +12,16 @@ namespace Roguelike.UI
         private GameplayUIView _gameplayUIView;
         private GameState _currentGameState;
 
-        public GameplayUIController(GameplayUIView gameplayUIView)
+        public GameplayUIController(GameplayUIView gameplayUIPrefab, Transform uiCanvasTransform)
         {
-            _gameplayUIView = gameplayUIView;
+            _gameplayUIView = Object.Instantiate(gameplayUIPrefab, uiCanvasTransform);
             _gameplayUIView.SetController(this);
+            SubscribeToEvents();
         }
 
         ~GameplayUIController()
         {
             UnsubscribeToEvents();
-        }
-
-        public void InitializeController()
-        {
-            SubscribeToEvents();
         }
 
         private void SubscribeToEvents()

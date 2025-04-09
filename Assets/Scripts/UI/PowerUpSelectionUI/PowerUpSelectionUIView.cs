@@ -7,7 +7,7 @@ using Roguelike.Player;
 
 namespace Roguelike.UI
 {
-    public class PowerUpSelectionUIView : MonoBehaviour, IUIView
+    public class PowerUpSelectionUIView : MonoBehaviour
     {
         private PowerUpSelectionUIController _controller;
         [SerializeField] private Transform _weaponUpgradeButtonContainer;
@@ -42,7 +42,7 @@ namespace Roguelike.UI
 
         private void SetViewData()
         {
-            int playerExpLevel = GameService.Instance.GetService<PlayerService>().GetPlayer().PlayerModel.CurrentExpLevel;
+            int playerExpLevel = ServiceLocator.Instance.GetService<PlayerService>().GetPlayer().PlayerModel.CurrentExpLevel;
 
             if (playerExpLevel <= AllowSkipUpgradeAtLevel)
             {

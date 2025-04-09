@@ -1,6 +1,7 @@
 using UnityEngine;
 using System;
 using System.Collections.Generic;
+using System.Collections;
 using Unity.Cinemachine;
 using Roguelike.Utilities;
 using Roguelike.Event;
@@ -11,11 +12,11 @@ using Roguelike.UI;
 using Roguelike.Wave;
 using Roguelike.Weapon;
 using Roguelike.Projectile;
-using System.Collections;
 using Roguelike.VFX;
 using Roguelike.DamageNumber;
 using Roguelike.Sound;
 using Roguelike.HighScore;
+using Roguelike.Camera;
 
 namespace Roguelike.Main
 {
@@ -26,7 +27,6 @@ namespace Roguelike.Main
         [SerializeField] private int _waitTimeBeforeInitialExp = 0;
 
         [Header("Service References")]
-        [SerializeField] private UIService _uiService;
         [SerializeField] private WaveService _waveService;
 
         [Header("Prefabs")]
@@ -37,12 +37,13 @@ namespace Roguelike.Main
         [SerializeField] private List<AudioSource> _audioSourceList;
 
         [Header("Scriptable Objects")]
-        [SerializeField] private List<LevelScriptableObject> _levelScriptableObjects;
-        [SerializeField] private List<PlayerScriptableObject> _playerScriptableObjects;
+        [SerializeField] private LevelScriptableObject _levelScriptableObject;
+        [SerializeField] private PlayerScriptableObject _playerScriptableObject;
         [SerializeField] private List<EnemyScriptableObject> _enemyScriptableObjects;
         [SerializeField] private List<WeaponScriptableObject> _weaponScriptableObjects;
         [SerializeField] private List<ProjectileScriptableObject> _projectileScriptableObjects;
         [SerializeField] private SoundScriptableObject _audioList;
+        [SerializeField] private UI_Data_ScriptableObject _uiDataScriptableObject;
         #endregion
 
         private Dictionary<Type, IService> _services = new Dictionary<Type, IService>();
@@ -58,79 +59,40 @@ namespace Roguelike.Main
         {
             EventService.Instance.Initialize();
             RegisterServices();
-            InjectDependencies();
+            InitializeServices();
             ChangeGameState(GameState.MainMenu);
         }
 
         private void RegisterServices()
         {
-            RegisterService<UIService>(_uiService);
-            RegisterService<SoundService>(new SoundService(_audioList, _audioSourceList));
-            RegisterService<HighScoreService>(new HighScoreService());
-            RegisterService<LevelService>(new LevelService(_levelScriptableObjects));
-            RegisterService<PlayerService>(new PlayerService(_playerScriptableObjects));
-            RegisterService<ProjectileService>(new ProjectileService(_projectileScriptableObjects));
-            RegisterService<WeaponService>(new WeaponService(_weaponScriptableObjects));
-            RegisterService<EnemyService>(new EnemyService(_enemyScriptableObjects));
-            RegisterService<WaveService>(_waveService);
-            RegisterService<VFXService>(new VFXService(_smokeVFXPrefab));
-            RegisterService<DamageNumberService>(new DamageNumberService(_dmgNumPrefab));
+            ServiceLocator.Instance.RegisterService<UIService>(new UIService(_uiDataScriptableObject, _levelScriptableObject, _playerScriptableObject));
+            ServiceLocator.Instance.RegisterService<DamageNumberService>(new DamageNumberService(_dmgNumPrefab));
+            ServiceLocator.Instance.RegisterService<SoundService>(new SoundService(_audioList, _audioSourceList));
+            ServiceLocator.Instance.RegisterService<CameraService>(new CameraService(_cinemachineCamera));
+            ServiceLocator.Instance.RegisterService<HighScoreService>(new HighScoreService());
+            ServiceLocator.Instance.RegisterService<LevelService>(new LevelService(_levelScriptableObject));
+            ServiceLocator.Instance.RegisterService<PlayerService>(new PlayerService(_playerScriptableObject));
+            ServiceLocator.Instance.RegisterService<ProjectileService>(new ProjectileService(_projectileScriptableObjects));
+            ServiceLocator.Instance.RegisterService<WeaponService>(new WeaponService(_weaponScriptableObjects));
+            ServiceLocator.Instance.RegisterService<EnemyService>(new EnemyService(_enemyScriptableObjects));
+            ServiceLocator.Instance.RegisterService<WaveService>(_waveService);
+            ServiceLocator.Instance.RegisterService<VFXService>(new VFXService(_smokeVFXPrefab));                
         }
 
-        public void InjectDependencies()
+        public void InitializeServices()
         {
-            InitializeService<UIService>();
-            InitializeService<SoundService>();
-            InitializeService<HighScoreService>();
-            InitializeService<LevelService>();
-            InitializeService<PlayerService>();
-            InitializeService<ProjectileService>();
-            InitializeService<WeaponService>();
-            InitializeService<EnemyService>();
-            InitializeService<WaveService>();
-            InitializeService<VFXService>();
-            InitializeService<DamageNumberService>();
-        }
-
-        public void RegisterService<T>(IService service) where T : IService
-        {
-            Type serviceType = typeof(T);
-            if (!_services.ContainsKey(serviceType))
-            {
-                _services[serviceType] = service;
-            }
-            else
-            {
-                Debug.LogWarning($"{serviceType} is already registered.");
-            }
-        }
-
-        public void InitializeService<T>(params object[] dependencies) where T : IService
-        {
-            Type serviceType = typeof(T);
-            if (_services.ContainsKey(serviceType))
-            {
-                IService service = _services[serviceType];
-                service.Initialize(dependencies);
-            }
-            else
-            {
-                Debug.LogWarning($"Service {serviceType} is not registered.");
-            }
-        }
-
-        public T GetService<T>() where T : IService
-        {
-            Type serviceType = typeof(T);
-            if (_services.ContainsKey(serviceType))
-            {
-                return (T)_services[serviceType];
-            }
-            else
-            {
-                Debug.LogError($"{serviceType} is not registered.");
-                return default;
-            }
+            ServiceLocator.Instance.InitializeService<UIService>();
+            ServiceLocator.Instance.InitializeService<DamageNumberService>();
+            ServiceLocator.Instance.InitializeService<CameraService>();
+            ServiceLocator.Instance.InitializeService<SoundService>();
+            ServiceLocator.Instance.InitializeService<HighScoreService>();
+            ServiceLocator.Instance.InitializeService<LevelService>();
+            ServiceLocator.Instance.InitializeService<PlayerService>();
+            ServiceLocator.Instance.InitializeService<ProjectileService>();
+            ServiceLocator.Instance.InitializeService<WeaponService>();
+            ServiceLocator.Instance.InitializeService<EnemyService>();
+            ServiceLocator.Instance.InitializeService<WaveService>();
+            ServiceLocator.Instance.InitializeService<VFXService>();
         }
 
         void Update()
@@ -143,18 +105,6 @@ namespace Roguelike.Main
                 {
                     ChangeGameState(GameState.GamePaused);
                 }
-            }
-        }
-
-        public void SetCameraTarget(GameObject targetGameObject)
-        {
-            if (_cinemachineCamera != null && targetGameObject != null)
-            {
-                _cinemachineCamera.Follow = targetGameObject.transform;
-            }
-            else
-            {
-                Debug.LogWarning("Cinemachine Virtual Camera or Target GameObject is not assigned.");
             }
         }
 
@@ -201,7 +151,7 @@ namespace Roguelike.Main
         {
             EventService.Instance.OnStartGameplay.Invoke();
             ChangeGameState(GameState.Gameplay);
-            _cinemachineCamera.PreviousStateIsValid = false;
+            ServiceLocator.Instance.GetService<CameraService>().ResetCameraPosition();
             ResetGameTimer();
             StartCoroutine(GiveIntialSpawnExpPoints(_waitTimeBeforeInitialExp));
         }
@@ -211,7 +161,7 @@ namespace Roguelike.Main
             yield return new WaitForSeconds(waitTime);
             if(GameState==GameState.Gameplay)
             {
-                GetService<PlayerService>().GetPlayer().AddExperiencePoints(1);
+                ServiceLocator.Instance.GetService<PlayerService>().GetPlayer().AddExperiencePoints(1);
             }            
         }
 

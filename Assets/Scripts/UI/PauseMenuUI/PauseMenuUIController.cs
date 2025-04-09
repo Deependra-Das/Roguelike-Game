@@ -12,19 +12,14 @@ namespace Roguelike.UI
         private PauseMenuUIView _pauseMenuUIView;
         private GameState _currentGameState;
 
-        public PauseMenuUIController(PauseMenuUIView pauseMenuUIView)
+        public PauseMenuUIController(PauseMenuUIView pauseMenuUIPrefab, Transform uiCanvasTransform)
         {
-            _pauseMenuUIView = pauseMenuUIView;
-            _pauseMenuUIView.SetController(this);
+            _pauseMenuUIView = Object.Instantiate(pauseMenuUIPrefab, uiCanvasTransform);
+            _pauseMenuUIView.SetController(this); SubscribeToEvents();
+            Hide();
         }
 
         ~PauseMenuUIController() => UnsubscribeToEvents();
-
-        public void InitializeController()
-        {
-            SubscribeToEvents();
-            Hide();
-        }
 
         private void SubscribeToEvents()
         {
@@ -40,7 +35,7 @@ namespace Roguelike.UI
 
         public void Show()
         {
-            GameService.Instance.GetService<SoundService>().PlaySFX(SoundType.GamePause);
+            ServiceLocator.Instance.GetService<SoundService>().PlaySFX(SoundType.GamePause);
             _pauseMenuUIView.EnableView();
             Time.timeScale = 0;
         }
@@ -58,14 +53,14 @@ namespace Roguelike.UI
 
         public void OnContinueButtonClicked()
         {
-            GameService.Instance.GetService<SoundService>().PlaySFX(SoundType.ButtonClick);
+            ServiceLocator.Instance.GetService<SoundService>().PlaySFX(SoundType.ButtonClick);
             Hide();
             GameService.Instance.ChangeGameState(GameState.Gameplay);
         }
 
         public void OnGiveUpButtonClicked()
         {
-            GameService.Instance.GetService<SoundService>().PlaySFX(SoundType.ButtonClick);
+            ServiceLocator.Instance.GetService<SoundService>().PlaySFX(SoundType.ButtonClick);
             Hide();
             GameService.Instance.ChangeGameState(GameState.GameOver);
         }

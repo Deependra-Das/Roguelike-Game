@@ -48,7 +48,7 @@ namespace Roguelike.Enemy
 
         protected void Move()
         {
-            _playerTransform = GameService.Instance.GetService<PlayerService>().GetPlayer().PlayerGameObject.transform;
+            _playerTransform = ServiceLocator.Instance.GetService<PlayerService>().GetPlayer().PlayerGameObject.transform;
 
             if (_playerTransform.position.x > transform.position.x)
             {
@@ -94,8 +94,8 @@ namespace Roguelike.Enemy
         public void TakeDamage(int damage)
         {
             _knockBackTimer = _controller.GetEnemyModel.KnockBackDuration;
-            GameService.Instance.GetService<SoundService>().PlayEnemySFX(SoundType.EnemyDamage);
-            GameService.Instance.GetService<DamageNumberService>().SpawnDamageNumber(transform.position, damage);
+            ServiceLocator.Instance.GetService<SoundService>().PlayEnemySFX(SoundType.EnemyDamage);
+            ServiceLocator.Instance.GetService<DamageNumberService>().SpawnDamageNumber(transform.position, damage);
             _controller.TakeDamage(damage);
         }
 

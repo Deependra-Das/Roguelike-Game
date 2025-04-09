@@ -46,7 +46,7 @@ namespace Roguelike.Weapon
         {
             while (true)
             {
-                GameService.Instance.GetService<SoundService>().PlayWeaponSFX(SoundType.ScatterShot);
+                ServiceLocator.Instance.GetService<SoundService>().PlayWeaponSFX(SoundType.ScatterShot);
                 ShootProjectiles();
                 yield return new WaitForSeconds(_cycleTime);
             }
@@ -58,7 +58,7 @@ namespace Roguelike.Weapon
             {
                 float angle = (i * 360f) / _numberOfProjectiles;
                 Vector3 direction = new Vector3(Mathf.Cos(Mathf.Deg2Rad * angle) * _minRadius, Mathf.Sin(Mathf.Deg2Rad * angle) * _minRadius, 0f);
-                GameService.Instance.GetService<ProjectileService>().SpawnProjectile(ProjectileType.PlayerBall, transform.position, direction, _attackPower, _lifeTime, _speed);
+                ServiceLocator.Instance.GetService<ProjectileService>().SpawnProjectile(ProjectileType.PlayerBall, transform.position, direction, _attackPower, _lifeTime, _speed);
             }
         }
 

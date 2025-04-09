@@ -6,7 +6,7 @@ using Roguelike.Sound;
 
 namespace Roguelike.UI
 {
-    public class MainMenuUIView : MonoBehaviour, IUIView
+    public class MainMenuUIView : MonoBehaviour
     {
         [SerializeField] private Button _newGameButtonPrefab;
         [SerializeField] private Button _quitGameButtonPrefab;

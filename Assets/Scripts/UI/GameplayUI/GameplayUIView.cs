@@ -7,7 +7,7 @@ using TMPro;
 
 namespace Roguelike.UI
 {
-    public class GameplayUIView : MonoBehaviour, IUIView
+    public class GameplayUIView : MonoBehaviour
     {
         private GameplayUIController _controller;
         [SerializeField] private Slider _healthSlider;

@@ -30,7 +30,7 @@ namespace Roguelike.HighScore
 
         public void SaveHighScore()
         {
-            int levelId = GameService.Instance.GetService<LevelService>().LevelIdSelected;
+            int levelId = ServiceLocator.Instance.GetService<LevelService>().LevelIdSelected;
             float score = GameService.Instance.GameTimer;
             float currentHighScore = GetHighScore(levelId);
             EventService.Instance.OnSetFinalScore.Invoke(score, currentHighScore);

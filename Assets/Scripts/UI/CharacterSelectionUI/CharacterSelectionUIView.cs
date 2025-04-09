@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Roguelike.UI;
 
-public class CharacterSelectionUIView : MonoBehaviour, IUIView
+public class CharacterSelectionUIView : MonoBehaviour
 {
     private CharacterSelectionUIController _controller;
     [SerializeField] private Transform _characterButtonContainer;

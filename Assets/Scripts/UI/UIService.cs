@@ -3,125 +3,106 @@ using UnityEngine;
 using Roguelike.Main;
 using Roguelike.Player;
 using Roguelike.Utilities;
-using Roguelike.UI;
 using Roguelike.Level;
 using Roguelike.Event;
 
-public class UIService : MonoBehaviour,IService
+namespace Roguelike.UI
 {
-    #region Inspector Dependencies
+    public class UIService : IService
+    { 
+        private GameState _currentGameState;
 
-    [Header("Canvas Transforms")]
-    [SerializeField] private Transform _canvasTransform;
-    [SerializeField] private Transform _dmgCanvasTransform;
+        private Transform _uiCanvasTransform;
+        private Transform _dmgNumcanvasTransform;
 
-    [Header("Main Menu UI")]
-    private MainMenuUIController _mainMenuUIController;
-    [SerializeField] private MainMenuUIView _mainMenuUIView;
+        private LevelScriptableObject _level_SO;
+        private PlayerScriptableObject _player_SO;
+        private UI_Data_ScriptableObject _uiData_SO;
 
-    [Header("Level Selection UI")]
-    private LevelSelectionUIController _levelSelectionController;
-    [SerializeField] private LevelSelectionUIView _levelSelectionView;
-    [SerializeField] private LevelButtonView _levelButtonPrefab;
-    [SerializeField] private List<LevelScriptableObject> _level_SO;
+        private MainMenuUIController _mainMenuUIController;
+        private LevelSelectionUIController _levelSelectionController;
+        private CharacterSelectionUIController _characterSelectionController;
+        private PauseMenuUIController _pauseMenuUIController;
+        private GameOverUIController _gameOverUIController;
+        private LevelCompletedUIController _levelCompletedUIController;
+        private GameplayUIController _gameplayUIController;
+        private PowerUpSelectionUIController _powerUpSelectionUIController;
 
-    [Header("Character Selection UI")]
-    private CharacterSelectionUIController _characterSelectionController;
-    [SerializeField] private CharacterSelectionUIView _characterSelectionView;
-    [SerializeField] private CharacterButtonView _characterButtonPrefab;
-    [SerializeField] private List<PlayerScriptableObject> _player_SO;
+        public UIService(UI_Data_ScriptableObject uI_Data_SO, LevelScriptableObject level_SO, PlayerScriptableObject player_SO)
+        {
+            _uiData_SO = uI_Data_SO;
+            _level_SO = level_SO;
+            _player_SO = player_SO;
+            CreateCanvas();
+            SubscribeToEvents();
+        }
 
-    [Header("Pause Menu UI")]
-    private PauseMenuUIController _pauseMenuUIController;
-    [SerializeField] private PauseMenuUIView _pauseMenuUIView;
+        ~UIService() => UnsubscribeToEvents();
 
-    [Header("Game Over UI")]
-    private GameOverUIController _gameOverUIController;
-    [SerializeField] private GameOverUIView _gameOverUIView;
+        public void Initialize(params object[] dependencies)
+        {
+            IntializeControllers();
+        }
 
-    [Header("Level Completed UI")]
-    private LevelCompletedUIController _levelCompletedUIController;
-    [SerializeField] private LevelCompletedUIView _levelCompletedUIView;
+        private void CreateCanvas()
+        {
+            GameObject uiCanvas = Object.Instantiate(_uiData_SO.uiCanvas);
+            _uiCanvasTransform = uiCanvas.transform;
 
-    [Header("Gameplay UI")]
-    private GameplayUIController _gameplayUIController;
-    [SerializeField] private GameplayUIView _gameplayUIView;
+            GameObject dmgNumCanvas = Object.Instantiate(_uiData_SO.dmgNumCanvas);
+            _dmgNumcanvasTransform = dmgNumCanvas.transform;
+        }
 
-    [Header("PowerUp Selection UI")]
-    private PowerUpSelectionUIController _powerUpSelectionUIController;
-    [SerializeField] private PowerUpSelectionUIView _powerUpSelectionUIView;
-    [SerializeField] private PowerUpButtonView _powerUpButtonView;
-    [SerializeField] private HealthUpgradeButtonView _healthUpgradeButtonView;
-    [SerializeField] private HealingButtonView _healingButtonView;
+        private void IntializeControllers()
+        {
+            _mainMenuUIController = new MainMenuUIController(_uiData_SO.mainMenuUIPrefab, _uiCanvasTransform);
+            _levelSelectionController = new LevelSelectionUIController(_uiData_SO.levelSelectionPrefab, _uiData_SO.levelButtonPrefab, _uiCanvasTransform, _level_SO);
+            _characterSelectionController = new CharacterSelectionUIController(_uiData_SO.characterSelectionPrefab, _uiData_SO.characterButtonPrefab, _uiCanvasTransform, _player_SO);
+            _gameplayUIController = new GameplayUIController(_uiData_SO.gameplayUIPrefab, _uiCanvasTransform);
+            _powerUpSelectionUIController = new PowerUpSelectionUIController(_uiData_SO.powerUpSelectionUIPrefab, _uiData_SO.powerUpButtonPrefab, _uiData_SO.healthUpgradeButtonPrefab, _uiData_SO.healingButtonPrefab, _uiCanvasTransform);
+            _pauseMenuUIController = new PauseMenuUIController(_uiData_SO.pauseMenuUIPrefab, _uiCanvasTransform);
+            _gameOverUIController = new GameOverUIController(_uiData_SO.gameOverUIPrefab, _uiCanvasTransform);
+            _levelCompletedUIController = new LevelCompletedUIController(_uiData_SO.levelCompletedUIPrefab, _uiCanvasTransform);       
+        }
 
-    #endregion
+        private void SubscribeToEvents()
+        {
+            EventService.Instance.OnGameStateChange.AddListener(SetGameState);
+        }
 
-    private GameState _currentGameState;
+        private void UnsubscribeToEvents()
+        {
+            EventService.Instance.OnGameStateChange.RemoveListener(SetGameState);
+        }
 
-    private void Awake()
-    {
-        _mainMenuUIController = new MainMenuUIController(_mainMenuUIView);
-        _levelSelectionController = new LevelSelectionUIController(_levelSelectionView, _levelButtonPrefab, _level_SO);
-        _characterSelectionController = new CharacterSelectionUIController(_characterSelectionView, _characterButtonPrefab, _player_SO);
-        _pauseMenuUIController = new PauseMenuUIController(_pauseMenuUIView);
-        _gameOverUIController = new GameOverUIController(_gameOverUIView);
-        _levelCompletedUIController = new LevelCompletedUIController(_levelCompletedUIView);
-        _gameplayUIController = new GameplayUIController(_gameplayUIView);
-        _powerUpSelectionUIController = new PowerUpSelectionUIController(_powerUpSelectionUIView, _powerUpButtonView, _healthUpgradeButtonView, _healingButtonView);
+        public void UpdateCurrentHealthSlider(float currentHealth)
+        {
+            _gameplayUIController.UpdateCurrentHealthSlider(currentHealth);
+        }
+
+        public void UpdateMaxHealthSlider(float maxHealth)
+        {
+            _gameplayUIController.UpdateMaxHealthSlider(maxHealth);
+        }
+
+        public void UpdateCurrentExpSlider(float currentExp)
+        {
+            _gameplayUIController.UpdateCurrentExpSlider(currentExp);
+        }
+
+        public void UpdateMaxExpSlider(float maxExp)
+        {
+            _gameplayUIController.UpdateMaxExpSlider(maxExp);
+        }
+
+        public void SetGameState(GameState _newState)
+        {
+            _currentGameState = _newState;
+        }
+
+        public Transform GetCanvasTransform => _uiCanvasTransform;
+
+        public Transform GetDamageCanvasTransform => _dmgNumcanvasTransform;
     }
-
-    public void Initialize(params object[] dependencies)
-    {
-        _mainMenuUIController.InitializeController();
-        _levelSelectionController.InitializeController();
-        _characterSelectionController.InitializeController();
-        _pauseMenuUIController.InitializeController();
-        _gameOverUIController.InitializeController();
-        _levelCompletedUIController.InitializeController();
-        _gameplayUIController.InitializeController();
-        _powerUpSelectionUIController.InitializeController();
-        SubscribeToEvents();
-    }
-
-    private void OnDisable() => UnsubscribeToEvents();
-
-    private void SubscribeToEvents()
-    {
-        EventService.Instance.OnGameStateChange.AddListener(SetGameState);
-    }
-
-    private void UnsubscribeToEvents()
-    {
-        EventService.Instance.OnGameStateChange.RemoveListener(SetGameState);
-    }
-
-    public void UpdateCurrentHealthSlider(float currentHealth)
-    {
-        _gameplayUIController.UpdateCurrentHealthSlider(currentHealth);
-    }
-
-    public void UpdateMaxHealthSlider(float maxHealth)
-    {
-        _gameplayUIController.UpdateMaxHealthSlider(maxHealth);
-    }
-
-    public void UpdateCurrentExpSlider(float currentExp)
-    {
-        _gameplayUIController.UpdateCurrentExpSlider(currentExp);
-    }
-
-    public void UpdateMaxExpSlider(float maxExp)
-    {
-        _gameplayUIController.UpdateMaxExpSlider(maxExp);
-    }
-
-    public void SetGameState(GameState _newState)
-    {
-        _currentGameState = _newState;
-        _gameplayUIView.SetGameState(_currentGameState);
-    }
-
-    public Transform GetCanvasTransform => _canvasTransform;
-
-    public Transform GetDamageCanvasTransform => _dmgCanvasTransform;
 }
+

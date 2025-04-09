@@ -7,7 +7,7 @@ using TMPro;
 
 namespace Roguelike.UI
 {
-    public class LevelCompletedUIView : MonoBehaviour, IUIView
+    public class LevelCompletedUIView : MonoBehaviour
     {
         private LevelCompletedUIController _controller;
         [SerializeField] private Button _backToMainMenuButtonPrefab;

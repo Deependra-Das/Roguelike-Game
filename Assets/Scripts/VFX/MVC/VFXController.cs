@@ -24,7 +24,7 @@ namespace Roguelike.VFX
         public void PlayAnimation()
         {
             _vfxView.PlayAnimation();
-            GameService.Instance.GetService<VFXService>().ReturnVFXToPool(this);
+            ServiceLocator.Instance.GetService<VFXService>().ReturnVFXToPool(this);
         }
 
         public GameObject GetVFXGameObject() { return _vfxView.gameObject; }

@@ -21,24 +21,22 @@ namespace Roguelike.UI
 
         private GameState _currentGameState;
 
-        public PowerUpSelectionUIController(PowerUpSelectionUIView powerUpSelectionUIView, PowerUpButtonView powerUpButtonPrefab,
-            HealthUpgradeButtonView healthUpgradeButtonPrefab, HealingButtonView healingButtonPrefab)
+        public PowerUpSelectionUIController(PowerUpSelectionUIView powerUpSelectionUIPrefab, PowerUpButtonView powerUpButtonPrefab,
+            HealthUpgradeButtonView healthUpgradeButtonPrefab, HealingButtonView healingButtonPrefab, Transform uiCanvasTransform)
         {
             _powerUpButtonPrefab = powerUpButtonPrefab;
-            _powerUpSelectionUIView = powerUpSelectionUIView;
             _healingButtonPrefab = healingButtonPrefab;
             _healthUpgradeButtonPrefab = healthUpgradeButtonPrefab;
+
+            _powerUpSelectionUIView = Object.Instantiate(powerUpSelectionUIPrefab, uiCanvasTransform);
             _powerUpSelectionUIView.SetController(this);
-        }
 
-        ~PowerUpSelectionUIController() => UnsubscribeToEvents();
-
-        public void InitializeController()
-        {
             _weaponPowerupButtonList = new List<PowerUpButtonView>();
             SubscribeToEvents();
             Hide();
         }
+
+        ~PowerUpSelectionUIController() => UnsubscribeToEvents();
 
         private void SubscribeToEvents()
         {
@@ -115,7 +113,7 @@ namespace Roguelike.UI
 
         public void OnWeaponPowerUpSelected(WeaponController weaponObj)
         {
-            GameService.Instance.GetService<SoundService>().PlaySFX(SoundType.WeaponUpgradeButtonClick);
+            ServiceLocator.Instance.GetService<SoundService>().PlaySFX(SoundType.WeaponUpgradeButtonClick);
             weaponObj.ActivateUpgradeWeapon();
             UpdatePowerUpButtons();
             Hide();
@@ -124,21 +122,21 @@ namespace Roguelike.UI
 
         public void OnHealingSelected()
         {
-            GameService.Instance.GetService<SoundService>().PlaySFX(SoundType.HealButtonClick);
-            GameService.Instance.GetService<PlayerService>().GetPlayer().Heal();
+            ServiceLocator.Instance.GetService<SoundService>().PlaySFX(SoundType.HealButtonClick);
+            ServiceLocator.Instance.GetService<PlayerService>().GetPlayer().Heal();
             Hide();
         }
 
         public void OnHealthUpgradeSelected(int value)
         {
-            GameService.Instance.GetService<SoundService>().PlaySFX(SoundType.HealthUpgradeButtonClick);
-            GameService.Instance.GetService<PlayerService>().GetPlayer().UpgradeMaxHealth(value);
+            ServiceLocator.Instance.GetService<SoundService>().PlaySFX(SoundType.HealthUpgradeButtonClick);
+            ServiceLocator.Instance.GetService<PlayerService>().GetPlayer().UpgradeMaxHealth(value);
             Hide();
         }
 
         public void OnSkipUpgrade()
         {
-            GameService.Instance.GetService<SoundService>().PlaySFX(SoundType.ButtonClick);
+            ServiceLocator.Instance.GetService<SoundService>().PlaySFX(SoundType.ButtonClick);
             Hide();
         }
 

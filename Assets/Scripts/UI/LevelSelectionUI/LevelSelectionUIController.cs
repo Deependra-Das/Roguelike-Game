@@ -10,27 +10,23 @@ namespace Roguelike.UI
     public class LevelSelectionUIController : IUIController
     {
         private LevelButtonView _levelButtonPrefab;
-        private List<LevelScriptableObject> _level_SO;
+        private LevelScriptableObject _level_SO;
         private LevelSelectionUIView _levelSelectionUIView;
         private List<LevelButtonView> _levelButtons = new List<LevelButtonView>();
         private GameState _currentGameState;
 
-        public LevelSelectionUIController(LevelSelectionUIView levelSelectionUIView, LevelButtonView levelButtonPrefab, List<LevelScriptableObject> level_SO)
+        public LevelSelectionUIController(LevelSelectionUIView levelSelectionUIPrefab, LevelButtonView levelButtonPrefab, Transform uiCanvasTransform, LevelScriptableObject level_SO)
         {
             _level_SO = level_SO;
             _levelButtonPrefab = levelButtonPrefab;
-            _levelSelectionUIView = levelSelectionUIView;
+            _levelSelectionUIView = Object.Instantiate(levelSelectionUIPrefab, uiCanvasTransform);
             _levelSelectionUIView.SetController(this);
-        }
-
-        ~LevelSelectionUIController() => UnsubscribeToEvents();
-
-        public void InitializeController()
-        {
             CreateLevelButtons();
             SubscribeToEvents();
             Hide();
         }
+
+        ~LevelSelectionUIController() => UnsubscribeToEvents();
 
         private void SubscribeToEvents()
         {
@@ -63,7 +59,7 @@ namespace Roguelike.UI
         public void CreateLevelButtons()
         {
             _levelButtons.Clear();
-           foreach (var levelData in _level_SO)
+           foreach (var levelData in _level_SO.levelDataList)
             {
                 var newButton = _levelSelectionUIView.AddButton(_levelButtonPrefab);
                 newButton.SetOwner(this);
@@ -82,7 +78,7 @@ namespace Roguelike.UI
 
         public void OnLevelSelected(int levelId)
         {
-            GameService.Instance.GetService<SoundService>().PlaySFX(SoundType.ButtonClick);
+            ServiceLocator.Instance.GetService<SoundService>().PlaySFX(SoundType.ButtonClick);
             Hide();
             EventService.Instance.OnLevelSelected.Invoke(levelId);
             GameService.Instance.ChangeGameState(GameState.CharacterSelection);

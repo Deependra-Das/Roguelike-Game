@@ -11,27 +11,23 @@ namespace Roguelike.UI
     {
         private CharacterSelectionUIView _characterSelectionUIView;
         private CharacterButtonView _characterButtonPrefab;
-        private List<PlayerScriptableObject> _character_SO;
+        private PlayerScriptableObject _player_SO;
         private GameState _currentGameState;
 
-        public CharacterSelectionUIController(CharacterSelectionUIView characterSelectionUIView, CharacterButtonView characterButtonPrefab, List<PlayerScriptableObject> character_SO)
+        public CharacterSelectionUIController(CharacterSelectionUIView characterSelectionUIPrefab, CharacterButtonView characterButtonPrefab, Transform uiCanvasTransform, PlayerScriptableObject player_SO)
         {
-            _character_SO = character_SO;
+            _player_SO = player_SO;
             _characterButtonPrefab = characterButtonPrefab;
-            _characterSelectionUIView = characterSelectionUIView;
+            _characterSelectionUIView = Object.Instantiate(characterSelectionUIPrefab, uiCanvasTransform);
             _characterSelectionUIView.SetController(this);
+            CreateCharacterButtons();
+            SubscribeToEvents();
+            Hide();
         }
 
         ~CharacterSelectionUIController()
         {
             UnsubscribeToEvents();
-        }
-
-        public void InitializeController()
-        {
-            CreateCharacterButtons();
-            SubscribeToEvents();
-            Hide();
         }
 
         private void SubscribeToEvents()
@@ -63,7 +59,7 @@ namespace Roguelike.UI
 
         public void CreateCharacterButtons()
         {
-            foreach (var characterData in _character_SO)
+            foreach (var characterData in _player_SO.playerDataList)
             {
                 var newButton = _characterSelectionUIView.AddButton(_characterButtonPrefab);
                 newButton.SetOwner(this);
@@ -73,7 +69,7 @@ namespace Roguelike.UI
 
         public void OnCharacterSelected(int characterId)
         {
-            GameService.Instance.GetService<SoundService>().PlaySFX(SoundType.ButtonClick);
+            ServiceLocator.Instance.GetService<SoundService>().PlaySFX(SoundType.ButtonClick);
             EventService.Instance.OnCharacterSelected.Invoke(characterId);
             GameService.Instance.StartGameplay();
             Hide();

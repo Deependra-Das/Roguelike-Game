@@ -1,5 +1,6 @@
 using Roguelike.Main;
 using Roguelike.Event;
+using Roguelike.UI;
 using Roguelike.Utilities;
 using UnityEngine;
 
@@ -22,7 +23,7 @@ namespace Roguelike.DamageNumber
         public void Initialize(params object[] dependencies)
         {
             _damageNumberPoolObj = new DamageNumberPool(_damageNumberPrefab);
-            _dmgCanvasTransform = GameService.Instance.GetService<UIService>().GetDamageCanvasTransform;
+            _dmgCanvasTransform = ServiceLocator.Instance.GetService<UIService>().GetDamageCanvasTransform;
             SubscribeToEvents();
         }
 

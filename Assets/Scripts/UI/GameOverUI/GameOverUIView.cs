@@ -7,7 +7,7 @@ using TMPro;
 
 namespace Roguelike.UI
 {
-    public class GameOverUIView : MonoBehaviour, IUIView
+    public class GameOverUIView : MonoBehaviour
     {
         private GameOverUIController _controller;
         [SerializeField] private Button _backToMainMenuButtonPrefab;

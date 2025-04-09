@@ -11,19 +11,15 @@ namespace Roguelike.UI
     {
         private GameOverUIView _gameOverUIView;
 
-        public GameOverUIController(GameOverUIView gameOverUIView)
+        public GameOverUIController(GameOverUIView gameOverUIPrefab, Transform uiCanvasTransform)
         {
-            _gameOverUIView = gameOverUIView;
+            _gameOverUIView = Object.Instantiate(gameOverUIPrefab, uiCanvasTransform);
             _gameOverUIView.SetController(this);
-        }
-
-        ~GameOverUIController() => UnsubscribeToEvents();
-
-        public void InitializeController()
-        {
             SubscribeToEvents();
             Hide();
         }
+
+        ~GameOverUIController() => UnsubscribeToEvents();
 
         private void SubscribeToEvents()
         {
@@ -39,7 +35,7 @@ namespace Roguelike.UI
 
         public void Show()
         {
-            GameService.Instance.GetService<SoundService>().PlayBGM(SoundType.GameOver);
+            ServiceLocator.Instance.GetService<SoundService>().PlayBGM(SoundType.GameOver);
             _gameOverUIView.EnableView();
         }
 
