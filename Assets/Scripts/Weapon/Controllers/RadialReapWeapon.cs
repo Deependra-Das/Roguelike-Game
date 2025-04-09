@@ -29,7 +29,7 @@ namespace Roguelike.Weapon
             Weapon_SO = weapon_SO;
             CurrentWeaponLevel = 0;
             _damageTimer = 0;
-
+            _originalScale = transform.localScale;
             _soundService = ServiceLocator.Instance.GetService<SoundService>();
 
             SubscribeToEvents();
@@ -62,7 +62,6 @@ namespace Roguelike.Weapon
         public override void ActivateWeapon()
         {
             gameObject.SetActive(true);
-            _originalScale = transform.localScale;
             _damageTimer = 0;
             _enemiesInRange.Clear();
             if (_shrinkGrowCoroutine == null)
