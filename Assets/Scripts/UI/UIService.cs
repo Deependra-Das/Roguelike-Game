@@ -28,16 +28,20 @@ namespace Roguelike.UI
         private GameplayUIController _gameplayUIController;
         private PowerUpSelectionUIController _powerUpSelectionUIController;
 
+        public UIService(UI_Data_ScriptableObject uI_Data_SO, List<LevelScriptableObject> level_SO_List, List<PlayerScriptableObject> player_SO_List)
+        {
+            _uiData_SO = uI_Data_SO;
+            _level_SO = level_SO_List;
+            _player_SO = player_SO_List;
+            CreateCanvas();
+            SubscribeToEvents();
+        }
+
+        ~UIService() => UnsubscribeToEvents();
 
         public void Initialize(params object[] dependencies)
         {
-            _uiData_SO = (UI_Data_ScriptableObject)dependencies[0];
-            _level_SO = (List<LevelScriptableObject>)dependencies[1];
-            _player_SO = (List<PlayerScriptableObject>)dependencies[2];
-
-            CreateCanvas();
             IntializeControllers();
-            SubscribeToEvents();
         }
 
         private void CreateCanvas()
@@ -60,8 +64,6 @@ namespace Roguelike.UI
             _gameOverUIController = new GameOverUIController(_uiData_SO.gameOverUIPrefab, _uiCanvasTransform);
             _levelCompletedUIController = new LevelCompletedUIController(_uiData_SO.levelCompletedUIPrefab, _uiCanvasTransform);       
         }
-
-        private void OnDisable() => UnsubscribeToEvents();
 
         private void SubscribeToEvents()
         {

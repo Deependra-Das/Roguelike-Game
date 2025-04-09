@@ -74,22 +74,22 @@ namespace Roguelike.Main
                 ServiceLocator.Instance.RegisterService<WaveService>(_waveService);
                 ServiceLocator.Instance.RegisterService<VFXService>(new VFXService(_smokeVFXPrefab));
                 ServiceLocator.Instance.RegisterService<DamageNumberService>(new DamageNumberService(_dmgNumPrefab));
-                ServiceLocator.Instance.RegisterService<UIService>(new UIService());
+                ServiceLocator.Instance.RegisterService<UIService>(new UIService(_uiDataScriptableObject, _levelScriptableObjects, _playerScriptableObjects));
         }
 
         public void InjectDependencies()
         {
-                ServiceLocator.Instance.InitializeService<UIService>(_uiDataScriptableObject, _levelScriptableObjects, _playerScriptableObjects);
-                ServiceLocator.Instance.InitializeService<SoundService>(_audioList, _audioSourceList);
+                ServiceLocator.Instance.InitializeService<UIService>();
+                ServiceLocator.Instance.InitializeService<DamageNumberService>();
+                ServiceLocator.Instance.InitializeService<SoundService>();
                 ServiceLocator.Instance.InitializeService<HighScoreService>();
-                ServiceLocator.Instance.InitializeService<LevelService>(_levelScriptableObjects);
-                ServiceLocator.Instance.InitializeService<PlayerService>(_playerScriptableObjects);
-                ServiceLocator.Instance.InitializeService<ProjectileService>(_projectileScriptableObjects);
-                ServiceLocator.Instance.InitializeService<WeaponService>(_weaponScriptableObjects);
-                ServiceLocator.Instance.InitializeService<EnemyService>(_enemyScriptableObjects);
-                ServiceLocator.Instance.InitializeService<WaveService>(_waveService);
-                ServiceLocator.Instance.InitializeService<VFXService>(_smokeVFXPrefab);
-                ServiceLocator.Instance.InitializeService<DamageNumberService>(_dmgNumPrefab);
+                ServiceLocator.Instance.InitializeService<LevelService>();
+                ServiceLocator.Instance.InitializeService<PlayerService>();
+                ServiceLocator.Instance.InitializeService<ProjectileService>();
+                ServiceLocator.Instance.InitializeService<WeaponService>();
+                ServiceLocator.Instance.InitializeService<EnemyService>();
+                ServiceLocator.Instance.InitializeService<WaveService>();
+                ServiceLocator.Instance.InitializeService<VFXService>();
         }
 
         public T GetService<T>() where T : IService
