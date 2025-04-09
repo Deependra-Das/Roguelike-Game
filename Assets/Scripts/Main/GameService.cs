@@ -37,7 +37,7 @@ namespace Roguelike.Main
 
         [Header("Scriptable Objects")]
         [SerializeField] private List<LevelScriptableObject> _levelScriptableObjects;
-        [SerializeField] private List<PlayerScriptableObject> _playerScriptableObjects;
+        [SerializeField] private PlayerScriptableObject _playerScriptableObject;
         [SerializeField] private List<EnemyScriptableObject> _enemyScriptableObjects;
         [SerializeField] private List<WeaponScriptableObject> _weaponScriptableObjects;
         [SerializeField] private List<ProjectileScriptableObject> _projectileScriptableObjects;
@@ -58,7 +58,7 @@ namespace Roguelike.Main
         {
             EventService.Instance.Initialize();
             RegisterServices();
-            InjectDependencies();
+            InitializeServices();
             ChangeGameState(GameState.MainMenu);
         }
 
@@ -67,17 +67,17 @@ namespace Roguelike.Main
                 ServiceLocator.Instance.RegisterService<SoundService>(new SoundService(_audioList, _audioSourceList));
                 ServiceLocator.Instance.RegisterService<HighScoreService>(new HighScoreService());
                 ServiceLocator.Instance.RegisterService<LevelService>(new LevelService(_levelScriptableObjects));
-                ServiceLocator.Instance.RegisterService<PlayerService>(new PlayerService(_playerScriptableObjects));
+                ServiceLocator.Instance.RegisterService<PlayerService>(new PlayerService(_playerScriptableObject));
                 ServiceLocator.Instance.RegisterService<ProjectileService>(new ProjectileService(_projectileScriptableObjects));
                 ServiceLocator.Instance.RegisterService<WeaponService>(new WeaponService(_weaponScriptableObjects));
                 ServiceLocator.Instance.RegisterService<EnemyService>(new EnemyService(_enemyScriptableObjects));
                 ServiceLocator.Instance.RegisterService<WaveService>(_waveService);
                 ServiceLocator.Instance.RegisterService<VFXService>(new VFXService(_smokeVFXPrefab));
                 ServiceLocator.Instance.RegisterService<DamageNumberService>(new DamageNumberService(_dmgNumPrefab));
-                ServiceLocator.Instance.RegisterService<UIService>(new UIService(_uiDataScriptableObject, _levelScriptableObjects, _playerScriptableObjects));
+                ServiceLocator.Instance.RegisterService<UIService>(new UIService(_uiDataScriptableObject, _levelScriptableObjects, _playerScriptableObject));
         }
 
-        public void InjectDependencies()
+        public void InitializeServices()
         {
                 ServiceLocator.Instance.InitializeService<UIService>();
                 ServiceLocator.Instance.InitializeService<DamageNumberService>();

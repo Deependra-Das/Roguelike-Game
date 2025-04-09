@@ -26,7 +26,7 @@ namespace Roguelike.UI
 
         private void OnCharacterButtonClicked() => owner.OnCharacterSelected(_characterId);
 
-        public void SetCharacterButtonData(PlayerScriptableObject characterData)
+        public void SetCharacterButtonData(PlayerData characterData)
         {
             _characterId = characterData.ID;
             _characterNameText.text =characterData.characterName;

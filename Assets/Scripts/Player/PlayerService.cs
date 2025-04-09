@@ -9,14 +9,14 @@ namespace Roguelike.Player
 {
     public class PlayerService : IService
     {
-        private List<PlayerScriptableObject> _playerScriptableObject;
+        private Dictionary<int, PlayerData> _playerDataDictionary;
         private PlayerController _playerController;
         private int _playerIDSelected = -1;
         private GameState _currentGameState;
 
-        public PlayerService(List<PlayerScriptableObject> playerScriptableObject)
+        public PlayerService(PlayerScriptableObject playerScriptableObject)
         {
-            _playerScriptableObject = playerScriptableObject;
+            _playerDataDictionary = ConvertPlayerDataListToDictionary(playerScriptableObject.playerDataList);
         }
 
         ~PlayerService() => UnsubscribeToEvents();
@@ -54,9 +54,16 @@ namespace Roguelike.Player
 
         public void SpawnPlayer()
         {
-            PlayerScriptableObject playerData = _playerScriptableObject.Find(playerSO => playerSO.ID == _playerIDSelected);
-            _playerController = new PlayerController(playerData);
-            GameService.Instance.SetCameraTarget(_playerController.PlayerGameObject);
+            if (_playerDataDictionary.ContainsKey(_playerIDSelected))
+            {
+                PlayerData playerData = _playerDataDictionary[_playerIDSelected];
+                _playerController = new PlayerController(playerData);
+                GameService.Instance.SetCameraTarget(_playerController.PlayerGameObject);
+            }
+            else
+            {
+                Debug.Log("Player with the specified ID not found.");
+            }
         }
 
         public PlayerController GetPlayer() => _playerController;
@@ -64,6 +71,18 @@ namespace Roguelike.Player
         private void OnGameOver()
         {
             _playerController = null;
+        }
+
+        Dictionary<int, PlayerData> ConvertPlayerDataListToDictionary(List<PlayerData> playerList)
+        {
+            Dictionary<int, PlayerData> playerDictionary = new Dictionary<int, PlayerData>();
+
+            foreach (var player in playerList)
+            {
+                playerDictionary.Add(player.ID, player);
+            }
+
+            return playerDictionary;
         }
     }
 }

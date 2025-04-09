@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Roguelike.Player
@@ -5,14 +6,6 @@ namespace Roguelike.Player
     [CreateAssetMenu(fileName = "PlayerScriptableObject", menuName = "ScriptableObjects/PlayerScriptableObject")]
     public class PlayerScriptableObject : ScriptableObject
     {
-        public int ID;
-        public PlayerView playerPrefab;
-        public Sprite playerImage;
-        public string characterName;
-        public Vector3 spawnPosition;
-        public Vector3 spawnRotation;
-        public float movementSpeed;
-        public int maxHealth;
-        public float immunityDuration;
+        public List<PlayerData> playerDataList;
     }
 }

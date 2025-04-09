@@ -7,12 +7,13 @@ using System.Collections.Generic;
 using Roguelike.UI;
 using Roguelike.Weapon;
 using Roguelike.Sound;
+using Roguelike.Utilities;
 
 namespace Roguelike.Player
 {
     public class PlayerController
     {
-        private PlayerScriptableObject _playerScriptableObject;
+        private UIService uiService;
         private PlayerModel _playerModel;
         private PlayerView _playerView;
         private GameState _currentGameState;
@@ -20,30 +21,38 @@ namespace Roguelike.Player
         protected bool isDead;
         protected List<int> expToUpgradeList;
 
-        public PlayerController(PlayerScriptableObject playerScriptableObject)
+        public PlayerController(PlayerData playerData)
         {
-            _playerScriptableObject = playerScriptableObject;
-            InitializeController();
-        }
-
-        ~PlayerController() => UnsubscribeToEvents();
-
-        private void InitializeController()
-        {
-            InitializeModel();
+            uiService = GameService.Instance.GetService<UIService>();
+            InitializeModel(playerData);
             InitializeView();
             SubscribeToEvents();
             UpdateInitialHealthOnUI();
             AddWeapon();
         }
 
+        ~PlayerController() => UnsubscribeToEvents();
+
+        private void InitializeModel(PlayerData playerData)
+        {
+            _playerModel = new PlayerModel(playerData);
+        }
+
+        private void InitializeView()
+        {
+            _playerView = Object.Instantiate(_playerModel.PlayerPrefab);
+            _playerView.transform.position = _playerModel.SpawnPosition;
+            _playerView.transform.rotation = Quaternion.Euler(_playerModel.SpawnRotation);
+            _playerView.SetController(this);
+        }
+
         private void UpdateInitialHealthOnUI()
         {
             expToUpgradeList = GameService.Instance.GetService<LevelService>().GetExpToUpgradeList();
-            GameService.Instance.GetService<UIService>().UpdateMaxHealthSlider(_playerModel.MaxHealth);
-            GameService.Instance.GetService<UIService>().UpdateCurrentHealthSlider(_playerModel.CurrentHealth);
-            GameService.Instance.GetService<UIService>().UpdateMaxExpSlider(expToUpgradeList[_playerModel.CurrentExpLevel]);
-            GameService.Instance.GetService<UIService>().UpdateCurrentExpSlider(_playerModel.CurrentExpPoints);
+            uiService.UpdateMaxHealthSlider(_playerModel.MaxHealth);
+            uiService.UpdateCurrentHealthSlider(_playerModel.CurrentHealth);
+            uiService.UpdateMaxExpSlider(expToUpgradeList[_playerModel.CurrentExpLevel]);
+            uiService.UpdateCurrentExpSlider(_playerModel.CurrentExpPoints);
         }
 
         private void AddWeapon()
@@ -53,19 +62,6 @@ namespace Roguelike.Player
             _weapons.Add(GameService.Instance.GetService<WeaponService>().CreateWeapons(WeaponType.OrbitalFury, _playerView.playerWeaponTransform));
             _weapons.Add(GameService.Instance.GetService<WeaponService>().CreateWeapons(WeaponType.ScatterShot, _playerView.playerWeaponTransform));
             EventService.Instance.OnWeaponAdded.Invoke(_weapons);
-        }
-
-        private void InitializeModel()
-        {
-            _playerModel = new PlayerModel(_playerScriptableObject);
-        }
-
-        private void InitializeView()
-        {
-            _playerView = Object.Instantiate(_playerModel.PlayerPrefab);
-            _playerView.transform.position = _playerModel.SpawnPosition;
-            _playerView.transform.rotation = Quaternion.Euler(_playerModel.SpawnRotation);
-            _playerView.SetController(this);
         }
 
         private void SubscribeToEvents()
@@ -102,7 +98,7 @@ namespace Roguelike.Player
             if (!isDead && _currentGameState == GameState.Gameplay)
             {
                 _playerModel.UpdateCurrentHealth(-damage);
-                GameService.Instance.GetService<UIService>().UpdateCurrentHealthSlider(_playerModel.CurrentHealth);
+                uiService.UpdateCurrentHealthSlider(_playerModel.CurrentHealth);
                 if (_playerModel.CurrentHealth <= 0)
                 {
                     isDead = true;
@@ -130,7 +126,7 @@ namespace Roguelike.Player
         public void AddExperiencePoints(int value)
         {
             _playerModel.UpdateExperiencePoints(value);
-            GameService.Instance.GetService<UIService>().UpdateCurrentExpSlider(_playerModel.CurrentExpPoints);
+            uiService.UpdateCurrentExpSlider(_playerModel.CurrentExpPoints);
 
             if(_playerModel.CurrentExpPoints>= expToUpgradeList[_playerModel.CurrentExpLevel])
             {
@@ -150,9 +146,11 @@ namespace Roguelike.Player
         {
             int valueToDeduct = expToUpgradeList[_playerModel.CurrentExpLevel];
             _playerModel.UpdateExperiencePoints(-(valueToDeduct));
-            GameService.Instance.GetService<UIService>().UpdateCurrentExpSlider(_playerModel.CurrentExpPoints);
+
+            uiService.UpdateCurrentExpSlider(_playerModel.CurrentExpPoints);
             _playerModel.UpdateExpLevel();
-            GameService.Instance.GetService<UIService>().UpdateMaxExpSlider(expToUpgradeList[_playerModel.CurrentExpLevel]);
+            uiService.UpdateMaxExpSlider(expToUpgradeList[_playerModel.CurrentExpLevel]);
+
             GameService.Instance.GetService<SoundService>().PlaySFX(SoundType.LevelUp);
             GameService.Instance.ChangeGameState(GameState.PowerUpSelection);
         }
@@ -161,13 +159,13 @@ namespace Roguelike.Player
         {
             int amountToHeal = _playerModel.MaxHealth - _playerModel.CurrentHealth;
             _playerModel.UpdateCurrentHealth(amountToHeal);
-            GameService.Instance.GetService<UIService>().UpdateCurrentHealthSlider(_playerModel.CurrentHealth);
+            uiService.UpdateCurrentHealthSlider(_playerModel.CurrentHealth);
         }
 
         public void UpgradeMaxHealth(int value)
         {
             _playerModel.UpdateMaxHealth(value);
-            GameService.Instance.GetService<UIService>().UpdateMaxHealthSlider(_playerModel.MaxHealth);
+            uiService.UpdateMaxHealthSlider(_playerModel.MaxHealth);
         }
 
         private bool CheckMaxExpLevelReached()
