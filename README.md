@@ -2,7 +2,7 @@
 
 ## Overview
 
-Monster Survivors is rogue-like survival game where you must waves of monsters that keep on spawning more & more to take you down. Choose your weapons & upgrades them to become stronger and survive as long as you can!
+Monster Survivors is casual rogue-like survival shoot'em up game where you must waves of monsters that keep on spawning more & more to take you down. Choose your weapons & upgrade them to become stronger to fight the waves of enemies and survive as long as you can!
 The project uses design patterns like Service Locator, MVC, Object Pooling & Observer Pattern.
 
 ---
@@ -10,12 +10,14 @@ The project uses design patterns like Service Locator, MVC, Object Pooling & Obs
 ## Features
 
 - Roguelike Mechanics: Engage in action-packed shoot'em up with different characters with various types of weapons & health upgrades.
-  - 3 Player Characters :
-    Ash - Medium Health & Speed, Brock - Low Speed & Large Health & Misty - High Speed & Small Health
-  - 3 Weapons:
-    Radial Reap - Area weapon that continuously grows & shrinks to deal damage at intervals based on the cooldown
-    Orbital Fury - Spawns balls around the player that revolves around the player to deal damage at intervals based on the cooldown
-    Scatter Shot - Shoot projectiles in different directions at intervals based on the cooldown
+- Three Playable Characters :
+  1. Ash - Medium Health & Speed,
+  2. Brock - Low Speed & Large Health &
+  3. Misty - High Speed & Small Health
+- Three Weapons:
+1. Radial Reap - Area weapon that continuously grows & shrinks to deal damage at intervals based on the cooldown  
+2. Orbital Fury - Spawns balls around the player that revolves around the player to deal damage at intervals based on the cooldown  
+3. Scatter Shot - Shoot projectiles in different directions at intervals based on the cooldown
 
 - Power-ups/Upgrade System: Collect power-ups that increase your strength of your weapon & health to survive longer.
   
@@ -66,19 +68,19 @@ Exp To Level Up Data: Contains attributes for levels as indexes & the respective
 
 ## How to Play
 
-1. Start the Game: Launch the game and the player will be placed in the middle of the level map.
+- Start the Game: Launch the game, and the player spawns in the center of the level map.
 
-2. Explore: Move around the level map & get the first Exp for free to level up to choose a weapon.
+- Explore: Move around the map and earn initial Exp to level up and choose a weapon to activate.
 
-3. Fight Enemies : Combat occurs in real time, and the player must defeat waves of enemies by dodging & aiming the projectiles by moving the player
-   
-4. Level Up: As you progress, your character gets stronger by defeating more enemies, gaining new abilities & upgrades with the weapons.
+- Fight Enemies: Combat is real-time, requiring the player to dodge and aim projectiles while defeating waves of enemies.
 
-5. Collect Power-ups: Defeat waves of enemies to gain more Exp to Level Up & upgrade your weapons or health to boost your stats & the chance to survive longer.
+- Level Up & Collect Power-ups : Defeat enemies to earn Exp, unlock upgrades for weapons or health, and enhance stats for longer survival.
 
-6. Survive Waves: Enemies come in waves, with each wave being more difficult. The spawn frequency & spawn interval of enemies will change. The enemies will appear more in number & more frequently as you level up.
+- Survive Waves: Enemies spawn in increasingly difficult waves with higher numbers & shoter intervals as you level up.
 
-7. Game Over: The game ends when the player dies or reaches the final Exp Level (25 for now). High scores are recorded.
+- Game Over: The game ends if player dies. 
+
+- Goal is to reach level Exp Level 25 to complete a level. High scores are recorded per level.
   
 ---
 
@@ -96,6 +98,6 @@ https://outscal.com/iamdeep75/game/play-monster-survivors-roguelike-survival-gam
 
 ## Gameplay Video
 
-https://youtu.be/PYPasITLEB0
+https://youtu.be/pJOszQopx9o
 
 
