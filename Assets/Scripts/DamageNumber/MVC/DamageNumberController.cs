@@ -30,7 +30,7 @@ namespace Roguelike.DamageNumber
         public void ReturnToPool()
         {
             _damageNumberView.gameObject.SetActive(false);
-            GameService.Instance.GetService<DamageNumberService>().ReturnDamageNumberToPool(this);
+            ServiceLocator.Instance.GetService<DamageNumberService>().ReturnDamageNumberToPool(this);
         }
 
         public GameObject GetDamageNumberGameObject() { return _damageNumberView.gameObject; }

@@ -58,13 +58,13 @@ namespace Roguelike.Level
             switch(LevelIdSelected)
             {
                 case 1:
-                    GameService.Instance.GetService<SoundService>().PlayBGM(SoundType.BGM1, true);
+                    ServiceLocator.Instance.GetService<SoundService>().PlayBGM(SoundType.BGM1, true);
                     break;
                 case 2:
-                    GameService.Instance.GetService<SoundService>().PlayBGM(SoundType.BGM2, true);
+                    ServiceLocator.Instance.GetService<SoundService>().PlayBGM(SoundType.BGM2, true);
                     break;
                 case 3:
-                    GameService.Instance.GetService<SoundService>().PlayBGM(SoundType.BGM3, true);
+                    ServiceLocator.Instance.GetService<SoundService>().PlayBGM(SoundType.BGM3, true);
                     break;
             }
         }

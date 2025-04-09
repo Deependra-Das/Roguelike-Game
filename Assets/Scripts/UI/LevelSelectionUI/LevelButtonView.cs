@@ -42,7 +42,7 @@ namespace Roguelike.UI
 
         public void SetHighScore()
         {
-            float highScore = GameService.Instance.GetService<HighScoreService>().GetHighScore(_levelId);
+            float highScore = ServiceLocator.Instance.GetService<HighScoreService>().GetHighScore(_levelId);
             float min = Mathf.FloorToInt(highScore / 60f);
             float sec = Mathf.FloorToInt(highScore % 60f);
             _levelHighScoreText.text = "High Score : "+min.ToString("00") + ":" + sec.ToString("00");

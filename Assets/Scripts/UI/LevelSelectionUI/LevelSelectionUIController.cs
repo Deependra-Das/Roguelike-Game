@@ -78,7 +78,7 @@ namespace Roguelike.UI
 
         public void OnLevelSelected(int levelId)
         {
-            GameService.Instance.GetService<SoundService>().PlaySFX(SoundType.ButtonClick);
+            ServiceLocator.Instance.GetService<SoundService>().PlaySFX(SoundType.ButtonClick);
             Hide();
             EventService.Instance.OnLevelSelected.Invoke(levelId);
             GameService.Instance.ChangeGameState(GameState.CharacterSelection);

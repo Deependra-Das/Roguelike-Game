@@ -35,7 +35,7 @@ namespace Roguelike.UI
 
         public void Show()
         {
-            GameService.Instance.GetService<SoundService>().PlayBGM(SoundType.LevelCompleted);
+            ServiceLocator.Instance.GetService<SoundService>().PlayBGM(SoundType.LevelCompleted);
             _levelCompletedUIView.EnableView();
         }
 
@@ -51,7 +51,7 @@ namespace Roguelike.UI
 
         public void OnBackButtonClicked()
         {
-            GameService.Instance.GetService<SoundService>().PlaySFX(SoundType.ButtonClick);
+            ServiceLocator.Instance.GetService<SoundService>().PlaySFX(SoundType.ButtonClick);
             Hide();
             GameService.Instance.ChangeGameState(GameState.MainMenu);
         }

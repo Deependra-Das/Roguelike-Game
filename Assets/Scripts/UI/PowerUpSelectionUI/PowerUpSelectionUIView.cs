@@ -42,7 +42,7 @@ namespace Roguelike.UI
 
         private void SetViewData()
         {
-            int playerExpLevel = GameService.Instance.GetService<PlayerService>().GetPlayer().PlayerModel.CurrentExpLevel;
+            int playerExpLevel = ServiceLocator.Instance.GetService<PlayerService>().GetPlayer().PlayerModel.CurrentExpLevel;
 
             if (playerExpLevel <= AllowSkipUpgradeAtLevel)
             {

@@ -19,6 +19,7 @@ namespace Roguelike.Weapon
         private int _totalBalls;
         private int _ballIndex;
         private Coroutine _orbitCoroutine;
+        SoundService _soundService;
 
         public void Initialize(int damage, float speed, Transform center, float minRadius, float maxRadius, float cycleTime, int totalBalls, int ballIndex)
         {
@@ -30,6 +31,8 @@ namespace Roguelike.Weapon
             _cycleTime = cycleTime;
             _totalBalls = totalBalls;
             _ballIndex = ballIndex;
+
+            _soundService = ServiceLocator.Instance.GetService<SoundService>();
         }
 
         public void StartOrbit()
@@ -57,7 +60,7 @@ namespace Roguelike.Weapon
 
                     if (pingPongValue < 0.05f && !hasPlayedSound)
                     {
-                        GameService.Instance.GetService<SoundService>().PlayWeaponSFX(SoundType.OrbitalFury);
+                        _soundService.PlayWeaponSFX(SoundType.OrbitalFury);
                         hasPlayedSound = true;
                     }
                     else if (pingPongValue > 0.95f)

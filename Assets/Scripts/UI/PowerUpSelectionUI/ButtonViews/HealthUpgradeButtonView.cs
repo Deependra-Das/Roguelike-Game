@@ -38,7 +38,7 @@ namespace Roguelike.UI
             _maxLevelBanner.SetActive(false);
             _notAvailableBanner.SetActive(false);
 
-            int playerExpLevel = GameService.Instance.GetService<PlayerService>().GetPlayer().PlayerModel.CurrentExpLevel;
+            int playerExpLevel = ServiceLocator.Instance.GetService<PlayerService>().GetPlayer().PlayerModel.CurrentExpLevel;
 
             if (playerExpLevel< UnlockHealthUpgradeAtLevel)
             {

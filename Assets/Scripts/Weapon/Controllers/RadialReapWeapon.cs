@@ -16,6 +16,7 @@ namespace Roguelike.Weapon
         private Coroutine _shrinkGrowCoroutine;
         private List<EnemyView> _enemiesInRange = new List<EnemyView>();
         private float _damageTimer;
+        SoundService _soundService;
 
         public override void Initialize(WeaponScriptableObject weapon_SO)
         {
@@ -28,7 +29,9 @@ namespace Roguelike.Weapon
             Weapon_SO = weapon_SO;
             CurrentWeaponLevel = 0;
             _damageTimer = 0;
-            
+
+            _soundService = ServiceLocator.Instance.GetService<SoundService>();
+
             SubscribeToEvents();
             gameObject.SetActive(false);
         }
@@ -83,11 +86,10 @@ namespace Roguelike.Weapon
         {
             while (true)
             {
-                GameService.Instance.GetService<SoundService>().PlayWeaponSFX(SoundType.RadialReapGrow);
+                _soundService.PlayWeaponSFX(SoundType.RadialReapGrow);
                 yield return StartCoroutine(ScaleObject(_maxRadius, _minRadius));
-                GameService.Instance.GetService<SoundService>().PlayWeaponSFX(SoundType.RadialReapShrink);
+                _soundService.PlayWeaponSFX(SoundType.RadialReapShrink);
                 yield return StartCoroutine(ScaleObject(_minRadius, _maxRadius));
-             
             }
         }
 

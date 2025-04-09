@@ -105,14 +105,14 @@ namespace Roguelike.Enemy
         {   
             if(_currentGameState==GameState.Gameplay)
             {
-                GameService.Instance.GetService<PlayerService>().GetPlayer().AddExperiencePoints(_enemyModel.ExpDrop);
+                ServiceLocator.Instance.GetService<PlayerService>().GetPlayer().AddExperiencePoints(_enemyModel.ExpDrop);
             }            
             UnsubscribeToEvents();
 
-            GameService.Instance.GetService<SoundService>().PlayEnemySFX(SoundType.EnemyDeath);
-            GameService.Instance.GetService<VFXService>().SpawnVFX(new Vector2(_enemyView.gameObject.transform.position.x, _enemyView.gameObject.transform.position.y));
+            ServiceLocator.Instance.GetService<SoundService>().PlayEnemySFX(SoundType.EnemyDeath);
+            ServiceLocator.Instance.GetService<VFXService>().SpawnVFX(new Vector2(_enemyView.gameObject.transform.position.x, _enemyView.gameObject.transform.position.y));
             _enemyView.gameObject.SetActive(false);
-            GameService.Instance.GetService<EnemyService>().ReturnEnemyToPool(this);
+            ServiceLocator.Instance.GetService<EnemyService>().ReturnEnemyToPool(this);
         }
 
         public virtual void OnCollisionWithPlayer() { }

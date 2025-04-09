@@ -26,8 +26,8 @@ namespace Roguelike.UI
         {
             EnableButton();
             _notAvaialableBanner.SetActive(false);
-            int curHealth = GameService.Instance.GetService<PlayerService>().GetPlayer().PlayerModel.CurrentHealth;
-            int maxHealth = GameService.Instance.GetService<PlayerService>().GetPlayer().PlayerModel.MaxHealth;
+            int curHealth = ServiceLocator.Instance.GetService<PlayerService>().GetPlayer().PlayerModel.CurrentHealth;
+            int maxHealth = ServiceLocator.Instance.GetService<PlayerService>().GetPlayer().PlayerModel.MaxHealth;
             if (curHealth == maxHealth)
             {
                 _notAvaialableBanner.SetActive(true);

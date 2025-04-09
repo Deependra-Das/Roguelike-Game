@@ -23,7 +23,7 @@ namespace Roguelike.Player
 
         public PlayerController(PlayerData playerData)
         {
-            uiService = GameService.Instance.GetService<UIService>();
+            uiService = ServiceLocator.Instance.GetService<UIService>();
             InitializeModel(playerData);
             InitializeView();
             SubscribeToEvents();
@@ -48,7 +48,7 @@ namespace Roguelike.Player
 
         private void UpdateInitialHealthOnUI()
         {
-            expToUpgradeList = GameService.Instance.GetService<LevelService>().GetExpToUpgradeList();
+            expToUpgradeList = ServiceLocator.Instance.GetService<LevelService>().GetExpToUpgradeList();
             uiService.UpdateMaxHealthSlider(_playerModel.MaxHealth);
             uiService.UpdateCurrentHealthSlider(_playerModel.CurrentHealth);
             uiService.UpdateMaxExpSlider(expToUpgradeList[_playerModel.CurrentExpLevel]);
@@ -57,10 +57,11 @@ namespace Roguelike.Player
 
         private void AddWeapon()
         {
+            WeaponService weaponService = ServiceLocator.Instance.GetService<WeaponService>();
             _weapons.Clear();
-            _weapons.Add(GameService.Instance.GetService<WeaponService>().CreateWeapons(WeaponType.RadialReap,_playerView.playerWeaponTransform));
-            _weapons.Add(GameService.Instance.GetService<WeaponService>().CreateWeapons(WeaponType.OrbitalFury, _playerView.playerWeaponTransform));
-            _weapons.Add(GameService.Instance.GetService<WeaponService>().CreateWeapons(WeaponType.ScatterShot, _playerView.playerWeaponTransform));
+            _weapons.Add(weaponService.CreateWeapons(WeaponType.RadialReap,_playerView.playerWeaponTransform));
+            _weapons.Add(weaponService.CreateWeapons(WeaponType.OrbitalFury, _playerView.playerWeaponTransform));
+            _weapons.Add(weaponService.CreateWeapons(WeaponType.ScatterShot, _playerView.playerWeaponTransform));
             EventService.Instance.OnWeaponAdded.Invoke(_weapons);
         }
 
@@ -151,7 +152,7 @@ namespace Roguelike.Player
             _playerModel.UpdateExpLevel();
             uiService.UpdateMaxExpSlider(expToUpgradeList[_playerModel.CurrentExpLevel]);
 
-            GameService.Instance.GetService<SoundService>().PlaySFX(SoundType.LevelUp);
+            ServiceLocator.Instance.GetService<SoundService>().PlaySFX(SoundType.LevelUp);
             GameService.Instance.ChangeGameState(GameState.PowerUpSelection);
         }
 

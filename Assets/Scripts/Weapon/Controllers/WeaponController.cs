@@ -24,7 +24,7 @@ namespace Roguelike.Weapon
 
         protected void OnGameOver()
         {
-            if (GameService.Instance.GetService<PlayerService>().GetPlayer() != null)
+            if (ServiceLocator.Instance.GetService<PlayerService>().GetPlayer() != null)
             {
                 DeactivateWeapon();
                 Destroy(this.gameObject);

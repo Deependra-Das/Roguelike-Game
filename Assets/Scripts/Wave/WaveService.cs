@@ -56,7 +56,7 @@ namespace Roguelike.Wave
 
         private void StartWave()
         {
-            LevelData levelData = GameService.Instance.GetService<LevelService>().GetLevelData();
+            LevelData levelData = ServiceLocator.Instance.GetService<LevelService>().GetLevelData();
             if (levelData.enemyWaveData == null || levelData.enemyWaveData.Count == 0)
             {
                 Debug.LogError("No wave data available to spawn.");
@@ -172,7 +172,7 @@ namespace Roguelike.Wave
 
         private void SpawnEnemy(int ID)
         {
-            GameService.Instance.GetService<EnemyService>().SpawnEnemy(ID, RandomSpawnPoint());
+            ServiceLocator.Instance.GetService<EnemyService>().SpawnEnemy(ID, RandomSpawnPoint());
         }
 
         private Vector2 RandomSpawnPoint()

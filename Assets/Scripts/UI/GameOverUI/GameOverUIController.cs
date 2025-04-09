@@ -35,7 +35,7 @@ namespace Roguelike.UI
 
         public void Show()
         {
-            GameService.Instance.GetService<SoundService>().PlayBGM(SoundType.GameOver);
+            ServiceLocator.Instance.GetService<SoundService>().PlayBGM(SoundType.GameOver);
             _gameOverUIView.EnableView();
         }
 

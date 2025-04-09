@@ -4,6 +4,7 @@ using Roguelike.Main;
 using Roguelike.Utilities;
 using Roguelike.Event;
 using Roguelike.Level;
+using Roguelike.Camera;
 
 namespace Roguelike.Player
 {
@@ -58,7 +59,7 @@ namespace Roguelike.Player
             {
                 PlayerData playerData = _playerDataDictionary[_playerIDSelected];
                 _playerController = new PlayerController(playerData);
-                GameService.Instance.SetCameraTarget(_playerController.PlayerGameObject);
+                ServiceLocator.Instance.GetService<CameraService>().SetCameraTarget(_playerController.PlayerGameObject);
             }
             else
             {

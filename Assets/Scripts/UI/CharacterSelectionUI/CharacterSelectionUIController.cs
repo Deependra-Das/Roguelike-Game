@@ -69,7 +69,7 @@ namespace Roguelike.UI
 
         public void OnCharacterSelected(int characterId)
         {
-            GameService.Instance.GetService<SoundService>().PlaySFX(SoundType.ButtonClick);
+            ServiceLocator.Instance.GetService<SoundService>().PlaySFX(SoundType.ButtonClick);
             EventService.Instance.OnCharacterSelected.Invoke(characterId);
             GameService.Instance.StartGameplay();
             Hide();
