@@ -23,5 +23,5 @@ MonoBehaviour:
   cycleTime: 2
   lifeTime: 0.5
   speed: 5
-  initialProjectileCount: 2
+  initialProjectileCount: 4
   powerUp_SO: {fileID: 11400000, guid: 91a1ede1cdf55574ab9a175e0b421723, type: 2}
