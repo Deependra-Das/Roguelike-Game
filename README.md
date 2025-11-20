@@ -1,6 +1,6 @@
 # Monster Survivors
 
-<img width="1920" height="1080" alt="Thumbnail_Monster_Survivors" src="https://github.com/user-attachments/assets/8d8e320d-2460-4e01-8206-b68d4697b500" />
+<img width="1920" height="1080" alt="Thumbnail_Monster_Survivors" src="https://github.com/user-attachments/assets/76e5e302-8afc-4a4e-a135-2a8daec14b68" />
 
 ## Overview
 
@@ -100,6 +100,6 @@ https://outscal.com/iamdeep75/game/play-monster-survivors-roguelike-survival-gam
 
 ## Gameplay Video
 
-https://youtu.be/kByOtQR5978
+https://youtu.be/mdneP7PNX-I
 
 
